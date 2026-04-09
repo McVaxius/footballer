@@ -21,5 +21,6 @@ Scroll down to "The Dumpster Fire" channel to discuss issues / suggestions for s
 
 - Hide feet whenever a character face is unavailable on Lodestone.
 - Use live CharacterInspect as the direct character-derived seam for preview capture, a preset side-angle pose, and preview-only barefoot mode.
+- Let the main window store the CharacterInspect preview window scaling so snips still land on the feet when the inspect UI is not at 100%.
 - Keep portrait replacement behavior behind hidden debug research surfaces until a write path is proven safe.
 - Let the main window toggle player-facing labels between real and krangled names, then persist that preference for later testing and screenshots.

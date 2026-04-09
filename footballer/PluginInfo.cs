@@ -6,12 +6,12 @@ internal static class PluginInfo
     public const string InternalName = "footballer";
     public const string Command = "/footballer";
     public const string Visibility = "Private";
-    public const string Summary = "Privacy-respecting party-foot showcase plugin with a saved main-window krangle toggle, cached Lodestone face gating, compact normal-mode character boxes, automatic party feet recapture on Refresh party, a preset inspect pose, preview-only barefoot mode, and hidden CharacterInspect/BannerParty research surfaces behind /footballer debug.";
+    public const string Summary = "Privacy-respecting party-foot showcase plugin with a saved main-window krangle toggle, a preview-scaling selector for CharacterInspect snips, cached Lodestone face gating, compact normal-mode character boxes, automatic party feet recapture on Refresh party, a preset inspect pose, preview-only barefoot mode, and hidden CharacterInspect/BannerParty research surfaces behind /footballer debug.";
     public const string SupportUrl = "https://ko-fi.com/mcvaxius";
     public const string DiscordUrl = "https://discord.gg/VsXqydsvpu";
     public const string DiscordFeedbackNote = "Scroll down to \"The Dumpster Fire\" channel to discuss issues / suggestions for specific plugins.";
     public const string ShellStatus =
-        "Current build status: core showcase live. The normal window now keeps the party showcase, Inspect flow, preset inspect pose, preview capture flow, stored crop profile, and preview-only multi-seam barefoot apply path active without frame-by-frame research polling. Raw CharacterInspect and BannerParty tables still exist, but only behind /footballer debug.";
+        "Current build status: core showcase live. The normal window now keeps the party showcase, Inspect flow, preset inspect pose, preview capture flow, stored crop profile, stored preview scaling selector, optional one-shot auto-refresh-on-open, and preview-only multi-seam barefoot apply path active without frame-by-frame research polling. Raw CharacterInspect and BannerParty tables still exist, but only behind /footballer debug.";
 
     public static readonly string[] CommandAliases =
     {
@@ -42,6 +42,7 @@ internal static class PluginInfo
     {
         "Main window, settings window, and DTR toggle",
         "Current party showcase data model with real or krangled labels from a saved toggle",
+        "Main-window CharacterInspect scaling selector plus showcase-open guidance toast",
         "Cached Lodestone search/profile lookup state with local face thumbnails",
         "Live party foot showcase cards with honest capture status",
         "Inspect buttons plus a queued preset inspect pose and action-driven preview capture",

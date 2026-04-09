@@ -24,6 +24,7 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static IFramework Framework { get; private set; } = null!;
     [PluginService] internal static IChatGui ChatGui { get; private set; } = null!;
     [PluginService] internal static IDtrBar DtrBar { get; private set; } = null!;
+    [PluginService] internal static IToastGui ToastGui { get; private set; } = null!;
     [PluginService] internal static IGameGui GameGui { get; private set; } = null!;
     [PluginService] internal static IPluginLog Log { get; private set; } = null!;
     [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
@@ -84,7 +85,7 @@ public sealed class Plugin : IDalamudPlugin
         UpdateDtrBar();
 
         if (Configuration.OpenMainWindowOnLoad)
-            mainWindow.IsOpen = true;
+            OpenMainUi();
 
         Log.Information("[footballer] Plugin loaded.");
     }
@@ -105,9 +106,28 @@ public sealed class Plugin : IDalamudPlugin
         mainWindow.Dispose();
     }
 
-    public void OpenMainUi() => mainWindow.IsOpen = true;
+    public void OpenMainUi()
+    {
+        var wasClosed = !mainWindow.IsOpen;
+        mainWindow.IsOpen = true;
+        if (!wasClosed)
+            return;
 
-    public void ToggleMainUi() => mainWindow.Toggle();
+        ShowShowcaseGuidanceToast();
+        if (Configuration.AutoRefreshPartyOnShowcaseOpen)
+            QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
+    }
+
+    public void ToggleMainUi()
+    {
+        if (!mainWindow.IsOpen)
+        {
+            OpenMainUi();
+            return;
+        }
+
+        mainWindow.Toggle();
+    }
 
     public void OpenConfigUi() => configWindow.IsOpen = true;
 
@@ -436,11 +456,19 @@ public sealed class Plugin : IDalamudPlugin
     {
         var changed = false;
 
-        if (configuration.Version < 3)
+        if (configuration.Version < 4)
         {
+            configuration.InspectPreviewWindowScalePercent = Configuration.DefaultInspectPreviewWindowScalePercent;
             configuration.InspectPreviewTopTrimFraction = footballer.Configuration.DefaultInspectPreviewTopTrimFraction;
             configuration.InspectPreviewBottomTrimFraction = footballer.Configuration.DefaultInspectPreviewBottomTrimFraction;
-            configuration.Version = 3;
+            configuration.Version = 4;
+            changed = true;
+        }
+
+        var clampedScalePercent = Math.Clamp(configuration.InspectPreviewWindowScalePercent, 60, 200);
+        if (configuration.InspectPreviewWindowScalePercent != clampedScalePercent)
+        {
+            configuration.InspectPreviewWindowScalePercent = clampedScalePercent;
             changed = true;
         }
 
@@ -458,6 +486,19 @@ public sealed class Plugin : IDalamudPlugin
 
         if (changed)
             configuration.Save();
+    }
+
+    private void ShowShowcaseGuidanceToast()
+    {
+        var payload = new SeString(new TextPayload("Pick the Scaling to match the window, and click refresh party when ready"));
+        var showQuestMethod = ToastGui.GetType().GetMethod("ShowQuest", new[] { typeof(SeString) });
+        if (showQuestMethod != null)
+        {
+            showQuestMethod.Invoke(ToastGui, new object[] { payload });
+            return;
+        }
+
+        ToastGui.ShowNormal(payload);
     }
 
     private static string? ResolveInspectPreviewCaptureKey(

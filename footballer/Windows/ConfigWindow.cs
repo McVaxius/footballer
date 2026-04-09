@@ -139,7 +139,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         }
         else
         {
-            ImGui.TextWrapped("Lodestone privacy respect is forced on in normal use. Type /footballer debug to expose the experimental override for this session.");
+        ImGui.TextWrapped("Lodestone privacy respect is forced on in normal use. Type /footballer debug to expose the experimental override for this session.");
         }
 
         var openOnLoad = cfg.OpenMainWindowOnLoad;
@@ -150,6 +150,15 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
             cfg.OpenMainWindowOnLoad = openOnLoad;
             cfg.Save();
         }
+
+        var autoRefreshOnOpen = cfg.AutoRefreshPartyOnShowcaseOpen;
+        if (ImGui.Checkbox("Automatically refresh party once when showcase opens", ref autoRefreshOnOpen))
+        {
+            cfg.AutoRefreshPartyOnShowcaseOpen = autoRefreshOnOpen;
+            cfg.Save();
+        }
+
+        ImGui.TextWrapped("Use the main-window Scaling dropdown to match the CharacterInspect preview window UI scale from 60% to 200% before running Refresh party or Capture Current Preview.");
 
         ImGui.Separator();
         ImGui.TextUnformatted("Rollout Phases");

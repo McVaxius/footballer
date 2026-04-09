@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Numerics;
 using System.Reflection;
@@ -11,6 +12,7 @@ namespace footballer.Windows;
 
 public sealed class MainWindow : PositionedWindow, IDisposable
 {
+    private static readonly int[] PreviewScalePercents = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 };
     private readonly Plugin plugin;
 
     public MainWindow(Plugin plugin)
@@ -36,6 +38,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         var partyMembers = plugin.GetPartyShowcaseMembers();
         var effectiveRespectPrivacy = plugin.GetEffectiveRespectLodestonePrivacy();
         var cropFractions = plugin.CharacterInspectPreviewCaptureService.GetConfiguredCropFractions();
+        var scalePercent = plugin.CharacterInspectPreviewCaptureService.GetConfiguredScalePercent();
         var footCards = plugin.FootShowcaseService.BuildCards(
             partyMembers,
             plugin.LodestoneProfileService,
@@ -82,6 +85,9 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         if (ImGui.SmallButton("Refresh Lodestone"))
             plugin.QueuePartyResearchRefresh(forceLodestone: true);
 
+        ImGui.SameLine();
+        DrawPreviewScalingSelector(scalePercent);
+
         if (showDebug)
         {
             ImGui.TextWrapped(PluginInfo.Summary);
@@ -98,6 +104,8 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             ImGui.Separator();
             ImGui.TextUnformatted("Current Defaults");
             ImGui.BulletText($"Krangle labels: {(cfg.KrangleNames ? "Yes" : "No")}");
+            ImGui.BulletText($"Preview scaling: {scalePercent}%");
+            ImGui.BulletText($"Auto refresh party on showcase open: {(cfg.AutoRefreshPartyOnShowcaseOpen ? "Yes" : "No")}");
             ImGui.BulletText($"Show male feet: {(cfg.ShowMaleFeet ? "Yes" : "No")}");
             ImGui.BulletText($"Show female feet: {(cfg.ShowFemaleFeet ? "Yes" : "No")}");
             ImGui.BulletText($"Without footwear: {(cfg.WithoutFootwear ? "Yes" : "No")}");
@@ -231,7 +239,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             ImGui.SameLine();
             ImGui.TextDisabled("Stored crop defaults: 65% top / 20% bottom.");
 
-            DrawDebugResearchSections(partyMembers, cropFractions);
+            DrawDebugResearchSections(partyMembers, cropFractions, scalePercent);
 
             ImGui.Separator();
             ImGui.TextUnformatted("Research Notes");
@@ -254,7 +262,8 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
     private void DrawDebugResearchSections(
         IReadOnlyList<PartyShowcaseMember> partyMembers,
-        (float TopTrimFraction, float BottomTrimFraction) cropFractions)
+        (float TopTrimFraction, float BottomTrimFraction) cropFractions,
+        int scalePercent)
     {
         var inspectSnapshot = plugin.GetCachedCharacterInspectDebugSnapshot();
         var currentInspectCapture = inspectSnapshot is null
@@ -281,6 +290,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                 inspectSnapshot,
                 currentInspectCapture,
                 cropFractions,
+                scalePercent,
                 plugin.CharacterInspectPoseService.LastStatus,
                 plugin.CharacterInspectFootwearService.LastStatus,
                 plugin.CharacterInspectPreviewCaptureService.LastCaptureStatus));
@@ -368,6 +378,10 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                 DrawInspectRow("Preview bounds", inspectSnapshot.PreviewNodeAddress == nint.Zero
                     ? "-"
                     : $"({inspectSnapshot.PreviewNodeX:0.##}, {inspectSnapshot.PreviewNodeY:0.##}) {inspectSnapshot.PreviewNodeWidth}x{inspectSnapshot.PreviewNodeHeight}");
+                DrawInspectRow("Preview node scale", inspectSnapshot.PreviewNodeAddress == nint.Zero
+                    ? "-"
+                    : $"X {inspectSnapshot.PreviewNodeScaleX:0.###} / Y {inspectSnapshot.PreviewNodeScaleY:0.###}");
+                DrawInspectRow("Preview scaling fallback", $"{scalePercent}%");
                 DrawInspectRow("Stored snip profile", $"{cropFractions.TopTrimFraction:P0} top / {cropFractions.BottomTrimFraction:P0} bottom");
                 DrawInspectRow("Preview visible", inspectSnapshot.PreviewNodeVisible ? "Yes" : "No");
                 DrawInspectRow("Collision node", FormatAddress(inspectSnapshot.CollisionNodeAddress));
@@ -1062,6 +1076,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         CharacterInspectResearchSnapshot snapshot,
         InspectPreviewCaptureRecord? currentInspectCapture,
         (float TopTrimFraction, float BottomTrimFraction) cropFractions,
+        int scalePercent,
         string poseStatus,
         string barefootStatus,
         string previewSnipStatus)
@@ -1084,6 +1099,10 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         builder.AppendLine(snapshot.PreviewNodeAddress == nint.Zero
             ? "Preview bounds: unavailable"
             : $"Preview bounds: ({snapshot.PreviewNodeX:0.##}, {snapshot.PreviewNodeY:0.##}) {snapshot.PreviewNodeWidth}x{snapshot.PreviewNodeHeight}");
+        builder.AppendLine(snapshot.PreviewNodeAddress == nint.Zero
+            ? "Preview node scale: unavailable"
+            : $"Preview node scale: X {snapshot.PreviewNodeScaleX:0.###} / Y {snapshot.PreviewNodeScaleY:0.###}");
+        builder.AppendLine($"Preview scaling fallback: {scalePercent}%");
         builder.AppendLine($"Zoom ratio: {snapshot.CharaViewZoomRatio:0.###}");
         builder.AppendLine($"Preview character: {FormatAddress(snapshot.PreviewCharacterAddress)}");
         builder.AppendLine($"Preview draw object: {FormatAddress(snapshot.PreviewDrawObjectAddress)}");
@@ -1159,6 +1178,34 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         => snapshot.CaptureReady
             ? "Use Capture Current Preview while CharacterInspect is stable and keep the footballer window away from the preview area. The crop profile is saved globally for future targets."
             : "CharacterInspect must be open and stable before preview capture can run.";
+
+    private void DrawPreviewScalingSelector(int currentScalePercent)
+    {
+        ImGui.SetNextItemWidth(84f);
+        if (ImGui.BeginCombo("##PreviewScaling", $"{currentScalePercent}%"))
+        {
+            foreach (var option in PreviewScalePercents)
+            {
+                var selected = option == currentScalePercent;
+                if (ImGui.Selectable($"{option}%", selected))
+                {
+                    plugin.Configuration.InspectPreviewWindowScalePercent = option;
+                    plugin.Configuration.Save();
+                }
+
+                if (selected)
+                    ImGui.SetItemDefaultFocus();
+            }
+
+            ImGui.EndCombo();
+        }
+
+        ImGui.SameLine(0f, 6f);
+        ImGui.TextUnformatted("Scaling");
+        ImGui.SameLine(0f, 4f);
+        ImGui.TextDisabled("(?)");
+        ShowHoverTooltip("Pick Same as character preview window!");
+    }
 
     private static float ClampCropFraction(float value)
         => float.IsFinite(value) ? Math.Clamp(value, 0f, 0.9f) : 0f;

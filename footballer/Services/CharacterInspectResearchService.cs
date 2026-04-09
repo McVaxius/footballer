@@ -67,6 +67,8 @@ public sealed unsafe class CharacterInspectResearchService
                 false,
                 0f,
                 0f,
+                1f,
+                1f,
                 0,
                 0,
                 false,
@@ -87,6 +89,8 @@ public sealed unsafe class CharacterInspectResearchService
         var previewNodeVisible = false;
         var previewNodeX = 0f;
         var previewNodeY = 0f;
+        var previewNodeScaleX = 1f;
+        var previewNodeScaleY = 1f;
         ushort previewNodeWidth = 0;
         ushort previewNodeHeight = 0;
 
@@ -107,6 +111,8 @@ public sealed unsafe class CharacterInspectResearchService
                 previewNodeVisible = ownerNode->IsVisible();
                 previewNodeX = ownerNode->X;
                 previewNodeY = ownerNode->Y;
+                previewNodeScaleX = ownerNode->ScaleX;
+                previewNodeScaleY = ownerNode->ScaleY;
                 previewNodeWidth = ownerNode->Width;
                 previewNodeHeight = ownerNode->Height;
             }
@@ -224,6 +230,8 @@ public sealed unsafe class CharacterInspectResearchService
             previewNodeVisible,
             previewNodeX,
             previewNodeY,
+            previewNodeScaleX,
+            previewNodeScaleY,
             previewNodeWidth,
             previewNodeHeight,
             captureReady,

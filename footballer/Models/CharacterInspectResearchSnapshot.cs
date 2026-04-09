@@ -44,6 +44,8 @@ public sealed record CharacterInspectResearchSnapshot(
     bool PreviewNodeVisible,
     float PreviewNodeX,
     float PreviewNodeY,
+    float PreviewNodeScaleX,
+    float PreviewNodeScaleY,
     ushort PreviewNodeWidth,
     ushort PreviewNodeHeight,
     bool CaptureReady,

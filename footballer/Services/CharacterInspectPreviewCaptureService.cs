@@ -13,6 +13,7 @@ namespace footballer.Services;
 public sealed class CharacterInspectPreviewCaptureService
 {
     private const int MinimumPreferredCaptureHeight = 72;
+    private const int DefaultScalePercent = Configuration.DefaultInspectPreviewWindowScalePercent;
     private const float DefaultTopTrimFraction = Configuration.DefaultInspectPreviewTopTrimFraction;
     private const float DefaultBottomTrimFraction = Configuration.DefaultInspectPreviewBottomTrimFraction;
     private const float MaximumCombinedTrimFraction = 0.85f;
@@ -95,7 +96,9 @@ public sealed class CharacterInspectPreviewCaptureService
         var clientRectWidth = Math.Max(0, clientRect.Right - clientRect.Left);
         var clientRectHeight = Math.Max(0, clientRect.Bottom - clientRect.Top);
         var cropProfile = BuildCropProfile();
-        var requestedCaptureRect = BuildPreferredCaptureRect(snapshot, cropProfile);
+        var configuredScalePercent = GetConfiguredScalePercent();
+        var effectiveScale = ResolveEffectiveScale(snapshot, configuredScalePercent);
+        var requestedCaptureRect = BuildPreferredCaptureRect(snapshot, cropProfile, effectiveScale.ScaleX, effectiveScale.ScaleY);
 
         if (!TryClampRect(
                 requestedCaptureRect.X,
@@ -170,7 +173,7 @@ public sealed class CharacterInspectPreviewCaptureService
 
         LastCapture = capture;
         LastCaptureStatus =
-            $"Saved a lower-biased CharacterInspect preview capture for entity {FormatEntityId(entityId)} at {clampedRect.Width}x{clampedRect.Height}. Source height: {requestedCaptureRect.SourceHeight}px. Crop profile: top {cropProfile.TopTrimFraction:P0}, bottom {cropProfile.BottomTrimFraction:P0}.";
+            $"Saved a lower-biased CharacterInspect preview capture for entity {FormatEntityId(entityId)} at {clampedRect.Width}x{clampedRect.Height}. Effective preview scale: X {effectiveScale.ScaleX * 100f:0.#}% / Y {effectiveScale.ScaleY * 100f:0.#}% from {effectiveScale.SourceLabel}. Config fallback: {configuredScalePercent}%. Source height: {requestedCaptureRect.SourceHeight}px. Crop profile: top {cropProfile.TopTrimFraction:P0}, bottom {cropProfile.BottomTrimFraction:P0}.";
         return new InspectPreviewCaptureResult(true, LastCaptureStatus, capture);
     }
 
@@ -278,6 +281,11 @@ public sealed class CharacterInspectPreviewCaptureService
         return (profile.TopTrimFraction, profile.BottomTrimFraction);
     }
 
+    public int GetConfiguredScalePercent()
+        => ClampScalePercent(configuration.InspectPreviewWindowScalePercent <= 0
+            ? DefaultScalePercent
+            : configuration.InspectPreviewWindowScalePercent);
+
     private CropProfile BuildCropProfile()
     {
         var topTrimFraction = float.IsFinite(configuration.InspectPreviewTopTrimFraction)
@@ -306,18 +314,25 @@ public sealed class CharacterInspectPreviewCaptureService
         return new CropProfile(topTrimFraction, bottomTrimFraction);
     }
 
+    private static int ClampScalePercent(int value)
+        => Math.Clamp(value, 60, 200);
+
     private static CaptureRect BuildPreferredCaptureRect(
         CharacterInspectResearchSnapshot snapshot,
-        CropProfile cropProfile)
+        CropProfile cropProfile,
+        float scaleX,
+        float scaleY)
     {
-        var requestedClientX = RoundToInt(snapshot.AddonX + snapshot.PreviewNodeX);
-        var requestedClientY = RoundToInt(snapshot.AddonY + snapshot.PreviewNodeY);
-        var captureWidth = snapshot.PreviewNodeWidth;
+        var minimumPreferredCaptureHeight = GetMinimumPreferredCaptureHeight(scaleY);
+        var requestedClientX = RoundToInt(snapshot.AddonX) + RoundToInt(snapshot.PreviewNodeX * scaleX);
+        var requestedClientY = RoundToInt(snapshot.AddonY) + RoundToInt(snapshot.PreviewNodeY * scaleY);
+        var captureWidth = Math.Max(1, RoundToInt(snapshot.PreviewNodeWidth * scaleX));
+        var scaledPreviewHeight = Math.Max(1, RoundToInt(snapshot.PreviewNodeHeight * scaleY));
         var captureHeight = Math.Max(
-            snapshot.PreviewNodeHeight,
-            snapshot.PreviewNodeHeight * ExpandedCaptureHeightMultiplier);
+            scaledPreviewHeight,
+            scaledPreviewHeight * ExpandedCaptureHeightMultiplier);
 
-        if (captureHeight < MinimumPreferredCaptureHeight)
+        if (captureHeight < minimumPreferredCaptureHeight)
             return new CaptureRect(requestedClientX, requestedClientY, captureWidth, captureHeight, captureHeight);
 
         var topTrim = RoundToInt(captureHeight * cropProfile.TopTrimFraction);
@@ -325,7 +340,7 @@ public sealed class CharacterInspectPreviewCaptureService
         var preferredY = requestedClientY + topTrim;
         var preferredHeight = captureHeight - topTrim - bottomTrim;
 
-        if (preferredHeight < MinimumPreferredCaptureHeight)
+        if (preferredHeight < minimumPreferredCaptureHeight)
         {
             topTrim = RoundToInt(captureHeight / 8f);
             bottomTrim = 0;
@@ -333,11 +348,70 @@ public sealed class CharacterInspectPreviewCaptureService
             preferredHeight = captureHeight - topTrim - bottomTrim;
         }
 
-        if (preferredHeight < MinimumPreferredCaptureHeight)
+        if (preferredHeight < minimumPreferredCaptureHeight)
             return new CaptureRect(requestedClientX, requestedClientY, captureWidth, captureHeight, captureHeight);
 
         return new CaptureRect(requestedClientX, preferredY, captureWidth, preferredHeight, captureHeight);
     }
+
+    private static int GetMinimumPreferredCaptureHeight(float scaleFactor)
+    {
+        var normalizedScaleFactor = float.IsFinite(scaleFactor) && scaleFactor > 0f
+            ? scaleFactor
+            : 1f;
+        return Math.Max(36, RoundToInt(MinimumPreferredCaptureHeight * normalizedScaleFactor));
+    }
+
+    private static EffectiveScale ResolveEffectiveScale(
+        CharacterInspectResearchSnapshot snapshot,
+        int configuredScalePercent)
+    {
+        var fallbackScale = configuredScalePercent / 100f;
+
+        if (TryNormalizeLiveScale(snapshot.PreviewNodeScaleX, out var liveScaleX) &&
+            TryNormalizeLiveScale(snapshot.PreviewNodeScaleY, out var liveScaleY))
+        {
+            if (IsApproximatelyNeutralScale(liveScaleX) &&
+                IsApproximatelyNeutralScale(liveScaleY) &&
+                !IsApproximatelyNeutralScale(fallbackScale))
+            {
+                return new EffectiveScale(fallbackScale, fallbackScale, "configured scaling fallback");
+            }
+
+            return new EffectiveScale(liveScaleX, liveScaleY, "live preview node scale");
+        }
+
+        if (TryNormalizeLiveScale(snapshot.PreviewNodeScaleX, out liveScaleX))
+        {
+            if (IsApproximatelyNeutralScale(liveScaleX) && !IsApproximatelyNeutralScale(fallbackScale))
+                return new EffectiveScale(fallbackScale, fallbackScale, "configured scaling fallback");
+
+            return new EffectiveScale(liveScaleX, liveScaleX, "live preview node X scale");
+        }
+
+        if (TryNormalizeLiveScale(snapshot.PreviewNodeScaleY, out liveScaleY))
+        {
+            if (IsApproximatelyNeutralScale(liveScaleY) && !IsApproximatelyNeutralScale(fallbackScale))
+                return new EffectiveScale(fallbackScale, fallbackScale, "configured scaling fallback");
+
+            return new EffectiveScale(liveScaleY, liveScaleY, "live preview node Y scale");
+        }
+
+        return new EffectiveScale(fallbackScale, fallbackScale, "configured scaling fallback");
+    }
+
+    private static bool TryNormalizeLiveScale(float scale, out float normalizedScale)
+    {
+        normalizedScale = 1f;
+        if (!float.IsFinite(scale) || scale <= 0.05f || scale > 4f)
+            return false;
+
+        normalizedScale = scale;
+        return true;
+    }
+
+    private static bool IsApproximatelyNeutralScale(float scale)
+        => MathF.Abs(scale - 1f) <= 0.05f;
 
     private static bool TryClampRect(
         int requestedX,
@@ -375,6 +449,7 @@ public sealed class CharacterInspectPreviewCaptureService
         int Width,
         int Height);
 
+    private readonly record struct EffectiveScale(float ScaleX, float ScaleY, string SourceLabel);
     private readonly record struct CropProfile(float TopTrimFraction, float BottomTrimFraction);
     private readonly record struct CaptureRect(int X, int Y, int Width, int Height, int SourceHeight);
 

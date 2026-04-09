@@ -6,10 +6,11 @@ namespace footballer;
 [Serializable]
 public sealed class Configuration : IPluginConfiguration
 {
+    public const int DefaultInspectPreviewWindowScalePercent = 100;
     public const float DefaultInspectPreviewTopTrimFraction = 0.65f;
     public const float DefaultInspectPreviewBottomTrimFraction = 0.20f;
 
-    public int Version { get; set; } = 3;
+    public int Version { get; set; } = 4;
     public bool PluginEnabled { get; set; } = false;
     public bool DtrBarEnabled { get; set; } = true;
     public int DtrBarMode { get; set; } = 1;
@@ -25,6 +26,8 @@ public sealed class Configuration : IPluginConfiguration
     public bool ShowFaceNextToFeet { get; set; } = true;
     public bool RespectLodestonePrivacy { get; set; } = true;
     public bool OpenMainWindowOnLoad { get; set; } = false;
+    public bool AutoRefreshPartyOnShowcaseOpen { get; set; } = false;
+    public int InspectPreviewWindowScalePercent { get; set; } = DefaultInspectPreviewWindowScalePercent;
     public float InspectPreviewTopTrimFraction { get; set; } = DefaultInspectPreviewTopTrimFraction;
     public float InspectPreviewBottomTrimFraction { get; set; } = DefaultInspectPreviewBottomTrimFraction;
 

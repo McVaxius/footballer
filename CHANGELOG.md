@@ -2,6 +2,8 @@
 
 ## 2026-04-09
 
+- Added a saved CharacterInspect preview-scaling selector in the main window plus an open-time guidance toast so capture math can match preview window UI scaling from 60% to 200%.
+- Added an optional one-shot auto-refresh-on-showcase-open setting in the Footballer settings window.
 - Added a saved main-window `Krangle Names` / `Un-Krangle` toggle so Footballer no longer pre-krangles all user-facing labels by default.
 - Updated the main window, config window, chat/status text, manifests, and README so the saved krangle preference is reflected consistently.
 
