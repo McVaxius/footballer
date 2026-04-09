@@ -1,12 +1,12 @@
 [
   {
     "$schema": "https://raw.githubusercontent.com/goatcorp/Dalamud/master/Dalamud/Configuration/PluginManifest/pluginmanifest.schema.json",
-    "Author": "McVaxius",
+    "Author": "DhogGPT",
     "Name": "Footballer",
     "Punchline": "Inspector Footybrand is here to make sure your feet are ok. Don't worry the inspector respects Lodestone privacy.",
     "Description": "Footballer is a private privacy-respecting foot showcase plugin with a saved main-window krangle toggle, cached Lodestone face gating, preview-only barefoot mode, and hidden debug research surfaces.",
     "InternalName": "footballer",
-    "AssemblyVersion": "0.0.0.1",
+    "AssemblyVersion": "0.0.0.2",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 14,
     "Tags": [
