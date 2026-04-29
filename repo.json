@@ -6,7 +6,7 @@
     "Punchline": "Inspector Footybrand is here to make sure your feet are ok. Don't worry the inspector respects Lodestone privacy.",
     "Description": "Footballer is a private privacy-respecting foot showcase plugin with a saved main-window krangle toggle, cached Lodestone face gating, preview-only barefoot mode, and hidden debug research surfaces.",
     "InternalName": "footballer",
-    "AssemblyVersion": "0.0.0.9",
+    "AssemblyVersion": "0.0.0.10",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 15,
     "Tags": [
@@ -17,6 +17,10 @@
     ],
     "CategoryTags": [
       "utility"
-    ]
+    ],
+    "RepoUrl": "https://github.com/McVaxius/footballer",
+    "DownloadLinkInstall": "https://github.com/McVaxius/footballer/releases/download/v0.0.0.10/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/McVaxius/footballer/releases/download/v0.0.0.10/latest.zip",
+    "IconUrl": "https://raw.githubusercontent.com/McVaxius/footballer/main/footballer/images/icon.png"
   }
 ]
