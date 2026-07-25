@@ -56,37 +56,10 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
         ImGui.Separator();
 
-        var enabled = cfg.PluginEnabled;
-        if (ImGui.Checkbox("Enabled", ref enabled))
-            plugin.SetPluginEnabled(enabled, printStatus: true);
-
-        ImGui.SameLine();
-        var showcase = cfg.ShowFootShowcase;
-        if (ImGui.Checkbox("Foot showcase", ref showcase))
-        {
-            cfg.ShowFootShowcase = showcase;
-            cfg.Save();
-        }
-
-        ImGui.SameLine();
-        if (ImGui.SmallButton("Settings"))
-            plugin.OpenConfigUi();
-
-        ImGui.SameLine();
-        var krangleNames = cfg.KrangleNames;
-        if (ImGui.SmallButton(krangleNames ? "Un-Krangle" : "Krangle Names"))
-            plugin.SetKrangleNames(!krangleNames, printStatus: true);
-
-        ImGui.SameLine();
-        if (ImGui.SmallButton("Refresh party"))
-            plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
-
-        ImGui.SameLine();
-        if (ImGui.SmallButton("Refresh Lodestone"))
-            plugin.QueuePartyResearchRefresh(forceLodestone: true);
-
-        ImGui.SameLine();
-        DrawPreviewScalingSelector(scalePercent);
+        if (showDebug)
+            DrawDebugToolbar(cfg, scalePercent);
+        else
+            DrawNormalToolbar(cfg, scalePercent);
 
         if (showDebug)
         {
@@ -122,6 +95,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         }
         else
         {
+            DrawNormalWorkflowStatus(cfg, partyMembers, footCards);
             ImGui.Separator();
         }
 
@@ -258,6 +232,121 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         }
 
         FinalizePendingWindowPlacement();
+    }
+
+    private void DrawNormalToolbar(Configuration cfg, int scalePercent)
+    {
+        var refreshActive = plugin.PartyFeetRefreshService.IsActive;
+
+        var enabled = cfg.PluginEnabled;
+        if (ImGui.Checkbox("Enabled", ref enabled))
+            plugin.SetPluginEnabled(enabled, printStatus: true);
+
+        ImGui.SameLine();
+        ImGui.BeginDisabled(refreshActive);
+        if (ImGui.SmallButton(refreshActive ? "Refreshing..." : "Refresh party"))
+            plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
+        ImGui.EndDisabled();
+
+        ImGui.Spacing();
+
+        var showcase = cfg.ShowFootShowcase;
+        if (ImGui.Checkbox("Foot showcase", ref showcase))
+        {
+            cfg.ShowFootShowcase = showcase;
+            cfg.Save();
+        }
+
+        ImGui.SameLine();
+        if (ImGui.SmallButton("Settings"))
+            plugin.OpenConfigUi();
+
+        ImGui.SameLine();
+        var krangleNames = cfg.KrangleNames;
+        if (ImGui.SmallButton(krangleNames ? "Un-Krangle" : "Krangle Names"))
+            plugin.SetKrangleNames(!krangleNames, printStatus: true);
+
+        ImGui.SameLine();
+        ImGui.BeginDisabled(refreshActive);
+        if (ImGui.SmallButton("Refresh Lodestone"))
+            plugin.QueuePartyResearchRefresh(forceLodestone: true);
+        ImGui.EndDisabled();
+
+        ImGui.SameLine();
+        DrawPreviewScalingSelector(scalePercent, refreshActive);
+    }
+
+    private void DrawDebugToolbar(Configuration cfg, int scalePercent)
+    {
+        var enabled = cfg.PluginEnabled;
+        if (ImGui.Checkbox("Enabled", ref enabled))
+            plugin.SetPluginEnabled(enabled, printStatus: true);
+
+        ImGui.SameLine();
+        var showcase = cfg.ShowFootShowcase;
+        if (ImGui.Checkbox("Foot showcase", ref showcase))
+        {
+            cfg.ShowFootShowcase = showcase;
+            cfg.Save();
+        }
+
+        ImGui.SameLine();
+        if (ImGui.SmallButton("Settings"))
+            plugin.OpenConfigUi();
+
+        ImGui.SameLine();
+        var krangleNames = cfg.KrangleNames;
+        if (ImGui.SmallButton(krangleNames ? "Un-Krangle" : "Krangle Names"))
+            plugin.SetKrangleNames(!krangleNames, printStatus: true);
+
+        ImGui.SameLine();
+        if (ImGui.SmallButton("Refresh party"))
+            plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
+
+        ImGui.SameLine();
+        if (ImGui.SmallButton("Refresh Lodestone"))
+            plugin.QueuePartyResearchRefresh(forceLodestone: true);
+
+        ImGui.SameLine();
+        DrawPreviewScalingSelector(scalePercent);
+    }
+
+    private void DrawNormalWorkflowStatus(
+        Configuration cfg,
+        IReadOnlyList<PartyShowcaseMember> partyMembers,
+        IReadOnlyList<FootShowcaseCard> footCards)
+    {
+        var refresh = plugin.PartyFeetRefreshService;
+        ImGui.Spacing();
+        ImGui.TextColored(
+            refresh.IsActive
+                ? new Vector4(0.35f, 0.85f, 1f, 1f)
+                : new Vector4(0.7f, 0.9f, 0.65f, 1f),
+            refresh.IsActive ? "Party feet workflow: Refreshing" : "Party feet workflow: Ready");
+        ImGui.TextWrapped(refresh.LastStatus);
+
+        if (refresh.IsActive)
+            return;
+
+        if (!cfg.PluginEnabled)
+        {
+            ImGui.TextDisabled("Footballer is disabled — enable it before refreshing party feet.");
+            return;
+        }
+
+        if (partyMembers.Count <= 1)
+        {
+            ImGui.TextDisabled("No party members detected — join or form a party, then Refresh party.");
+            return;
+        }
+
+        foreach (var card in footCards)
+        {
+            if (!string.IsNullOrWhiteSpace(card.FootImagePath))
+                return;
+        }
+
+        ImGui.TextDisabled("No feet previews yet — match Scaling to CharacterInspect, then Refresh party.");
     }
 
     private void DrawDebugResearchSections(
@@ -607,7 +696,12 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         ImGui.TextUnformatted(GetSafeDisplayName(card.Member));
         ShowHoverTooltip($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{card.VariantLabel}");
 
-        if (showDebug)
+        if (!showDebug)
+        {
+            ImGui.TextDisabled($"Feet: {card.FootStatusLabel}");
+            ShowHoverTooltip(card.FootStatusNote);
+        }
+        else
         {
             ImGui.TextDisabled($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}");
             ShowHoverTooltip(card.VariantLabel);
@@ -656,8 +750,8 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                 ImGui.SameLine(0f, 4f);
 
             var drewFootCompact = TryDrawLocalImage(card.FootImagePath, new Vector2(250f, 235f));
-            if (!drewFaceCompact && !drewFootCompact)
-                ImGui.TextDisabled("No image yet.");
+            if (!drewFootCompact)
+                ImGui.TextDisabled("No feet preview yet — match Scaling, then Refresh party.");
 
             return;
         }
@@ -1179,8 +1273,9 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             ? "Use Capture Current Preview while CharacterInspect is stable and keep the footballer window away from the preview area. The crop profile is saved globally for future targets."
             : "CharacterInspect must be open and stable before preview capture can run.";
 
-    private void DrawPreviewScalingSelector(int currentScalePercent)
+    private void DrawPreviewScalingSelector(int currentScalePercent, bool disabled = false)
     {
+        ImGui.BeginDisabled(disabled);
         ImGui.SetNextItemWidth(84f);
         if (ImGui.BeginCombo("##PreviewScaling", $"{currentScalePercent}%"))
         {
@@ -1205,6 +1300,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         ImGui.SameLine(0f, 4f);
         ImGui.TextDisabled("(?)");
         ShowHoverTooltip("Pick Same as character preview window!");
+        ImGui.EndDisabled();
     }
 
     private static float ClampCropFraction(float value)

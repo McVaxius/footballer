@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-07-25
+
+- Split the normal-mode toolbar into clear primary and secondary workflow rows.
+- Added an always-visible party-feet refresh status and contextual guidance for disabled, solo, and uncaptured states.
+- Disabled refresh and preview-scaling controls while the sequential party capture queue is active so the running queue cannot be reset.
+- Added compact foot status to normal showcase cards and actionable missing-preview guidance.
+- Kept debug/research surfaces, services, privacy gates, configuration, and data behavior unchanged.
+
 ## 2026-04-09
 
 - Added a saved CharacterInspect preview-scaling selector in the main window plus an open-time guidance toast so capture math can match preview window UI scaling from 60% to 200%.
