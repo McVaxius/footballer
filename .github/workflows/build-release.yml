@@ -83,6 +83,7 @@ jobs:
           name: Release ${{ steps.get_version.outputs.version }}
           draft: false
           prerelease: false
+          preserve_order: true
           files: |
             artifact/latest.zip
             artifact/${{ env.INTERNAL_NAME }}.json
