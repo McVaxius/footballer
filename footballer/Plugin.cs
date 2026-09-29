@@ -44,6 +44,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
+    private bool pendingOpenMainUi;
     private IDtrBarEntry? dtrEntry;
     private CharacterInspectResearchSnapshot? cachedCharacterInspectDebugSnapshot;
     private CommendationPortraitResearchSnapshot? cachedCommendationDebugSnapshot;
@@ -79,19 +80,18 @@ public sealed class Plugin : IDalamudPlugin
         PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi += OpenConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += OpenMainUi;
+        pendingOpenMainUi = Configuration.OpenMainWindowOnLoad;
         Framework.Update += OnFrameworkUpdate;
 
         SetupDtrBar();
         UpdateDtrBar();
-
-        if (Configuration.OpenMainWindowOnLoad)
-            OpenMainUi();
 
         Log.Information("[footballer] Plugin loaded.");
     }
 
     public void Dispose()
     {
+        pendingOpenMainUi = false;
         Framework.Update -= OnFrameworkUpdate;
         PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi -= OpenConfigUi;
@@ -440,6 +440,12 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnFrameworkUpdate(IFramework framework)
     {
+        if (pendingOpenMainUi)
+        {
+            pendingOpenMainUi = false;
+            OpenMainUi();
+        }
+
         UpdateDtrBar();
         CharacterInspectPoseService.OnFrameworkUpdate();
         CharacterInspectFootwearService.OnFrameworkUpdate();
