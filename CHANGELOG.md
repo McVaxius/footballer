@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-01
+
+- Build only the plugin project in GitHub Actions so test and regression projects do not block production artifacts.
+
 ## 2026-07-25
 
 - Split the normal-mode toolbar into clear primary and secondary workflow rows.
