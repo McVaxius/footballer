@@ -1,5 +1,13 @@
 # Changelog
 
+
+## 2026-10-02 - Build and release repair
+
+- Pin GitHub builds to SDK 10.0.201 and pass the downloaded Dalamud library path. Restore and build plugin projects with matching configuration, platform and runtime; stop on restore failure.
+- Keep build tokens read-only and release writes in a separate job. Use packaged manifest versions for untagged releases.
+- Checkout private AethertekUI as a sibling using AETHERTEKUI_DEPLOY_KEY. Its consumer-specific read-only credential remains a CI prerequisite.
+- Local launchers build the plugin directly in the pinned environment and return its exit status.
+
 ## 2026-10-02
 
 - Adopted the approved Footballer main-window layout with native chrome, rose vector branding, a responsive toolbar, capture/privacy counts, and one saved feet preview per character card.
