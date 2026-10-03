@@ -28,6 +28,8 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
     {
         var cfg = plugin.Configuration;
         UiGui.Title("Footballer Settings", UiText.T("Footballer Settings"));
+        var compact = cfg.UiCompact;
+        if (UiGui.Checkbox("Compact mode", ref compact)) { cfg.UiCompact = compact; cfg.Save(); }
         plugin.DrawAppearanceSelector();
         ImGui.Separator();
 
@@ -161,7 +163,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
             cfg.Save();
         }
 
-        UiGui.TextWrapped("Match Scaling to CharacterInspect (60?200%) before capturing.");
+        UiGui.TextWrapped("Match Scaling to CharacterInspect (60–200%) before capturing.");
 
         ImGui.Separator();
         UiGui.TextUnformatted("Rollout Phases");

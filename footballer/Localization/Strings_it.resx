@@ -55,7 +55,7 @@
     <value>Consentito</value>
   </data>
   <data name="Ambient light brightness" xml:space="preserve">
-    <value>Luminosit? luce ambiente</value>
+    <value>Luminosità luce ambiente</value>
   </data>
   <data name="Ambient light color" xml:space="preserve">
     <value>Colore luce ambiente</value>
@@ -199,13 +199,13 @@
     <value>Copia un rapporto prima e dopo aver cambiato il ritratto selezionato.</value>
   </data>
   <data name="Copy the report after the preview is stable." xml:space="preserve">
-    <value>Copia il rapporto quando l'anteprima ? stabile.</value>
+    <value>Copia il rapporto quando l'anteprima è stabile.</value>
   </data>
   <data name="Current Defaults" xml:space="preserve">
     <value>Valori predefiniti</value>
   </data>
   <data name="Current entity" xml:space="preserve">
-    <value>Entit? attuale</value>
+    <value>Entità attuale</value>
   </data>
   <data name="Current party showcase data model with real or krangled labels from a saved toggle" xml:space="preserve">
     <value>Dati gruppo con nomi reali o alterati salvati</value>
@@ -220,7 +220,7 @@
     <value>Simbolo DTR attivo</value>
   </data>
   <data name="DTR mode" xml:space="preserve">
-    <value>Modalit? DTR</value>
+    <value>Modalità DTR</value>
   </data>
   <data name="Debug snapshots refresh on demand." xml:space="preserve">
     <value>Le istantanee debug si aggiornano su richiesta.</value>
@@ -262,7 +262,7 @@
     <value>Angoli luce direzionale</value>
   </data>
   <data name="Directional light brightness" xml:space="preserve">
-    <value>Luminosit? luce direzionale</value>
+    <value>Luminosità luce direzionale</value>
   </data>
   <data name="Directional light color" xml:space="preserve">
     <value>Colore luce direzionale</value>
@@ -291,8 +291,8 @@
   <data name="Face" xml:space="preserve">
     <value>Volto</value>
   </data>
-  <data name="Face unavailable ? feet hidden" xml:space="preserve">
-    <value>Volto non disponibile ? piedi nascosti</value>
+  <data name="Face unavailable — feet hidden" xml:space="preserve">
+    <value>Volto non disponibile — piedi nascosti</value>
   </data>
   <data name="Face visible" xml:space="preserve">
     <value>Volto visibile</value>
@@ -330,8 +330,8 @@
   <data name="Footballer Settings" xml:space="preserve">
     <value>Impostazioni Footballer</value>
   </data>
-  <data name="Footballer is disabled ? enable it before refreshing party feet." xml:space="preserve">
-    <value>Footballer ? disattivo ? attivalo prima di aggiornare i piedi del gruppo.</value>
+  <data name="Footballer is disabled — enable it before refreshing party feet." xml:space="preserve">
+    <value>Footballer è disattivo — attivalo prima di aggiornare i piedi del gruppo.</value>
   </data>
   <data name="Forced / On" xml:space="preserve">
     <value>Forzato / attivo</value>
@@ -355,7 +355,7 @@
     <value>Nascosto dalle tue impostazioni di visualizzazione.</value>
   </data>
   <data name="Hide feet when a character's face is unavailable on Lodestone to respect privacy." xml:space="preserve">
-    <value>Nascondi i piedi se il volto non ? disponibile su Lodestone.</value>
+    <value>Nascondi i piedi se il volto non è disponibile su Lodestone.</value>
   </data>
   <data name="Hint" xml:space="preserve">
     <value>Suggerimento</value>
@@ -472,7 +472,7 @@
     <value>Caricato / copiato</value>
   </data>
   <data name="Loading UI fonts..." xml:space="preserve">
-    <value>Caricamento caratteri?</value>
+    <value>Caricamento caratteri…</value>
   </data>
   <data name="Lodestone" xml:space="preserve">
     <value>Lodestone</value>
@@ -501,8 +501,8 @@
   <data name="Manager current camera" xml:space="preserve">
     <value>Camera attuale gestore</value>
   </data>
-  <data name="Match Scaling to CharacterInspect (60?200%) before capturing." xml:space="preserve">
-    <value>Allinea la scala a CharacterInspect (60?200%) prima di acquisire.</value>
+  <data name="Match Scaling to CharacterInspect (60–200%) before capturing." xml:space="preserve">
+    <value>Allinea la scala a CharacterInspect (60–200%) prima di acquisire.</value>
   </data>
   <data name="Match Scaling to CharacterInspect, then Refresh party to capture a preview." xml:space="preserve">
     <value>Allinea la scala a CharacterInspect, poi aggiorna il gruppo per acquisire.</value>
@@ -531,29 +531,29 @@
   <data name="No face exposed" xml:space="preserve">
     <value>Nessun volto visibile</value>
   </data>
-  <data name="No feet preview yet ? match Scaling, then Refresh party." xml:space="preserve">
-    <value>Nessuna anteprima ? regola la scala e aggiorna il gruppo.</value>
+  <data name="No feet preview yet — match Scaling, then Refresh party." xml:space="preserve">
+    <value>Nessuna anteprima — regola la scala e aggiorna il gruppo.</value>
   </data>
-  <data name="No feet previews yet ? match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
-    <value>Nessuna anteprima ? allinea la scala a CharacterInspect, poi aggiorna il gruppo.</value>
+  <data name="No feet previews yet — match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
+    <value>Nessuna anteprima — allinea la scala a CharacterInspect, poi aggiorna il gruppo.</value>
   </data>
   <data name="No image yet." xml:space="preserve">
     <value>Nessuna immagine.</value>
   </data>
   <data name="No live entity" xml:space="preserve">
-    <value>Entit? assente</value>
+    <value>Entità assente</value>
   </data>
   <data name="No live party members are available for an automatic feet refresh." xml:space="preserve">
     <value>Nessun membro attivo per l'aggiornamento automatico.</value>
   </data>
   <data name="No local player or party members are available yet, so there is nothing to render in the live showcase." xml:space="preserve">
-    <value>Nessun giocatore o membro disponibile. La galleria ? vuota.</value>
+    <value>Nessun giocatore o membro disponibile. La galleria è vuota.</value>
   </data>
   <data name="No local player or party members are available yet." xml:space="preserve">
     <value>Nessun giocatore o membro disponibile.</value>
   </data>
-  <data name="No party members detected ? join or form a party, then Refresh party." xml:space="preserve">
-    <value>Nessun membro rilevato ? forma o unisciti a un gruppo, poi aggiornalo.</value>
+  <data name="No party members detected — join or form a party, then Refresh party." xml:space="preserve">
+    <value>Nessun membro rilevato — forma o unisciti a un gruppo, poi aggiornalo.</value>
   </data>
   <data name="No profile match" xml:space="preserve">
     <value>Nessun profilo trovato</value>
@@ -685,10 +685,10 @@
     <value>Anteprima visibile</value>
   </data>
   <data name="Preview-only barefoot multi-seam apply path when Without footwear is enabled" xml:space="preserve">
-    <value>Modalit? piedi nudi solo nell'anteprima</value>
+    <value>Modalità piedi nudi solo nell'anteprima</value>
   </data>
   <data name="Privacy is always on. /footballer debug exposes the session-only override." xml:space="preserve">
-    <value>La privacy ? sempre attiva. /footballer debug mostra l'eccezione per questa sessione.</value>
+    <value>La privacy è sempre attiva. /footballer debug mostra l'eccezione per questa sessione.</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profilo</value>
@@ -733,7 +733,7 @@
     <value>Aggiornamento piedi di {0} ({1}/{2}). CharacterInspect richiesto.</value>
   </data>
   <data name="Refreshing..." xml:space="preserve">
-    <value>Aggiornamento?</value>
+    <value>Aggiornamento…</value>
   </data>
   <data name="Replace party portrait window pictures" xml:space="preserve">
     <value>Sostituisci ritratti del gruppo</value>
@@ -742,7 +742,7 @@
     <value>Sostituisci ritratti del gruppo: {0}</value>
   </data>
   <data name="Requested entity" xml:space="preserve">
-    <value>Entit? richiesta</value>
+    <value>Entità richiesta</value>
   </data>
   <data name="Research Notes" xml:space="preserve">
     <value>Note di ricerca</value>
@@ -781,7 +781,7 @@
     <value>Indice gestore</value>
   </data>
   <data name="Scroll down to &quot;The Dumpster Fire&quot; channel to discuss issues / suggestions for specific plugins." xml:space="preserve">
-    <value>Visita il canale ?The Dumpster Fire? per problemi e suggerimenti sui plugin.</value>
+    <value>Visita il canale «The Dumpster Fire» per problemi e suggerimenti sui plugin.</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Cerca</value>
@@ -790,7 +790,7 @@
     <value>I tuoi piedi nascosti</value>
   </data>
   <data name="Session debug controls are visible. Privacy override is experimental." xml:space="preserve">
-    <value>Controlli debug visibili. L'eccezione privacy ? sperimentale.</value>
+    <value>Controlli debug visibili. L'eccezione privacy è sperimentale.</value>
   </data>
   <data name="Session debug mode is active. Hidden research surfaces are visible below." xml:space="preserve">
     <value>Debug di sessione attivo. Gli strumenti di ricerca sono visibili sotto.</value>
@@ -886,10 +886,10 @@
     <value>Solo testo</value>
   </data>
   <data name="The foot showcase toggle is currently off." xml:space="preserve">
-    <value>La galleria dei piedi ? disattiva.</value>
+    <value>La galleria dei piedi è disattiva.</value>
   </data>
   <data name="This member is not available for inspection in the current game scene." xml:space="preserve">
-    <value>Questo membro non pu? essere esaminato nella scena attuale.</value>
+    <value>Questo membro non può essere esaminato nella scena attuale.</value>
   </data>
   <data name="Timed out while refreshing {0}." xml:space="preserve">
     <value>Tempo scaduto aggiornando {0}.</value>
@@ -937,7 +937,7 @@
     <value>Acquisizione CharacterInspect con posa e piedi nudi; esportazione dei soli piedi da studiare dopo.</value>
   </data>
   <data name="Use the TTSL Lodestone face approach as the likely path for adjacent identity visuals." xml:space="preserve">
-    <value>Approccio TTSL ai volti Lodestone per immagini d'identit? correlate.</value>
+    <value>Approccio TTSL ai volti Lodestone per immagini d'identità correlate.</value>
   </data>
   <data name="Value" xml:space="preserve">
     <value>Valore</value>
@@ -985,10 +985,10 @@
     <value>Mondo</value>
   </data>
   <data name="Y" xml:space="preserve">
-    <value>S?</value>
+    <value>Sì</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>S?</value>
+    <value>Sì</value>
   </data>
   <data name="Zoom ratio" xml:space="preserve">
     <value>Rapporto zoom</value>
@@ -999,10 +999,13 @@
   <data name="{0} (You)" xml:space="preserve">
     <value>{0} (Tu)</value>
   </data>
-  <data name="{0} previews available ? {1} hidden by privacy" xml:space="preserve">
-    <value>{0} anteprime ? {1} nascoste per privacy</value>
+  <data name="{0} previews available · {1} hidden by privacy" xml:space="preserve">
+    <value>{0} anteprime · {1} nascoste per privacy</value>
   </data>
   <data name="{0} {1}. Click to toggle." xml:space="preserve">
     <value>{0} {1}. Clicca per cambiare.</value>
+  </data>
+  <data name="Compact mode" xml:space="preserve">
+    <value>Modalità compatta</value>
   </data>
 </root>

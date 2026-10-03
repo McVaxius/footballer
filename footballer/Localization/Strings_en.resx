@@ -291,8 +291,8 @@
   <data name="Face" xml:space="preserve">
     <value>Face</value>
   </data>
-  <data name="Face unavailable ? feet hidden" xml:space="preserve">
-    <value>Face unavailable ? feet hidden</value>
+  <data name="Face unavailable — feet hidden" xml:space="preserve">
+    <value>Face unavailable — feet hidden</value>
   </data>
   <data name="Face visible" xml:space="preserve">
     <value>Face visible</value>
@@ -330,8 +330,8 @@
   <data name="Footballer Settings" xml:space="preserve">
     <value>Footballer Settings</value>
   </data>
-  <data name="Footballer is disabled ? enable it before refreshing party feet." xml:space="preserve">
-    <value>Footballer is disabled ? enable it before refreshing party feet.</value>
+  <data name="Footballer is disabled — enable it before refreshing party feet." xml:space="preserve">
+    <value>Footballer is disabled — enable it before refreshing party feet.</value>
   </data>
   <data name="Forced / On" xml:space="preserve">
     <value>Forced / On</value>
@@ -501,8 +501,8 @@
   <data name="Manager current camera" xml:space="preserve">
     <value>Manager current camera</value>
   </data>
-  <data name="Match Scaling to CharacterInspect (60?200%) before capturing." xml:space="preserve">
-    <value>Match Scaling to CharacterInspect (60?200%) before capturing.</value>
+  <data name="Match Scaling to CharacterInspect (60–200%) before capturing." xml:space="preserve">
+    <value>Match Scaling to CharacterInspect (60–200%) before capturing.</value>
   </data>
   <data name="Match Scaling to CharacterInspect, then Refresh party to capture a preview." xml:space="preserve">
     <value>Match Scaling to CharacterInspect, then Refresh party to capture a preview.</value>
@@ -531,11 +531,11 @@
   <data name="No face exposed" xml:space="preserve">
     <value>No face exposed</value>
   </data>
-  <data name="No feet preview yet ? match Scaling, then Refresh party." xml:space="preserve">
-    <value>No feet preview yet ? match Scaling, then Refresh party.</value>
+  <data name="No feet preview yet — match Scaling, then Refresh party." xml:space="preserve">
+    <value>No feet preview yet — match Scaling, then Refresh party.</value>
   </data>
-  <data name="No feet previews yet ? match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
-    <value>No feet previews yet ? match Scaling to CharacterInspect, then Refresh party.</value>
+  <data name="No feet previews yet — match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
+    <value>No feet previews yet — match Scaling to CharacterInspect, then Refresh party.</value>
   </data>
   <data name="No image yet." xml:space="preserve">
     <value>No image yet.</value>
@@ -552,8 +552,8 @@
   <data name="No local player or party members are available yet." xml:space="preserve">
     <value>No local player or party members are available yet.</value>
   </data>
-  <data name="No party members detected ? join or form a party, then Refresh party." xml:space="preserve">
-    <value>No party members detected ? join or form a party, then Refresh party.</value>
+  <data name="No party members detected — join or form a party, then Refresh party." xml:space="preserve">
+    <value>No party members detected — join or form a party, then Refresh party.</value>
   </data>
   <data name="No profile match" xml:space="preserve">
     <value>No profile match</value>
@@ -999,10 +999,13 @@
   <data name="{0} (You)" xml:space="preserve">
     <value>{0} (You)</value>
   </data>
-  <data name="{0} previews available ? {1} hidden by privacy" xml:space="preserve">
-    <value>{0} previews available ? {1} hidden by privacy</value>
+  <data name="{0} previews available · {1} hidden by privacy" xml:space="preserve">
+    <value>{0} previews available · {1} hidden by privacy</value>
   </data>
   <data name="{0} {1}. Click to toggle." xml:space="preserve">
     <value>{0} {1}. Click to toggle.</value>
+  </data>
+  <data name="Compact mode" xml:space="preserve">
+    <value>Compact mode</value>
   </data>
 </root>

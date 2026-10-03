@@ -21,8 +21,9 @@ internal static class UiGui
     internal static void TextColored(Vector4 color, string text) => ImGui.TextColored(color, UiText.T(text));
 
     // Native controls retain the original ID, hit testing, focus and keyboard behavior.
-    internal static bool Action(string id, string text, MaterialIcon icon = MaterialIcon.None, bool disabled = false, float height = 66)
+    internal static bool Action(string id, string text, MaterialIcon icon = MaterialIcon.None, bool disabled = false, float height = 0)
     {
+        if (height <= 0) height = FootballerPresentation.ToolbarHeight;
         var c = MaterialTheme.Current.Colors;
         var s = MaterialTheme.Metrics.Scale;
         var label = UiText.T(text);
@@ -47,8 +48,9 @@ internal static class UiGui
         ImGui.EndDisabled();
         return clicked;
     }
-    internal static bool Toggle(string original, ref bool value, float height = 66)
+    internal static bool Toggle(string original, ref bool value, float height = 0)
     {
+        if (height <= 0) height = FootballerPresentation.ToolbarHeight;
         var s = MaterialTheme.Metrics.Scale;
         var c = MaterialTheme.Current.Colors;
         var label = UiText.T(original);

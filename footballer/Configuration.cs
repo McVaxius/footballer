@@ -13,6 +13,7 @@ public sealed class Configuration : IPluginConfiguration
     public int Version { get; set; } = 4;
     public string UiLanguage { get; set; } = "en";
     public uint UiAccentRgb { get; set; } = 0xE96D9E;
+    public bool UiCompact { get; set; } = false;
     public bool PluginEnabled { get; set; } = false;
     public bool DtrBarEnabled { get; set; } = true;
     public int DtrBarMode { get; set; } = 1;

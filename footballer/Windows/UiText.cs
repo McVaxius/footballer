@@ -17,6 +17,7 @@ internal sealed class UiText : IDisposable
     internal static IEnumerable<string> CjkLanguages(string selected) => new[]{"ja","ko","zh-Hans"}.OrderBy(code=>code==selected?0:1);
     private readonly ResourceManager manager;
     internal ResourceSet Resources { get; }
+    internal IReadOnlyList<string> RequiredText { get; }
     internal CultureInfo Culture { get; }
     internal string Language { get; }
     private readonly Func<UiFontRole,IDisposable> pushFont;
@@ -28,6 +29,13 @@ internal sealed class UiText : IDisposable
         manager=new ResourceManager("footballer.Localization.Strings_"+Language.Replace('-','_'),typeof(UiText).Assembly);
         Resources=manager.GetResourceSet(CultureInfo.InvariantCulture,true,false) ?? throw new MissingManifestResourceException(Language);
         this.pushFont=pushFont;
+        var english=new ResourceManager("footballer.Localization.Strings_en",typeof(UiText).Assembly);
+        try
+        {
+            var fallback=english.GetResourceSet(CultureInfo.InvariantCulture,true,false) ?? throw new MissingManifestResourceException("en");
+            RequiredText=Values(Resources).Concat(Values(fallback)).Concat(Languages.Select(l=>l.Name)).Append("\u2661").Distinct().ToArray();
+        }
+        finally { english.ReleaseAllResources(); }
         // Service messages remain English in logs; only their UI copies are localized.
         var parameter = new Regex(@"\{(\d+)(?::([^}]+))?\}");
         messageTemplates = Resources.Cast<DictionaryEntry>().Select(entry => (string)entry.Key)
@@ -77,7 +85,7 @@ internal sealed class UiText : IDisposable
     internal static string Date(DateTimeOffset? date) => date?.ToLocalTime().ToString("g",Current.Culture) ?? T("Never");
     internal ushort[] GlyphRanges()
     {
-        var chars=Values(Resources).Concat(Languages.Select(l=>l.Name)).SelectMany(t=>t).Where(c=>!char.IsControl(c))
+        var chars=RequiredText.SelectMany(t=>t).Where(c=>!char.IsControl(c))
             .Concat(Enumerable.Range(0x20,0x024F-0x20+1).Select(i=>(char)i))
             .Concat(Enumerable.Range(0x0400,0x052F-0x0400+1).Select(i=>(char)i)).Concat("—").Distinct().Order().ToArray();
         var result=new List<ushort>();

@@ -4,16 +4,23 @@ using Dalamud.Bindings.ImGui;
 
 namespace footballer.Windows;
 
-internal enum UiFontRole { Body, BodyStrong, Title, PluginName, Counter, Action }
+internal enum UiFontRole { Body, BodyStrong, Title, PluginName, Counter, Action, CompactTitle }
 
 internal static class FootballerPresentation
 {
     // Footballer-main-v3: native chrome retained; measured content at 100%.
     internal const uint ReferenceAccent = 0xE96D9E;
-    internal const float HeaderHeight = 96, ToolbarHeight = 66, StatusHeight = 52,
-        CardHeight = 592, CardWidth = 363, CardGap = 14, RegionGap = 14, FaceSize = 158;
-    internal static readonly float[] FontSizes = [16, 16, 38, 20, 22, 18];
-    internal static readonly string[] FontFiles = ["segoeui.ttf", "seguisb.ttf", "segoeuib.ttf", "seguisb.ttf", "seguisb.ttf", "seguisb.ttf"];
+    internal static bool Compact => MaterialTheme.Current.Density == MaterialDensity.Compact;
+    internal static float HeaderHeight => Compact ? 72 : 96;
+    internal static float ToolbarHeight => Compact ? 48 : 66;
+    internal static float StatusHeight => Compact ? 42 : 52;
+    internal static float CardHeight => Compact ? 404 : 592;
+    internal static float CardWidth => Compact ? 330 : 363;
+    internal static float CardGap => Compact ? 12 : 14;
+    internal static float RegionGap => Compact ? 10 : 14;
+    internal static float FaceSize => Compact ? 104 : 158;
+    internal static readonly float[] FontSizes = [16, 16, 38, 20, 22, 18, 32];
+    internal static readonly string[] FontFiles = ["segoeui.ttf", "seguisb.ttf", "segoeuib.ttf", "seguisb.ttf", "seguisb.ttf", "seguisb.ttf", "segoeuib.ttf"];
     internal static float AtlasHeight(UiFontRole role) => FontSizes[(int)role] * 4 / 3;
     internal static Vector4 Rgb(uint rgb) => new(((rgb >> 16) & 255) / 255f, ((rgb >> 8) & 255) / 255f, (rgb & 255) / 255f, 1);
     internal static readonly Vector4 Ready = Rgb(0x7DCF6E), Pending = Rgb(0xE8B86C), Error = Rgb(0xEE7788);
@@ -55,7 +62,7 @@ internal static class FootballerPresentation
             Tertiary = Relative(0xC9AEDB), OnTertiary = background, TertiaryContainer = Relative(0x3B2F49), OnTertiaryContainer = foreground,
             InverseSurface = foreground, InverseOnSurface = background, InversePrimary = Relative(0x843C5D),
         };
-        return new(colors) { SurfaceOpacity = 1 };
+        return new(colors, MaterialDensity.Standard) { SurfaceOpacity = 1 };
     }
     internal static void Surface(Vector2 min, Vector2 max, bool raised = false)
     {

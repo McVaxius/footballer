@@ -11,9 +11,9 @@ public sealed partial class MainWindow
     private void DrawPresentation(Configuration cfg, int scalePercent, IReadOnlyList<FootShowcaseCard> cards)
     {
         DrawPresentationHeader();
-        ImGui.Dummy(new Vector2(0, 20 * MaterialTheme.Metrics.Scale));
+        ImGui.Dummy(new Vector2(0, (FootballerPresentation.Compact ? 8 : 20) * MaterialTheme.Metrics.Scale));
         DrawNormalToolbar(cfg, scalePercent);
-        ImGui.Dummy(new Vector2(0, 20 * MaterialTheme.Metrics.Scale));
+        ImGui.Dummy(new Vector2(0, (FootballerPresentation.Compact ? 8 : 20) * MaterialTheme.Metrics.Scale));
         DrawPresentationStatus(cfg, cards);
         ImGui.Dummy(new Vector2(0, FootballerPresentation.RegionGap * MaterialTheme.Metrics.Scale));
 
@@ -45,23 +45,29 @@ public sealed partial class MainWindow
         var start = ImGui.GetCursorScreenPos();
         var width = ImGui.GetContentRegionAvail().X;
         var c = MaterialTheme.Current.Colors;
-        FootballerPresentation.Footprint(start + new Vector2(12, 0) * s, 86 * s, c.Primary);
-        ImGui.SetCursorScreenPos(start + new Vector2(108, 0) * s);
+        var compact = FootballerPresentation.Compact;
+        var titleX = compact ? 78 : 108;
+        FootballerPresentation.Footprint(start + new Vector2(12, 0) * s, (compact ? 60 : 86) * s, c.Primary);
+        ImGui.SetCursorScreenPos(start + new Vector2(titleX, 0) * s);
         float titleWidth;
-        using (UiText.Font(UiFontRole.Title))
+        using (UiText.Font(compact ? UiFontRole.CompactTitle : UiFontRole.Title))
         {
             ImGui.TextUnformatted(PluginInfo.DisplayName);
             titleWidth = ImGui.GetItemRectSize().X;
         }
-        ImGui.SetCursorScreenPos(start + new Vector2(108 * s + titleWidth + 18 * s, 27 * s));
-        ImGui.TextColored(c.OnSurfaceVariant, "v0.0.1.3");
-        ImGui.SetCursorScreenPos(start + new Vector2(108, 58) * s);
-        using (UiText.Font(UiFontRole.PluginName)) UiGui.TextColored(c.OnSurfaceVariant, "Party feet previews, simply.");
+        ImGui.SetCursorScreenPos(start + new Vector2(titleX * s + titleWidth + 18 * s, (compact ? 18 : 27) * s));
+        ImGui.TextColored(c.OnSurfaceVariant, "v" + typeof(Plugin).Assembly.GetName().Version);
+        ImGui.SetCursorScreenPos(start + new Vector2(titleX, compact ? 43 : 58) * s);
+        using (UiText.Font(compact ? UiFontRole.Body : UiFontRole.PluginName)) UiGui.TextColored(c.OnSurfaceVariant, "Party feet previews, simply.");
 
-        var rightWidth = 680 * s;
+        var rightWidth = 716 * s;
         var wideHeader = width >= 1280 * s;
-        var controlsY = start.Y + (wideHeader ? 20 : 104) * s;
+        var controlsY = start.Y + (wideHeader ? 16 : compact ? 78 : 104) * s;
         ImGui.SetCursorScreenPos(new Vector2(wideHeader ? start.X + width - rightWidth : start.X, controlsY));
+        var compactPreference = plugin.Configuration.UiCompact;
+        if (ImGui.Checkbox("C##CompactMode", ref compactPreference)) { plugin.Configuration.UiCompact = compactPreference; plugin.Configuration.Save(); }
+        if (ImGui.IsItemHovered()) ImGui.SetTooltip(UiText.T("Compact mode"));
+        ImGui.SameLine(0, 12 * s);
         plugin.DrawAppearanceSelector();
         if (wideHeader) ImGui.SetCursorScreenPos(new Vector2(start.X + width - 250 * s, controlsY));
         else ImGui.SameLine(0, 20 * s);
@@ -72,7 +78,7 @@ public sealed partial class MainWindow
             if (UiGui.Action("Discord", "Discord", height: 36)) plugin.OpenUrl(PluginInfo.DiscordUrl);
         }
         ImGui.SetCursorScreenPos(start);
-        ImGui.Dummy(new Vector2(width, (wideHeader ? FootballerPresentation.HeaderHeight : 146) * s));
+        ImGui.Dummy(new Vector2(width, (wideHeader ? FootballerPresentation.HeaderHeight : compact ? 116 : 146) * s));
         ImGui.GetWindowDrawList().AddLine(new Vector2(start.X, ImGui.GetItemRectMax().Y), ImGui.GetItemRectMax(), MaterialCanvas.Color(c.OutlineVariant));
     }
 
@@ -122,7 +128,7 @@ public sealed partial class MainWindow
         var cardWidth = ImGui.GetContentRegionAvail().X;
         var cardHeight = FootballerPresentation.CardHeight * s;
         // Longer resource strings grow the content; the child scrolls rather than truncating it.
-        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(18, 18) * s);
+        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(FootballerPresentation.Compact ? 12 : 18) * s);
         ImGui.PushStyleVar(ImGuiStyleVar.ChildBorderSize, 0);
         ImGui.PushStyleColor(ImGuiCol.ChildBg, Vector4.Zero);
         var origin = ImGui.GetCursorScreenPos();
@@ -144,7 +150,7 @@ public sealed partial class MainWindow
             ShowHoverTooltip($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{card.VariantLabel}");
             UiGui.TextDisabled(UiText.F("Lv {0}  {1}", card.Member.Level, card.Member.JobAbbreviation));
             var headerBottom = Math.Max(start.Y + 54 * s, ImGui.GetItemRectMax().Y);
-            var faceTop = new Vector2(start.X, headerBottom + 16 * s);
+            var faceTop = new Vector2(start.X, headerBottom + (FootballerPresentation.Compact ? 8 : 16) * s);
             var faceSize = Math.Min(FootballerPresentation.FaceSize * s, width * .5f);
             var faceBox = new Vector2(faceSize);
             DrawImageBox(card.FaceImagePath, faceTop, faceBox, false, null);
@@ -162,9 +168,9 @@ public sealed partial class MainWindow
             ImGui.TextColored(c.OnSurfaceVariant, text);
             ImGui.PopTextWrapPos();
             ShowHoverTooltip(CardGuidance(card));
-            var dividerY = Math.Max(faceTop.Y + faceSize, ImGui.GetItemRectMax().Y) + 18 * s;
+            var dividerY = Math.Max(faceTop.Y + faceSize, ImGui.GetItemRectMax().Y) + (FootballerPresentation.Compact ? 10 : 18) * s;
             ImGui.GetWindowDrawList().AddLine(new Vector2(start.X, dividerY), new Vector2(start.X + width, dividerY), MaterialCanvas.Color(c.OutlineVariant));
-            ImGui.SetCursorScreenPos(new Vector2(start.X, dividerY + 14 * s));
+            ImGui.SetCursorScreenPos(new Vector2(start.X, dividerY + (FootballerPresentation.Compact ? 8 : 14) * s));
             UiGui.TextUnformatted("Feet preview");
             var feetTop = new Vector2(start.X, ImGui.GetItemRectMax().Y + 12 * s);
             var feetSize = new Vector2(width, Math.Max(100 * s, origin.Y + cardHeight - 28 * s - feetTop.Y));

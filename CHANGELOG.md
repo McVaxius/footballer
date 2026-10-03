@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-03 - Translation encoding repair
+
+- Restore the original authored nine-language resources after a Windows PowerShell pipe replaced native characters and punctuation with question marks. Correct seven damaged punctuation keys to match their displayed text.
+- Merge the installed Segoe UI Symbol face into managed font roles, correct the verified Korean CJK face, include English fallback/support glyphs in the ranges and identify the role in missing-glyph diagnostics. Font files stay on the host.
+
+## 2026-10-03 - Compact appearance
+
+- Added the approved compact presentation with a header C checkbox and localized Compact mode setting, saved through existing configuration without changing its version.
+- Shared density across all windows; retained readable body typography, native actions, saved widths and independent status colours.
+- The main header displays the actual assembly version; its separate read-only AethertekUI Actions credential is now provisioned.
+
 
 ## 2026-10-02 - Build and release repair
 

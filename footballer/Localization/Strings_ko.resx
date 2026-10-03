@@ -7,1002 +7,1005 @@
     <value>2.0</value>
   </resheader>
   <data name="Active Services" xml:space="preserve">
-    <value>?? ???</value>
+    <value>활성 서비스</value>
   </data>
   <data name="Active camera" xml:space="preserve">
-    <value>?? ???</value>
+    <value>활성 카메라</value>
   </data>
   <data name="Active row heuristic: none yet" xml:space="preserve">
-    <value>?? ?? ?: ?? ??</value>
+    <value>추정 활성 행: 아직 없음</value>
   </data>
   <data name="Active row heuristic: {0} ({1})" xml:space="preserve">
-    <value>?? ?? ?: {0} ({1})</value>
+    <value>추정 활성 행: {0} ({1})</value>
   </data>
   <data name="Addon" xml:space="preserve">
-    <value>???</value>
+    <value>애드온</value>
   </data>
   <data name="Addon address" xml:space="preserve">
-    <value>??? ??</value>
+    <value>애드온 주소</value>
   </data>
   <data name="Addon address: {0}" xml:space="preserve">
-    <value>??? ??: {0}</value>
+    <value>애드온 주소: {0}</value>
   </data>
   <data name="Addon position" xml:space="preserve">
-    <value>??? ??</value>
+    <value>애드온 위치</value>
   </data>
   <data name="Addon visible" xml:space="preserve">
-    <value>??? ??</value>
+    <value>애드온 표시</value>
   </data>
   <data name="Addr" xml:space="preserve">
-    <value>??</value>
+    <value>주소</value>
   </data>
   <data name="Agent" xml:space="preserve">
-    <value>????</value>
+    <value>에이전트</value>
   </data>
   <data name="Agent Row" xml:space="preserve">
-    <value>???? ?</value>
+    <value>에이전트 행</value>
   </data>
   <data name="Agent address" xml:space="preserve">
-    <value>???? ??</value>
+    <value>에이전트 주소</value>
   </data>
   <data name="Agent address: {0}" xml:space="preserve">
-    <value>???? ??: {0}</value>
+    <value>에이전트 주소: {0}</value>
   </data>
   <data name="Agent available" xml:space="preserve">
-    <value>???? ?? ??</value>
+    <value>에이전트 사용 가능</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>??</value>
+    <value>허용</value>
   </data>
   <data name="Ambient light brightness" xml:space="preserve">
-    <value>??? ??</value>
+    <value>주변광 밝기</value>
   </data>
   <data name="Ambient light color" xml:space="preserve">
-    <value>??? ??</value>
+    <value>주변광 색상</value>
   </data>
   <data name="Animation progress" xml:space="preserve">
-    <value>????? ??</value>
+    <value>애니메이션 진행</value>
   </data>
   <data name="Auto refresh party on showcase open" xml:space="preserve">
-    <value>? ? ????</value>
+    <value>열 때 새로고침</value>
   </data>
   <data name="Auto refresh party on showcase open: {0}" xml:space="preserve">
-    <value>? ? ????: {0}</value>
+    <value>열 때 새로고침: {0}</value>
   </data>
   <data name="Automatic party feet recapture queue from Refresh party" xml:space="preserve">
-    <value>?? ????? ?? ?? ?? ???</value>
+    <value>파티 새로고침을 통한 자동 촬영 대기열</value>
   </data>
   <data name="Automatic party feet refresh finished. Captured {0}/{1} member(s){2}." xml:space="preserve">
-    <value>?? ?? ??. {0}/{1}? ??{2}.</value>
+    <value>자동 갱신 완료. {0}/{1}명 촬영{2}.</value>
   </data>
   <data name="Automatically refresh party once when showcase opens" xml:space="preserve">
-    <value>??? ? ? ? ? ????</value>
+    <value>갤러리 열 때 한 번 새로고침</value>
   </data>
   <data name="Banner background" xml:space="preserve">
-    <value>?? ??</value>
+    <value>배너 배경</value>
   </data>
   <data name="Banner timeline" xml:space="preserve">
-    <value>?? ????</value>
+    <value>배너 타임라인</value>
   </data>
   <data name="BannerParty read-only research" xml:space="preserve">
-    <value>BannerParty ?? ?? ??</value>
+    <value>BannerParty 읽기 전용 연구</value>
   </data>
   <data name="Barefoot apply: {0}" xml:space="preserve">
-    <value>?? ??: {0}</value>
+    <value>신발 제거: {0}</value>
   </data>
   <data name="Base" xml:space="preserve">
-    <value>??</value>
+    <value>기본</value>
   </data>
   <data name="Base / Slider" xml:space="preserve">
-    <value>?? / ????</value>
+    <value>기본 / 슬라이더</value>
   </data>
   <data name="Blue" xml:space="preserve">
-    <value>???</value>
+    <value>파란색</value>
   </data>
   <data name="Buddy inspect" xml:space="preserve">
-    <value>?? ????</value>
+    <value>버디 살펴보기</value>
   </data>
   <data name="Bypassed" xml:space="preserve">
-    <value>?? ??</value>
+    <value>검사 우회</value>
   </data>
   <data name="CID" xml:space="preserve">
     <value>CID</value>
   </data>
   <data name="COPY INSPECT REPORT" xml:space="preserve">
-    <value>???? ??? ??</value>
+    <value>살펴보기 보고서 복사</value>
   </data>
   <data name="COPY TEST REPORT" xml:space="preserve">
-    <value>??? ??? ??</value>
+    <value>테스트 보고서 복사</value>
   </data>
   <data name="Cached Lodestone search/profile lookup state with local face thumbnails" xml:space="preserve">
-    <value>Lodestone ?? ? ?? ?? ???</value>
+    <value>Lodestone 조회 및 로컬 얼굴 썸네일</value>
   </data>
   <data name="Callback base id" xml:space="preserve">
-    <value>?? ?? ID</value>
+    <value>콜백 기본 ID</value>
   </data>
   <data name="Camera FoV" xml:space="preserve">
-    <value>??? ???</value>
+    <value>카메라 시야각</value>
   </data>
   <data name="Camera distance" xml:space="preserve">
-    <value>??? ??</value>
+    <value>카메라 거리</value>
   </data>
   <data name="Camera look-at" xml:space="preserve">
-    <value>??? ??</value>
+    <value>카메라 시점</value>
   </data>
   <data name="Camera position" xml:space="preserve">
-    <value>??? ??</value>
+    <value>카메라 위치</value>
   </data>
   <data name="Camera status" xml:space="preserve">
-    <value>??? ??</value>
+    <value>카메라 상태</value>
   </data>
   <data name="Camera target" xml:space="preserve">
-    <value>??? ??</value>
+    <value>카메라 대상</value>
   </data>
   <data name="Camera zoom" xml:space="preserve">
-    <value>??? ??</value>
+    <value>카메라 확대</value>
   </data>
   <data name="Capture Current Preview" xml:space="preserve">
-    <value>?? ???? ??</value>
+    <value>현재 미리보기 촬영</value>
   </data>
   <data name="Capture Folder" xml:space="preserve">
-    <value>?? ??</value>
+    <value>촬영 폴더</value>
   </data>
   <data name="Capture failed for {0}: {1}" xml:space="preserve">
-    <value>{0} ?? ??: {1}</value>
+    <value>{0} 촬영 실패: {1}</value>
   </data>
   <data name="Capture ready" xml:space="preserve">
-    <value>?? ???</value>
+    <value>촬영 준비됨</value>
   </data>
   <data name="Capture status" xml:space="preserve">
-    <value>?? ??</value>
+    <value>촬영 상태</value>
   </data>
   <data name="CharaView state" xml:space="preserve">
-    <value>CharaView ??</value>
+    <value>CharaView 상태</value>
   </data>
   <data name="Character" xml:space="preserve">
-    <value>???</value>
+    <value>캐릭터</value>
   </data>
   <data name="Character Inspect Research" xml:space="preserve">
-    <value>??? ???? ??</value>
+    <value>캐릭터 살펴보기 연구</value>
   </data>
   <data name="Character count: {0}" xml:space="preserve">
-    <value>??? ?: {0}</value>
+    <value>캐릭터 수: {0}</value>
   </data>
   <data name="CharacterInspect Capture State" xml:space="preserve">
-    <value>CharacterInspect ?? ??</value>
+    <value>CharacterInspect 촬영 상태</value>
   </data>
   <data name="CharacterInspect is still settling on {0} ({1}/{2})." xml:space="preserve">
-    <value>{0}? CharacterInspect ??? ? ({1}/{2}).</value>
+    <value>{0}의 CharacterInspect 안정화 중 ({1}/{2}).</value>
   </data>
   <data name="Check DTR toggle behavior and party snapshot population" xml:space="preserve">
-    <value>DTR ?? ? ?? ??? ??</value>
+    <value>DTR 전환 및 파티 데이터 확인</value>
   </data>
   <data name="Choose which party previews to show. Lodestone privacy is respected in normal use." xml:space="preserve">
-    <value>??? ?? ????? ?????. ?? ????? Lodestone ???? ??? ????.</value>
+    <value>표시할 파티 미리보기를 선택하세요. 일반 모드에서는 Lodestone 개인정보 보호를 따릅니다.</value>
   </data>
   <data name="Client object" xml:space="preserve">
-    <value>????? ??</value>
+    <value>클라이언트 객체</value>
   </data>
   <data name="Collision node" xml:space="preserve">
-    <value>?? ??</value>
+    <value>충돌 노드</value>
   </data>
   <data name="Color" xml:space="preserve">
-    <value>??</value>
+    <value>색상</value>
   </data>
   <data name="Configured portrait replacement toggle: {0}" xml:space="preserve">
-    <value>??? ?? ??: {0}</value>
+    <value>초상화 교체 설정: {0}</value>
   </data>
   <data name="Confirm the inspect preview rotates to the stored side-angle pose before capture" xml:space="preserve">
-    <value>?? ? ??? ?? ?? ??</value>
+    <value>촬영 전 저장된 측면 자세 확인</value>
   </data>
   <data name="Copy a report before and after changing the selected portrait." xml:space="preserve">
-    <value>??? ???? ??? ??? ???? ?????.</value>
+    <value>선택한 초상화를 바꾸기 전후에 보고서를 복사하세요.</value>
   </data>
   <data name="Copy the report after the preview is stable." xml:space="preserve">
-    <value>????? ???? ???? ?????.</value>
+    <value>미리보기가 안정되면 보고서를 복사하세요.</value>
   </data>
   <data name="Current Defaults" xml:space="preserve">
-    <value>?? ???</value>
+    <value>현재 기본값</value>
   </data>
   <data name="Current entity" xml:space="preserve">
-    <value>?? ??</value>
+    <value>현재 대상</value>
   </data>
   <data name="Current party showcase data model with real or krangled labels from a saved toggle" xml:space="preserve">
-    <value>?? ?? ?? ??? ?? ??? ?? ???</value>
+    <value>실제 이름 또는 저장된 변형 이름의 파티 데이터</value>
   </data>
   <data name="Custom RGB" xml:space="preserve">
-    <value>??? ?? RGB</value>
+    <value>사용자 지정 RGB</value>
   </data>
   <data name="DTR disabled glyph" xml:space="preserve">
-    <value>DTR ??? ??</value>
+    <value>DTR 비활성 기호</value>
   </data>
   <data name="DTR enabled glyph" xml:space="preserve">
-    <value>DTR ?? ??</value>
+    <value>DTR 활성 기호</value>
   </data>
   <data name="DTR mode" xml:space="preserve">
-    <value>DTR ??</value>
+    <value>DTR 모드</value>
   </data>
   <data name="Debug snapshots refresh on demand." xml:space="preserve">
-    <value>??? ???? ?? ? ???????.</value>
+    <value>디버그 스냅샷은 요청 시 새로고침됩니다.</value>
   </data>
   <data name="Debug: Respect Lodestone privacy" xml:space="preserve">
-    <value>???: Lodestone ???? ??</value>
+    <value>디버그: Lodestone 개인정보 보호</value>
   </data>
   <data name="Default: Krangle labels" xml:space="preserve">
-    <value>???: ?? ??</value>
+    <value>기본값: 이름 변형</value>
   </data>
   <data name="Default: Replace party portrait window pictures" xml:space="preserve">
-    <value>???: ?? ??? ??</value>
+    <value>기본값: 파티 초상화 교체</value>
   </data>
   <data name="Default: Show face next to feet" xml:space="preserve">
-    <value>???: ? ?? ?? ??</value>
+    <value>기본값: 발 옆에 얼굴 표시</value>
   </data>
   <data name="Default: Show female feet" xml:space="preserve">
-    <value>???: ?? ? ??</value>
+    <value>기본값: 여성 발 표시</value>
   </data>
   <data name="Default: Show foot showcase" xml:space="preserve">
-    <value>???: ? ???</value>
+    <value>기본값: 발 갤러리</value>
   </data>
   <data name="Default: Show male feet" xml:space="preserve">
-    <value>???: ?? ? ??</value>
+    <value>기본값: 남성 발 표시</value>
   </data>
   <data name="Default: Show own feet" xml:space="preserve">
-    <value>???: ? ? ??</value>
+    <value>기본값: 내 발 표시</value>
   </data>
   <data name="Default: Without footwear" xml:space="preserve">
-    <value>???: ?? ??</value>
+    <value>기본값: 신발 제거</value>
   </data>
   <data name="Derived yaw / pitch" xml:space="preserve">
-    <value>??? ?? / ?? ??</value>
+    <value>계산된 좌우 / 상하 회전</value>
   </data>
   <data name="Direct CharacterInspect foot-capture research" xml:space="preserve">
-    <value>CharacterInspect ? ?? ??</value>
+    <value>CharacterInspect 발 촬영 연구</value>
   </data>
   <data name="Directional light angles" xml:space="preserve">
-    <value>??? ??</value>
+    <value>방향광 각도</value>
   </data>
   <data name="Directional light brightness" xml:space="preserve">
-    <value>??? ??</value>
+    <value>방향광 밝기</value>
   </data>
   <data name="Directional light color" xml:space="preserve">
-    <value>??? ??</value>
+    <value>방향광 색상</value>
   </data>
   <data name="Discord" xml:space="preserve">
     <value>Discord</value>
   </data>
   <data name="Enable Without footwear and confirm Inspect clears the preview feet slot before capture" xml:space="preserve">
-    <value>?? ?? ?? ? ?? ? ?? ?? ?? ??</value>
+    <value>신발 제거 켜기 및 촬영 전 신발 슬롯 제거 확인</value>
   </data>
   <data name="Enabled" xml:space="preserve">
-    <value>???</value>
+    <value>활성화</value>
   </data>
   <data name="Evt" xml:space="preserve">
-    <value>???</value>
+    <value>이벤트</value>
   </data>
   <data name="Evt / Flags" xml:space="preserve">
-    <value>??? / ???</value>
+    <value>이벤트 / 플래그</value>
   </data>
   <data name="Expression" xml:space="preserve">
-    <value>??</value>
+    <value>표정</value>
   </data>
   <data name="Eye direction" xml:space="preserve">
-    <value>?? ??</value>
+    <value>시선 방향</value>
   </data>
   <data name="Face" xml:space="preserve">
-    <value>??</value>
+    <value>얼굴</value>
   </data>
-  <data name="Face unavailable ? feet hidden" xml:space="preserve">
-    <value>?? ?? ?? ? ? ??</value>
+  <data name="Face unavailable — feet hidden" xml:space="preserve">
+    <value>얼굴 확인 불가 — 발 숨김</value>
   </data>
   <data name="Face visible" xml:space="preserve">
-    <value>?? ???</value>
+    <value>얼굴 확인됨</value>
   </data>
   <data name="Feet" xml:space="preserve">
-    <value>?</value>
+    <value>발</value>
   </data>
   <data name="Feet are hidden when Lodestone does not expose a face." xml:space="preserve">
-    <value>Lodestone?? ??? ????? ?? ????.</value>
+    <value>Lodestone에서 얼굴이 비공개이면 발도 숨깁니다.</value>
   </data>
   <data name="Feet preview" xml:space="preserve">
-    <value>? ????</value>
+    <value>발 미리보기</value>
   </data>
   <data name="Feet: {0}" xml:space="preserve">
-    <value>?: {0}</value>
+    <value>발: {0}</value>
   </data>
   <data name="Fetch status" xml:space="preserve">
-    <value>???? ??</value>
+    <value>가져오기 상태</value>
   </data>
   <data name="Field" xml:space="preserve">
-    <value>??</value>
+    <value>항목</value>
   </data>
   <data name="Filtered" xml:space="preserve">
-    <value>????</value>
+    <value>필터링됨</value>
   </data>
   <data name="Flags" xml:space="preserve">
-    <value>???</value>
+    <value>플래그</value>
   </data>
   <data name="Foot showcase" xml:space="preserve">
-    <value>? ???</value>
+    <value>발 갤러리</value>
   </data>
   <data name="Foot showcase: {0}" xml:space="preserve">
-    <value>? ???: {0}</value>
+    <value>발 갤러리: {0}</value>
   </data>
   <data name="Footballer Settings" xml:space="preserve">
-    <value>Footballer ??</value>
+    <value>Footballer 설정</value>
   </data>
-  <data name="Footballer is disabled ? enable it before refreshing party feet." xml:space="preserve">
-    <value>Footballer? ?? ????. ?? ?? ?????? ?? ???.</value>
+  <data name="Footballer is disabled — enable it before refreshing party feet." xml:space="preserve">
+    <value>Footballer가 꺼져 있습니다. 파티 발을 새로고침하기 전에 켜세요.</value>
   </data>
   <data name="Forced / On" xml:space="preserve">
-    <value>?? / ??</value>
+    <value>강제 / 켜짐</value>
   </data>
   <data name="Gate" xml:space="preserve">
-    <value>?? ??</value>
+    <value>허용 상태</value>
   </data>
   <data name="Head direction" xml:space="preserve">
-    <value>?? ??</value>
+    <value>머리 방향</value>
   </data>
   <data name="Hidden" xml:space="preserve">
-    <value>??</value>
+    <value>숨김</value>
   </data>
   <data name="Hidden CharacterInspect/BannerParty debug surfaces behind /footballer debug" xml:space="preserve">
-    <value>/footballer debug? CharacterInspect/BannerParty ?? ??</value>
+    <value>/footballer debug로 CharacterInspect/BannerParty 도구 표시</value>
   </data>
   <data name="Hidden by privacy" xml:space="preserve">
-    <value>???? ??? ??</value>
+    <value>개인정보 보호로 숨김</value>
   </data>
   <data name="Hidden by your display settings." xml:space="preserve">
-    <value>?? ??? ?? ??? ????.</value>
+    <value>표시 설정에 따라 숨겨져 있습니다.</value>
   </data>
   <data name="Hide feet when a character's face is unavailable on Lodestone to respect privacy." xml:space="preserve">
-    <value>Lodestone?? ??? ??? ? ??? ?? ????.</value>
+    <value>Lodestone에서 얼굴을 확인할 수 없으면 발을 숨깁니다.</value>
   </data>
   <data name="Hint" xml:space="preserve">
-    <value>??</value>
+    <value>힌트</value>
   </data>
   <data name="Hold" xml:space="preserve">
-    <value>??</value>
+    <value>대기</value>
   </data>
   <data name="Holding {0} steady for capture ({1}/{2}). Waiting {3:0.0}s more before saving the feet preview." xml:space="preserve">
-    <value>{0} ?? ??? ? ({1}/{2}). ???? {3:0.0}?.</value>
+    <value>{0} 촬영 안정화 중 ({1}/{2}). 저장까지 {3:0.0}초.</value>
   </data>
   <data name="Icon + text" xml:space="preserve">
-    <value>???? ???</value>
+    <value>아이콘과 텍스트</value>
   </data>
   <data name="Icon only" xml:space="preserve">
-    <value>????</value>
+    <value>아이콘만</value>
   </data>
   <data name="Idx" xml:space="preserve">
-    <value>???</value>
+    <value>인덱스</value>
   </data>
   <data name="Image rotation" xml:space="preserve">
-    <value>??? ??</value>
+    <value>이미지 회전</value>
   </data>
   <data name="Inspect" xml:space="preserve">
-    <value>????</value>
+    <value>살펴보기</value>
   </data>
   <data name="Inspect Capture" xml:space="preserve">
-    <value>???? ??</value>
+    <value>살펴보기 촬영</value>
   </data>
   <data name="Inspect active" xml:space="preserve">
-    <value>???? ??</value>
+    <value>살펴보기 활성</value>
   </data>
   <data name="Inspect and capture tools are available in debug mode." xml:space="preserve">
-    <value>???? ? ?? ??? ??? ???? ??? ? ????.</value>
+    <value>살펴보기 및 촬영 도구는 디버그 모드에서 사용할 수 있습니다.</value>
   </data>
   <data name="Inspect buttons plus a queued preset inspect pose and action-driven preview capture" xml:space="preserve">
-    <value>????, ?? ?? ? ?? ??</value>
+    <value>살펴보기, 자세 설정 및 수동 촬영</value>
   </data>
   <data name="Inspect requested" xml:space="preserve">
-    <value>???? ???</value>
+    <value>살펴보기 요청됨</value>
   </data>
   <data name="Inspect state recorded" xml:space="preserve">
-    <value>???? ?? ???</value>
+    <value>살펴보기 상태 기록됨</value>
   </data>
   <data name="Inspect-ready" xml:space="preserve">
-    <value>???? ???</value>
+    <value>살펴보기 준비됨</value>
   </data>
   <data name="Interactive" xml:space="preserve">
-    <value>???? ??</value>
+    <value>상호작용 가능</value>
   </data>
   <data name="Job" xml:space="preserve">
-    <value>??</value>
+    <value>직업</value>
   </data>
   <data name="Keep Footballer away from the preview while capturing. The crop profile applies to future captures." xml:space="preserve">
-    <value>?? ? Footballer? ????? ??? ??? ???. ??? ??? ?? ???? ?????.</value>
+    <value>촬영 시 Footballer가 미리보기를 가리지 않도록 하세요. 자르기 설정은 이후 촬영에도 적용됩니다.</value>
   </data>
   <data name="Ko-fi" xml:space="preserve">
     <value>Ko-fi</value>
   </data>
   <data name="Ko-fi and Discord links" xml:space="preserve">
-    <value>Ko-fi ? Discord ??</value>
+    <value>Ko-fi 및 Discord 링크</value>
   </data>
   <data name="Krangle Names" xml:space="preserve">
-    <value>?? ??</value>
+    <value>이름 변형</value>
   </data>
   <data name="Krangle labels" xml:space="preserve">
-    <value>?? ??</value>
+    <value>이름 변형</value>
   </data>
   <data name="Krangle labels: {0}" xml:space="preserve">
-    <value>?? ??: {0}</value>
+    <value>이름 변형: {0}</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>??</value>
+    <value>언어</value>
   </data>
   <data name="Last saved CharacterInspect preview. Refresh party to capture a new image." xml:space="preserve">
-    <value>????? ??? CharacterInspect ???????. ? ???? ????? ??? ???????.</value>
+    <value>마지막으로 저장한 CharacterInspect 미리보기입니다. 새 이미지를 촬영하려면 파티를 새로고침하세요.</value>
   </data>
   <data name="Latest saved preview snip: {0}" xml:space="preserve">
-    <value>?? ??? ????: {0}</value>
+    <value>최근 저장된 미리보기: {0}</value>
   </data>
   <data name="Latest snip" xml:space="preserve">
-    <value>?? ??? ???</value>
+    <value>최근 잘라낸 이미지</value>
   </data>
   <data name="Links" xml:space="preserve">
-    <value>??</value>
+    <value>링크</value>
   </data>
   <data name="Live BannerParty Addon Capture" xml:space="preserve">
-    <value>??? BannerParty ??? ??</value>
+    <value>실시간 BannerParty 애드온 캡처</value>
   </data>
   <data name="Live BannerParty Agent" xml:space="preserve">
-    <value>??? BannerParty ????</value>
+    <value>실시간 BannerParty 에이전트</value>
   </data>
   <data name="Live Party Foot Showcase" xml:space="preserve">
-    <value>??? ?? ? ???</value>
+    <value>실시간 파티 발 갤러리</value>
   </data>
   <data name="Live Shell Controls" xml:space="preserve">
-    <value>???? ??</value>
+    <value>플러그인 제어</value>
   </data>
   <data name="Live Today" xml:space="preserve">
-    <value>?? ??</value>
+    <value>현재 기능</value>
   </data>
   <data name="Live party foot showcase cards with honest capture status" xml:space="preserve">
-    <value>?? ?? ??? ???? ? ??</value>
+    <value>실제 촬영 상태를 표시하는 발 카드</value>
   </data>
   <data name="Live party showcase and optional krangle toggle" xml:space="preserve">
-    <value>??? ?? ?? ? ??? ?? ??</value>
+    <value>실시간 파티 표시 및 선택적 이름 변형</value>
   </data>
   <data name="Load plugin and open the main window" xml:space="preserve">
-    <value>???? ???? ? ?? ? ??</value>
+    <value>플러그인 불러오기 및 메인 창 열기</value>
   </data>
   <data name="Loaded" xml:space="preserve">
-    <value>???</value>
+    <value>불러옴</value>
   </data>
   <data name="Loaded / copied" xml:space="preserve">
-    <value>??? / ???</value>
+    <value>불러옴 / 복사됨</value>
   </data>
   <data name="Loading UI fonts..." xml:space="preserve">
-    <value>?? ???? ??</value>
+    <value>글꼴 불러오는 중…</value>
   </data>
   <data name="Lodestone" xml:space="preserve">
     <value>Lodestone</value>
   </data>
   <data name="Lodestone face cache + privacy gating" xml:space="preserve">
-    <value>Lodestone ?? ?? ? ???? ??</value>
+    <value>Lodestone 얼굴 캐시 및 개인정보 보호</value>
   </data>
   <data name="Lodestone privacy gate (debug): {0}" xml:space="preserve">
-    <value>Lodestone ???? ?? (???): {0}</value>
+    <value>Lodestone 개인정보 보호 (디버그): {0}</value>
   </data>
   <data name="Lodestone privacy gate: Forced on" xml:space="preserve">
-    <value>Lodestone ???? ??: ?? ??</value>
+    <value>Lodestone 개인정보 보호: 강제 켜짐</value>
   </data>
   <data name="Lookup error" xml:space="preserve">
-    <value>?? ??</value>
+    <value>검색 오류</value>
   </data>
   <data name="Lv {0}  {1}" xml:space="preserve">
     <value>Lv {0}  {1}</value>
   </data>
   <data name="Main window, settings window, and DTR toggle" xml:space="preserve">
-    <value>?? ?, ?? ? DTR ??</value>
+    <value>메인 창, 설정 및 DTR 전환</value>
   </data>
   <data name="Main-window CharacterInspect scaling selector plus showcase-open guidance toast" xml:space="preserve">
-    <value>CharacterInspect ?? ? ? ? ??</value>
+    <value>CharacterInspect 배율 및 열 때 안내</value>
   </data>
   <data name="Manager current camera" xml:space="preserve">
-    <value>???? ?? ???</value>
+    <value>관리자의 현재 카메라</value>
   </data>
-  <data name="Match Scaling to CharacterInspect (60?200%) before capturing." xml:space="preserve">
-    <value>?? ?? ??? CharacterInspect(60?200%)? ????.</value>
+  <data name="Match Scaling to CharacterInspect (60–200%) before capturing." xml:space="preserve">
+    <value>촬영 전에 배율을 CharacterInspect(60–200%)에 맞추세요.</value>
   </data>
   <data name="Match Scaling to CharacterInspect, then Refresh party to capture a preview." xml:space="preserve">
-    <value>CharacterInspect? ??? ?? ? ??? ?????? ?????.</value>
+    <value>CharacterInspect에 배율을 맞춘 후 파티를 새로고침하여 촬영하세요.</value>
   </data>
   <data name="N" xml:space="preserve">
-    <value>???</value>
+    <value>아니요</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>???</value>
+    <value>아니요</value>
   </data>
   <data name="No automatic party feet refresh is queued." xml:space="preserve">
-    <value>?? ?? ? ????? ???? ?????.</value>
+    <value>자동 파티 발 새로고침이 예약되지 않았습니다.</value>
   </data>
   <data name="No cached BannerParty addon or agent snapshot is available yet." xml:space="preserve">
-    <value>?? BannerParty ??? ?? ???? ???? ????.</value>
+    <value>아직 BannerParty 애드온 또는 에이전트 스냅샷이 없습니다.</value>
   </data>
   <data name="No cached CharacterInspect debug snapshot is available yet." xml:space="preserve">
-    <value>?? CharacterInspect ??? ???? ????.</value>
+    <value>아직 CharacterInspect 디버그 스냅샷이 없습니다.</value>
   </data>
   <data name="No cached portrait debug snapshot is available yet." xml:space="preserve">
-    <value>?? ??? ??? ???? ????.</value>
+    <value>아직 초상화 디버그 스냅샷이 없습니다.</value>
   </data>
   <data name="No eligible image. Faces come from Lodestone; feet need a saved CharacterInspect capture." xml:space="preserve">
-    <value>??? ???? ????. ??? Lodestone??, ?? ??? CharacterInspect ????? ?????.</value>
+    <value>표시할 이미지가 없습니다. 얼굴은 Lodestone에서, 발은 저장된 CharacterInspect 이미지에서 가져옵니다.</value>
   </data>
   <data name="No face exposed" xml:space="preserve">
-    <value>?? ???</value>
+    <value>얼굴 비공개</value>
   </data>
-  <data name="No feet preview yet ? match Scaling, then Refresh party." xml:space="preserve">
-    <value>?? ? ????? ????. ??? ?? ? ??? ???????.</value>
+  <data name="No feet preview yet — match Scaling, then Refresh party." xml:space="preserve">
+    <value>아직 발 미리보기가 없습니다. 배율을 맞춘 후 파티를 새로고침하세요.</value>
   </data>
-  <data name="No feet previews yet ? match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
-    <value>?? ? ????? ????. CharacterInspect? ??? ?? ? ??? ???????.</value>
+  <data name="No feet previews yet — match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
+    <value>아직 발 미리보기가 없습니다. CharacterInspect에 배율을 맞춘 후 파티를 새로고침하세요.</value>
   </data>
   <data name="No image yet." xml:space="preserve">
-    <value>?? ???? ????.</value>
+    <value>아직 이미지가 없습니다.</value>
   </data>
   <data name="No live entity" xml:space="preserve">
-    <value>?? ? ?? ??</value>
+    <value>게임 내 대상 없음</value>
   </data>
   <data name="No live party members are available for an automatic feet refresh." xml:space="preserve">
-    <value>?? ????? ??? ?? ? ???? ????.</value>
+    <value>자동 새로고침이 가능한 게임 내 파티원이 없습니다.</value>
   </data>
   <data name="No local player or party members are available yet, so there is nothing to render in the live showcase." xml:space="preserve">
-    <value>?? ????? ???? ????. ???? ??? ??? ????.</value>
+    <value>아직 플레이어나 파티원이 없습니다. 갤러리에 표시할 내용이 없습니다.</value>
   </data>
   <data name="No local player or party members are available yet." xml:space="preserve">
-    <value>?? ????? ???? ????.</value>
+    <value>아직 플레이어나 파티원이 없습니다.</value>
   </data>
-  <data name="No party members detected ? join or form a party, then Refresh party." xml:space="preserve">
-    <value>???? ????. ??? ???? ??? ? ???????.</value>
+  <data name="No party members detected — join or form a party, then Refresh party." xml:space="preserve">
+    <value>파티원이 없습니다. 파티를 만들거나 참가한 후 새로고침하세요.</value>
   </data>
   <data name="No profile match" xml:space="preserve">
-    <value>??? ??</value>
+    <value>프로필 없음</value>
   </data>
   <data name="Node count: {0}" xml:space="preserve">
-    <value>?? ?: {0}</value>
+    <value>노드 수: {0}</value>
   </data>
   <data name="NodeId" xml:space="preserve">
     <value>NodeId</value>
   </data>
   <data name="Not checked" xml:space="preserve">
-    <value>?? ? ?</value>
+    <value>확인 안 됨</value>
   </data>
   <data name="Note" xml:space="preserve">
-    <value>??</value>
+    <value>참고</value>
   </data>
   <data name="Off" xml:space="preserve">
-    <value>??</value>
+    <value>꺼짐</value>
   </data>
   <data name="On" xml:space="preserve">
-    <value>??</value>
+    <value>켜짐</value>
   </data>
   <data name="Open CharacterInspect and wait for a stable preview before capturing." xml:space="preserve">
-    <value>CharacterInspect? ?? ????? ???? ?????.</value>
+    <value>CharacterInspect를 열고 미리보기가 안정되면 촬영하세요.</value>
   </data>
   <data name="Open main window on load" xml:space="preserve">
-    <value>??? ? ?? ? ??</value>
+    <value>불러올 때 메인 창 열기</value>
   </data>
   <data name="Override Off" xml:space="preserve">
-    <value>??? ??</value>
+    <value>재정의 꺼짐</value>
   </data>
   <data name="Party Portrait Window Research" xml:space="preserve">
-    <value>?? ??? ??</value>
+    <value>파티 초상화 연구</value>
   </data>
   <data name="Party Showcase Model" xml:space="preserve">
-    <value>?? ??? ??</value>
+    <value>파티 갤러리 모델</value>
   </data>
   <data name="Party feet previews, simply." xml:space="preserve">
-    <value>?? ? ????? ????.</value>
+    <value>파티 발 미리보기를 간편하게.</value>
   </data>
   <data name="Party feet refresh: {0}" xml:space="preserve">
-    <value>?? ? ????: {0}</value>
+    <value>파티 발 새로고침: {0}</value>
   </data>
   <data name="Party feet workflow: Ready" xml:space="preserve">
-    <value>? ????: ?? ??</value>
+    <value>발 미리보기: 준비 완료</value>
   </data>
   <data name="Party feet workflow: Refreshing" xml:space="preserve">
-    <value>? ????: ???? ?</value>
+    <value>발 미리보기: 새로고침 중</value>
   </data>
   <data name="Party snapshot, Lodestone lookup and privacy state." xml:space="preserve">
-    <value>?? ???, Lodestone ?? ? ???? ?? ??.</value>
+    <value>파티 스냅샷, Lodestone 조회 및 개인정보 보호 상태.</value>
   </data>
   <data name="Passive" xml:space="preserve">
-    <value>??</value>
+    <value>수동</value>
   </data>
   <data name="Pending capture" xml:space="preserve">
-    <value>?? ??</value>
+    <value>촬영 대기</value>
   </data>
   <data name="Pick Same as character preview window!" xml:space="preserve">
-    <value>??? ???? ?? ?? ??? ?????!</value>
+    <value>캐릭터 미리보기 창과 같은 배율을 선택하세요!</value>
   </data>
   <data name="Pick the Scaling to match the window, and click refresh party when ready" xml:space="preserve">
-    <value>?? ??? ?? ? ??? ???????.</value>
+    <value>창에 배율을 맞춘 후 파티를 새로고침하세요.</value>
   </data>
   <data name="Pink" xml:space="preserve">
-    <value>???</value>
+    <value>분홍색</value>
   </data>
   <data name="Plugin enabled" xml:space="preserve">
-    <value>???? ???</value>
+    <value>플러그인 활성화</value>
   </data>
   <data name="Portrait write-path research" xml:space="preserve">
-    <value>??? ?? ?? ??</value>
+    <value>초상화 쓰기 경로 연구</value>
   </data>
   <data name="Pos" xml:space="preserve">
-    <value>??</value>
+    <value>위치</value>
   </data>
   <data name="Pose" xml:space="preserve">
-    <value>??</value>
+    <value>자세</value>
   </data>
   <data name="Pose preset: {0}" xml:space="preserve">
-    <value>?? ??: {0}</value>
+    <value>자세 설정: {0}</value>
   </data>
   <data name="Preview bounds" xml:space="preserve">
-    <value>???? ??</value>
+    <value>미리보기 범위</value>
   </data>
   <data name="Preview captured" xml:space="preserve">
-    <value>???? ???</value>
+    <value>미리보기 저장됨</value>
   </data>
   <data name="Preview character" xml:space="preserve">
-    <value>???? ???</value>
+    <value>미리보기 캐릭터</value>
   </data>
   <data name="Preview component" xml:space="preserve">
-    <value>???? ?? ??</value>
+    <value>미리보기 구성 요소</value>
   </data>
   <data name="Preview draw object" xml:space="preserve">
-    <value>???? ??? ??</value>
+    <value>미리보기 렌더링 객체</value>
   </data>
   <data name="Preview draw position" xml:space="preserve">
-    <value>???? ??? ??</value>
+    <value>미리보기 렌더링 위치</value>
   </data>
   <data name="Preview draw rotation" xml:space="preserve">
-    <value>???? ??? ??</value>
+    <value>미리보기 렌더링 회전</value>
   </data>
   <data name="Preview game position" xml:space="preserve">
-    <value>???? ?? ? ??</value>
+    <value>미리보기 게임 내 위치</value>
   </data>
   <data name="Preview game rotation" xml:space="preserve">
-    <value>???? ?? ? ??</value>
+    <value>미리보기 게임 내 회전</value>
   </data>
   <data name="Preview node" xml:space="preserve">
-    <value>???? ??</value>
+    <value>미리보기 노드</value>
   </data>
   <data name="Preview node scale" xml:space="preserve">
-    <value>???? ?? ??</value>
+    <value>미리보기 노드 배율</value>
   </data>
   <data name="Preview scaling" xml:space="preserve">
-    <value>???? ??</value>
+    <value>미리보기 배율</value>
   </data>
   <data name="Preview scaling fallback" xml:space="preserve">
-    <value>???? ?? ??</value>
+    <value>미리보기 대체 배율</value>
   </data>
   <data name="Preview scaling: {0}%" xml:space="preserve">
-    <value>???? ??: {0}%</value>
+    <value>미리보기 배율: {0}%</value>
   </data>
   <data name="Preview snip: {0}" xml:space="preserve">
-    <value>???? ???: {0}</value>
+    <value>미리보기 자르기: {0}</value>
   </data>
   <data name="Preview visible" xml:space="preserve">
-    <value>???? ??</value>
+    <value>미리보기 표시</value>
   </data>
   <data name="Preview-only barefoot multi-seam apply path when Without footwear is enabled" xml:space="preserve">
-    <value>?? ??? ?????? ??</value>
+    <value>신발 제거는 미리보기에만 적용</value>
   </data>
   <data name="Privacy is always on. /footballer debug exposes the session-only override." xml:space="preserve">
-    <value>???? ??? ?? ?? ????. /footballer debug? ?? ??? ?? ??? ?????.</value>
+    <value>개인정보 보호는 항상 켜져 있습니다. /footballer debug로 이번 세션의 예외 설정을 표시합니다.</value>
   </data>
   <data name="Profile" xml:space="preserve">
-    <value>???</value>
+    <value>프로필</value>
   </data>
   <data name="Queued automatic party feet refresh for {0} member(s)." xml:space="preserve">
-    <value>??? {0}?? ?? ????? ??????.</value>
+    <value>파티원 {0}명의 자동 새로고침을 예약했습니다.</value>
   </data>
   <data name="Rail" xml:space="preserve">
-    <value>??</value>
+    <value>레일</value>
   </data>
   <data name="Raw scene camera" xml:space="preserve">
-    <value>?? ?? ???</value>
+    <value>원시 장면 카메라</value>
   </data>
   <data name="Read-Only Active Row Payload" xml:space="preserve">
-    <value>?? ? ??? (?? ??)</value>
+    <value>활성 행 데이터 (읽기 전용)</value>
   </data>
   <data name="Refresh Inspect Debug" xml:space="preserve">
-    <value>???? ??? ????</value>
+    <value>살펴보기 디버그 새로고침</value>
   </data>
   <data name="Refresh Inspect Debug to populate the snapshot and report." xml:space="preserve">
-    <value>???? ???? ?????? ???? ???? ????.</value>
+    <value>살펴보기 디버그를 새로고침하여 스냅샷과 보고서를 채우세요.</value>
   </data>
   <data name="Refresh Lodestone" xml:space="preserve">
-    <value>Lodestone ????</value>
+    <value>Lodestone 새로고침</value>
   </data>
   <data name="Refresh Lodestone lookup state and confirm face thumbnails can appear on the showcase cards" xml:space="preserve">
-    <value>Lodestone ???? ? ?? ??? ??</value>
+    <value>Lodestone 새로고침 및 얼굴 썸네일 확인</value>
   </data>
   <data name="Refresh Portrait Debug" xml:space="preserve">
-    <value>??? ??? ????</value>
+    <value>초상화 디버그 새로고침</value>
   </data>
   <data name="Refresh Portrait Debug to populate the snapshot and report." xml:space="preserve">
-    <value>??? ???? ?????? ???? ???? ????.</value>
+    <value>초상화 디버그를 새로고침하여 스냅샷과 보고서를 채우세요.</value>
   </data>
   <data name="Refresh party" xml:space="preserve">
-    <value>?? ????</value>
+    <value>파티 새로고침</value>
   </data>
   <data name="Refreshing" xml:space="preserve">
-    <value>???? ?</value>
+    <value>새로고침 중</value>
   </data>
   <data name="Refreshing feet preview for {0} ({1}/{2}). Requested CharacterInspect." xml:space="preserve">
-    <value>{0} ? ???? ?? ? ({1}/{2}). CharacterInspect ???.</value>
+    <value>{0} 발 미리보기 갱신 중 ({1}/{2}). CharacterInspect 요청됨.</value>
   </data>
   <data name="Refreshing..." xml:space="preserve">
-    <value>???? ??</value>
+    <value>새로고침 중…</value>
   </data>
   <data name="Replace party portrait window pictures" xml:space="preserve">
-    <value>?? ??? ??</value>
+    <value>파티 초상화 교체</value>
   </data>
   <data name="Replace party portrait window pictures: {0}" xml:space="preserve">
-    <value>?? ??? ??: {0}</value>
+    <value>파티 초상화 교체: {0}</value>
   </data>
   <data name="Requested entity" xml:space="preserve">
-    <value>??? ??</value>
+    <value>요청한 대상</value>
   </data>
   <data name="Research Notes" xml:space="preserve">
-    <value>?? ??</value>
+    <value>연구 메모</value>
   </data>
   <data name="Reset snip profile" xml:space="preserve">
-    <value>??? ?? ???</value>
+    <value>자르기 설정 초기화</value>
   </data>
   <data name="Retest Focus" xml:space="preserve">
-    <value>??? ??</value>
+    <value>재확인 항목</value>
   </data>
   <data name="Retry" xml:space="preserve">
-    <value>???</value>
+    <value>재시도</value>
   </data>
   <data name="Role" xml:space="preserve">
-    <value>??</value>
+    <value>역할</value>
   </data>
   <data name="Rollout Phases" xml:space="preserve">
-    <value>?? ??</value>
+    <value>도입 단계</value>
   </data>
   <data name="Row" xml:space="preserve">
-    <value>?</value>
+    <value>행</value>
   </data>
   <data name="Saved globally for future targets." xml:space="preserve">
-    <value>?? ???? ????? ???????.</value>
+    <value>이후 대상에도 적용하도록 저장되었습니다.</value>
   </data>
   <data name="Scaling" xml:space="preserve">
-    <value>??</value>
+    <value>배율</value>
   </data>
   <data name="Scaling 100%" xml:space="preserve">
-    <value>?? 100%</value>
+    <value>배율 100%</value>
   </data>
   <data name="Scene camera manager" xml:space="preserve">
-    <value>?? ??? ???</value>
+    <value>장면 카메라 관리자</value>
   </data>
   <data name="Scene manager index" xml:space="preserve">
-    <value>?? ??? ???</value>
+    <value>장면 관리자 인덱스</value>
   </data>
   <data name="Scroll down to &quot;The Dumpster Fire&quot; channel to discuss issues / suggestions for specific plugins." xml:space="preserve">
-    <value>???? ??? ??? ?The Dumpster Fire? ???? ??????.</value>
+    <value>플러그인 문제와 제안은 «The Dumpster Fire» 채널에서 이야기하세요.</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>??</value>
+    <value>검색</value>
   </data>
   <data name="Self hidden" xml:space="preserve">
-    <value>? ? ??</value>
+    <value>내 발 숨김</value>
   </data>
   <data name="Session debug controls are visible. Privacy override is experimental." xml:space="preserve">
-    <value>?? ??? ??? ?????. ???? ?? ??? ?? ?????.</value>
+    <value>세션 디버그 설정이 표시됩니다. 개인정보 보호 예외는 실험 기능입니다.</value>
   </data>
   <data name="Session debug mode is active. Hidden research surfaces are visible below." xml:space="preserve">
-    <value>?? ??? ?????. ??? ?? ??? ?????.</value>
+    <value>세션 디버그 모드입니다. 아래에 연구 도구가 표시됩니다.</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>??</value>
+    <value>설정</value>
   </data>
   <data name="Shell and docs" xml:space="preserve">
-    <value>?? ?? ? ??</value>
+    <value>기본 기능 및 문서</value>
   </data>
   <data name="Show DTR bar entry" xml:space="preserve">
-    <value>DTR ?? ??</value>
+    <value>DTR 항목 표시</value>
   </data>
   <data name="Show face next to feet" xml:space="preserve">
-    <value>? ?? ?? ??</value>
+    <value>발 옆에 얼굴 표시</value>
   </data>
   <data name="Show face next to feet: {0}" xml:space="preserve">
-    <value>? ?? ?? ??: {0}</value>
+    <value>발 옆에 얼굴 표시: {0}</value>
   </data>
   <data name="Show female feet" xml:space="preserve">
-    <value>?? ? ??</value>
+    <value>여성 발 표시</value>
   </data>
   <data name="Show female feet: {0}" xml:space="preserve">
-    <value>?? ? ??: {0}</value>
+    <value>여성 발 표시: {0}</value>
   </data>
   <data name="Show male feet" xml:space="preserve">
-    <value>?? ? ??</value>
+    <value>남성 발 표시</value>
   </data>
   <data name="Show male feet: {0}" xml:space="preserve">
-    <value>?? ? ??: {0}</value>
+    <value>남성 발 표시: {0}</value>
   </data>
   <data name="Show own feet" xml:space="preserve">
-    <value>? ? ??</value>
+    <value>내 발 표시</value>
   </data>
   <data name="Show own feet: {0}" xml:space="preserve">
-    <value>? ? ??: {0}</value>
+    <value>내 발 표시: {0}</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>??</value>
+    <value>크기</value>
   </data>
   <data name="Slider" xml:space="preserve">
-    <value>????</value>
+    <value>슬라이더</value>
   </data>
   <data name="Slot" xml:space="preserve">
-    <value>??</value>
+    <value>슬롯</value>
   </data>
   <data name="Snapshot captured" xml:space="preserve">
-    <value>??? ???</value>
+    <value>스냅샷 촬영됨</value>
   </data>
   <data name="Snip action" xml:space="preserve">
-    <value>??? ??</value>
+    <value>자르기 작업</value>
   </data>
   <data name="Snip bottom trim %" xml:space="preserve">
-    <value>??? ??? %</value>
+    <value>아래쪽 자르기 %</value>
   </data>
   <data name="Snip rect" xml:space="preserve">
-    <value>??? ??</value>
+    <value>자르기 영역</value>
   </data>
   <data name="Snip top trim %" xml:space="preserve">
-    <value>?? ??? %</value>
+    <value>위쪽 자르기 %</value>
   </data>
   <data name="Standard /footballer, /foot, /footballer ws, and /footballer j shell controls" xml:space="preserve">
-    <value>/footballer, /foot, /footballer ws ? /footballer j ??</value>
+    <value>/footballer, /foot, /footballer ws 및 /footballer j 명령</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>??</value>
+    <value>상태</value>
   </data>
   <data name="State / Pose" xml:space="preserve">
-    <value>?? / ??</value>
+    <value>상태 / 자세</value>
   </data>
   <data name="State {0} | Pose {1} | CJ {2}" xml:space="preserve">
-    <value>?? {0} | ?? {1} | CJ {2}</value>
+    <value>상태 {0} | 자세 {1} | CJ {2}</value>
   </data>
   <data name="Stored Display Defaults" xml:space="preserve">
-    <value>??? ?? ???</value>
+    <value>저장된 표시 기본값</value>
   </data>
   <data name="Stored crop defaults: 65% top / 20% bottom." xml:space="preserve">
-    <value>?? ???: ? 65% / ?? 20%.</value>
+    <value>기본 자르기: 위 65% / 아래 20%.</value>
   </data>
   <data name="Stored privacy/default configuration values" xml:space="preserve">
-    <value>???? ?? ? ??? ??</value>
+    <value>개인정보 보호 및 기본값 저장</value>
   </data>
   <data name="Stored snip profile" xml:space="preserve">
-    <value>??? ??? ??</value>
+    <value>저장된 자르기 설정</value>
   </data>
   <data name="Teal" xml:space="preserve">
-    <value>???</value>
+    <value>청록색</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>???</value>
+    <value>텍스트</value>
   </data>
   <data name="Text only" xml:space="preserve">
-    <value>????</value>
+    <value>텍스트만</value>
   </data>
   <data name="The foot showcase toggle is currently off." xml:space="preserve">
-    <value>? ???? ?? ????.</value>
+    <value>발 갤러리가 꺼져 있습니다.</value>
   </data>
   <data name="This member is not available for inspection in the current game scene." xml:space="preserve">
-    <value>?? ?? ???? ? ???? ??? ? ????.</value>
+    <value>현재 게임 장면에서 이 파티원을 살펴볼 수 없습니다.</value>
   </data>
   <data name="Timed out while refreshing {0}." xml:space="preserve">
-    <value>{0} ???? ??? ???????.</value>
+    <value>{0} 새로고침 시간이 초과되었습니다.</value>
   </data>
   <data name="Toggle male/female/self/showcase/face settings and confirm the live showcase cards respond immediately" xml:space="preserve">
-    <value>??/? ?/???/?? ??? ?? ?? ??</value>
+    <value>성별/내 발/갤러리/얼굴 설정의 즉시 반영 확인</value>
   </data>
   <data name="Treat portrait-window replacement and the showcase window as explicit experiments with safe toggles and hidden debug surfaces." xml:space="preserve">
-    <value>??? ??? ???? ?? ? ??? ???? ?? ?? ?????.</value>
+    <value>초상화 교체와 갤러리는 설정 및 숨겨진 디버그가 있는 실험 기능입니다.</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>??</value>
+    <value>종류</value>
   </data>
   <data name="Type /footballer debug and confirm the hidden inspect and BannerParty research surfaces appear" xml:space="preserve">
-    <value>/footballer debug? ???? ? BannerParty ?? ??</value>
+    <value>/footballer debug로 살펴보기 및 BannerParty 도구 표시</value>
   </data>
   <data name="UI fonts failed to load. See the plugin log." xml:space="preserve">
-    <value>??? ???? ?????. ???? ??? ?????.</value>
+    <value>글꼴을 불러오지 못했습니다. 플러그인 로그를 확인하세요.</value>
   </data>
   <data name="Un-Krangle" xml:space="preserve">
-    <value>?? ??</value>
+    <value>원래 이름</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>? ? ??</value>
+    <value>알 수 없음</value>
   </data>
   <data name="Updated the feet preview for {0} ({1}/{2})." xml:space="preserve">
-    <value>{0}? ? ???? ??? ({1}/{2}).</value>
+    <value>{0}의 발 미리보기 갱신됨 ({1}/{2}).</value>
   </data>
   <data name="Use /foot ws and /foot j" xml:space="preserve">
-    <value>/foot ws ? /foot j ??</value>
+    <value>/foot ws 및 /foot j 사용</value>
   </data>
   <data name="Use Capture Current Preview and confirm the saved CharacterInspect image lands on the matching showcase card" xml:space="preserve">
-    <value>?? ???? ?? ? ?? ? ?? ??</value>
+    <value>현재 미리보기 촬영 및 해당 발 카드 확인</value>
   </data>
   <data name="Use Inspect on a party row or showcase card and confirm CharacterInspect opens for that member" xml:space="preserve">
-    <value>?/?? ????? ?? ??? CharacterInspect? ??? ??</value>
+    <value>행/카드 살펴보기가 해당 멤버의 CharacterInspect를 여는지 확인</value>
   </data>
   <data name="Use Inspect, wait for a stable preview, then Capture Current Preview. Refresh party captures each member after a two-second hold." xml:space="preserve">
-    <value>????? ?? ????? ???? ?????. ?? ????? ? ???? 2? ?? ? ?????.</value>
+    <value>살펴보기를 열고 미리보기가 안정되면 촬영하세요. 파티 새로고침은 각 파티원을 2초 대기 후 촬영합니다.</value>
   </data>
   <data name="Use Refresh party and confirm the plugin walks the live party snapshot and refreshes feet captures sequentially" xml:space="preserve">
-    <value>?? ???? ? ?? ? ?? ??</value>
+    <value>파티 새로고침 및 순차 발 촬영 확인</value>
   </data>
   <data name="Use live CharacterInspect preview capture plus a queued preset inspect yaw and a preview-only multi-seam feet clear and redraw path for the current direct character-derived branch, then defer true foot-only crop/export until that path stays stable." xml:space="preserve">
-    <value>CharacterInspect? ??? ?? ??? ???? ?? ???? ??? ??? ? ?????.</value>
+    <value>CharacterInspect의 자세와 신발 제거를 사용하며 발만 내보내는 기능은 안정화 후 연구합니다.</value>
   </data>
   <data name="Use the TTSL Lodestone face approach as the likely path for adjacent identity visuals." xml:space="preserve">
-    <value>?? ?? ????? TTSL? Lodestone ??? ?????.</value>
+    <value>관련 인물 이미지에는 TTSL의 Lodestone 방식을 검토합니다.</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>?</value>
+    <value>값</value>
   </data>
   <data name="Verify the hidden privacy override only appears after /footballer debug" xml:space="preserve">
-    <value>???? ?? ??? /footballer debug ??? ??</value>
+    <value>개인정보 보호 예외는 /footballer debug 후에만 표시</value>
   </data>
   <data name="Visible" xml:space="preserve">
-    <value>??</value>
+    <value>표시</value>
   </data>
   <data name="Waiting for AgentInspect before refreshing {0} ({1}/{2})." xml:space="preserve">
-    <value>{0}? AgentInspect ?? ? ({1}/{2}).</value>
+    <value>{0}의 AgentInspect 대기 중 ({1}/{2}).</value>
   </data>
   <data name="Waiting for AgentInspect before starting {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ?? ? AgentInspect ?? ? ({1}/{2}).</value>
+    <value>{0} 시작 전 AgentInspect 대기 중 ({1}/{2}).</value>
   </data>
   <data name="Waiting for CharacterInspect to switch to {0} ({1}/{2})." xml:space="preserve">
-    <value>CharacterInspect? {0}?? ????? ?? ? ({1}/{2}).</value>
+    <value>CharacterInspect가 {0}으로 전환되기를 대기 중 ({1}/{2}).</value>
   </data>
   <data name="Waiting for the Lodestone privacy check. Use Refresh Lodestone to retry." xml:space="preserve">
-    <value>Lodestone ???? ?? ?? ????. Lodestone? ?????? ?? ?????.</value>
+    <value>Lodestone 개인정보 확인 대기 중입니다. Lodestone을 새로고침하여 다시 시도하세요.</value>
   </data>
   <data name="Waiting for the barefoot preview apply path on {0} ({1}/{2})." xml:space="preserve">
-    <value>{0}? ?? ?? ?? ? ({1}/{2}).</value>
+    <value>{0}의 신발 제거 대기 중 ({1}/{2}).</value>
   </data>
   <data name="Waiting for the inspect preview to become capture-ready for {0} ({1}/{2})." xml:space="preserve">
-    <value>{0}? ???? ?? ?? ?? ? ({1}/{2}).</value>
+    <value>{0}의 미리보기 촬영 준비 대기 중 ({1}/{2}).</value>
   </data>
   <data name="Waiting for the preset inspect pose on {0} ({1}/{2})." xml:space="preserve">
-    <value>{0}? ?? ?? ?? ? ({1}/{2}).</value>
+    <value>{0}의 설정 자세 대기 중 ({1}/{2}).</value>
   </data>
   <data name="Window Behavior" xml:space="preserve">
-    <value>? ??</value>
+    <value>창 동작</value>
   </data>
   <data name="Without footwear" xml:space="preserve">
-    <value>?? ??</value>
+    <value>신발 제거</value>
   </data>
   <data name="Without footwear removes shoes in the inspect preview only. Refresh party to save new previews." xml:space="preserve">
-    <value>?? ??? ???? ?????? ?????. ??? ?????? ? ???? ?????.</value>
+    <value>신발 제거는 살펴보기 미리보기에만 적용됩니다. 파티를 새로고침하여 새 이미지를 저장하세요.</value>
   </data>
   <data name="Without footwear: {0}" xml:space="preserve">
-    <value>?? ??: {0}</value>
+    <value>신발 제거: {0}</value>
   </data>
   <data name="World" xml:space="preserve">
-    <value>??</value>
+    <value>서버</value>
   </data>
   <data name="Y" xml:space="preserve">
-    <value>?</value>
+    <value>예</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>?</value>
+    <value>예</value>
   </data>
   <data name="Zoom ratio" xml:space="preserve">
-    <value>?? ??</value>
+    <value>확대 비율</value>
   </data>
   <data name="{0:P0} top / {1:P0} bottom" xml:space="preserve">
-    <value>? {0:P0} / ?? {1:P0}</value>
+    <value>위 {0:P0} / 아래 {1:P0}</value>
   </data>
   <data name="{0} (You)" xml:space="preserve">
-    <value>{0} (?)</value>
+    <value>{0} (나)</value>
   </data>
-  <data name="{0} previews available ? {1} hidden by privacy" xml:space="preserve">
-    <value>???? {0}? ? ???? ??? ?? {1}?</value>
+  <data name="{0} previews available · {1} hidden by privacy" xml:space="preserve">
+    <value>미리보기 {0}개 · 개인정보 보호로 숨김 {1}개</value>
   </data>
   <data name="{0} {1}. Click to toggle." xml:space="preserve">
-    <value>{0} {1}. ???? ??.</value>
+    <value>{0} {1}. 클릭하여 전환.</value>
+  </data>
+  <data name="Compact mode" xml:space="preserve">
+    <value>컴팩트 모드</value>
   </data>
 </root>

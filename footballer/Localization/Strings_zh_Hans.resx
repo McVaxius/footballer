@@ -7,1002 +7,1005 @@
     <value>2.0</value>
   </resheader>
   <data name="Active Services" xml:space="preserve">
-    <value>??????</value>
+    <value>运行中的服务</value>
   </data>
   <data name="Active camera" xml:space="preserve">
-    <value>????</value>
+    <value>活动相机</value>
   </data>
   <data name="Active row heuristic: none yet" xml:space="preserve">
-    <value>?????????</value>
+    <value>推测的活动行：暂无</value>
   </data>
   <data name="Active row heuristic: {0} ({1})" xml:space="preserve">
-    <value>???????{0}?{1}?</value>
+    <value>推测的活动行：{0}（{1}）</value>
   </data>
   <data name="Addon" xml:space="preserve">
-    <value>????</value>
+    <value>插件窗口</value>
   </data>
   <data name="Addon address" xml:space="preserve">
-    <value>??????</value>
+    <value>插件窗口地址</value>
   </data>
   <data name="Addon address: {0}" xml:space="preserve">
-    <value>??????: {0}</value>
+    <value>插件窗口地址: {0}</value>
   </data>
   <data name="Addon position" xml:space="preserve">
-    <value>??????</value>
+    <value>插件窗口位置</value>
   </data>
   <data name="Addon visible" xml:space="preserve">
-    <value>??????</value>
+    <value>插件窗口可见</value>
   </data>
   <data name="Addr" xml:space="preserve">
-    <value>??</value>
+    <value>地址</value>
   </data>
   <data name="Agent" xml:space="preserve">
-    <value>??</value>
+    <value>代理</value>
   </data>
   <data name="Agent Row" xml:space="preserve">
-    <value>???</value>
+    <value>代理行</value>
   </data>
   <data name="Agent address" xml:space="preserve">
-    <value>????</value>
+    <value>代理地址</value>
   </data>
   <data name="Agent address: {0}" xml:space="preserve">
-    <value>????: {0}</value>
+    <value>代理地址: {0}</value>
   </data>
   <data name="Agent available" xml:space="preserve">
-    <value>????</value>
+    <value>代理可用</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>??</value>
+    <value>允许</value>
   </data>
   <data name="Ambient light brightness" xml:space="preserve">
-    <value>?????</value>
+    <value>环境光亮度</value>
   </data>
   <data name="Ambient light color" xml:space="preserve">
-    <value>?????</value>
+    <value>环境光颜色</value>
   </data>
   <data name="Animation progress" xml:space="preserve">
-    <value>????</value>
+    <value>动画进度</value>
   </data>
   <data name="Auto refresh party on showcase open" xml:space="preserve">
-    <value>?????</value>
+    <value>打开时刷新</value>
   </data>
   <data name="Auto refresh party on showcase open: {0}" xml:space="preserve">
-    <value>?????: {0}</value>
+    <value>打开时刷新: {0}</value>
   </data>
   <data name="Automatic party feet recapture queue from Refresh party" xml:space="preserve">
-    <value>????????????</value>
+    <value>刷新小队时的自动截图队列</value>
   </data>
   <data name="Automatic party feet refresh finished. Captured {0}/{1} member(s){2}." xml:space="preserve">
-    <value>?????????? {0}/{1} ???{2}?</value>
+    <value>自动刷新完成。已截图 {0}/{1} 位成员{2}。</value>
   </data>
   <data name="Automatically refresh party once when showcase opens" xml:space="preserve">
-    <value>???????????</value>
+    <value>打开展示时刷新一次小队</value>
   </data>
   <data name="Banner background" xml:space="preserve">
-    <value>????</value>
+    <value>横幅背景</value>
   </data>
   <data name="Banner timeline" xml:space="preserve">
-    <value>?????</value>
+    <value>横幅时间线</value>
   </data>
   <data name="BannerParty read-only research" xml:space="preserve">
-    <value>BannerParty ????</value>
+    <value>BannerParty 只读研究</value>
   </data>
   <data name="Barefoot apply: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>移除鞋子：{0}</value>
   </data>
   <data name="Base" xml:space="preserve">
-    <value>??</value>
+    <value>基础</value>
   </data>
   <data name="Base / Slider" xml:space="preserve">
-    <value>?? / ??</value>
+    <value>基础 / 滑块</value>
   </data>
   <data name="Blue" xml:space="preserve">
-    <value>??</value>
+    <value>蓝色</value>
   </data>
   <data name="Buddy inspect" xml:space="preserve">
-    <value>????</value>
+    <value>伙伴查看</value>
   </data>
   <data name="Bypassed" xml:space="preserve">
-    <value>???</value>
+    <value>已绕过</value>
   </data>
   <data name="CID" xml:space="preserve">
     <value>CID</value>
   </data>
   <data name="COPY INSPECT REPORT" xml:space="preserve">
-    <value>????????</value>
+    <value>复制装备查看报告</value>
   </data>
   <data name="COPY TEST REPORT" xml:space="preserve">
-    <value>??????</value>
+    <value>复制测试报告</value>
   </data>
   <data name="Cached Lodestone search/profile lookup state with local face thumbnails" xml:space="preserve">
-    <value>??? Lodestone ??????????</value>
+    <value>缓存的 Lodestone 查询与本地面部缩略图</value>
   </data>
   <data name="Callback base id" xml:space="preserve">
-    <value>???? ID</value>
+    <value>回调基础 ID</value>
   </data>
   <data name="Camera FoV" xml:space="preserve">
-    <value>????</value>
+    <value>相机视野</value>
   </data>
   <data name="Camera distance" xml:space="preserve">
-    <value>????</value>
+    <value>相机距离</value>
   </data>
   <data name="Camera look-at" xml:space="preserve">
-    <value>?????</value>
+    <value>相机注视点</value>
   </data>
   <data name="Camera position" xml:space="preserve">
-    <value>????</value>
+    <value>相机位置</value>
   </data>
   <data name="Camera status" xml:space="preserve">
-    <value>????</value>
+    <value>相机状态</value>
   </data>
   <data name="Camera target" xml:space="preserve">
-    <value>????</value>
+    <value>相机目标</value>
   </data>
   <data name="Camera zoom" xml:space="preserve">
-    <value>????</value>
+    <value>相机缩放</value>
   </data>
   <data name="Capture Current Preview" xml:space="preserve">
-    <value>??????</value>
+    <value>保存当前预览</value>
   </data>
   <data name="Capture Folder" xml:space="preserve">
-    <value>?????</value>
+    <value>截图文件夹</value>
   </data>
   <data name="Capture failed for {0}: {1}" xml:space="preserve">
-    <value>{0} ?????{1}</value>
+    <value>{0} 截图失败：{1}</value>
   </data>
   <data name="Capture ready" xml:space="preserve">
-    <value>???</value>
+    <value>可截图</value>
   </data>
   <data name="Capture status" xml:space="preserve">
-    <value>????</value>
+    <value>截图状态</value>
   </data>
   <data name="CharaView state" xml:space="preserve">
-    <value>CharaView ??</value>
+    <value>CharaView 状态</value>
   </data>
   <data name="Character" xml:space="preserve">
-    <value>??</value>
+    <value>角色</value>
   </data>
   <data name="Character Inspect Research" xml:space="preserve">
-    <value>????????</value>
+    <value>角色装备查看研究</value>
   </data>
   <data name="Character count: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>角色数量：{0}</value>
   </data>
   <data name="CharacterInspect Capture State" xml:space="preserve">
-    <value>CharacterInspect ????</value>
+    <value>CharacterInspect 截图状态</value>
   </data>
   <data name="CharacterInspect is still settling on {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ? CharacterInspect ?????{1}/{2}??</value>
+    <value>{0} 的 CharacterInspect 正在稳定（{1}/{2}）。</value>
   </data>
   <data name="Check DTR toggle behavior and party snapshot population" xml:space="preserve">
-    <value>?? DTR ???????</value>
+    <value>检查 DTR 切换与小队数据</value>
   </data>
   <data name="Choose which party previews to show. Lodestone privacy is respected in normal use." xml:space="preserve">
-    <value>??????????????????? Lodestone ???</value>
+    <value>选择要显示的小队预览。正常使用时会尊重 Lodestone 隐私。</value>
   </data>
   <data name="Client object" xml:space="preserve">
-    <value>?????</value>
+    <value>客户端对象</value>
   </data>
   <data name="Collision node" xml:space="preserve">
-    <value>????</value>
+    <value>碰撞节点</value>
   </data>
   <data name="Color" xml:space="preserve">
-    <value>??</value>
+    <value>颜色</value>
   </data>
   <data name="Configured portrait replacement toggle: {0}" xml:space="preserve">
-    <value>???????{0}</value>
+    <value>肖像替换设置：{0}</value>
   </data>
   <data name="Confirm the inspect preview rotates to the stored side-angle pose before capture" xml:space="preserve">
-    <value>??????????????</value>
+    <value>确认截图前使用保存的侧面姿势</value>
   </data>
   <data name="Copy a report before and after changing the selected portrait." xml:space="preserve">
-    <value>???????????????</value>
+    <value>更改所选肖像前后分别复制报告。</value>
   </data>
   <data name="Copy the report after the preview is stable." xml:space="preserve">
-    <value>??????????</value>
+    <value>预览稳定后复制报告。</value>
   </data>
   <data name="Current Defaults" xml:space="preserve">
-    <value>?????</value>
+    <value>当前默认值</value>
   </data>
   <data name="Current entity" xml:space="preserve">
-    <value>????</value>
+    <value>当前实体</value>
   </data>
   <data name="Current party showcase data model with real or krangled labels from a saved toggle" xml:space="preserve">
-    <value>??????????????</value>
+    <value>使用真实或混淆姓名的小队数据</value>
   </data>
   <data name="Custom RGB" xml:space="preserve">
-    <value>??? RGB</value>
+    <value>自定义 RGB</value>
   </data>
   <data name="DTR disabled glyph" xml:space="preserve">
-    <value>DTR ????</value>
+    <value>DTR 禁用图标</value>
   </data>
   <data name="DTR enabled glyph" xml:space="preserve">
-    <value>DTR ????</value>
+    <value>DTR 启用图标</value>
   </data>
   <data name="DTR mode" xml:space="preserve">
-    <value>DTR ??</value>
+    <value>DTR 模式</value>
   </data>
   <data name="Debug snapshots refresh on demand." xml:space="preserve">
-    <value>?????????</value>
+    <value>调试快照按需刷新。</value>
   </data>
   <data name="Debug: Respect Lodestone privacy" xml:space="preserve">
-    <value>????? Lodestone ??</value>
+    <value>调试：尊重 Lodestone 隐私</value>
   </data>
   <data name="Default: Krangle labels" xml:space="preserve">
-    <value>???????</value>
+    <value>默认：混淆姓名</value>
   </data>
   <data name="Default: Replace party portrait window pictures" xml:space="preserve">
-    <value>?????????</value>
+    <value>默认：替换小队肖像</value>
   </data>
   <data name="Default: Show face next to feet" xml:space="preserve">
-    <value>???????????</value>
+    <value>默认：在足部旁显示面部</value>
   </data>
   <data name="Default: Show female feet" xml:space="preserve">
-    <value>?????????</value>
+    <value>默认：显示女性足部</value>
   </data>
   <data name="Default: Show foot showcase" xml:space="preserve">
-    <value>???????</value>
+    <value>默认：足部展示</value>
   </data>
   <data name="Default: Show male feet" xml:space="preserve">
-    <value>?????????</value>
+    <value>默认：显示男性足部</value>
   </data>
   <data name="Default: Show own feet" xml:space="preserve">
-    <value>?????????</value>
+    <value>默认：显示自身足部</value>
   </data>
   <data name="Default: Without footwear" xml:space="preserve">
-    <value>???????</value>
+    <value>默认：移除鞋子</value>
   </data>
   <data name="Derived yaw / pitch" xml:space="preserve">
-    <value>????????</value>
+    <value>计算的偏航／俯仰</value>
   </data>
   <data name="Direct CharacterInspect foot-capture research" xml:space="preserve">
-    <value>CharacterInspect ??????</value>
+    <value>CharacterInspect 足部截图研究</value>
   </data>
   <data name="Directional light angles" xml:space="preserve">
-    <value>?????</value>
+    <value>定向光角度</value>
   </data>
   <data name="Directional light brightness" xml:space="preserve">
-    <value>?????</value>
+    <value>定向光亮度</value>
   </data>
   <data name="Directional light color" xml:space="preserve">
-    <value>?????</value>
+    <value>定向光颜色</value>
   </data>
   <data name="Discord" xml:space="preserve">
     <value>Discord</value>
   </data>
   <data name="Enable Without footwear and confirm Inspect clears the preview feet slot before capture" xml:space="preserve">
-    <value>??????????????????</value>
+    <value>开启移除鞋子并确认截图前清空预览鞋槽</value>
   </data>
   <data name="Enabled" xml:space="preserve">
-    <value>???</value>
+    <value>已启用</value>
   </data>
   <data name="Evt" xml:space="preserve">
-    <value>??</value>
+    <value>事件</value>
   </data>
   <data name="Evt / Flags" xml:space="preserve">
-    <value>?? / ??</value>
+    <value>事件 / 标志</value>
   </data>
   <data name="Expression" xml:space="preserve">
-    <value>??</value>
+    <value>表情</value>
   </data>
   <data name="Eye direction" xml:space="preserve">
-    <value>????</value>
+    <value>视线方向</value>
   </data>
   <data name="Face" xml:space="preserve">
-    <value>??</value>
+    <value>面部</value>
   </data>
-  <data name="Face unavailable ? feet hidden" xml:space="preserve">
-    <value>?????? ? ?????</value>
+  <data name="Face unavailable — feet hidden" xml:space="preserve">
+    <value>无法获取面部 — 已隐藏足部</value>
   </data>
   <data name="Face visible" xml:space="preserve">
-    <value>????</value>
+    <value>面部可见</value>
   </data>
   <data name="Feet" xml:space="preserve">
-    <value>??</value>
+    <value>足部</value>
   </data>
   <data name="Feet are hidden when Lodestone does not expose a face." xml:space="preserve">
-    <value>Lodestone ????????????</value>
+    <value>Lodestone 未公开面部时会隐藏足部。</value>
   </data>
   <data name="Feet preview" xml:space="preserve">
-    <value>????</value>
+    <value>足部预览</value>
   </data>
   <data name="Feet: {0}" xml:space="preserve">
-    <value>???{0}</value>
+    <value>足部：{0}</value>
   </data>
   <data name="Fetch status" xml:space="preserve">
-    <value>????</value>
+    <value>获取状态</value>
   </data>
   <data name="Field" xml:space="preserve">
-    <value>??</value>
+    <value>字段</value>
   </data>
   <data name="Filtered" xml:space="preserve">
-    <value>???</value>
+    <value>已过滤</value>
   </data>
   <data name="Flags" xml:space="preserve">
-    <value>??</value>
+    <value>标志</value>
   </data>
   <data name="Foot showcase" xml:space="preserve">
-    <value>????</value>
+    <value>足部展示</value>
   </data>
   <data name="Foot showcase: {0}" xml:space="preserve">
-    <value>????: {0}</value>
+    <value>足部展示: {0}</value>
   </data>
   <data name="Footballer Settings" xml:space="preserve">
-    <value>Footballer ??</value>
+    <value>Footballer 设置</value>
   </data>
-  <data name="Footballer is disabled ? enable it before refreshing party feet." xml:space="preserve">
-    <value>Footballer ????????????????</value>
+  <data name="Footballer is disabled — enable it before refreshing party feet." xml:space="preserve">
+    <value>Footballer 已禁用，请先启用再刷新小队足部。</value>
   </data>
   <data name="Forced / On" xml:space="preserve">
-    <value>?????</value>
+    <value>强制／开启</value>
   </data>
   <data name="Gate" xml:space="preserve">
-    <value>????</value>
+    <value>访问状态</value>
   </data>
   <data name="Head direction" xml:space="preserve">
-    <value>????</value>
+    <value>头部方向</value>
   </data>
   <data name="Hidden" xml:space="preserve">
-    <value>???</value>
+    <value>已隐藏</value>
   </data>
   <data name="Hidden CharacterInspect/BannerParty debug surfaces behind /footballer debug" xml:space="preserve">
-    <value>?? /footballer debug ?? CharacterInspect/BannerParty ??</value>
+    <value>通过 /footballer debug 显示 CharacterInspect/BannerParty 工具</value>
   </data>
   <data name="Hidden by privacy" xml:space="preserve">
-    <value>?????</value>
+    <value>因隐私隐藏</value>
   </data>
   <data name="Hidden by your display settings." xml:space="preserve">
-    <value>??????????</value>
+    <value>已根据显示设置隐藏。</value>
   </data>
   <data name="Hide feet when a character's face is unavailable on Lodestone to respect privacy." xml:space="preserve">
-    <value>Lodestone ???????????</value>
+    <value>Lodestone 无面部图像时隐藏足部。</value>
   </data>
   <data name="Hint" xml:space="preserve">
-    <value>??</value>
+    <value>提示</value>
   </data>
   <data name="Hold" xml:space="preserve">
-    <value>??</value>
+    <value>等待</value>
   </data>
   <data name="Holding {0} steady for capture ({1}/{2}). Waiting {3:0.0}s more before saving the feet preview." xml:space="preserve">
-    <value>?? {0} ??????{1}/{2}???? {3:0.0} ????</value>
+    <value>保持 {0} 稳定以截图（{1}/{2}）。还有 {3:0.0} 秒保存。</value>
   </data>
   <data name="Icon + text" xml:space="preserve">
-    <value>?????</value>
+    <value>图标和文本</value>
   </data>
   <data name="Icon only" xml:space="preserve">
-    <value>???</value>
+    <value>仅图标</value>
   </data>
   <data name="Idx" xml:space="preserve">
-    <value>??</value>
+    <value>索引</value>
   </data>
   <data name="Image rotation" xml:space="preserve">
-    <value>????</value>
+    <value>图像旋转</value>
   </data>
   <data name="Inspect" xml:space="preserve">
-    <value>????</value>
+    <value>查看装备</value>
   </data>
   <data name="Inspect Capture" xml:space="preserve">
-    <value>??????</value>
+    <value>装备查看截图</value>
   </data>
   <data name="Inspect active" xml:space="preserve">
-    <value>?????</value>
+    <value>查看装备中</value>
   </data>
   <data name="Inspect and capture tools are available in debug mode." xml:space="preserve">
-    <value>???????????????????</value>
+    <value>查看装备和截图工具可在调试模式中使用。</value>
   </data>
   <data name="Inspect buttons plus a queued preset inspect pose and action-driven preview capture" xml:space="preserve">
-    <value>??????????????</value>
+    <value>查看装备、预设姿势和手动截图</value>
   </data>
   <data name="Inspect requested" xml:space="preserve">
-    <value>???????</value>
+    <value>已请求查看装备</value>
   </data>
   <data name="Inspect state recorded" xml:space="preserve">
-    <value>?????????</value>
+    <value>已记录装备查看状态</value>
   </data>
   <data name="Inspect-ready" xml:space="preserve">
-    <value>?????</value>
+    <value>可查看装备</value>
   </data>
   <data name="Interactive" xml:space="preserve">
-    <value>???</value>
+    <value>可交互</value>
   </data>
   <data name="Job" xml:space="preserve">
-    <value>??</value>
+    <value>职业</value>
   </data>
   <data name="Keep Footballer away from the preview while capturing. The crop profile applies to future captures." xml:space="preserve">
-    <value>?????? Footballer ??????????????????</value>
+    <value>截图时请避免 Footballer 遮挡预览。裁剪配置也会用于后续截图。</value>
   </data>
   <data name="Ko-fi" xml:space="preserve">
     <value>Ko-fi</value>
   </data>
   <data name="Ko-fi and Discord links" xml:space="preserve">
-    <value>Ko-fi ? Discord ??</value>
+    <value>Ko-fi 和 Discord 链接</value>
   </data>
   <data name="Krangle Names" xml:space="preserve">
-    <value>????</value>
+    <value>混淆姓名</value>
   </data>
   <data name="Krangle labels" xml:space="preserve">
-    <value>????</value>
+    <value>混淆姓名</value>
   </data>
   <data name="Krangle labels: {0}" xml:space="preserve">
-    <value>????: {0}</value>
+    <value>混淆姓名: {0}</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>??</value>
+    <value>语言</value>
   </data>
   <data name="Last saved CharacterInspect preview. Refresh party to capture a new image." xml:space="preserve">
-    <value>????? CharacterInspect ???????????????</value>
+    <value>上次保存的 CharacterInspect 预览。刷新小队可保存新的图像。</value>
   </data>
   <data name="Latest saved preview snip: {0}" xml:space="preserve">
-    <value>??????????{0}</value>
+    <value>最新保存的预览裁剪：{0}</value>
   </data>
   <data name="Latest snip" xml:space="preserve">
-    <value>?????</value>
+    <value>最新裁剪图</value>
   </data>
   <data name="Links" xml:space="preserve">
-    <value>??</value>
+    <value>链接</value>
   </data>
   <data name="Live BannerParty Addon Capture" xml:space="preserve">
-    <value>?? BannerParty ??????</value>
+    <value>实时 BannerParty 插件窗口截图</value>
   </data>
   <data name="Live BannerParty Agent" xml:space="preserve">
-    <value>?? BannerParty ??</value>
+    <value>实时 BannerParty 代理</value>
   </data>
   <data name="Live Party Foot Showcase" xml:space="preserve">
-    <value>????????</value>
+    <value>实时小队足部展示</value>
   </data>
   <data name="Live Shell Controls" xml:space="preserve">
-    <value>????</value>
+    <value>插件控制</value>
   </data>
   <data name="Live Today" xml:space="preserve">
-    <value>????</value>
+    <value>现有功能</value>
   </data>
   <data name="Live party foot showcase cards with honest capture status" xml:space="preserve">
-    <value>?????????????</value>
+    <value>显示真实截图状态的足部卡片</value>
   </data>
   <data name="Live party showcase and optional krangle toggle" xml:space="preserve">
-    <value>?????????????</value>
+    <value>实时小队展示及可选姓名混淆</value>
   </data>
   <data name="Load plugin and open the main window" xml:space="preserve">
-    <value>??????????</value>
+    <value>加载插件并打开主窗口</value>
   </data>
   <data name="Loaded" xml:space="preserve">
-    <value>???</value>
+    <value>已加载</value>
   </data>
   <data name="Loaded / copied" xml:space="preserve">
-    <value>?????</value>
+    <value>加载／复制</value>
   </data>
   <data name="Loading UI fonts..." xml:space="preserve">
-    <value>???????</value>
+    <value>正在加载字体…</value>
   </data>
   <data name="Lodestone" xml:space="preserve">
     <value>Lodestone</value>
   </data>
   <data name="Lodestone face cache + privacy gating" xml:space="preserve">
-    <value>Lodestone ?????????</value>
+    <value>Lodestone 面部缓存与隐私检查</value>
   </data>
   <data name="Lodestone privacy gate (debug): {0}" xml:space="preserve">
-    <value>Lodestone ???????{0}</value>
+    <value>Lodestone 隐私（调试）：{0}</value>
   </data>
   <data name="Lodestone privacy gate: Forced on" xml:space="preserve">
-    <value>Lodestone ???????</value>
+    <value>Lodestone 隐私：强制开启</value>
   </data>
   <data name="Lookup error" xml:space="preserve">
-    <value>????</value>
+    <value>查询错误</value>
   </data>
   <data name="Lv {0}  {1}" xml:space="preserve">
-    <value>?? {0}  {1}</value>
+    <value>等级 {0}  {1}</value>
   </data>
   <data name="Main window, settings window, and DTR toggle" xml:space="preserve">
-    <value>??????? DTR ??</value>
+    <value>主窗口、设置和 DTR 切换</value>
   </data>
   <data name="Main-window CharacterInspect scaling selector plus showcase-open guidance toast" xml:space="preserve">
-    <value>CharacterInspect ???????</value>
+    <value>CharacterInspect 缩放和打开提示</value>
   </data>
   <data name="Manager current camera" xml:space="preserve">
-    <value>???????</value>
+    <value>管理器当前相机</value>
   </data>
-  <data name="Match Scaling to CharacterInspect (60?200%) before capturing." xml:space="preserve">
-    <value>???????? CharacterInspect?60?200%??????</value>
+  <data name="Match Scaling to CharacterInspect (60–200%) before capturing." xml:space="preserve">
+    <value>截图前请将缩放与 CharacterInspect（60–200%）保持一致。</value>
   </data>
   <data name="Match Scaling to CharacterInspect, then Refresh party to capture a preview." xml:space="preserve">
-    <value>?? CharacterInspect ?????????????</value>
+    <value>匹配 CharacterInspect 缩放后刷新小队以保存预览。</value>
   </data>
   <data name="N" xml:space="preserve">
-    <value>?</value>
+    <value>否</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>?</value>
+    <value>否</value>
   </data>
   <data name="No automatic party feet refresh is queued." xml:space="preserve">
-    <value>????????????</value>
+    <value>未安排自动刷新小队足部。</value>
   </data>
   <data name="No cached BannerParty addon or agent snapshot is available yet." xml:space="preserve">
-    <value>?? BannerParty ????????</value>
+    <value>暂无 BannerParty 窗口或代理快照。</value>
   </data>
   <data name="No cached CharacterInspect debug snapshot is available yet." xml:space="preserve">
-    <value>?? CharacterInspect ?????</value>
+    <value>暂无 CharacterInspect 调试快照。</value>
   </data>
   <data name="No cached portrait debug snapshot is available yet." xml:space="preserve">
-    <value>?????????</value>
+    <value>暂无肖像调试快照。</value>
   </data>
   <data name="No eligible image. Faces come from Lodestone; feet need a saved CharacterInspect capture." xml:space="preserve">
-    <value>?????????? Lodestone???????? CharacterInspect ???</value>
+    <value>无可用图像。面部来自 Lodestone；足部需要保存的 CharacterInspect 截图。</value>
   </data>
   <data name="No face exposed" xml:space="preserve">
-    <value>?????</value>
+    <value>未公开面部</value>
   </data>
-  <data name="No feet preview yet ? match Scaling, then Refresh party." xml:space="preserve">
-    <value>??????????????????</value>
+  <data name="No feet preview yet — match Scaling, then Refresh party." xml:space="preserve">
+    <value>暂无足部预览，请调整缩放后刷新小队。</value>
   </data>
-  <data name="No feet previews yet ? match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
-    <value>?????????? CharacterInspect ????????</value>
+  <data name="No feet previews yet — match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
+    <value>暂无足部预览，请匹配 CharacterInspect 缩放后刷新小队。</value>
   </data>
   <data name="No image yet." xml:space="preserve">
-    <value>?????</value>
+    <value>暂无图像。</value>
   </data>
   <data name="No live entity" xml:space="preserve">
-    <value>???????</value>
+    <value>没有游戏内实体</value>
   </data>
   <data name="No live party members are available for an automatic feet refresh." xml:space="preserve">
-    <value>????????????????</value>
+    <value>没有可自动刷新足部的游戏内成员。</value>
   </data>
   <data name="No local player or party members are available yet, so there is nothing to render in the live showcase." xml:space="preserve">
-    <value>??????????????????</value>
+    <value>暂无自身或小队成员信息，展示区为空。</value>
   </data>
   <data name="No local player or party members are available yet." xml:space="preserve">
-    <value>????????????</value>
+    <value>暂无自身或小队成员信息。</value>
   </data>
-  <data name="No party members detected ? join or form a party, then Refresh party." xml:space="preserve">
-    <value>??????????????????</value>
+  <data name="No party members detected — join or form a party, then Refresh party." xml:space="preserve">
+    <value>未检测到小队成员，请组队后刷新小队。</value>
   </data>
   <data name="No profile match" xml:space="preserve">
-    <value>????????</value>
+    <value>未找到匹配的档案</value>
   </data>
   <data name="Node count: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>节点数量：{0}</value>
   </data>
   <data name="NodeId" xml:space="preserve">
     <value>NodeId</value>
   </data>
   <data name="Not checked" xml:space="preserve">
-    <value>???</value>
+    <value>未检查</value>
   </data>
   <data name="Note" xml:space="preserve">
-    <value>??</value>
+    <value>备注</value>
   </data>
   <data name="Off" xml:space="preserve">
-    <value>??</value>
+    <value>关闭</value>
   </data>
   <data name="On" xml:space="preserve">
-    <value>??</value>
+    <value>开启</value>
   </data>
   <data name="Open CharacterInspect and wait for a stable preview before capturing." xml:space="preserve">
-    <value>?? CharacterInspect???????????</value>
+    <value>打开 CharacterInspect，等待预览稳定后截图。</value>
   </data>
   <data name="Open main window on load" xml:space="preserve">
-    <value>????????</value>
+    <value>加载时打开主窗口</value>
   </data>
   <data name="Override Off" xml:space="preserve">
-    <value>?????</value>
+    <value>已覆盖关闭</value>
   </data>
   <data name="Party Portrait Window Research" xml:space="preserve">
-    <value>????????</value>
+    <value>小队肖像窗口研究</value>
   </data>
   <data name="Party Showcase Model" xml:space="preserve">
-    <value>??????</value>
+    <value>小队展示模型</value>
   </data>
   <data name="Party feet previews, simply." xml:space="preserve">
-    <value>????????????</value>
+    <value>轻松预览小队成员的足部。</value>
   </data>
   <data name="Party feet refresh: {0}" xml:space="preserve">
-    <value>???????{0}</value>
+    <value>小队足部刷新：{0}</value>
   </data>
   <data name="Party feet workflow: Ready" xml:space="preserve">
-    <value>???????</value>
+    <value>足部预览：就绪</value>
   </data>
   <data name="Party feet workflow: Refreshing" xml:space="preserve">
-    <value>?????????</value>
+    <value>足部预览：正在刷新</value>
   </data>
   <data name="Party snapshot, Lodestone lookup and privacy state." xml:space="preserve">
-    <value>?????Lodestone ????????</value>
+    <value>小队快照、Lodestone 查询和隐私状态。</value>
   </data>
   <data name="Passive" xml:space="preserve">
-    <value>??</value>
+    <value>被动</value>
   </data>
   <data name="Pending capture" xml:space="preserve">
-    <value>????</value>
+    <value>等待截图</value>
   </data>
   <data name="Pick Same as character preview window!" xml:space="preserve">
-    <value>????????????????</value>
+    <value>请选择与角色预览窗口相同的缩放！</value>
   </data>
   <data name="Pick the Scaling to match the window, and click refresh party when ready" xml:space="preserve">
-    <value>????????????</value>
+    <value>匹配窗口缩放后刷新小队。</value>
   </data>
   <data name="Pink" xml:space="preserve">
-    <value>??</value>
+    <value>粉色</value>
   </data>
   <data name="Plugin enabled" xml:space="preserve">
-    <value>????</value>
+    <value>启用插件</value>
   </data>
   <data name="Portrait write-path research" xml:space="preserve">
-    <value>????????</value>
+    <value>肖像写入路径研究</value>
   </data>
   <data name="Pos" xml:space="preserve">
-    <value>??</value>
+    <value>位置</value>
   </data>
   <data name="Pose" xml:space="preserve">
-    <value>??</value>
+    <value>姿势</value>
   </data>
   <data name="Pose preset: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>预设姿势：{0}</value>
   </data>
   <data name="Preview bounds" xml:space="preserve">
-    <value>????</value>
+    <value>预览范围</value>
   </data>
   <data name="Preview captured" xml:space="preserve">
-    <value>?????</value>
+    <value>已保存预览</value>
   </data>
   <data name="Preview character" xml:space="preserve">
-    <value>????</value>
+    <value>预览角色</value>
   </data>
   <data name="Preview component" xml:space="preserve">
-    <value>????</value>
+    <value>预览组件</value>
   </data>
   <data name="Preview draw object" xml:space="preserve">
-    <value>??????</value>
+    <value>预览绘制对象</value>
   </data>
   <data name="Preview draw position" xml:space="preserve">
-    <value>??????</value>
+    <value>预览绘制位置</value>
   </data>
   <data name="Preview draw rotation" xml:space="preserve">
-    <value>??????</value>
+    <value>预览绘制旋转</value>
   </data>
   <data name="Preview game position" xml:space="preserve">
-    <value>??????</value>
+    <value>预览游戏位置</value>
   </data>
   <data name="Preview game rotation" xml:space="preserve">
-    <value>??????</value>
+    <value>预览游戏旋转</value>
   </data>
   <data name="Preview node" xml:space="preserve">
-    <value>????</value>
+    <value>预览节点</value>
   </data>
   <data name="Preview node scale" xml:space="preserve">
-    <value>??????</value>
+    <value>预览节点缩放</value>
   </data>
   <data name="Preview scaling" xml:space="preserve">
-    <value>????</value>
+    <value>预览缩放</value>
   </data>
   <data name="Preview scaling fallback" xml:space="preserve">
-    <value>??????</value>
+    <value>预览备用缩放</value>
   </data>
   <data name="Preview scaling: {0}%" xml:space="preserve">
-    <value>????: {0}%</value>
+    <value>预览缩放: {0}%</value>
   </data>
   <data name="Preview snip: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>预览裁剪：{0}</value>
   </data>
   <data name="Preview visible" xml:space="preserve">
-    <value>????</value>
+    <value>预览可见</value>
   </data>
   <data name="Preview-only barefoot multi-seam apply path when Without footwear is enabled" xml:space="preserve">
-    <value>?????????</value>
+    <value>赤脚模式仅影响预览</value>
   </data>
   <data name="Privacy is always on. /footballer debug exposes the session-only override." xml:space="preserve">
-    <value>?????????/footballer debug ????????????????</value>
+    <value>隐私保护始终开启。/footballer debug 可显示仅本次会话有效的覆盖设置。</value>
   </data>
   <data name="Profile" xml:space="preserve">
-    <value>??</value>
+    <value>档案</value>
   </data>
   <data name="Queued automatic party feet refresh for {0} member(s)." xml:space="preserve">
-    <value>??????? {0} ???????</value>
+    <value>已安排自动刷新 {0} 位成员的足部。</value>
   </data>
   <data name="Rail" xml:space="preserve">
-    <value>??</value>
+    <value>轨道</value>
   </data>
   <data name="Raw scene camera" xml:space="preserve">
-    <value>??????</value>
+    <value>原始场景相机</value>
   </data>
   <data name="Read-Only Active Row Payload" xml:space="preserve">
-    <value>?????????</value>
+    <value>当前行数据（只读）</value>
   </data>
   <data name="Refresh Inspect Debug" xml:space="preserve">
-    <value>????????</value>
+    <value>刷新装备查看调试</value>
   </data>
   <data name="Refresh Inspect Debug to populate the snapshot and report." xml:space="preserve">
-    <value>?????????????????</value>
+    <value>刷新装备查看调试以填充快照和报告。</value>
   </data>
   <data name="Refresh Lodestone" xml:space="preserve">
-    <value>?? Lodestone</value>
+    <value>刷新 Lodestone</value>
   </data>
   <data name="Refresh Lodestone lookup state and confirm face thumbnails can appear on the showcase cards" xml:space="preserve">
-    <value>?? Lodestone ????????</value>
+    <value>刷新 Lodestone 并确认面部缩略图</value>
   </data>
   <data name="Refresh Portrait Debug" xml:space="preserve">
-    <value>??????</value>
+    <value>刷新肖像调试</value>
   </data>
   <data name="Refresh Portrait Debug to populate the snapshot and report." xml:space="preserve">
-    <value>???????????????</value>
+    <value>刷新肖像调试以填充快照和报告。</value>
   </data>
   <data name="Refresh party" xml:space="preserve">
-    <value>????</value>
+    <value>刷新小队</value>
   </data>
   <data name="Refreshing" xml:space="preserve">
-    <value>????</value>
+    <value>正在刷新</value>
   </data>
   <data name="Refreshing feet preview for {0} ({1}/{2}). Requested CharacterInspect." xml:space="preserve">
-    <value>???? {0} ??????{1}/{2}????? CharacterInspect?</value>
+    <value>正在刷新 {0} 的足部预览（{1}/{2}）。已请求 CharacterInspect。</value>
   </data>
   <data name="Refreshing..." xml:space="preserve">
-    <value>?????</value>
+    <value>正在刷新…</value>
   </data>
   <data name="Replace party portrait window pictures" xml:space="preserve">
-    <value>??????</value>
+    <value>替换小队肖像</value>
   </data>
   <data name="Replace party portrait window pictures: {0}" xml:space="preserve">
-    <value>??????: {0}</value>
+    <value>替换小队肖像: {0}</value>
   </data>
   <data name="Requested entity" xml:space="preserve">
-    <value>?????</value>
+    <value>请求的实体</value>
   </data>
   <data name="Research Notes" xml:space="preserve">
-    <value>????</value>
+    <value>研究备注</value>
   </data>
   <data name="Reset snip profile" xml:space="preserve">
-    <value>??????</value>
+    <value>重置裁剪配置</value>
   </data>
   <data name="Retest Focus" xml:space="preserve">
-    <value>????</value>
+    <value>复查重点</value>
   </data>
   <data name="Retry" xml:space="preserve">
-    <value>??</value>
+    <value>重试</value>
   </data>
   <data name="Role" xml:space="preserve">
-    <value>??</value>
+    <value>职责</value>
   </data>
   <data name="Rollout Phases" xml:space="preserve">
-    <value>????</value>
+    <value>实施阶段</value>
   </data>
   <data name="Row" xml:space="preserve">
-    <value>?</value>
+    <value>行</value>
   </data>
   <data name="Saved globally for future targets." xml:space="preserve">
-    <value>????????????</value>
+    <value>已保存，适用于后续目标。</value>
   </data>
   <data name="Scaling" xml:space="preserve">
-    <value>??</value>
+    <value>缩放</value>
   </data>
   <data name="Scaling 100%" xml:space="preserve">
-    <value>?? 100%</value>
+    <value>缩放 100%</value>
   </data>
   <data name="Scene camera manager" xml:space="preserve">
-    <value>???????</value>
+    <value>场景相机管理器</value>
   </data>
   <data name="Scene manager index" xml:space="preserve">
-    <value>???????</value>
+    <value>场景管理器索引</value>
   </data>
   <data name="Scroll down to &quot;The Dumpster Fire&quot; channel to discuss issues / suggestions for specific plugins." xml:space="preserve">
-    <value>???The Dumpster Fire?????????????</value>
+    <value>请在“The Dumpster Fire”频道讨论插件问题或建议。</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>??</value>
+    <value>搜索</value>
   </data>
   <data name="Self hidden" xml:space="preserve">
-    <value>???????</value>
+    <value>已隐藏自身足部</value>
   </data>
   <data name="Session debug controls are visible. Privacy override is experimental." xml:space="preserve">
-    <value>???????????????????????</value>
+    <value>已显示本次会话的调试控制。隐私覆盖为实验功能。</value>
   </data>
   <data name="Session debug mode is active. Hidden research surfaces are visible below." xml:space="preserve">
-    <value>??????????????????????</value>
+    <value>本次会话的调试模式已启用。下方显示研究工具。</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>??</value>
+    <value>设置</value>
   </data>
   <data name="Shell and docs" xml:space="preserve">
-    <value>???????</value>
+    <value>基础结构及文档</value>
   </data>
   <data name="Show DTR bar entry" xml:space="preserve">
-    <value>?? DTR ??</value>
+    <value>显示 DTR 项目</value>
   </data>
   <data name="Show face next to feet" xml:space="preserve">
-    <value>????????</value>
+    <value>在足部旁显示面部</value>
   </data>
   <data name="Show face next to feet: {0}" xml:space="preserve">
-    <value>????????: {0}</value>
+    <value>在足部旁显示面部: {0}</value>
   </data>
   <data name="Show female feet" xml:space="preserve">
-    <value>??????</value>
+    <value>显示女性足部</value>
   </data>
   <data name="Show female feet: {0}" xml:space="preserve">
-    <value>??????: {0}</value>
+    <value>显示女性足部: {0}</value>
   </data>
   <data name="Show male feet" xml:space="preserve">
-    <value>??????</value>
+    <value>显示男性足部</value>
   </data>
   <data name="Show male feet: {0}" xml:space="preserve">
-    <value>??????: {0}</value>
+    <value>显示男性足部: {0}</value>
   </data>
   <data name="Show own feet" xml:space="preserve">
-    <value>??????</value>
+    <value>显示自身足部</value>
   </data>
   <data name="Show own feet: {0}" xml:space="preserve">
-    <value>??????: {0}</value>
+    <value>显示自身足部: {0}</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>??</value>
+    <value>尺寸</value>
   </data>
   <data name="Slider" xml:space="preserve">
-    <value>??</value>
+    <value>滑块</value>
   </data>
   <data name="Slot" xml:space="preserve">
-    <value>??</value>
+    <value>栏位</value>
   </data>
   <data name="Snapshot captured" xml:space="preserve">
-    <value>?????</value>
+    <value>已捕获快照</value>
   </data>
   <data name="Snip action" xml:space="preserve">
-    <value>????</value>
+    <value>裁剪操作</value>
   </data>
   <data name="Snip bottom trim %" xml:space="preserve">
-    <value>???? %</value>
+    <value>底部裁剪 %</value>
   </data>
   <data name="Snip rect" xml:space="preserve">
-    <value>????</value>
+    <value>裁剪区域</value>
   </data>
   <data name="Snip top trim %" xml:space="preserve">
-    <value>???? %</value>
+    <value>顶部裁剪 %</value>
   </data>
   <data name="Standard /footballer, /foot, /footballer ws, and /footballer j shell controls" xml:space="preserve">
-    <value>/footballer?/foot?/footballer ws ? /footballer j ??</value>
+    <value>/footballer、/foot、/footballer ws 和 /footballer j 命令</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>??</value>
+    <value>状态</value>
   </data>
   <data name="State / Pose" xml:space="preserve">
-    <value>?????</value>
+    <value>状态／姿势</value>
   </data>
   <data name="State {0} | Pose {1} | CJ {2}" xml:space="preserve">
-    <value>?? {0} | ?? {1} | CJ {2}</value>
+    <value>状态 {0} | 姿势 {1} | CJ {2}</value>
   </data>
   <data name="Stored Display Defaults" xml:space="preserve">
-    <value>?????????</value>
+    <value>已保存的显示默认值</value>
   </data>
   <data name="Stored crop defaults: 65% top / 20% bottom." xml:space="preserve">
-    <value>??????? 65%??? 20%?</value>
+    <value>默认裁剪：顶部 65%／底部 20%。</value>
   </data>
   <data name="Stored privacy/default configuration values" xml:space="preserve">
-    <value>?????????</value>
+    <value>保存隐私及默认设置</value>
   </data>
   <data name="Stored snip profile" xml:space="preserve">
-    <value>????????</value>
+    <value>已保存的裁剪配置</value>
   </data>
   <data name="Teal" xml:space="preserve">
-    <value>??</value>
+    <value>青色</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>??</value>
+    <value>文本</value>
   </data>
   <data name="Text only" xml:space="preserve">
-    <value>???</value>
+    <value>仅文本</value>
   </data>
   <data name="The foot showcase toggle is currently off." xml:space="preserve">
-    <value>??????????</value>
+    <value>足部展示当前已关闭。</value>
   </data>
   <data name="This member is not available for inspection in the current game scene." xml:space="preserve">
-    <value>??????????????????</value>
+    <value>当前游戏场景中无法查看此成员的装备。</value>
   </data>
   <data name="Timed out while refreshing {0}." xml:space="preserve">
-    <value>?? {0} ????</value>
+    <value>刷新 {0} 时超时。</value>
   </data>
   <data name="Toggle male/female/self/showcase/face settings and confirm the live showcase cards respond immediately" xml:space="preserve">
-    <value>??????????????????????</value>
+    <value>切换性别／自身／展示／面部选项并确认即时变化</value>
   </data>
   <data name="Treat portrait-window replacement and the showcase window as explicit experiments with safe toggles and hidden debug surfaces." xml:space="preserve">
-    <value>???????????????????????????</value>
+    <value>肖像替换和展示区仍为可切换的实验功能，并保留隐藏调试。</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>??</value>
+    <value>类型</value>
   </data>
   <data name="Type /footballer debug and confirm the hidden inspect and BannerParty research surfaces appear" xml:space="preserve">
-    <value>/footballer debug ??????? BannerParty ??</value>
+    <value>/footballer debug 显示装备查看和 BannerParty 工具</value>
   </data>
   <data name="UI fonts failed to load. See the plugin log." xml:space="preserve">
-    <value>???????????????</value>
+    <value>字体加载失败。请查看插件日志。</value>
   </data>
   <data name="Un-Krangle" xml:space="preserve">
-    <value>????</value>
+    <value>恢复姓名</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>??</value>
+    <value>未知</value>
   </data>
   <data name="Updated the feet preview for {0} ({1}/{2})." xml:space="preserve">
-    <value>??? {0} ??????{1}/{2}??</value>
+    <value>已更新 {0} 的足部预览（{1}/{2}）。</value>
   </data>
   <data name="Use /foot ws and /foot j" xml:space="preserve">
-    <value>?? /foot ws ? /foot j</value>
+    <value>使用 /foot ws 和 /foot j</value>
   </data>
   <data name="Use Capture Current Preview and confirm the saved CharacterInspect image lands on the matching showcase card" xml:space="preserve">
-    <value>???????????????</value>
+    <value>保存当前预览并确认对应足部卡片</value>
   </data>
   <data name="Use Inspect on a party row or showcase card and confirm CharacterInspect opens for that member" xml:space="preserve">
-    <value>??????????????????</value>
+    <value>确认行／卡片的查看装备会打开对应成员</value>
   </data>
   <data name="Use Inspect, wait for a stable preview, then Capture Current Preview. Refresh party captures each member after a two-second hold." xml:space="preserve">
-    <value>??????????????????????????????????</value>
+    <value>查看装备并等待预览稳定后保存。刷新小队会等待每位成员稳定两秒再截图。</value>
   </data>
   <data name="Use Refresh party and confirm the plugin walks the live party snapshot and refreshes feet captures sequentially" xml:space="preserve">
-    <value>?????????????</value>
+    <value>刷新小队并确认顺序足部截图</value>
   </data>
   <data name="Use live CharacterInspect preview capture plus a queued preset inspect yaw and a preview-only multi-seam feet clear and redraw path for the current direct character-derived branch, then defer true foot-only crop/export until that path stays stable." xml:space="preserve">
-    <value>?? CharacterInspect ??????????????????????</value>
+    <value>使用 CharacterInspect 预设姿势及赤脚预览；仅足部导出待稳定后研究。</value>
   </data>
   <data name="Use the TTSL Lodestone face approach as the likely path for adjacent identity visuals." xml:space="preserve">
-    <value>????????? TTSL ? Lodestone ?????</value>
+    <value>相关身份图像拟采用 TTSL 的 Lodestone 面部方法。</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>?</value>
+    <value>值</value>
   </data>
   <data name="Verify the hidden privacy override only appears after /footballer debug" xml:space="preserve">
-    <value>?????? /footballer debug ???</value>
+    <value>隐私覆盖仅在 /footballer debug 后显示</value>
   </data>
   <data name="Visible" xml:space="preserve">
-    <value>??</value>
+    <value>可见</value>
   </data>
   <data name="Waiting for AgentInspect before refreshing {0} ({1}/{2})." xml:space="preserve">
-    <value>???? AgentInspect ??? {0}?{1}/{2}??</value>
+    <value>正在等待 AgentInspect 以刷新 {0}（{1}/{2}）。</value>
   </data>
   <data name="Waiting for AgentInspect before starting {0} ({1}/{2})." xml:space="preserve">
-    <value>?? AgentInspect ??? {0}?{1}/{2}??</value>
+    <value>等待 AgentInspect 以开始 {0}（{1}/{2}）。</value>
   </data>
   <data name="Waiting for CharacterInspect to switch to {0} ({1}/{2})." xml:space="preserve">
-    <value>?? CharacterInspect ??? {0}?{1}/{2}??</value>
+    <value>等待 CharacterInspect 切换至 {0}（{1}/{2}）。</value>
   </data>
   <data name="Waiting for the Lodestone privacy check. Use Refresh Lodestone to retry." xml:space="preserve">
-    <value>???? Lodestone ??????? Lodestone ????</value>
+    <value>正在等待 Lodestone 隐私检查。刷新 Lodestone 可重试。</value>
   </data>
   <data name="Waiting for the barefoot preview apply path on {0} ({1}/{2})." xml:space="preserve">
-    <value>?? {0} ????????{1}/{2}??</value>
+    <value>等待 {0} 的赤脚预览生效（{1}/{2}）。</value>
   </data>
   <data name="Waiting for the inspect preview to become capture-ready for {0} ({1}/{2})." xml:space="preserve">
-    <value>?? {0} ???????{1}/{2}??</value>
+    <value>等待 {0} 的预览可截图（{1}/{2}）。</value>
   </data>
   <data name="Waiting for the preset inspect pose on {0} ({1}/{2})." xml:space="preserve">
-    <value>?? {0} ??????{1}/{2}??</value>
+    <value>等待 {0} 的预设姿势（{1}/{2}）。</value>
   </data>
   <data name="Window Behavior" xml:space="preserve">
-    <value>????</value>
+    <value>窗口行为</value>
   </data>
   <data name="Without footwear" xml:space="preserve">
-    <value>????</value>
+    <value>移除鞋子</value>
   </data>
   <data name="Without footwear removes shoes in the inspect preview only. Refresh party to save new previews." xml:space="preserve">
-    <value>??????????????????????????</value>
+    <value>移除鞋子仅影响装备查看预览。刷新小队以保存新的预览。</value>
   </data>
   <data name="Without footwear: {0}" xml:space="preserve">
-    <value>????: {0}</value>
+    <value>移除鞋子: {0}</value>
   </data>
   <data name="World" xml:space="preserve">
-    <value>???</value>
+    <value>服务器</value>
   </data>
   <data name="Y" xml:space="preserve">
-    <value>?</value>
+    <value>是</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>?</value>
+    <value>是</value>
   </data>
   <data name="Zoom ratio" xml:space="preserve">
-    <value>????</value>
+    <value>缩放比例</value>
   </data>
   <data name="{0:P0} top / {1:P0} bottom" xml:space="preserve">
-    <value>?? {0:P0}??? {1:P0}</value>
+    <value>顶部 {0:P0}／底部 {1:P0}</value>
   </data>
   <data name="{0} (You)" xml:space="preserve">
-    <value>{0}???</value>
+    <value>{0}（你）</value>
   </data>
-  <data name="{0} previews available ? {1} hidden by privacy" xml:space="preserve">
-    <value>{0} ??? ? {1} ??????</value>
+  <data name="{0} previews available · {1} hidden by privacy" xml:space="preserve">
+    <value>{0} 个预览 · {1} 个因隐私隐藏</value>
   </data>
   <data name="{0} {1}. Click to toggle." xml:space="preserve">
-    <value>{0} {1}??????</value>
+    <value>{0} {1}。点击切换。</value>
+  </data>
+  <data name="Compact mode" xml:space="preserve">
+    <value>紧凑模式</value>
   </data>
 </root>

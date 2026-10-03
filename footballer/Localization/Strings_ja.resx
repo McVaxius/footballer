@@ -7,1002 +7,1005 @@
     <value>2.0</value>
   </resheader>
   <data name="Active Services" xml:space="preserve">
-    <value>????????</value>
+    <value>稼働中のサービス</value>
   </data>
   <data name="Active camera" xml:space="preserve">
-    <value>??????</value>
+    <value>有効なカメラ</value>
   </data>
   <data name="Active row heuristic: none yet" xml:space="preserve">
-    <value>????????????</value>
+    <value>推定アクティブ行：未検出</value>
   </data>
   <data name="Active row heuristic: {0} ({1})" xml:space="preserve">
-    <value>?????????{0}?{1}?</value>
+    <value>推定アクティブ行：{0}（{1}）</value>
   </data>
   <data name="Addon" xml:space="preserve">
-    <value>????</value>
+    <value>アドオン</value>
   </data>
   <data name="Addon address" xml:space="preserve">
-    <value>????????</value>
+    <value>アドオンアドレス</value>
   </data>
   <data name="Addon address: {0}" xml:space="preserve">
-    <value>????????: {0}</value>
+    <value>アドオンアドレス: {0}</value>
   </data>
   <data name="Addon position" xml:space="preserve">
-    <value>??????</value>
+    <value>アドオン位置</value>
   </data>
   <data name="Addon visible" xml:space="preserve">
-    <value>??????</value>
+    <value>アドオン表示</value>
   </data>
   <data name="Addr" xml:space="preserve">
-    <value>????</value>
+    <value>アドレス</value>
   </data>
   <data name="Agent" xml:space="preserve">
-    <value>??????</value>
+    <value>エージェント</value>
   </data>
   <data name="Agent Row" xml:space="preserve">
-    <value>???????</value>
+    <value>エージェント行</value>
   </data>
   <data name="Agent address" xml:space="preserve">
-    <value>??????????</value>
+    <value>エージェントアドレス</value>
   </data>
   <data name="Agent address: {0}" xml:space="preserve">
-    <value>??????????: {0}</value>
+    <value>エージェントアドレス: {0}</value>
   </data>
   <data name="Agent available" xml:space="preserve">
-    <value>??????????</value>
+    <value>エージェント利用可能</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>??</value>
+    <value>許可</value>
   </data>
   <data name="Ambient light brightness" xml:space="preserve">
-    <value>???????</value>
+    <value>環境光の明るさ</value>
   </data>
   <data name="Ambient light color" xml:space="preserve">
-    <value>?????</value>
+    <value>環境光の色</value>
   </data>
   <data name="Animation progress" xml:space="preserve">
-    <value>?????????</value>
+    <value>アニメーション進行</value>
   </data>
   <data name="Auto refresh party on showcase open" xml:space="preserve">
-    <value>???????</value>
+    <value>開いた時に更新</value>
   </data>
   <data name="Auto refresh party on showcase open: {0}" xml:space="preserve">
-    <value>???????: {0}</value>
+    <value>開いた時に更新: {0}</value>
   </data>
   <data name="Automatic party feet recapture queue from Refresh party" xml:space="preserve">
-    <value>????????????????</value>
+    <value>パーティ更新による自動撮影キュー</value>
   </data>
   <data name="Automatic party feet refresh finished. Captured {0}/{1} member(s){2}." xml:space="preserve">
-    <value>???????{0}/{1} ????{2}?</value>
+    <value>自動更新完了。{0}/{1} 人を撮影{2}。</value>
   </data>
   <data name="Automatically refresh party once when showcase opens" xml:space="preserve">
-    <value>???????????????</value>
+    <value>ギャラリーを開いた時に一度更新</value>
   </data>
   <data name="Banner background" xml:space="preserve">
-    <value>?????</value>
+    <value>バナー背景</value>
   </data>
   <data name="Banner timeline" xml:space="preserve">
-    <value>??????????</value>
+    <value>バナーのタイムライン</value>
   </data>
   <data name="BannerParty read-only research" xml:space="preserve">
-    <value>BannerParty ????????</value>
+    <value>BannerParty 読み取り専用調査</value>
   </data>
   <data name="Barefoot apply: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>靴の除去：{0}</value>
   </data>
   <data name="Base" xml:space="preserve">
-    <value>???</value>
+    <value>ベース</value>
   </data>
   <data name="Base / Slider" xml:space="preserve">
-    <value>??? / ?????</value>
+    <value>ベース / スライダー</value>
   </data>
   <data name="Blue" xml:space="preserve">
-    <value>?</value>
+    <value>青</value>
   </data>
   <data name="Buddy inspect" xml:space="preserve">
-    <value>???????</value>
+    <value>バディ装備確認</value>
   </data>
   <data name="Bypassed" xml:space="preserve">
-    <value>??????</value>
+    <value>チェック無効</value>
   </data>
   <data name="CID" xml:space="preserve">
     <value>CID</value>
   </data>
   <data name="COPY INSPECT REPORT" xml:space="preserve">
-    <value>????????????</value>
+    <value>装備確認レポートをコピー</value>
   </data>
   <data name="COPY TEST REPORT" xml:space="preserve">
-    <value>???????????</value>
+    <value>テストレポートをコピー</value>
   </data>
   <data name="Cached Lodestone search/profile lookup state with local face thumbnails" xml:space="preserve">
-    <value>Lodestone ??????????</value>
+    <value>Lodestone 検索とローカル顔画像</value>
   </data>
   <data name="Callback base id" xml:space="preserve">
-    <value>?????????? ID</value>
+    <value>コールバックのベース ID</value>
   </data>
   <data name="Camera FoV" xml:space="preserve">
-    <value>??????</value>
+    <value>カメラ視野角</value>
   </data>
   <data name="Camera distance" xml:space="preserve">
-    <value>?????</value>
+    <value>カメラ距離</value>
   </data>
   <data name="Camera look-at" xml:space="preserve">
-    <value>??????</value>
+    <value>カメラ注視点</value>
   </data>
   <data name="Camera position" xml:space="preserve">
-    <value>?????</value>
+    <value>カメラ位置</value>
   </data>
   <data name="Camera status" xml:space="preserve">
-    <value>?????</value>
+    <value>カメラ状態</value>
   </data>
   <data name="Camera target" xml:space="preserve">
-    <value>?????</value>
+    <value>カメラ対象</value>
   </data>
   <data name="Camera zoom" xml:space="preserve">
-    <value>??????</value>
+    <value>カメラズーム</value>
   </data>
   <data name="Capture Current Preview" xml:space="preserve">
-    <value>???????????</value>
+    <value>現在のプレビューを保存</value>
   </data>
   <data name="Capture Folder" xml:space="preserve">
-    <value>???????</value>
+    <value>保存フォルダー</value>
   </data>
   <data name="Capture failed for {0}: {1}" xml:space="preserve">
-    <value>{0} ??????{1}</value>
+    <value>{0} の撮影失敗：{1}</value>
   </data>
   <data name="Capture ready" xml:space="preserve">
-    <value>????</value>
+    <value>撮影可能</value>
   </data>
   <data name="Capture status" xml:space="preserve">
-    <value>????</value>
+    <value>撮影状態</value>
   </data>
   <data name="CharaView state" xml:space="preserve">
-    <value>CharaView ??</value>
+    <value>CharaView 状態</value>
   </data>
   <data name="Character" xml:space="preserve">
-    <value>??????</value>
+    <value>キャラクター</value>
   </data>
   <data name="Character Inspect Research" xml:space="preserve">
-    <value>???????</value>
+    <value>装備確認の調査</value>
   </data>
   <data name="Character count: {0}" xml:space="preserve">
-    <value>????????{0}</value>
+    <value>キャラクター数：{0}</value>
   </data>
   <data name="CharacterInspect Capture State" xml:space="preserve">
-    <value>CharacterInspect ????</value>
+    <value>CharacterInspect 撮影状態</value>
   </data>
   <data name="CharacterInspect is still settling on {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ? CharacterInspect ???????????{1}/{2}??</value>
+    <value>{0} の CharacterInspect が安定するまで待機中（{1}/{2}）。</value>
   </data>
   <data name="Check DTR toggle behavior and party snapshot population" xml:space="preserve">
-    <value>DTR ????????????</value>
+    <value>DTR 切替とパーティ情報を確認</value>
   </data>
   <data name="Choose which party previews to show. Lodestone privacy is respected in normal use." xml:space="preserve">
-    <value>??????????????????????? Lodestone ??????????????</value>
+    <value>パーティのプレビューを選択してください。通常は Lodestone のプライバシーを尊重します。</value>
   </data>
   <data name="Client object" xml:space="preserve">
-    <value>????????????</value>
+    <value>クライアントオブジェクト</value>
   </data>
   <data name="Collision node" xml:space="preserve">
-    <value>?????</value>
+    <value>衝突ノード</value>
   </data>
   <data name="Color" xml:space="preserve">
-    <value>?</value>
+    <value>色</value>
   </data>
   <data name="Configured portrait replacement toggle: {0}" xml:space="preserve">
-    <value>???????????{0}</value>
+    <value>ポートレート置換設定：{0}</value>
   </data>
   <data name="Confirm the inspect preview rotates to the stored side-angle pose before capture" xml:space="preserve">
-    <value>??????????????????????</value>
+    <value>撮影前に設定した横向きポーズになることを確認</value>
   </data>
   <data name="Copy a report before and after changing the selected portrait." xml:space="preserve">
-    <value>?????????????????????????????????</value>
+    <value>選択したポートレートを変更する前後でレポートをコピーしてください。</value>
   </data>
   <data name="Copy the report after the preview is stable." xml:space="preserve">
-    <value>?????????????????????????</value>
+    <value>プレビューの安定後にレポートをコピーしてください。</value>
   </data>
   <data name="Current Defaults" xml:space="preserve">
-    <value>???????</value>
+    <value>現在の初期設定</value>
   </data>
   <data name="Current entity" xml:space="preserve">
-    <value>?????</value>
+    <value>現在の対象</value>
   </data>
   <data name="Current party showcase data model with real or krangled labels from a saved toggle" xml:space="preserve">
-    <value>????????????????????</value>
+    <value>実際または保存した変換名でパーティを表示</value>
   </data>
   <data name="Custom RGB" xml:space="preserve">
-    <value>???? RGB</value>
+    <value>カスタム RGB</value>
   </data>
   <data name="DTR disabled glyph" xml:space="preserve">
-    <value>DTR ??????</value>
+    <value>DTR 無効時の記号</value>
   </data>
   <data name="DTR enabled glyph" xml:space="preserve">
-    <value>DTR ??????</value>
+    <value>DTR 有効時の記号</value>
   </data>
   <data name="DTR mode" xml:space="preserve">
-    <value>DTR ????</value>
+    <value>DTR 表示方式</value>
   </data>
   <data name="Debug snapshots refresh on demand." xml:space="preserve">
-    <value>??????????????????</value>
+    <value>デバッグ情報は要求時に更新されます。</value>
   </data>
   <data name="Debug: Respect Lodestone privacy" xml:space="preserve">
-    <value>?????Lodestone ??????????</value>
+    <value>デバッグ：Lodestone のプライバシーを尊重</value>
   </data>
   <data name="Default: Krangle labels" xml:space="preserve">
-    <value>??????????</value>
+    <value>初期設定：名前を変換</value>
   </data>
   <data name="Default: Replace party portrait window pictures" xml:space="preserve">
-    <value>??????????????????</value>
+    <value>初期設定：パーティポートレートを置換</value>
   </data>
   <data name="Default: Show face next to feet" xml:space="preserve">
-    <value>???????????????</value>
+    <value>初期設定：足元と一緒に顔を表示</value>
   </data>
   <data name="Default: Show female feet" xml:space="preserve">
-    <value>?????????????</value>
+    <value>初期設定：女性の足元を表示</value>
   </data>
   <data name="Default: Show foot showcase" xml:space="preserve">
-    <value>????????????</value>
+    <value>初期設定：足元ギャラリー</value>
   </data>
   <data name="Default: Show male feet" xml:space="preserve">
-    <value>?????????????</value>
+    <value>初期設定：男性の足元を表示</value>
   </data>
   <data name="Default: Show own feet" xml:space="preserve">
-    <value>?????????????</value>
+    <value>初期設定：自分の足元を表示</value>
   </data>
   <data name="Default: Without footwear" xml:space="preserve">
-    <value>?????????</value>
+    <value>初期設定：靴を脱ぐ</value>
   </data>
   <data name="Derived yaw / pitch" xml:space="preserve">
-    <value>???????????</value>
+    <value>算出されたヨー／ピッチ</value>
   </data>
   <data name="Direct CharacterInspect foot-capture research" xml:space="preserve">
-    <value>CharacterInspect ???????</value>
+    <value>CharacterInspect 足元撮影の調査</value>
   </data>
   <data name="Directional light angles" xml:space="preserve">
-    <value>?????????</value>
+    <value>指向性ライトの角度</value>
   </data>
   <data name="Directional light brightness" xml:space="preserve">
-    <value>??????????</value>
+    <value>指向性ライトの明るさ</value>
   </data>
   <data name="Directional light color" xml:space="preserve">
-    <value>????????</value>
+    <value>指向性ライトの色</value>
   </data>
   <data name="Discord" xml:space="preserve">
     <value>Discord</value>
   </data>
   <data name="Enable Without footwear and confirm Inspect clears the preview feet slot before capture" xml:space="preserve">
-    <value>?????????????????????????????</value>
+    <value>靴除去を有効にして撮影前にプレビューの靴が消えることを確認</value>
   </data>
   <data name="Enabled" xml:space="preserve">
-    <value>??</value>
+    <value>有効</value>
   </data>
   <data name="Evt" xml:space="preserve">
-    <value>????</value>
+    <value>イベント</value>
   </data>
   <data name="Evt / Flags" xml:space="preserve">
-    <value>???? / ???</value>
+    <value>イベント / フラグ</value>
   </data>
   <data name="Expression" xml:space="preserve">
-    <value>??</value>
+    <value>表情</value>
   </data>
   <data name="Eye direction" xml:space="preserve">
-    <value>????</value>
+    <value>目の方向</value>
   </data>
   <data name="Face" xml:space="preserve">
-    <value>?</value>
+    <value>顔</value>
   </data>
-  <data name="Face unavailable ? feet hidden" xml:space="preserve">
-    <value>????????? ? ??????</value>
+  <data name="Face unavailable — feet hidden" xml:space="preserve">
+    <value>顔を取得できません — 足元は非表示</value>
   </data>
   <data name="Face visible" xml:space="preserve">
-    <value>??????</value>
+    <value>顔を確認済み</value>
   </data>
   <data name="Feet" xml:space="preserve">
-    <value>??</value>
+    <value>足元</value>
   </data>
   <data name="Feet are hidden when Lodestone does not expose a face." xml:space="preserve">
-    <value>Lodestone ??????????????????????</value>
+    <value>Lodestone で顔が非公開の場合、足元も非表示になります。</value>
   </data>
   <data name="Feet preview" xml:space="preserve">
-    <value>???????</value>
+    <value>足元プレビュー</value>
   </data>
   <data name="Feet: {0}" xml:space="preserve">
-    <value>???{0}</value>
+    <value>足元：{0}</value>
   </data>
   <data name="Fetch status" xml:space="preserve">
-    <value>????</value>
+    <value>取得状態</value>
   </data>
   <data name="Field" xml:space="preserve">
-    <value>??</value>
+    <value>項目</value>
   </data>
   <data name="Filtered" xml:space="preserve">
-    <value>???????</value>
+    <value>フィルター対象</value>
   </data>
   <data name="Flags" xml:space="preserve">
-    <value>???</value>
+    <value>フラグ</value>
   </data>
   <data name="Foot showcase" xml:space="preserve">
-    <value>???????</value>
+    <value>足元ギャラリー</value>
   </data>
   <data name="Foot showcase: {0}" xml:space="preserve">
-    <value>???????: {0}</value>
+    <value>足元ギャラリー: {0}</value>
   </data>
   <data name="Footballer Settings" xml:space="preserve">
-    <value>Footballer ??</value>
+    <value>Footballer 設定</value>
   </data>
-  <data name="Footballer is disabled ? enable it before refreshing party feet." xml:space="preserve">
-    <value>Footballer ???????????????????????</value>
+  <data name="Footballer is disabled — enable it before refreshing party feet." xml:space="preserve">
+    <value>Footballer は無効です。足元の更新前に有効にしてください。</value>
   </data>
   <data name="Forced / On" xml:space="preserve">
-    <value>?????</value>
+    <value>強制／有効</value>
   </data>
   <data name="Gate" xml:space="preserve">
-    <value>????</value>
+    <value>許可状態</value>
   </data>
   <data name="Head direction" xml:space="preserve">
-    <value>????</value>
+    <value>頭の方向</value>
   </data>
   <data name="Hidden" xml:space="preserve">
-    <value>???</value>
+    <value>非表示</value>
   </data>
   <data name="Hidden CharacterInspect/BannerParty debug surfaces behind /footballer debug" xml:space="preserve">
-    <value>/footballer debug ? CharacterInspect/BannerParty ??</value>
+    <value>/footballer debug で CharacterInspect/BannerParty 調査</value>
   </data>
   <data name="Hidden by privacy" xml:space="preserve">
-    <value>????????????</value>
+    <value>プライバシーにより非表示</value>
   </data>
   <data name="Hidden by your display settings." xml:space="preserve">
-    <value>?????????????</value>
+    <value>表示設定により非表示です。</value>
   </data>
   <data name="Hide feet when a character's face is unavailable on Lodestone to respect privacy." xml:space="preserve">
-    <value>Lodestone ?????????????????</value>
+    <value>Lodestone で顔が非公開の場合は足元を非表示。</value>
   </data>
   <data name="Hint" xml:space="preserve">
-    <value>???</value>
+    <value>ヒント</value>
   </data>
   <data name="Hold" xml:space="preserve">
-    <value>??</value>
+    <value>待機</value>
   </data>
   <data name="Holding {0} steady for capture ({1}/{2}). Waiting {3:0.0}s more before saving the feet preview." xml:space="preserve">
-    <value>{0} ???????{1}/{2}???????? {3:0.0} ??</value>
+    <value>{0} を撮影待機中（{1}/{2}）。保存まであと {3:0.0} 秒。</value>
   </data>
   <data name="Icon + text" xml:space="preserve">
-    <value>?????????</value>
+    <value>アイコンとテキスト</value>
   </data>
   <data name="Icon only" xml:space="preserve">
-    <value>??????</value>
+    <value>アイコンのみ</value>
   </data>
   <data name="Idx" xml:space="preserve">
-    <value>??</value>
+    <value>番号</value>
   </data>
   <data name="Image rotation" xml:space="preserve">
-    <value>????</value>
+    <value>画像回転</value>
   </data>
   <data name="Inspect" xml:space="preserve">
-    <value>????</value>
+    <value>装備確認</value>
   </data>
   <data name="Inspect Capture" xml:space="preserve">
-    <value>???????</value>
+    <value>装備確認の撮影</value>
   </data>
   <data name="Inspect active" xml:space="preserve">
-    <value>?????</value>
+    <value>装備確認中</value>
   </data>
   <data name="Inspect and capture tools are available in debug mode." xml:space="preserve">
-    <value>??????????????????????????</value>
+    <value>装備確認と撮影ツールはデバッグモードで使用できます。</value>
   </data>
   <data name="Inspect buttons plus a queued preset inspect pose and action-driven preview capture" xml:space="preserve">
-    <value>???????????????</value>
+    <value>装備確認、ポーズ設定、手動撮影</value>
   </data>
   <data name="Inspect requested" xml:space="preserve">
-    <value>????????</value>
+    <value>装備確認要求済み</value>
   </data>
   <data name="Inspect state recorded" xml:space="preserve">
-    <value>??????????</value>
+    <value>装備確認状態保存済み</value>
   </data>
   <data name="Inspect-ready" xml:space="preserve">
-    <value>??????</value>
+    <value>装備確認可能</value>
   </data>
   <data name="Interactive" xml:space="preserve">
-    <value>????</value>
+    <value>操作可能</value>
   </data>
   <data name="Job" xml:space="preserve">
-    <value>???</value>
+    <value>ジョブ</value>
   </data>
   <data name="Keep Footballer away from the preview while capturing. The crop profile applies to future captures." xml:space="preserve">
-    <value>???? Footballer ??????????????????????????????????????</value>
+    <value>撮影時は Footballer をプレビューに重ねないでください。切り抜き設定は以降の撮影にも使用されます。</value>
   </data>
   <data name="Ko-fi" xml:space="preserve">
     <value>Ko-fi</value>
   </data>
   <data name="Ko-fi and Discord links" xml:space="preserve">
-    <value>Ko-fi ? Discord ????</value>
+    <value>Ko-fi と Discord のリンク</value>
   </data>
   <data name="Krangle Names" xml:space="preserve">
-    <value>?????</value>
+    <value>名前を変換</value>
   </data>
   <data name="Krangle labels" xml:space="preserve">
-    <value>?????</value>
+    <value>名前を変換</value>
   </data>
   <data name="Krangle labels: {0}" xml:space="preserve">
-    <value>?????: {0}</value>
+    <value>名前を変換: {0}</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>??</value>
+    <value>言語</value>
   </data>
   <data name="Last saved CharacterInspect preview. Refresh party to capture a new image." xml:space="preserve">
-    <value>??????? CharacterInspect ????????????????????????????</value>
+    <value>最後に保存した CharacterInspect 画像です。新しく撮影するにはパーティを更新してください。</value>
   </data>
   <data name="Latest saved preview snip: {0}" xml:space="preserve">
-    <value>????????????{0}</value>
+    <value>最新の保存済み切り抜き：{0}</value>
   </data>
   <data name="Latest snip" xml:space="preserve">
-    <value>???????</value>
+    <value>最新の切り抜き</value>
   </data>
   <data name="Links" xml:space="preserve">
-    <value>???</value>
+    <value>リンク</value>
   </data>
   <data name="Live BannerParty Addon Capture" xml:space="preserve">
-    <value>BannerParty ???????</value>
+    <value>BannerParty アドオンの取得</value>
   </data>
   <data name="Live BannerParty Agent" xml:space="preserve">
-    <value>???? BannerParty ??????</value>
+    <value>稼働中の BannerParty エージェント</value>
   </data>
   <data name="Live Party Foot Showcase" xml:space="preserve">
-    <value>??????????</value>
+    <value>現在の足元ギャラリー</value>
   </data>
   <data name="Live Shell Controls" xml:space="preserve">
-    <value>???????</value>
+    <value>プラグイン操作</value>
   </data>
   <data name="Live Today" xml:space="preserve">
-    <value>?????</value>
+    <value>現在の機能</value>
   </data>
   <data name="Live party foot showcase cards with honest capture status" xml:space="preserve">
-    <value>???????????????</value>
+    <value>実際の撮影状態を示す足元カード</value>
   </data>
   <data name="Live party showcase and optional krangle toggle" xml:space="preserve">
-    <value>??????????????</value>
+    <value>パーティ表示と任意の名前変換</value>
   </data>
   <data name="Load plugin and open the main window" xml:space="preserve">
-    <value>????????????????</value>
+    <value>プラグインを読み込みメインを開く</value>
   </data>
   <data name="Loaded" xml:space="preserve">
-    <value>??????</value>
+    <value>読み込み済み</value>
   </data>
   <data name="Loaded / copied" xml:space="preserve">
-    <value>????????</value>
+    <value>読み込み／コピー</value>
   </data>
   <data name="Loading UI fonts..." xml:space="preserve">
-    <value>???????????</value>
+    <value>フォントを読み込み中…</value>
   </data>
   <data name="Lodestone" xml:space="preserve">
     <value>Lodestone</value>
   </data>
   <data name="Lodestone face cache + privacy gating" xml:space="preserve">
-    <value>Lodestone ??????????</value>
+    <value>Lodestone 顔画像とプライバシー</value>
   </data>
   <data name="Lodestone privacy gate (debug): {0}" xml:space="preserve">
-    <value>Lodestone ?????????????{0}</value>
+    <value>Lodestone プライバシー（デバッグ）：{0}</value>
   </data>
   <data name="Lodestone privacy gate: Forced on" xml:space="preserve">
-    <value>Lodestone ???????????</value>
+    <value>Lodestone プライバシー：強制有効</value>
   </data>
   <data name="Lookup error" xml:space="preserve">
-    <value>?????</value>
+    <value>検索エラー</value>
   </data>
   <data name="Lv {0}  {1}" xml:space="preserve">
     <value>Lv {0}  {1}</value>
   </data>
   <data name="Main window, settings window, and DTR toggle" xml:space="preserve">
-    <value>???????DTR ??</value>
+    <value>メイン、設定、DTR 切替</value>
   </data>
   <data name="Main-window CharacterInspect scaling selector plus showcase-open guidance toast" xml:space="preserve">
-    <value>CharacterInspect ?????????</value>
+    <value>CharacterInspect 倍率と起動時の案内</value>
   </data>
   <data name="Manager current camera" xml:space="preserve">
-    <value>??????????</value>
+    <value>管理中の現在のカメラ</value>
   </data>
-  <data name="Match Scaling to CharacterInspect (60?200%) before capturing." xml:space="preserve">
-    <value>????????? CharacterInspect?60?200%???????????</value>
+  <data name="Match Scaling to CharacterInspect (60–200%) before capturing." xml:space="preserve">
+    <value>撮影前に表示倍率を CharacterInspect（60～200%）に合わせてください。</value>
   </data>
   <data name="Match Scaling to CharacterInspect, then Refresh party to capture a preview." xml:space="preserve">
-    <value>??? CharacterInspect ??????????????????????</value>
+    <value>倍率を CharacterInspect に合わせてパーティを更新すると撮影できます。</value>
   </data>
   <data name="N" xml:space="preserve">
-    <value>???</value>
+    <value>いいえ</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>???</value>
+    <value>いいえ</value>
   </data>
   <data name="No automatic party feet refresh is queued." xml:space="preserve">
-    <value>??????????????????</value>
+    <value>足元の自動更新は予約されていません。</value>
   </data>
   <data name="No cached BannerParty addon or agent snapshot is available yet." xml:space="preserve">
-    <value>BannerParty ?????????????????????????</value>
+    <value>BannerParty のアドオンまたはエージェント情報はまだありません。</value>
   </data>
   <data name="No cached CharacterInspect debug snapshot is available yet." xml:space="preserve">
-    <value>CharacterInspect ????????????????</value>
+    <value>CharacterInspect のデバッグ情報はまだありません。</value>
   </data>
   <data name="No cached portrait debug snapshot is available yet." xml:space="preserve">
-    <value>??????????????????????</value>
+    <value>ポートレートのデバッグ情報はまだありません。</value>
   </data>
   <data name="No eligible image. Faces come from Lodestone; feet need a saved CharacterInspect capture." xml:space="preserve">
-    <value>???????????????? Lodestone???????? CharacterInspect ?????????</value>
+    <value>表示可能な画像がありません。顔は Lodestone、足元は保存した CharacterInspect 画像を使用します。</value>
   </data>
   <data name="No face exposed" xml:space="preserve">
-    <value>?????</value>
+    <value>顔は非公開</value>
   </data>
-  <data name="No feet preview yet ? match Scaling, then Refresh party." xml:space="preserve">
-    <value>??????????????????????????????????</value>
+  <data name="No feet preview yet — match Scaling, then Refresh party." xml:space="preserve">
+    <value>足元画像はまだありません。倍率を合わせてパーティを更新してください。</value>
   </data>
-  <data name="No feet previews yet ? match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
-    <value>???????????????? CharacterInspect ???????????????????</value>
+  <data name="No feet previews yet — match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
+    <value>足元画像はまだありません。倍率を CharacterInspect に合わせてパーティを更新してください。</value>
   </data>
   <data name="No image yet." xml:space="preserve">
-    <value>???????????</value>
+    <value>画像はまだありません。</value>
   </data>
   <data name="No live entity" xml:space="preserve">
-    <value>????????</value>
+    <value>ゲーム内対象なし</value>
   </data>
   <data name="No live party members are available for an automatic feet refresh." xml:space="preserve">
-    <value>?????????????????????</value>
+    <value>自動更新できるゲーム内メンバーがいません。</value>
   </data>
   <data name="No local player or party members are available yet, so there is nothing to render in the live showcase." xml:space="preserve">
-    <value>??????????????????????????????????????</value>
+    <value>自分やパーティの情報がまだありません。ギャラリーに表示する内容はありません。</value>
   </data>
   <data name="No local player or party members are available yet." xml:space="preserve">
-    <value>???????????????????</value>
+    <value>自分やパーティの情報がまだありません。</value>
   </data>
-  <data name="No party members detected ? join or form a party, then Refresh party." xml:space="preserve">
-    <value>????????????????????????????????????</value>
+  <data name="No party members detected — join or form a party, then Refresh party." xml:space="preserve">
+    <value>メンバーが見つかりません。パーティに参加または作成して更新してください。</value>
   </data>
   <data name="No profile match" xml:space="preserve">
-    <value>????????</value>
+    <value>プロフィールなし</value>
   </data>
   <data name="Node count: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>ノード数：{0}</value>
   </data>
   <data name="NodeId" xml:space="preserve">
     <value>NodeId</value>
   </data>
   <data name="Not checked" xml:space="preserve">
-    <value>???</value>
+    <value>未確認</value>
   </data>
   <data name="Note" xml:space="preserve">
-    <value>??</value>
+    <value>備考</value>
   </data>
   <data name="Off" xml:space="preserve">
-    <value>??</value>
+    <value>無効</value>
   </data>
   <data name="On" xml:space="preserve">
-    <value>??</value>
+    <value>有効</value>
   </data>
   <data name="Open CharacterInspect and wait for a stable preview before capturing." xml:space="preserve">
-    <value>CharacterInspect ?????????????????????????</value>
+    <value>CharacterInspect を開き、プレビューが安定してから撮影してください。</value>
   </data>
   <data name="Open main window on load" xml:space="preserve">
-    <value>????????????</value>
+    <value>読み込み時にメインを開く</value>
   </data>
   <data name="Override Off" xml:space="preserve">
-    <value>????</value>
+    <value>強制解除</value>
   </data>
   <data name="Party Portrait Window Research" xml:space="preserve">
-    <value>?????????????</value>
+    <value>パーティポートレートの調査</value>
   </data>
   <data name="Party Showcase Model" xml:space="preserve">
-    <value>???????</value>
+    <value>パーティモデル</value>
   </data>
   <data name="Party feet previews, simply." xml:space="preserve">
-    <value>??????????????????</value>
+    <value>パーティの足元を、手軽にプレビュー。</value>
   </data>
   <data name="Party feet refresh: {0}" xml:space="preserve">
-    <value>?????{0}</value>
+    <value>足元更新：{0}</value>
   </data>
   <data name="Party feet workflow: Ready" xml:space="preserve">
-    <value>????????????</value>
+    <value>足元プレビュー：準備完了</value>
   </data>
   <data name="Party feet workflow: Refreshing" xml:space="preserve">
-    <value>???????????</value>
+    <value>足元プレビュー：更新中</value>
   </data>
   <data name="Party snapshot, Lodestone lookup and privacy state." xml:space="preserve">
-    <value>???????Lodestone ????????????</value>
+    <value>パーティ情報、Lodestone 検索、プライバシー状態。</value>
   </data>
   <data name="Passive" xml:space="preserve">
-    <value>??</value>
+    <value>受動</value>
   </data>
   <data name="Pending capture" xml:space="preserve">
-    <value>????</value>
+    <value>撮影待ち</value>
   </data>
   <data name="Pick Same as character preview window!" xml:space="preserve">
-    <value>????????????????????????</value>
+    <value>キャラクタープレビューと同じ倍率にしてください！</value>
   </data>
   <data name="Pick the Scaling to match the window, and click refresh party when ready" xml:space="preserve">
-    <value>?????????????????????????????</value>
+    <value>倍率をウィンドウに合わせてからパーティを更新してください。</value>
   </data>
   <data name="Pink" xml:space="preserve">
-    <value>???</value>
+    <value>ピンク</value>
   </data>
   <data name="Plugin enabled" xml:space="preserve">
-    <value>???????</value>
+    <value>プラグイン有効</value>
   </data>
   <data name="Portrait write-path research" xml:space="preserve">
-    <value>?????????????</value>
+    <value>ポートレート書き込みの調査</value>
   </data>
   <data name="Pos" xml:space="preserve">
-    <value>??</value>
+    <value>位置</value>
   </data>
   <data name="Pose" xml:space="preserve">
-    <value>???</value>
+    <value>ポーズ</value>
   </data>
   <data name="Pose preset: {0}" xml:space="preserve">
-    <value>??????{0}</value>
+    <value>ポーズ設定：{0}</value>
   </data>
   <data name="Preview bounds" xml:space="preserve">
-    <value>???????</value>
+    <value>プレビュー領域</value>
   </data>
   <data name="Preview captured" xml:space="preserve">
-    <value>?????????</value>
+    <value>プレビュー保存済み</value>
   </data>
   <data name="Preview character" xml:space="preserve">
-    <value>???????????</value>
+    <value>プレビューキャラクター</value>
   </data>
   <data name="Preview component" xml:space="preserve">
-    <value>????????????</value>
+    <value>プレビューコンポーネント</value>
   </data>
   <data name="Preview draw object" xml:space="preserve">
-    <value>?????????????</value>
+    <value>プレビュー描画オブジェクト</value>
   </data>
   <data name="Preview draw position" xml:space="preserve">
-    <value>?????????</value>
+    <value>プレビュー描画位置</value>
   </data>
   <data name="Preview draw rotation" xml:space="preserve">
-    <value>?????????</value>
+    <value>プレビュー描画回転</value>
   </data>
   <data name="Preview game position" xml:space="preserve">
-    <value>???????????</value>
+    <value>プレビューゲーム内位置</value>
   </data>
   <data name="Preview game rotation" xml:space="preserve">
-    <value>???????????</value>
+    <value>プレビューゲーム内回転</value>
   </data>
   <data name="Preview node" xml:space="preserve">
-    <value>????????</value>
+    <value>プレビューノード</value>
   </data>
   <data name="Preview node scale" xml:space="preserve">
-    <value>??????????</value>
+    <value>プレビューノード倍率</value>
   </data>
   <data name="Preview scaling" xml:space="preserve">
-    <value>???????</value>
+    <value>プレビュー倍率</value>
   </data>
   <data name="Preview scaling fallback" xml:space="preserve">
-    <value>?????????</value>
+    <value>プレビュー代替倍率</value>
   </data>
   <data name="Preview scaling: {0}%" xml:space="preserve">
-    <value>???????: {0}%</value>
+    <value>プレビュー倍率: {0}%</value>
   </data>
   <data name="Preview snip: {0}" xml:space="preserve">
-    <value>??????????{0}</value>
+    <value>プレビュー切り抜き：{0}</value>
   </data>
   <data name="Preview visible" xml:space="preserve">
-    <value>???????</value>
+    <value>プレビュー表示</value>
   </data>
   <data name="Preview-only barefoot multi-seam apply path when Without footwear is enabled" xml:space="preserve">
-    <value>???????????</value>
+    <value>靴除去はプレビューのみ</value>
   </data>
   <data name="Privacy is always on. /footballer debug exposes the session-only override." xml:space="preserve">
-    <value>????????????????/footballer debug ??????????????????????</value>
+    <value>プライバシー保護は常に有効です。/footballer debug でこのセッションのみの例外設定を表示します。</value>
   </data>
   <data name="Profile" xml:space="preserve">
-    <value>??????</value>
+    <value>プロフィール</value>
   </data>
   <data name="Queued automatic party feet refresh for {0} member(s)." xml:space="preserve">
-    <value>{0} ????????????????</value>
+    <value>{0} 人の足元自動更新を予約しました。</value>
   </data>
   <data name="Rail" xml:space="preserve">
-    <value>???</value>
+    <value>レール</value>
   </data>
   <data name="Raw scene camera" xml:space="preserve">
-    <value>??????????</value>
+    <value>シーンカメラ生データ</value>
   </data>
   <data name="Read-Only Active Row Payload" xml:space="preserve">
-    <value>??????????????????</value>
+    <value>アクティブ行のデータ（読み取り専用）</value>
   </data>
   <data name="Refresh Inspect Debug" xml:space="preserve">
-    <value>???????????</value>
+    <value>装備確認デバッグを更新</value>
   </data>
   <data name="Refresh Inspect Debug to populate the snapshot and report." xml:space="preserve">
-    <value>??????????????????????????????</value>
+    <value>装備確認デバッグを更新して情報とレポートを取得してください。</value>
   </data>
   <data name="Refresh Lodestone" xml:space="preserve">
-    <value>Lodestone ???</value>
+    <value>Lodestone を更新</value>
   </data>
   <data name="Refresh Lodestone lookup state and confirm face thumbnails can appear on the showcase cards" xml:space="preserve">
-    <value>Lodestone ???????????</value>
+    <value>Lodestone を更新して顔画像を確認</value>
   </data>
   <data name="Refresh Portrait Debug" xml:space="preserve">
-    <value>?????????????</value>
+    <value>ポートレートデバッグを更新</value>
   </data>
   <data name="Refresh Portrait Debug to populate the snapshot and report." xml:space="preserve">
-    <value>????????????????????????????????</value>
+    <value>ポートレートデバッグを更新して情報とレポートを取得してください。</value>
   </data>
   <data name="Refresh party" xml:space="preserve">
-    <value>???????</value>
+    <value>パーティを更新</value>
   </data>
   <data name="Refreshing" xml:space="preserve">
-    <value>???</value>
+    <value>更新中</value>
   </data>
   <data name="Refreshing feet preview for {0} ({1}/{2}). Requested CharacterInspect." xml:space="preserve">
-    <value>{0} ??????????{1}/{2}??CharacterInspect ????????</value>
+    <value>{0} の足元画像を更新中（{1}/{2}）。CharacterInspect を要求しました。</value>
   </data>
   <data name="Refreshing..." xml:space="preserve">
-    <value>????</value>
+    <value>更新中…</value>
   </data>
   <data name="Replace party portrait window pictures" xml:space="preserve">
-    <value>?????????????</value>
+    <value>パーティポートレートを置換</value>
   </data>
   <data name="Replace party portrait window pictures: {0}" xml:space="preserve">
-    <value>?????????????: {0}</value>
+    <value>パーティポートレートを置換: {0}</value>
   </data>
   <data name="Requested entity" xml:space="preserve">
-    <value>??????</value>
+    <value>要求した対象</value>
   </data>
   <data name="Research Notes" xml:space="preserve">
-    <value>????</value>
+    <value>調査メモ</value>
   </data>
   <data name="Reset snip profile" xml:space="preserve">
-    <value>???????????</value>
+    <value>切り抜き設定をリセット</value>
   </data>
   <data name="Retest Focus" xml:space="preserve">
-    <value>?????</value>
+    <value>再確認項目</value>
   </data>
   <data name="Retry" xml:space="preserve">
-    <value>???</value>
+    <value>再試行</value>
   </data>
   <data name="Role" xml:space="preserve">
-    <value>???</value>
+    <value>ロール</value>
   </data>
   <data name="Rollout Phases" xml:space="preserve">
-    <value>????</value>
+    <value>導入段階</value>
   </data>
   <data name="Row" xml:space="preserve">
-    <value>?</value>
+    <value>行</value>
   </data>
   <data name="Saved globally for future targets." xml:space="preserve">
-    <value>?????????????????????</value>
+    <value>以降の対象にも使用する設定として保存済み。</value>
   </data>
   <data name="Scaling" xml:space="preserve">
-    <value>????</value>
+    <value>表示倍率</value>
   </data>
   <data name="Scaling 100%" xml:space="preserve">
-    <value>???? 100%</value>
+    <value>表示倍率 100%</value>
   </data>
   <data name="Scene camera manager" xml:space="preserve">
-    <value>????????</value>
+    <value>シーンカメラ管理</value>
   </data>
   <data name="Scene manager index" xml:space="preserve">
-    <value>???????????</value>
+    <value>シーン管理インデックス</value>
   </data>
   <data name="Scroll down to &quot;The Dumpster Fire&quot; channel to discuss issues / suggestions for specific plugins." xml:space="preserve">
-    <value>?????????????The Dumpster Fire???????????????</value>
+    <value>プラグインの問題や提案は「The Dumpster Fire」チャンネルでご相談ください。</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>??</value>
+    <value>検索</value>
   </data>
   <data name="Self hidden" xml:space="preserve">
-    <value>?????????</value>
+    <value>自分の足元は非表示</value>
   </data>
   <data name="Session debug controls are visible. Privacy override is experimental." xml:space="preserve">
-    <value>?????????????????????????????????????????</value>
+    <value>セッションのデバッグ設定を表示しています。プライバシーの例外設定は実験的機能です。</value>
   </data>
   <data name="Session debug mode is active. Hidden research surfaces are visible below." xml:space="preserve">
-    <value>??????????????????????????????????</value>
+    <value>セッションのデバッグモードが有効です。調査ツールを以下に表示します。</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>??</value>
+    <value>設定</value>
   </data>
   <data name="Shell and docs" xml:space="preserve">
-    <value>???????</value>
+    <value>基本機能と文書</value>
   </data>
   <data name="Show DTR bar entry" xml:space="preserve">
-    <value>DTR ???</value>
+    <value>DTR に表示</value>
   </data>
   <data name="Show face next to feet" xml:space="preserve">
-    <value>??????????</value>
+    <value>足元と一緒に顔を表示</value>
   </data>
   <data name="Show face next to feet: {0}" xml:space="preserve">
-    <value>??????????: {0}</value>
+    <value>足元と一緒に顔を表示: {0}</value>
   </data>
   <data name="Show female feet" xml:space="preserve">
-    <value>????????</value>
+    <value>女性の足元を表示</value>
   </data>
   <data name="Show female feet: {0}" xml:space="preserve">
-    <value>????????: {0}</value>
+    <value>女性の足元を表示: {0}</value>
   </data>
   <data name="Show male feet" xml:space="preserve">
-    <value>????????</value>
+    <value>男性の足元を表示</value>
   </data>
   <data name="Show male feet: {0}" xml:space="preserve">
-    <value>????????: {0}</value>
+    <value>男性の足元を表示: {0}</value>
   </data>
   <data name="Show own feet" xml:space="preserve">
-    <value>????????</value>
+    <value>自分の足元を表示</value>
   </data>
   <data name="Show own feet: {0}" xml:space="preserve">
-    <value>????????: {0}</value>
+    <value>自分の足元を表示: {0}</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>???</value>
+    <value>サイズ</value>
   </data>
   <data name="Slider" xml:space="preserve">
-    <value>?????</value>
+    <value>スライダー</value>
   </data>
   <data name="Slot" xml:space="preserve">
-    <value>?</value>
+    <value>枠</value>
   </data>
   <data name="Snapshot captured" xml:space="preserve">
-    <value>??????????</value>
+    <value>スナップショット取得</value>
   </data>
   <data name="Snip action" xml:space="preserve">
-    <value>??????</value>
+    <value>切り抜き操作</value>
   </data>
   <data name="Snip bottom trim %" xml:space="preserve">
-    <value>??????? %</value>
+    <value>下部の切り抜き %</value>
   </data>
   <data name="Snip rect" xml:space="preserve">
-    <value>??????</value>
+    <value>切り抜き領域</value>
   </data>
   <data name="Snip top trim %" xml:space="preserve">
-    <value>??????? %</value>
+    <value>上部の切り抜き %</value>
   </data>
   <data name="Standard /footballer, /foot, /footballer ws, and /footballer j shell controls" xml:space="preserve">
-    <value>/footballer?/foot?/footballer ws?/footballer j</value>
+    <value>/footballer、/foot、/footballer ws、/footballer j</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>??</value>
+    <value>状態</value>
   </data>
   <data name="State / Pose" xml:space="preserve">
-    <value>??????</value>
+    <value>状態／ポーズ</value>
   </data>
   <data name="State {0} | Pose {1} | CJ {2}" xml:space="preserve">
-    <value>?? {0} | ??? {1} | CJ {2}</value>
+    <value>状態 {0} | ポーズ {1} | CJ {2}</value>
   </data>
   <data name="Stored Display Defaults" xml:space="preserve">
-    <value>?????????</value>
+    <value>保存された表示設定</value>
   </data>
   <data name="Stored crop defaults: 65% top / 20% bottom." xml:space="preserve">
-    <value>?????????65%???20%?</value>
+    <value>初期切り抜き：上部65%／下部20%。</value>
   </data>
   <data name="Stored privacy/default configuration values" xml:space="preserve">
-    <value>??????????????</value>
+    <value>プライバシーと初期設定の保存</value>
   </data>
   <data name="Stored snip profile" xml:space="preserve">
-    <value>???????????</value>
+    <value>保存された切り抜き設定</value>
   </data>
   <data name="Teal" xml:space="preserve">
-    <value>????</value>
+    <value>ティール</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>????</value>
+    <value>テキスト</value>
   </data>
   <data name="Text only" xml:space="preserve">
-    <value>??????</value>
+    <value>テキストのみ</value>
   </data>
   <data name="The foot showcase toggle is currently off." xml:space="preserve">
-    <value>???????????????</value>
+    <value>足元ギャラリーは現在無効です。</value>
   </data>
   <data name="This member is not available for inspection in the current game scene." xml:space="preserve">
-    <value>??????????????????????????????</value>
+    <value>現在のゲーム内シーンではこのメンバーの装備確認はできません。</value>
   </data>
   <data name="Timed out while refreshing {0}." xml:space="preserve">
-    <value>{0} ???????????????</value>
+    <value>{0} の更新がタイムアウトしました。</value>
   </data>
   <data name="Toggle male/female/self/showcase/face settings and confirm the live showcase cards respond immediately" xml:space="preserve">
-    <value>??????????????????????????????</value>
+    <value>性別、自分、ギャラリー、顔の設定が即座に反映されることを確認</value>
   </data>
   <data name="Treat portrait-window replacement and the showcase window as explicit experiments with safe toggles and hidden debug surfaces." xml:space="preserve">
-    <value>????????????????????????????????????</value>
+    <value>ポートレート置換とギャラリーは切替可能な実験機能。デバッグは通常非表示。</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>??</value>
+    <value>種類</value>
   </data>
   <data name="Type /footballer debug and confirm the hidden inspect and BannerParty research surfaces appear" xml:space="preserve">
-    <value>/footballer debug ?????? BannerParty ?????</value>
+    <value>/footballer debug で装備確認と BannerParty 調査を表示</value>
   </data>
   <data name="UI fonts failed to load. See the plugin log." xml:space="preserve">
-    <value>??????????????????????????????????</value>
+    <value>フォントを読み込めませんでした。プラグインのログを確認してください。</value>
   </data>
   <data name="Un-Krangle" xml:space="preserve">
-    <value>????</value>
+    <value>元の名前</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>??</value>
+    <value>不明</value>
   </data>
   <data name="Updated the feet preview for {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ?????????????{1}/{2}??</value>
+    <value>{0} の足元画像を更新しました（{1}/{2}）。</value>
   </data>
   <data name="Use /foot ws and /foot j" xml:space="preserve">
-    <value>/foot ws ? /foot j ???</value>
+    <value>/foot ws と /foot j を使用</value>
   </data>
   <data name="Use Capture Current Preview and confirm the saved CharacterInspect image lands on the matching showcase card" xml:space="preserve">
-    <value>?????????????????????????????</value>
+    <value>現在のプレビューを保存して対象カードに表示されることを確認</value>
   </data>
   <data name="Use Inspect on a party row or showcase card and confirm CharacterInspect opens for that member" xml:space="preserve">
-    <value>?????????????????????????</value>
+    <value>行やカードの装備確認で対象メンバーを開くことを確認</value>
   </data>
   <data name="Use Inspect, wait for a stable preview, then Capture Current Preview. Refresh party captures each member after a two-second hold." xml:space="preserve">
-    <value>?????????????????????????????????????????2??????????</value>
+    <value>装備確認を開き、プレビューの安定後に保存してください。パーティ更新では各メンバーを2秒待って撮影します。</value>
   </data>
   <data name="Use Refresh party and confirm the plugin walks the live party snapshot and refreshes feet captures sequentially" xml:space="preserve">
-    <value>?????????????????????</value>
+    <value>パーティ更新で順次足元を撮影することを確認</value>
   </data>
   <data name="Use live CharacterInspect preview capture plus a queued preset inspect yaw and a preview-only multi-seam feet clear and redraw path for the current direct character-derived branch, then defer true foot-only crop/export until that path stays stable." xml:space="preserve">
-    <value>CharacterInspect ?????????????????????????????</value>
+    <value>CharacterInspect のポーズと靴除去を利用。足元だけの書き出しは安定後に調査。</value>
   </data>
   <data name="Use the TTSL Lodestone face approach as the likely path for adjacent identity visuals." xml:space="preserve">
-    <value>?????????? TTSL ? Lodestone ??????</value>
+    <value>関連する人物画像には TTSL の Lodestone 手法を検討。</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>?</value>
+    <value>値</value>
   </data>
   <data name="Verify the hidden privacy override only appears after /footballer debug" xml:space="preserve">
-    <value>????????? /footballer debug ??????</value>
+    <value>プライバシー例外は /footballer debug の後だけ表示</value>
   </data>
   <data name="Visible" xml:space="preserve">
-    <value>??</value>
+    <value>表示</value>
   </data>
   <data name="Waiting for AgentInspect before refreshing {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ? AgentInspect ?????{1}/{2}??</value>
+    <value>{0} の AgentInspect を待機中（{1}/{2}）。</value>
   </data>
   <data name="Waiting for AgentInspect before starting {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ????? AgentInspect ?????{1}/{2}??</value>
+    <value>{0} の開始前に AgentInspect を待機中（{1}/{2}）。</value>
   </data>
   <data name="Waiting for CharacterInspect to switch to {0} ({1}/{2})." xml:space="preserve">
-    <value>CharacterInspect ? {0} ????????????{1}/{2}??</value>
+    <value>CharacterInspect が {0} に切り替わるまで待機中（{1}/{2}）。</value>
   </data>
   <data name="Waiting for the Lodestone privacy check. Use Refresh Lodestone to retry." xml:space="preserve">
-    <value>Lodestone ??????????????Lodestone ???????????????</value>
+    <value>Lodestone のプライバシー確認待ちです。Lodestone を更新して再試行してください。</value>
   </data>
   <data name="Waiting for the barefoot preview apply path on {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ?????????{1}/{2}??</value>
+    <value>{0} の靴除去を待機中（{1}/{2}）。</value>
   </data>
   <data name="Waiting for the inspect preview to become capture-ready for {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ???????????????{1}/{2}??</value>
+    <value>{0} のプレビュー撮影準備を待機中（{1}/{2}）。</value>
   </data>
   <data name="Waiting for the preset inspect pose on {0} ({1}/{2})." xml:space="preserve">
-    <value>{0} ???????????{1}/{2}??</value>
+    <value>{0} の設定ポーズを待機中（{1}/{2}）。</value>
   </data>
   <data name="Window Behavior" xml:space="preserve">
-    <value>???????</value>
+    <value>ウィンドウ動作</value>
   </data>
   <data name="Without footwear" xml:space="preserve">
-    <value>????</value>
+    <value>靴を脱ぐ</value>
   </data>
   <data name="Without footwear removes shoes in the inspect preview only. Refresh party to save new previews." xml:space="preserve">
-    <value>?????????????????????????????????????????????</value>
+    <value>靴の除去は装備確認プレビューのみです。新しい画像を保存するにはパーティを更新してください。</value>
   </data>
   <data name="Without footwear: {0}" xml:space="preserve">
-    <value>????: {0}</value>
+    <value>靴を脱ぐ: {0}</value>
   </data>
   <data name="World" xml:space="preserve">
-    <value>????</value>
+    <value>ワールド</value>
   </data>
   <data name="Y" xml:space="preserve">
-    <value>??</value>
+    <value>はい</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>??</value>
+    <value>はい</value>
   </data>
   <data name="Zoom ratio" xml:space="preserve">
-    <value>?????</value>
+    <value>ズーム倍率</value>
   </data>
   <data name="{0:P0} top / {1:P0} bottom" xml:space="preserve">
-    <value>?? {0:P0}??? {1:P0}</value>
+    <value>上部 {0:P0}／下部 {1:P0}</value>
   </data>
   <data name="{0} (You)" xml:space="preserve">
-    <value>{0}????</value>
+    <value>{0}（自分）</value>
   </data>
-  <data name="{0} previews available ? {1} hidden by privacy" xml:space="preserve">
-    <value>????? {0} ? ? ???????????? {1} ?</value>
+  <data name="{0} previews available · {1} hidden by privacy" xml:space="preserve">
+    <value>プレビュー {0} 件 · プライバシーにより非表示 {1} 件</value>
   </data>
   <data name="{0} {1}. Click to toggle." xml:space="preserve">
-    <value>{0} {1}???????????</value>
+    <value>{0} {1}。クリックで切り替え。</value>
+  </data>
+  <data name="Compact mode" xml:space="preserve">
+    <value>コンパクトモード</value>
   </data>
 </root>

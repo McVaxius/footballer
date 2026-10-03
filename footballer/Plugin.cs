@@ -139,14 +139,20 @@ public sealed class Plugin : IDalamudPlugin
             try
             {
                 var generation=uiFonts.Generation;
-                uiFonts.CheckGlyphs(UiText.Values(uiText.Resources).Concat(UiText.Languages.Select(l=>l.Name)));
+                uiFonts.CheckGlyphs(uiText.RequiredText);
                 checkedFontGeneration=generation;
             }
             catch(Exception ex) { if(!fontIssueLogged) { Log.Error(ex,"[footballer] Required UI glyph coverage failed.");fontIssueLogged=true; } DrawFontStatus(false);return; }
         }
         using var theme = MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, MaterialStyleMode.ColorsOnly);
         using var geometry=new MaterialStyleScope();
-        geometry.Style(Dalamud.Bindings.ImGui.ImGuiStyleVar.WindowPadding,new System.Numerics.Vector2(20*ImGuiHelpers.GlobalScale));
+        geometry.Style(Dalamud.Bindings.ImGui.ImGuiStyleVar.WindowPadding,new System.Numerics.Vector2((Configuration.UiCompact ? 12 : 20)*ImGuiHelpers.GlobalScale));
+        if (Configuration.UiCompact)
+        {
+            geometry.Style(ImGuiStyleVar.ItemSpacing, new Vector2(8, 4) * ImGuiHelpers.GlobalScale);
+            geometry.Style(ImGuiStyleVar.FramePadding, new Vector2(8, 3) * ImGuiHelpers.GlobalScale);
+            geometry.Style(ImGuiStyleVar.CellPadding, new Vector2(6, 3) * ImGuiHelpers.GlobalScale);
+        }
         geometry.Style(ImGuiStyleVar.FrameRounding, 4 * ImGuiHelpers.GlobalScale);
         geometry.Style(ImGuiStyleVar.ChildRounding, 4 * ImGuiHelpers.GlobalScale);
         using var body = uiFonts.Push(UiFontRole.Body);
@@ -182,6 +188,7 @@ public sealed class Plugin : IDalamudPlugin
             var color=FootballerPresentation.Rgb(appliedAccent);
             accentDraft=new(color.X,color.Y,color.Z);
         }
+        uiTheme.Density = Configuration.UiCompact ? MaterialDensity.Compact : MaterialDensity.Standard;
     }
 
     public void DrawAppearanceSelector()
