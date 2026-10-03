@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-02
+
+- Adopted the approved Footballer main-window layout with native chrome, rose vector branding, a responsive toolbar, capture/privacy counts, and one saved feet preview per character card.
+- Added **Without footwear** to the main toolbar using the existing saved preference and preview-only removal handler; retained the Settings control.
+- Added shared colour/language selectors, relative whole-theme colours, nine embedded language resources, locale formatting and managed Segoe/CJK fonts with explicit readiness checks.
+- Preserved native IDs, capture/privacy behavior, commands, window positioning and retained Settings/debug layouts. Logs, copied reports and raw diagnostic data remain in their original form.
+- Updated the local batch launcher to build the plugin project with the pinned AethertekUI environment and packaging disabled. Versions remain Footballer 0.0.1.3, configuration 4 and AethertekUI 0.3.0.
+
 ## 2026-10-01
 
 - Build only the plugin project in GitHub Actions so test and regression projects do not block production artifacts.

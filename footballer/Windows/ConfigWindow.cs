@@ -27,17 +27,20 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
     public override void Draw()
     {
         var cfg = plugin.Configuration;
-
-        ImGui.TextWrapped("This build now has a live party foot showcase surface, Lodestone face caching/privacy gating, a stored CharacterInspect capture profile, preview-only barefoot mode, and hidden research surfaces behind /footballer debug. The normal window keeps the showcase flow active without continuously polling the raw inspect and portrait research surfaces.");
+        UiGui.Title("Footballer Settings", UiText.T("Footballer Settings"));
+        plugin.DrawAppearanceSelector();
         ImGui.Separator();
-        ImGui.TextUnformatted("Live Shell Controls");
+
+        UiGui.TextWrapped("Choose which party previews to show. Lodestone privacy is respected in normal use.");
+        ImGui.Separator();
+        UiGui.TextUnformatted("Live Shell Controls");
 
         var enabled = cfg.PluginEnabled;
-        if (ImGui.Checkbox("Plugin enabled", ref enabled))
+        if (UiGui.Checkbox("Plugin enabled", ref enabled))
             plugin.SetPluginEnabled(enabled, printStatus: true);
 
         var dtr = cfg.DtrBarEnabled;
-        if (ImGui.Checkbox("Show DTR bar entry", ref dtr))
+        if (UiGui.Checkbox("Show DTR bar entry", ref dtr))
         {
             cfg.DtrBarEnabled = dtr;
             cfg.Save();
@@ -45,7 +48,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         }
 
         var mode = cfg.DtrBarMode;
-        if (ImGui.Combo("DTR mode", ref mode, DtrModes, DtrModes.Length))
+        if (UiGui.Combo("DTR mode", ref mode, DtrModes, DtrModes.Length))
         {
             cfg.DtrBarMode = mode;
             cfg.Save();
@@ -53,7 +56,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         }
 
         var onIcon = cfg.DtrIconEnabled;
-        if (ImGui.InputText("DTR enabled glyph", ref onIcon, 8))
+        if (UiGui.InputText("DTR enabled glyph", ref onIcon, 8))
         {
             cfg.DtrIconEnabled = onIcon.Length <= 3 ? onIcon : onIcon[..3];
             cfg.Save();
@@ -61,7 +64,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         }
 
         var offIcon = cfg.DtrIconDisabled;
-        if (ImGui.InputText("DTR disabled glyph", ref offIcon, 8))
+        if (UiGui.InputText("DTR disabled glyph", ref offIcon, 8))
         {
             cfg.DtrIconDisabled = offIcon.Length <= 3 ? offIcon : offIcon[..3];
             cfg.Save();
@@ -69,58 +72,58 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         }
 
         ImGui.Separator();
-        ImGui.TextUnformatted("Stored Display Defaults");
+        UiGui.TextUnformatted("Stored Display Defaults");
 
         var krangleNames = cfg.KrangleNames;
-        if (ImGui.Checkbox("Default: Krangle labels", ref krangleNames))
+        if (UiGui.Checkbox("Default: Krangle labels", ref krangleNames))
             plugin.SetKrangleNames(krangleNames);
 
         var showMaleFeet = cfg.ShowMaleFeet;
-        if (ImGui.Checkbox("Default: Show male feet", ref showMaleFeet))
+        if (UiGui.Checkbox("Default: Show male feet", ref showMaleFeet))
         {
             cfg.ShowMaleFeet = showMaleFeet;
             cfg.Save();
         }
 
         var showFemaleFeet = cfg.ShowFemaleFeet;
-        if (ImGui.Checkbox("Default: Show female feet", ref showFemaleFeet))
+        if (UiGui.Checkbox("Default: Show female feet", ref showFemaleFeet))
         {
             cfg.ShowFemaleFeet = showFemaleFeet;
             cfg.Save();
         }
 
         var withoutFootwear = cfg.WithoutFootwear;
-        if (ImGui.Checkbox("Default: Without footwear", ref withoutFootwear))
+        if (UiGui.Checkbox("Default: Without footwear", ref withoutFootwear))
         {
             cfg.WithoutFootwear = withoutFootwear;
             cfg.Save();
             plugin.HandleWithoutFootwearChanged();
         }
-        ImGui.TextWrapped("Current note: Without footwear now drives a preview-only CharacterInspect multi-seam feet clear plus redraw pass. Open Inspect from a party row or showcase card, let the preview settle, then use Capture current preview from the main window.");
+        UiGui.TextWrapped("Without footwear removes shoes in the inspect preview only. Refresh party to save new previews.");
 
         var showOwnFeet = cfg.ShowOwnFeet;
-        if (ImGui.Checkbox("Default: Show own feet", ref showOwnFeet))
+        if (UiGui.Checkbox("Default: Show own feet", ref showOwnFeet))
         {
             cfg.ShowOwnFeet = showOwnFeet;
             cfg.Save();
         }
 
         var replaceCommendationPictures = cfg.ReplaceCommendationPictures;
-        if (ImGui.Checkbox("Default: Replace party portrait window pictures", ref replaceCommendationPictures))
+        if (UiGui.Checkbox("Default: Replace party portrait window pictures", ref replaceCommendationPictures))
         {
             cfg.ReplaceCommendationPictures = replaceCommendationPictures;
             cfg.Save();
         }
 
         var showFootShowcase = cfg.ShowFootShowcase;
-        if (ImGui.Checkbox("Default: Show foot showcase", ref showFootShowcase))
+        if (UiGui.Checkbox("Default: Show foot showcase", ref showFootShowcase))
         {
             cfg.ShowFootShowcase = showFootShowcase;
             cfg.Save();
         }
 
         var showFaceNextToFeet = cfg.ShowFaceNextToFeet;
-        if (ImGui.Checkbox("Default: Show face next to feet", ref showFaceNextToFeet))
+        if (UiGui.Checkbox("Default: Show face next to feet", ref showFaceNextToFeet))
         {
             cfg.ShowFaceNextToFeet = showFaceNextToFeet;
             cfg.Save();
@@ -128,10 +131,10 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
 
         if (plugin.SessionDebugUnlocked)
         {
-            ImGui.TextColored(new Vector4(0.98f, 0.73f, 0.40f, 1f), "Session debug controls are visible. Privacy override is experimental.");
+            UiGui.TextColored(new Vector4(0.98f, 0.73f, 0.40f, 1f), "Session debug controls are visible. Privacy override is experimental.");
 
             var respectPrivacy = cfg.RespectLodestonePrivacy;
-            if (ImGui.Checkbox("Debug: Respect Lodestone privacy", ref respectPrivacy))
+            if (UiGui.Checkbox("Debug: Respect Lodestone privacy", ref respectPrivacy))
             {
                 cfg.RespectLodestonePrivacy = respectPrivacy;
                 cfg.Save();
@@ -139,31 +142,31 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         }
         else
         {
-        ImGui.TextWrapped("Lodestone privacy respect is forced on in normal use. Type /footballer debug to expose the experimental override for this session.");
+        UiGui.TextWrapped("Privacy is always on. /footballer debug exposes the session-only override.");
         }
 
         var openOnLoad = cfg.OpenMainWindowOnLoad;
         ImGui.Separator();
-        ImGui.TextUnformatted("Window Behavior");
-        if (ImGui.Checkbox("Open main window on load", ref openOnLoad))
+        UiGui.TextUnformatted("Window Behavior");
+        if (UiGui.Checkbox("Open main window on load", ref openOnLoad))
         {
             cfg.OpenMainWindowOnLoad = openOnLoad;
             cfg.Save();
         }
 
         var autoRefreshOnOpen = cfg.AutoRefreshPartyOnShowcaseOpen;
-        if (ImGui.Checkbox("Automatically refresh party once when showcase opens", ref autoRefreshOnOpen))
+        if (UiGui.Checkbox("Automatically refresh party once when showcase opens", ref autoRefreshOnOpen))
         {
             cfg.AutoRefreshPartyOnShowcaseOpen = autoRefreshOnOpen;
             cfg.Save();
         }
 
-        ImGui.TextWrapped("Use the main-window Scaling dropdown to match the CharacterInspect preview window UI scale from 60% to 200% before running Refresh party or Capture Current Preview.");
+        UiGui.TextWrapped("Match Scaling to CharacterInspect (60?200%) before capturing.");
 
         ImGui.Separator();
-        ImGui.TextUnformatted("Rollout Phases");
+        UiGui.TextUnformatted("Rollout Phases");
         foreach (var phase in PluginInfo.Phases)
-            ImGui.BulletText(phase);
+            UiGui.BulletText(phase);
 
         FinalizePendingWindowPlacement();
     }

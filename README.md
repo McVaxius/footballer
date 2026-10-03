@@ -24,3 +24,15 @@ Scroll down to "The Dumpster Fire" channel to discuss issues / suggestions for s
 - Let the main window store the CharacterInspect preview window scaling so snips still land on the feet when the inspect UI is not at 100%.
 - Keep portrait replacement behavior behind hidden debug research surfaces until a write path is proven safe.
 - Let the main window toggle player-facing labels between real and krangled names, then persist that preference for later testing and screenshots.
+
+## Appearance and local build
+
+The main window follows the approved `Footballer-main-v3.png` layout: rose footprint branding, a wrapping toolbar, a privacy/capture status strip, and character cards with one saved feet capture. **Without footwear** is available in both the main toolbar and Settings. It uses the existing preview-only shoe-removal handler; refresh the party to save new captures.
+
+The colour and language selectors appear in the main header and Settings. English, German, French, Spanish, Italian, Russian, Japanese, Korean and Simplified Chinese resources are embedded in the plugin. `UiLanguage` and `UiAccentRgb` use the existing configuration/save path; configuration version remains 4. Colour selection adjusts the complete decorative theme relative to the approved rose palette. Privacy and capture status colours keep their meanings.
+
+Content uses managed Segoe UI regular, semibold and bold fonts, with Dalamud's bundled CJK coverage. Font readiness and glyph coverage are checked before the windows render. Windows font files are not distributed. Settings and the debug/research surfaces retain their layouts, native IDs and actions; raw diagnostic data, logs and copied reports retain their original text.
+
+Run `Z:\footballer.bat` to restore and build only the plugin project in Debug/x64, with packaging disabled. The launcher enters the sibling AethertekUI environment and uses SDK 10.0.201. The build output includes `AethertekUI.dll` beside `footballer.dll`; both are needed by the plugin. Plugin version remains 0.0.1.3 on .NET 10 and Dalamud API 15. A consumer-only checkout needs the sibling AethertekUI repository for this local project reference.
+
+The approved reference uses 1536 × 1024 at 100%. Smaller windows and longer translations can wrap the toolbar and reduce the number of cards per row. Game font readiness, textures and visual fidelity require David's screenshot acceptance; local build checks do not establish that acceptance.

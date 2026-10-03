@@ -1,4 +1,5 @@
 using System;
+using AethertekUI;
 using System.IO;
 using System.Numerics;
 using System.Reflection;
@@ -10,7 +11,7 @@ using footballer.Services;
 
 namespace footballer.Windows;
 
-public sealed class MainWindow : PositionedWindow, IDisposable
+public sealed partial class MainWindow : PositionedWindow, IDisposable
 {
     private static readonly int[] PreviewScalePercents = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 };
     private readonly Plugin plugin;
@@ -19,6 +20,8 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         : base($"{PluginInfo.DisplayName}##Main")
     {
         this.plugin = plugin;
+        Size = new Vector2(1536, 1024);
+        SizeCondition = ImGuiCond.FirstUseEver;
         SizeConstraints = new WindowSizeConstraints
         {
             MinimumSize = new Vector2(820f, 640f),
@@ -46,12 +49,19 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             effectiveRespectPrivacy,
             plugin.CharacterInspectPreviewCaptureService);
 
-        ImGui.Text($"{PluginInfo.DisplayName} v{version}");
+        if (!showDebug)
+        {
+            DrawPresentation(cfg, scalePercent, footCards);
+            FinalizePendingWindowPlacement();
+            return;
+        }
+
+        UiGui.Text(UiText.F($"{PluginInfo.DisplayName} v{version}"));
         ImGui.SameLine();
-        if (ImGui.SmallButton("Ko-fi"))
+        if (UiGui.SmallButton("Ko-fi"))
             plugin.OpenUrl(PluginInfo.SupportUrl);
         ImGui.SameLine();
-        if (ImGui.SmallButton("Discord"))
+        if (UiGui.SmallButton("Discord"))
             plugin.OpenUrl(PluginInfo.DiscordUrl);
 
         ImGui.Separator();
@@ -63,45 +73,39 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
         if (showDebug)
         {
-            ImGui.TextWrapped(PluginInfo.Summary);
-            ImGui.TextWrapped(PluginInfo.ShellStatus);
-            ImGui.TextWrapped("Privacy rule: feet are hidden when a face is unavailable on Lodestone so the plugin does not bypass that profile privacy choice.");
-            ImGui.TextWrapped(PluginInfo.DiscordFeedbackNote);
-            ImGui.TextColored(new Vector4(0.98f, 0.73f, 0.40f, 1f), "Session debug mode is active. Hidden research surfaces are visible below.");
+            UiGui.TextWrapped("Inspect and capture tools are available in debug mode.");
+            UiGui.TextWrapped("Feet are hidden when Lodestone does not expose a face.");
+            UiGui.TextWrapped(PluginInfo.DiscordFeedbackNote);
+            UiGui.TextColored(new Vector4(0.98f, 0.73f, 0.40f, 1f), "Session debug mode is active. Hidden research surfaces are visible below.");
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Live Today");
+            UiGui.TextUnformatted("Live Today");
             foreach (var item in PluginInfo.LiveToday)
-                ImGui.BulletText(item);
+                UiGui.BulletText(item);
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Current Defaults");
-            ImGui.BulletText($"Krangle labels: {(cfg.KrangleNames ? "Yes" : "No")}");
-            ImGui.BulletText($"Preview scaling: {scalePercent}%");
-            ImGui.BulletText($"Auto refresh party on showcase open: {(cfg.AutoRefreshPartyOnShowcaseOpen ? "Yes" : "No")}");
-            ImGui.BulletText($"Show male feet: {(cfg.ShowMaleFeet ? "Yes" : "No")}");
-            ImGui.BulletText($"Show female feet: {(cfg.ShowFemaleFeet ? "Yes" : "No")}");
-            ImGui.BulletText($"Without footwear: {(cfg.WithoutFootwear ? "Yes" : "No")}");
-            ImGui.BulletText($"Show own feet: {(cfg.ShowOwnFeet ? "Yes" : "No")}");
-            ImGui.BulletText($"Replace party portrait window pictures: {(cfg.ReplaceCommendationPictures ? "Yes" : "No")}");
-            ImGui.BulletText($"Show face next to feet: {(cfg.ShowFaceNextToFeet ? "Yes" : "No")}");
-            ImGui.BulletText(plugin.SessionDebugUnlocked
-                ? $"Lodestone privacy gate (debug): {(effectiveRespectPrivacy ? "Forced / On" : "Override Off")}"
+            UiGui.TextUnformatted("Current Defaults");
+            UiGui.BulletText(UiText.F($"Krangle labels: {(cfg.KrangleNames ? "Yes" : "No")}"));
+            UiGui.BulletText(UiText.F($"Preview scaling: {scalePercent}%"));
+            UiGui.BulletText(UiText.F($"Auto refresh party on showcase open: {(cfg.AutoRefreshPartyOnShowcaseOpen ? "Yes" : "No")}"));
+            UiGui.BulletText(UiText.F($"Show male feet: {(cfg.ShowMaleFeet ? "Yes" : "No")}"));
+            UiGui.BulletText(UiText.F($"Show female feet: {(cfg.ShowFemaleFeet ? "Yes" : "No")}"));
+            UiGui.BulletText(UiText.F($"Without footwear: {(cfg.WithoutFootwear ? "Yes" : "No")}"));
+            UiGui.BulletText(UiText.F($"Show own feet: {(cfg.ShowOwnFeet ? "Yes" : "No")}"));
+            UiGui.BulletText(UiText.F($"Replace party portrait window pictures: {(cfg.ReplaceCommendationPictures ? "Yes" : "No")}"));
+            UiGui.BulletText(UiText.F($"Show face next to feet: {(cfg.ShowFaceNextToFeet ? "Yes" : "No")}"));
+            UiGui.BulletText(plugin.SessionDebugUnlocked
+                ? UiText.F($"Lodestone privacy gate (debug): {(effectiveRespectPrivacy ? "Forced / On" : "Override Off")}")
                 : "Lodestone privacy gate: Forced on");
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Live Party Foot Showcase");
-            ImGui.TextWrapped("Normal mode is now meant to stay stripped down to the top controls and the mini character boxes. The extra copy, raw tables, and manual inspect/capture actions stay below the fold only when session debug is enabled.");
-        }
-        else
-        {
-            DrawNormalWorkflowStatus(cfg, partyMembers, footCards);
-            ImGui.Separator();
+            UiGui.TextUnformatted("Live Party Foot Showcase");
+            UiGui.TextWrapped("Inspect and capture tools are available in debug mode.");
         }
 
         if (footCards.Count == 0)
         {
-            ImGui.TextWrapped("No local player or party members are available yet, so there is nothing to render in the live showcase.");
+            UiGui.TextWrapped("No local player or party members are available yet, so there is nothing to render in the live showcase.");
         }
         else
         {
@@ -124,13 +128,13 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         if (showDebug)
         {
             ImGui.Separator();
-            if (ImGui.CollapsingHeader("Party Showcase Model"))
+            if (UiGui.CollapsingHeader("Party Showcase Model"))
             {
-                ImGui.TextWrapped("Raw party snapshot, Lodestone lookup state, and feet-gate truth. Names and worlds follow the current krangle toggle here too.");
+                UiGui.TextWrapped("Party snapshot, Lodestone lookup and privacy state.");
 
                 if (partyMembers.Count == 0)
                 {
-                    ImGui.TextWrapped("No local player or party members are available yet.");
+                    UiGui.TextWrapped("No local player or party members are available yet.");
                 }
                 else if (ImGui.BeginTable("FootballerPartyShowcaseTable", 7, ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg | ImGuiTableFlags.ScrollY | ImGuiTableFlags.SizingFixedFit, new Vector2(-1f, 240f)))
                 {
@@ -141,7 +145,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                     ImGui.TableSetupColumn("Lodestone", ImGuiTableColumnFlags.WidthStretch);
                     ImGui.TableSetupColumn("Feet");
                     ImGui.TableSetupColumn("Links");
-                    ImGui.TableHeadersRow();
+                    UiGui.TableHeadersRow();
 
                     foreach (var member in partyMembers)
                     {
@@ -151,22 +155,22 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                         ImGui.TableNextRow();
 
                         ImGui.TableNextColumn();
-                        ImGui.TextUnformatted(member.Slot.ToString());
+                        UiGui.TextUnformatted(member.Slot.ToString(UiText.Current.Culture));
 
                         ImGui.TableNextColumn();
-                        ImGui.TextUnformatted(GetSafeDisplayName(member));
-                        ImGui.TextDisabled(GetSafeWorldLabel(member));
+                        UiGui.TextUnformatted(GetSafeDisplayName(member));
+                        UiGui.TextDisabled(GetSafeWorldLabel(member));
 
                         ImGui.TableNextColumn();
-                        ImGui.TextUnformatted($"{member.JobAbbreviation} {member.Level}");
+                        UiGui.TextUnformatted(UiText.F($"{member.JobAbbreviation} {member.Level}"));
 
                         ImGui.TableNextColumn();
-                        ImGui.TextUnformatted(string.IsNullOrWhiteSpace(member.ContentId) ? "-" : member.ContentIdShort);
+                        UiGui.TextUnformatted(string.IsNullOrWhiteSpace(member.ContentId) ? "-" : member.ContentIdShort);
 
                         ImGui.TableNextColumn();
                         DrawStatusText(LodestoneProfileService.GetStatusLabel(lookup.Status), lookup.Status);
                         if (!string.IsNullOrWhiteSpace(lookup.Note))
-                            ImGui.TextWrapped(lookup.Note);
+                            UiGui.TextWrapped(lookup.Note);
 
                         ImGui.TableNextColumn();
                         DrawFeetGateText(feetGateLabel);
@@ -175,18 +179,18 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                         DrawInspectButton(member, $"PartyTable{member.CharacterKey}");
 
                         ImGui.SameLine();
-                        if (ImGui.SmallButton($"Search##{member.CharacterKey}"))
+                        if (UiGui.SmallButton($"Search##{member.CharacterKey}"))
                             plugin.OpenUrl(lookup.SearchUrl);
 
                         if (!string.IsNullOrWhiteSpace(lookup.ProfileUrl))
                         {
                             ImGui.SameLine();
-                            if (ImGui.SmallButton($"Profile##{member.CharacterKey}"))
+                            if (UiGui.SmallButton($"Profile##{member.CharacterKey}"))
                                 plugin.OpenUrl(lookup.ProfileUrl!);
                         }
 
                         ImGui.SameLine();
-                        if (ImGui.SmallButton($"Retry##{member.CharacterKey}"))
+                        if (UiGui.SmallButton($"Retry##{member.CharacterKey}"))
                             plugin.LodestoneProfileService.EnsureLookup(member.Name, member.WorldName, force: true);
                     }
 
@@ -195,40 +199,40 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             }
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Inspect Capture");
-            ImGui.TextWrapped("The normal showcase flow now avoids frame-by-frame research polling. Use Inspect on a party row or showcase card, let CharacterInspect settle, then capture the current preview when you want to refresh a foot card image. Refresh party also runs the sequential inspect/pose/barefoot/capture loop for the live party snapshot, with a 2-second stable hold before each automatic save.");
-            ImGui.BulletText($"Party feet refresh: {plugin.PartyFeetRefreshService.LastStatus}");
-            ImGui.BulletText($"Pose preset: {plugin.CharacterInspectPoseService.LastStatus}");
-            ImGui.BulletText($"Barefoot apply: {plugin.CharacterInspectFootwearService.LastStatus}");
-            ImGui.BulletText($"Preview snip: {plugin.CharacterInspectPreviewCaptureService.LastCaptureStatus}");
+            UiGui.TextUnformatted("Inspect Capture");
+            UiGui.TextWrapped("Use Inspect, wait for a stable preview, then Capture Current Preview. Refresh party captures each member after a two-second hold.");
+            UiGui.BulletText(UiText.F($"Party feet refresh: {plugin.PartyFeetRefreshService.LastStatus}"));
+            UiGui.BulletText(UiText.F($"Pose preset: {plugin.CharacterInspectPoseService.LastStatus}"));
+            UiGui.BulletText(UiText.F($"Barefoot apply: {plugin.CharacterInspectFootwearService.LastStatus}"));
+            UiGui.BulletText(UiText.F($"Preview snip: {plugin.CharacterInspectPreviewCaptureService.LastCaptureStatus}"));
 
-            if (ImGui.SmallButton("Capture Current Preview"))
+            if (UiGui.SmallButton("Capture Current Preview"))
             {
                 var result = plugin.CaptureCurrentInspectPreview(partyMembers);
                 plugin.PrintStatus(result.Status);
             }
             ImGui.SameLine();
-            if (ImGui.SmallButton("Capture Folder"))
+            if (UiGui.SmallButton("Capture Folder"))
                 plugin.OpenInspectPreviewCaptureFolder();
             ImGui.SameLine();
-            ImGui.TextDisabled("Stored crop defaults: 65% top / 20% bottom.");
+            UiGui.TextDisabled("Stored crop defaults: 65% top / 20% bottom.");
 
             DrawDebugResearchSections(partyMembers, cropFractions, scalePercent);
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Research Notes");
+            UiGui.TextUnformatted("Research Notes");
             foreach (var item in PluginInfo.Concept)
-                ImGui.BulletText(item);
+                UiGui.BulletText(item);
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Active Services");
+            UiGui.TextUnformatted("Active Services");
             foreach (var item in PluginInfo.Services)
-                ImGui.BulletText(item);
+                UiGui.BulletText(item);
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Retest Focus");
+            UiGui.TextUnformatted("Retest Focus");
             foreach (var item in PluginInfo.Tests)
-                ImGui.BulletText(item);
+                UiGui.BulletText(item);
         }
 
         FinalizePendingWindowPlacement();
@@ -236,117 +240,77 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
     private void DrawNormalToolbar(Configuration cfg, int scalePercent)
     {
-        var refreshActive = plugin.PartyFeetRefreshService.IsActive;
-
+        using var font = UiText.Font(UiFontRole.Action);
+        var active = plugin.PartyFeetRefreshService.IsActive;
         var enabled = cfg.PluginEnabled;
-        if (ImGui.Checkbox("Enabled", ref enabled))
-            plugin.SetPluginEnabled(enabled, printStatus: true);
-
-        ImGui.SameLine();
-        ImGui.BeginDisabled(refreshActive);
-        if (ImGui.SmallButton(refreshActive ? "Refreshing..." : "Refresh party"))
+        if (UiGui.Toggle("Enabled", ref enabled)) plugin.SetPluginEnabled(enabled, printStatus: true);
+        ToolbarNext(active ? "Refreshing..." : "Refresh party", icon: MaterialIcon.Refresh);
+        if (UiGui.Action(active ? "Refreshing..." : "Refresh party", active ? "Refreshing..." : "Refresh party", MaterialIcon.Refresh, active))
             plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
-        ImGui.EndDisabled();
-
-        ImGui.Spacing();
-
+        ToolbarNext("Foot showcase", toggle: true);
         var showcase = cfg.ShowFootShowcase;
-        if (ImGui.Checkbox("Foot showcase", ref showcase))
+        if (UiGui.Toggle("Foot showcase", ref showcase)) { cfg.ShowFootShowcase = showcase; cfg.Save(); }
+        ToolbarNext("Without footwear", toggle: true);
+        var withoutFootwear = cfg.WithoutFootwear;
+        if (UiGui.Toggle("Without footwear", ref withoutFootwear))
         {
-            cfg.ShowFootShowcase = showcase;
+            cfg.WithoutFootwear = withoutFootwear;
             cfg.Save();
+            plugin.HandleWithoutFootwearChanged();
         }
-
-        ImGui.SameLine();
-        if (ImGui.SmallButton("Settings"))
-            plugin.OpenConfigUi();
-
-        ImGui.SameLine();
-        var krangleNames = cfg.KrangleNames;
-        if (ImGui.SmallButton(krangleNames ? "Un-Krangle" : "Krangle Names"))
-            plugin.SetKrangleNames(!krangleNames, printStatus: true);
-
-        ImGui.SameLine();
-        ImGui.BeginDisabled(refreshActive);
-        if (ImGui.SmallButton("Refresh Lodestone"))
-            plugin.QueuePartyResearchRefresh(forceLodestone: true);
-        ImGui.EndDisabled();
-
-        ImGui.SameLine();
-        DrawPreviewScalingSelector(scalePercent, refreshActive);
+        ToolbarNext("Settings", icon: MaterialIcon.Settings);
+        if (UiGui.Action("Settings", "Settings", MaterialIcon.Settings)) plugin.OpenConfigUi();
+        var krangle = cfg.KrangleNames ? "Un-Krangle" : "Krangle Names";
+        ToolbarNext(krangle);
+        if (UiGui.Action(krangle, krangle)) plugin.SetKrangleNames(!cfg.KrangleNames, printStatus: true);
+        ToolbarNext("Refresh Lodestone", icon: MaterialIcon.Refresh);
+        if (UiGui.Action("Refresh Lodestone", "Refresh Lodestone", MaterialIcon.Refresh, active)) plugin.QueuePartyResearchRefresh(forceLodestone: true);
+        ToolbarNext("Scaling 100%", icon: MaterialIcon.Refresh);
+        DrawPreviewScalingSelector(scalePercent, active);
     }
 
     private void DrawDebugToolbar(Configuration cfg, int scalePercent)
     {
         var enabled = cfg.PluginEnabled;
-        if (ImGui.Checkbox("Enabled", ref enabled))
+        if (UiGui.Checkbox("Enabled", ref enabled))
             plugin.SetPluginEnabled(enabled, printStatus: true);
 
         ImGui.SameLine();
         var showcase = cfg.ShowFootShowcase;
-        if (ImGui.Checkbox("Foot showcase", ref showcase))
+        if (UiGui.Checkbox("Foot showcase", ref showcase))
         {
             cfg.ShowFootShowcase = showcase;
             cfg.Save();
         }
 
         ImGui.SameLine();
-        if (ImGui.SmallButton("Settings"))
+        var withoutFootwear = cfg.WithoutFootwear;
+        if (UiGui.Checkbox("Without footwear", ref withoutFootwear))
+        {
+            cfg.WithoutFootwear = withoutFootwear;
+            cfg.Save();
+            plugin.HandleWithoutFootwearChanged();
+        }
+
+        ImGui.SameLine();
+        if (UiGui.SmallButton("Settings"))
             plugin.OpenConfigUi();
 
         ImGui.SameLine();
         var krangleNames = cfg.KrangleNames;
-        if (ImGui.SmallButton(krangleNames ? "Un-Krangle" : "Krangle Names"))
+        if (UiGui.SmallButton(krangleNames ? "Un-Krangle" : "Krangle Names"))
             plugin.SetKrangleNames(!krangleNames, printStatus: true);
 
         ImGui.SameLine();
-        if (ImGui.SmallButton("Refresh party"))
+        if (UiGui.SmallButton("Refresh party"))
             plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
 
         ImGui.SameLine();
-        if (ImGui.SmallButton("Refresh Lodestone"))
+        if (UiGui.SmallButton("Refresh Lodestone"))
             plugin.QueuePartyResearchRefresh(forceLodestone: true);
 
         ImGui.SameLine();
         DrawPreviewScalingSelector(scalePercent);
-    }
-
-    private void DrawNormalWorkflowStatus(
-        Configuration cfg,
-        IReadOnlyList<PartyShowcaseMember> partyMembers,
-        IReadOnlyList<FootShowcaseCard> footCards)
-    {
-        var refresh = plugin.PartyFeetRefreshService;
-        ImGui.Spacing();
-        ImGui.TextColored(
-            refresh.IsActive
-                ? new Vector4(0.35f, 0.85f, 1f, 1f)
-                : new Vector4(0.7f, 0.9f, 0.65f, 1f),
-            refresh.IsActive ? "Party feet workflow: Refreshing" : "Party feet workflow: Ready");
-        ImGui.TextWrapped(refresh.LastStatus);
-
-        if (refresh.IsActive)
-            return;
-
-        if (!cfg.PluginEnabled)
-        {
-            ImGui.TextDisabled("Footballer is disabled — enable it before refreshing party feet.");
-            return;
-        }
-
-        if (partyMembers.Count <= 1)
-        {
-            ImGui.TextDisabled("No party members detected — join or form a party, then Refresh party.");
-            return;
-        }
-
-        foreach (var card in footCards)
-        {
-            if (!string.IsNullOrWhiteSpace(card.FootImagePath))
-                return;
-        }
-
-        ImGui.TextDisabled("No feet previews yet — match Scaling to CharacterInspect, then Refresh party.");
     }
 
     private void DrawDebugResearchSections(
@@ -361,17 +325,17 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         var commendationSnapshot = plugin.GetCachedCommendationDebugSnapshot();
 
         ImGui.Separator();
-        ImGui.TextUnformatted("Character Inspect Research");
-        ImGui.TextWrapped("These raw inspect surfaces are now debug-only and refresh on demand instead of every frame.");
+        UiGui.TextUnformatted("Character Inspect Research");
+        UiGui.TextWrapped("Debug snapshots refresh on demand.");
 
-        if (ImGui.SmallButton("Refresh Inspect Debug"))
+        if (UiGui.SmallButton("Refresh Inspect Debug"))
         {
             inspectSnapshot = plugin.RefreshCharacterInspectDebugSnapshot();
             currentInspectCapture = plugin.GetCurrentInspectPreviewCapture(partyMembers, inspectSnapshot);
         }
 
         ImGui.SameLine();
-        if (ImGui.SmallButton("COPY INSPECT REPORT"))
+        if (UiGui.SmallButton("COPY INSPECT REPORT"))
         {
             inspectSnapshot = plugin.RefreshCharacterInspectDebugSnapshot();
             currentInspectCapture = plugin.GetCurrentInspectPreviewCapture(partyMembers, inspectSnapshot);
@@ -387,47 +351,47 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         }
 
         ImGui.SameLine();
-        ImGui.TextDisabled(inspectSnapshot is null
-            ? "Refresh inspect debug first if you want the cached raw inspect snapshot and report to populate."
+        UiGui.TextDisabled(inspectSnapshot is null
+            ? "Refresh Inspect Debug to populate the snapshot and report."
             : GetInspectReportUsageNote(inspectSnapshot));
 
         var topTrimPercent = cropFractions.TopTrimFraction * 100f;
-        if (ImGui.SliderFloat("Snip top trim %", ref topTrimPercent, 0f, 75f, "%.0f%%"))
+        if (UiGui.SliderFloat("Snip top trim %", ref topTrimPercent, 0f, 75f, "%.0f%%"))
         {
             plugin.Configuration.InspectPreviewTopTrimFraction = ClampCropFraction(topTrimPercent / 100f);
             plugin.Configuration.Save();
         }
 
         var bottomTrimPercent = cropFractions.BottomTrimFraction * 100f;
-        if (ImGui.SliderFloat("Snip bottom trim %", ref bottomTrimPercent, 0f, 50f, "%.0f%%"))
+        if (UiGui.SliderFloat("Snip bottom trim %", ref bottomTrimPercent, 0f, 50f, "%.0f%%"))
         {
             plugin.Configuration.InspectPreviewBottomTrimFraction = ClampCropFraction(bottomTrimPercent / 100f);
             plugin.Configuration.Save();
         }
 
-        if (ImGui.SmallButton("Reset snip profile"))
+        if (UiGui.SmallButton("Reset snip profile"))
         {
             plugin.Configuration.InspectPreviewTopTrimFraction = Configuration.DefaultInspectPreviewTopTrimFraction;
             plugin.Configuration.InspectPreviewBottomTrimFraction = Configuration.DefaultInspectPreviewBottomTrimFraction;
             plugin.Configuration.Save();
         }
         ImGui.SameLine();
-        ImGui.TextDisabled("Saved globally for future targets.");
+        UiGui.TextDisabled("Saved globally for future targets.");
 
         if (inspectSnapshot is null)
         {
-            ImGui.TextWrapped("No cached CharacterInspect debug snapshot is available yet.");
+            UiGui.TextWrapped("No cached CharacterInspect debug snapshot is available yet.");
         }
         else
         {
-            ImGui.BulletText(inspectSnapshot.SafeStatus);
-            ImGui.BulletText(inspectSnapshot.NextResearchStep);
+            UiGui.BulletText(inspectSnapshot.SafeStatus);
+            UiGui.BulletText(inspectSnapshot.NextResearchStep);
 
             if (ImGui.BeginTable("FootballerCharacterInspectTable", 2, ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg | ImGuiTableFlags.SizingFixedFit))
             {
                 ImGui.TableSetupColumn("Field");
                 ImGui.TableSetupColumn("Value", ImGuiTableColumnFlags.WidthStretch);
-                ImGui.TableHeadersRow();
+                UiGui.TableHeadersRow();
 
                 DrawInspectRow("Agent available", inspectSnapshot.AgentAvailable ? "Yes" : "No");
                 DrawInspectRow("Agent address", FormatAddress(inspectSnapshot.AgentAddress));
@@ -438,21 +402,21 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                     : $"({inspectSnapshot.AddonX:0.##}, {inspectSnapshot.AddonY:0.##})");
                 DrawInspectRow("Requested entity", FormatEntityId(inspectSnapshot.RequestedEntityId));
                 DrawInspectRow("Current entity", FormatEntityId(inspectSnapshot.CurrentEntityId));
-                DrawInspectRow("Fetch status", $"{inspectSnapshot.FetchCharacterDataStatus} / {inspectSnapshot.FetchSearchCommentStatus} / {inspectSnapshot.FetchFreeCompanyStatus}");
+                DrawInspectRow("Fetch status", UiText.F($"{inspectSnapshot.FetchCharacterDataStatus} / {inspectSnapshot.FetchSearchCommentStatus} / {inspectSnapshot.FetchFreeCompanyStatus}"));
                 DrawInspectRow("Buddy inspect", inspectSnapshot.IsBuddyInspect ? "Yes" : "No");
-                DrawInspectRow("CharaView state", inspectSnapshot.CharaViewState.ToString());
-                DrawInspectRow("Client object", $"{inspectSnapshot.CharaViewClientObjectId} / {inspectSnapshot.CharaViewClientObjectIndex}");
-                DrawInspectRow("Loaded / copied", $"{(inspectSnapshot.CharaViewCharacterLoaded ? "Y" : "N")} / {(inspectSnapshot.CharaViewCharacterDataCopied ? "Y" : "N")}");
-                DrawInspectRow("Zoom ratio", inspectSnapshot.CharaViewZoomRatio.ToString("0.###"));
+                DrawInspectRow("CharaView state", inspectSnapshot.CharaViewState.ToString(UiText.Current.Culture));
+                DrawInspectRow("Client object", UiText.F($"{inspectSnapshot.CharaViewClientObjectId} / {inspectSnapshot.CharaViewClientObjectIndex}"));
+                DrawInspectRow("Loaded / copied", UiText.F($"{(inspectSnapshot.CharaViewCharacterLoaded ? "Y" : "N")} / {(inspectSnapshot.CharaViewCharacterDataCopied ? "Y" : "N")}"));
+                DrawInspectRow("Zoom ratio", inspectSnapshot.CharaViewZoomRatio.ToString("0.###", UiText.Current.Culture));
                 DrawInspectRow("Preview character", FormatAddress(inspectSnapshot.PreviewCharacterAddress));
                 DrawInspectRow("Preview draw object", FormatAddress(inspectSnapshot.PreviewDrawObjectAddress));
                 DrawInspectRow("Preview game position", inspectSnapshot.PreviewGameObjectPosition);
                 DrawInspectRow("Preview game rotation", inspectSnapshot.PreviewGameObjectRotation);
                 DrawInspectRow("Preview draw position", inspectSnapshot.PreviewDrawObjectPosition);
                 DrawInspectRow("Preview draw rotation", inspectSnapshot.PreviewDrawObjectRotation);
-                DrawInspectRow("Snapshot captured", inspectSnapshot.SnapshotCapturedAt);
+                DrawInspectRow("Snapshot captured", DateTime.TryParse(inspectSnapshot.SnapshotCapturedAt, out var capturedAt) ? capturedAt.ToString("G", UiText.Current.Culture) : inspectSnapshot.SnapshotCapturedAt);
                 DrawInspectRow("Scene camera manager", FormatAddress(inspectSnapshot.CameraManagerAddress));
-                DrawInspectRow("Scene manager index", inspectSnapshot.CameraManagerIndex < 0 ? "-" : inspectSnapshot.CameraManagerIndex.ToString());
+                DrawInspectRow("Scene manager index", inspectSnapshot.CameraManagerIndex < 0 ? "-" : inspectSnapshot.CameraManagerIndex.ToString(UiText.Current.Culture));
                 DrawInspectRow("Raw scene camera", FormatAddress(inspectSnapshot.RawSceneCameraAddress));
                 DrawInspectRow("Manager current camera", FormatAddress(inspectSnapshot.ManagerCurrentCameraAddress));
                 DrawInspectRow("Active camera", FormatAddress(inspectSnapshot.CameraAddress));
@@ -470,17 +434,17 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                 DrawInspectRow("Preview node scale", inspectSnapshot.PreviewNodeAddress == nint.Zero
                     ? "-"
                     : $"X {inspectSnapshot.PreviewNodeScaleX:0.###} / Y {inspectSnapshot.PreviewNodeScaleY:0.###}");
-                DrawInspectRow("Preview scaling fallback", $"{scalePercent}%");
-                DrawInspectRow("Stored snip profile", $"{cropFractions.TopTrimFraction:P0} top / {cropFractions.BottomTrimFraction:P0} bottom");
+                DrawInspectRow("Preview scaling fallback", UiText.F($"{scalePercent}%"));
+                DrawInspectRow("Stored snip profile", UiText.F($"{cropFractions.TopTrimFraction:P0} top / {cropFractions.BottomTrimFraction:P0} bottom"));
                 DrawInspectRow("Preview visible", inspectSnapshot.PreviewNodeVisible ? "Yes" : "No");
                 DrawInspectRow("Collision node", FormatAddress(inspectSnapshot.CollisionNodeAddress));
-                DrawInspectRow("Callback base id", inspectSnapshot.PreviewCallbackBaseId.ToString());
+                DrawInspectRow("Callback base id", inspectSnapshot.PreviewCallbackBaseId.ToString(UiText.Current.Culture));
                 DrawInspectRow("Capture ready", inspectSnapshot.CaptureReady ? "Yes" : "No");
                 DrawInspectRow("Capture status", inspectSnapshot.ActiveExportStatus);
                 DrawInspectRow("Latest snip", currentInspectCapture is null ? "-" : Path.GetFileName(currentInspectCapture.FilePath));
                 DrawInspectRow("Snip rect", currentInspectCapture is null
                     ? "-"
-                    : $"({currentInspectCapture.ClientX}, {currentInspectCapture.ClientY}) {currentInspectCapture.Width}x{currentInspectCapture.Height}");
+                    : UiText.F($"({currentInspectCapture.ClientX}, {currentInspectCapture.ClientY}) {currentInspectCapture.Width}x{currentInspectCapture.Height}"));
                 DrawInspectRow("Snip action", plugin.CharacterInspectPreviewCaptureService.LastCaptureStatus);
 
                 ImGui.EndTable();
@@ -490,14 +454,14 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         }
 
         ImGui.Separator();
-        ImGui.TextUnformatted("Party Portrait Window Research");
-        ImGui.TextWrapped("These portrait probes are now debug-only and refresh on demand instead of every frame.");
+        UiGui.TextUnformatted("Party Portrait Window Research");
+        UiGui.TextWrapped("Debug snapshots refresh on demand.");
 
-        if (ImGui.SmallButton("Refresh Portrait Debug"))
+        if (UiGui.SmallButton("Refresh Portrait Debug"))
             commendationSnapshot = plugin.RefreshCommendationDebugSnapshot();
 
         ImGui.SameLine();
-        if (ImGui.SmallButton("COPY TEST REPORT"))
+        if (UiGui.SmallButton("COPY TEST REPORT"))
         {
             commendationSnapshot = plugin.RefreshCommendationDebugSnapshot();
             ImGui.SetClipboardText(BuildPortraitTestReport(commendationSnapshot));
@@ -505,20 +469,20 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         }
 
         ImGui.SameLine();
-        ImGui.TextDisabled(commendationSnapshot is null
-            ? "Refresh portrait debug first if you want the cached BannerParty probes and report to populate."
+        UiGui.TextDisabled(commendationSnapshot is null
+            ? "Refresh Portrait Debug to populate the snapshot and report."
             : GetTestReportUsageNote(commendationSnapshot));
 
         if (commendationSnapshot is null)
         {
-            ImGui.TextWrapped("No cached portrait debug snapshot is available yet.");
+            UiGui.TextWrapped("No cached portrait debug snapshot is available yet.");
             return;
         }
 
-        ImGui.BulletText($"Configured portrait replacement toggle: {(commendationSnapshot.ReplaceCommendationPicturesConfigured ? "On" : "Off")}");
-        ImGui.BulletText(commendationSnapshot.SafeStatus);
-        ImGui.BulletText(commendationSnapshot.KnownCallbackSeam);
-        ImGui.BulletText(commendationSnapshot.NextResearchStep);
+        UiGui.BulletText(UiText.F($"Configured portrait replacement toggle: {(commendationSnapshot.ReplaceCommendationPicturesConfigured ? "On" : "Off")}"));
+        UiGui.BulletText(commendationSnapshot.SafeStatus);
+        UiGui.BulletText(commendationSnapshot.KnownCallbackSeam);
+        UiGui.BulletText(commendationSnapshot.NextResearchStep);
 
         if (ImGui.BeginTable("FootballerCommendationProbeTable", 4, ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg | ImGuiTableFlags.SizingFixedFit))
         {
@@ -526,25 +490,25 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             ImGui.TableSetupColumn("Agent");
             ImGui.TableSetupColumn("Visible");
             ImGui.TableSetupColumn("Role", ImGuiTableColumnFlags.WidthStretch);
-            ImGui.TableHeadersRow();
+            UiGui.TableHeadersRow();
 
             foreach (var probe in commendationSnapshot.Probes)
             {
                 ImGui.TableNextRow();
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted(probe.AddonName);
+                UiGui.TextUnformatted(probe.AddonName);
 
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted(probe.AgentId?.ToString() ?? "-");
+                UiGui.TextUnformatted(probe.AgentId?.ToString(UiText.Current.Culture) ?? "-");
 
                 ImGui.TableNextColumn();
                 if (probe.Visible)
-                    ImGui.TextColored(new Vector4(0.55f, 0.93f, 0.61f, 1f), "Visible");
+                    UiGui.TextColored(new Vector4(0.55f, 0.93f, 0.61f, 1f), "Visible");
                 else
-                    ImGui.TextDisabled("Hidden");
+                    UiGui.TextDisabled("Hidden");
 
                 ImGui.TableNextColumn();
-                ImGui.TextWrapped(probe.Role);
+                UiGui.TextWrapped(probe.Role);
             }
 
             ImGui.EndTable();
@@ -554,22 +518,22 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         var bannerPartyAgentSnapshot = commendationSnapshot.BannerPartyAgentSnapshot;
         if (bannerPartySnapshot is null && bannerPartyAgentSnapshot is null)
         {
-            ImGui.TextWrapped("No cached BannerParty addon or agent snapshot is available yet.");
+            UiGui.TextWrapped("No cached BannerParty addon or agent snapshot is available yet.");
             return;
         }
 
         if (bannerPartyAgentSnapshot is not null)
         {
             ImGui.Separator();
-            ImGui.TextUnformatted("Live BannerParty Agent");
-            ImGui.TextWrapped(bannerPartyAgentSnapshot.CaptureStatus);
-            ImGui.BulletText($"Agent address: {FormatAddress(bannerPartyAgentSnapshot.Address)}");
-            ImGui.BulletText($"Character count: {bannerPartyAgentSnapshot.CharacterCount}");
-            ImGui.BulletText(
+            UiGui.TextUnformatted("Live BannerParty Agent");
+            UiGui.TextWrapped(bannerPartyAgentSnapshot.CaptureStatus);
+            UiGui.BulletText(UiText.F($"Agent address: {FormatAddress(bannerPartyAgentSnapshot.Address)}"));
+            UiGui.BulletText(UiText.F($"Character count: {bannerPartyAgentSnapshot.CharacterCount}"));
+            UiGui.BulletText(
                 bannerPartyAgentSnapshot.ActiveCharacterRowIndex is int activeRow
-                    ? $"Active row heuristic: {activeRow} ({bannerPartyAgentSnapshot.ActiveCharacterName ?? "Unknown"})"
+                    ? UiText.F($"Active row heuristic: {activeRow} ({bannerPartyAgentSnapshot.ActiveCharacterName ?? "Unknown"})")
                     : "Active row heuristic: none yet");
-            ImGui.BulletText(bannerPartyAgentSnapshot.ActiveExportStatus);
+            UiGui.BulletText(bannerPartyAgentSnapshot.ActiveExportStatus);
 
             DrawBannerPartyCharacterTable(bannerPartyAgentSnapshot);
             DrawRailMappingTable(bannerPartyAgentSnapshot);
@@ -580,11 +544,11 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             return;
 
         ImGui.Separator();
-        ImGui.TextUnformatted("Live BannerParty Addon Capture");
-        ImGui.TextWrapped(bannerPartySnapshot.CaptureStatus);
-        ImGui.BulletText($"Addon address: {FormatAddress(bannerPartySnapshot.Address)}");
-        ImGui.BulletText($"Addon position: ({bannerPartySnapshot.X:0.##}, {bannerPartySnapshot.Y:0.##})");
-        ImGui.BulletText($"Node count: {bannerPartySnapshot.NodeCount}");
+        UiGui.TextUnformatted("Live BannerParty Addon Capture");
+        UiGui.TextWrapped(bannerPartySnapshot.CaptureStatus);
+        UiGui.BulletText(UiText.F($"Addon address: {FormatAddress(bannerPartySnapshot.Address)}"));
+        UiGui.BulletText($"Addon position: ({bannerPartySnapshot.X:0.##}, {bannerPartySnapshot.Y:0.##})");
+        UiGui.BulletText(UiText.F($"Node count: {bannerPartySnapshot.NodeCount}"));
 
         if (bannerPartySnapshot.LikelyPortraitSlots.Length > 0 &&
             ImGui.BeginTable("FootballerBannerPartySlotsTable", 8, ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg | ImGuiTableFlags.ScrollY | ImGuiTableFlags.SizingFixedFit, new Vector2(-1f, 170f)))
@@ -597,26 +561,26 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             ImGui.TableSetupColumn("Visible");
             ImGui.TableSetupColumn("Interactive");
             ImGui.TableSetupColumn("Note", ImGuiTableColumnFlags.WidthStretch);
-            ImGui.TableHeadersRow();
+            UiGui.TableHeadersRow();
 
             foreach (var slot in bannerPartySnapshot.LikelyPortraitSlots)
             {
                 ImGui.TableNextRow();
 
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted(slot.SlotIndex.ToString());
+                UiGui.TextUnformatted(slot.SlotIndex.ToString(UiText.Current.Culture));
 
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted(slot.BaseNodeId == 0 ? "-" : slot.BaseNodeId.ToString());
+                UiGui.TextUnformatted(slot.BaseNodeId == 0 ? "-" : slot.BaseNodeId.ToString(UiText.Current.Culture));
 
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted(slot.SliderNodeId?.ToString() ?? "-");
+                UiGui.TextUnformatted(slot.SliderNodeId?.ToString(UiText.Current.Culture) ?? "-");
 
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted($"({slot.X:0.##}, {slot.Y:0.##})");
+                UiGui.TextUnformatted($"({slot.X:0.##}, {slot.Y:0.##})");
 
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted($"{slot.Width}x{slot.Height}");
+                UiGui.TextUnformatted(UiText.F($"{slot.Width}x{slot.Height}"));
 
                 ImGui.TableNextColumn();
                 DrawBoolPill(slot.AnyVisible, "Yes", "No");
@@ -625,7 +589,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
                 DrawBoolPill(slot.AnyInteractive, "Yes", "No");
 
                 ImGui.TableNextColumn();
-                ImGui.TextWrapped(slot.Note);
+                UiGui.TextWrapped(slot.Note);
             }
 
             ImGui.EndTable();
@@ -643,44 +607,44 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         ImGui.TableSetupColumn("Evt / Flags", ImGuiTableColumnFlags.WidthStretch);
         ImGui.TableSetupColumn("Text");
         ImGui.TableSetupColumn("Addr");
-        ImGui.TableHeadersRow();
+        UiGui.TableHeadersRow();
 
         foreach (var node in bannerPartySnapshot.Nodes)
         {
             ImGui.TableNextRow();
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(node.Index.ToString());
+            UiGui.TextUnformatted(node.Index.ToString(UiText.Current.Culture));
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(node.NodeId.ToString());
+            UiGui.TextUnformatted(node.NodeId.ToString(UiText.Current.Culture));
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted($"{node.TypeName} ({node.RawType})");
+            UiGui.TextUnformatted(UiText.F($"{node.TypeName} ({node.RawType})"));
 
             ImGui.TableNextColumn();
             DrawBoolPill(node.Visible, "Yes", "No");
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted($"({node.X:0.##}, {node.Y:0.##})");
+            UiGui.TextUnformatted($"({node.X:0.##}, {node.Y:0.##})");
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted($"{node.Width}x{node.Height}");
+            UiGui.TextUnformatted(UiText.F($"{node.Width}x{node.Height}"));
 
             ImGui.TableNextColumn();
             var eventSummary = node.EventCount > 0
-                ? $"{node.EventCount} ({node.FirstEventType ?? "?"})"
+                ? UiText.F($"{node.EventCount} ({node.FirstEventType ?? "?"})")
                 : "0";
             var flagSummary = string.IsNullOrWhiteSpace(node.FlagsLabel)
-                ? $"0x{node.FlagsRaw:X4}"
-                : $"0x{node.FlagsRaw:X4} {node.FlagsLabel}";
-            ImGui.TextWrapped($"{eventSummary} | {(node.AppearsInteractive ? "Interactive" : "Passive")} | {flagSummary}");
+                ? UiText.F($"0x{node.FlagsRaw:X4}")
+                : UiText.F($"0x{node.FlagsRaw:X4} {node.FlagsLabel}");
+            UiGui.TextWrapped(UiText.F($"{eventSummary} | {(node.AppearsInteractive ? "Interactive" : "Passive")} | {flagSummary}"));
 
             ImGui.TableNextColumn();
-            ImGui.TextWrapped(node.Text ?? "-");
+            UiGui.TextWrapped(node.Text ?? "-");
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(FormatAddress(node.Address));
+            UiGui.TextUnformatted(FormatAddress(node.Address));
         }
 
         ImGui.EndTable();
@@ -693,17 +657,17 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         ImGui.BeginChild($"FootCard##{card.Member.CharacterKey}", new Vector2(0f, cardHeight), true);
         ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, showDebug ? new Vector2(6f, 4f) : new Vector2(4f, 3f));
 
-        ImGui.TextUnformatted(GetSafeDisplayName(card.Member));
-        ShowHoverTooltip($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{card.VariantLabel}");
+        UiGui.TextUnformatted(GetSafeDisplayName(card.Member));
+        ShowHoverTooltip(UiText.F($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{card.VariantLabel}"));
 
         if (!showDebug)
         {
-            ImGui.TextDisabled($"Feet: {card.FootStatusLabel}");
+            UiGui.TextDisabled(UiText.F($"Feet: {card.FootStatusLabel}"));
             ShowHoverTooltip(card.FootStatusNote);
         }
         else
         {
-            ImGui.TextDisabled($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}");
+            UiGui.TextDisabled(UiText.F($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}"));
             ShowHoverTooltip(card.VariantLabel);
 
             ImGui.Spacing();
@@ -720,20 +684,20 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         if (showDebug)
         {
             ImGui.Spacing();
-            if (ImGui.SmallButton($"Search##FootCard{card.Member.CharacterKey}"))
+            if (UiGui.SmallButton($"Search##FootCard{card.Member.CharacterKey}"))
                 plugin.OpenUrl(card.Lookup.SearchUrl);
             ImGui.SameLine();
-            DrawInspectButton(card.Member, $"FootCard{card.Member.CharacterKey}");
+            DrawInspectButton(card.Member, UiText.F($"FootCard{card.Member.CharacterKey}"));
 
             if (!string.IsNullOrWhiteSpace(card.Lookup.ProfileUrl))
             {
                 ImGui.SameLine();
-                if (ImGui.SmallButton($"Profile##FootCard{card.Member.CharacterKey}"))
+                if (UiGui.SmallButton($"Profile##FootCard{card.Member.CharacterKey}"))
                     plugin.OpenUrl(card.Lookup.ProfileUrl!);
             }
 
             ImGui.SameLine();
-            if (ImGui.SmallButton($"Retry##FootCard{card.Member.CharacterKey}"))
+            if (UiGui.SmallButton($"Retry##FootCard{card.Member.CharacterKey}"))
                 plugin.LodestoneProfileService.EnsureLookup(card.Member.Name, card.Member.WorldName, force: true);
         }
 
@@ -751,7 +715,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
             var drewFootCompact = TryDrawLocalImage(card.FootImagePath, new Vector2(250f, 235f));
             if (!drewFootCompact)
-                ImGui.TextDisabled("No feet preview yet — match Scaling, then Refresh party.");
+                UiGui.TextDisabled("No feet preview yet — match Scaling, then Refresh party.");
 
             return;
         }
@@ -766,9 +730,9 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         if (!drewFace && !drewFoot)
         {
             if (showDebug)
-                ImGui.TextWrapped("No live image is currently eligible for this card. Face images come from Lodestone; foot cards need a saved CharacterInspect preview capture before they can draw.");
+                UiGui.TextWrapped("No eligible image. Faces come from Lodestone; feet need a saved CharacterInspect capture.");
             else
-                ImGui.TextDisabled("No image yet.");
+                UiGui.TextDisabled("No image yet.");
         }
 
         ImGui.EndChild();
@@ -791,9 +755,9 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
     private static void DrawCardStatusBadge(string label, string value, string? tooltip)
     {
-        ImGui.TextUnformatted($"{label}:");
+        ImGui.TextUnformatted(UiText.T(label) + ":");
         ImGui.SameLine(0f, 4f);
-        ImGui.TextColored(GetCardStatusColor(value), value);
+        UiGui.TextColored(GetCardStatusColor(value), value);
         ShowHoverTooltip(tooltip);
     }
 
@@ -803,8 +767,8 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             return;
 
         ImGui.BeginTooltip();
-        ImGui.PushTextWrapPos(420f);
-        ImGui.TextUnformatted(text);
+        ImGui.PushTextWrapPos(420f * MaterialTheme.Metrics.Scale);
+        UiGui.TextUnformatted(text);
         ImGui.PopTextWrapPos();
         ImGui.EndTooltip();
     }
@@ -838,9 +802,9 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
     private static void DrawCardStatusLine(string label, string value)
     {
-        ImGui.TextUnformatted($"{label}:");
+        ImGui.TextUnformatted(UiText.T(label) + ":");
         ImGui.SameLine();
-        ImGui.TextColored(GetCardStatusColor(value), value);
+        UiGui.TextColored(GetCardStatusColor(value), value);
     }
 
     private static void DrawStatusText(string label, LodestoneFaceLookupStatus status)
@@ -854,7 +818,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             _ => new Vector4(0.82f, 0.82f, 0.82f, 1f),
         };
 
-        ImGui.TextColored(color, label);
+        UiGui.TextColored(color, label);
     }
 
     private static void DrawFeetGateText(string label)
@@ -867,7 +831,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             _ => new Vector4(0.85f, 0.85f, 0.85f, 1f),
         };
 
-        ImGui.TextColored(color, label);
+        UiGui.TextColored(color, label);
     }
 
     private static void DrawBoolPill(bool value, string trueLabel, string falseLabel)
@@ -875,7 +839,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         var color = value
             ? new Vector4(0.55f, 0.93f, 0.61f, 1f)
             : new Vector4(0.84f, 0.84f, 0.84f, 1f);
-        ImGui.TextColored(color, value ? trueLabel : falseLabel);
+        UiGui.TextColored(color, value ? trueLabel : falseLabel);
     }
 
     private static Vector4 GetCardStatusColor(string value)
@@ -893,17 +857,17 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         InspectPreviewCaptureRecord? currentInspectCapture)
     {
         ImGui.Separator();
-        ImGui.TextUnformatted("CharacterInspect Capture State");
+        UiGui.TextUnformatted("CharacterInspect Capture State");
         if (currentInspectCapture is not null)
         {
-            ImGui.TextWrapped($"Latest saved preview snip: {Path.GetFileName(currentInspectCapture.FilePath)}");
+            UiGui.TextWrapped(UiText.F($"Latest saved preview snip: {Path.GetFileName(currentInspectCapture.FilePath)}"));
             if (TryDrawLocalImage(currentInspectCapture.FilePath, new Vector2(280f, 320f)))
                 ImGui.Spacing();
         }
 
         if (snapshot.ActiveExportPayload is null)
         {
-            ImGui.TextWrapped(snapshot.ActiveExportStatus);
+            UiGui.TextWrapped(snapshot.ActiveExportStatus);
             return;
         }
 
@@ -913,23 +877,23 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
         ImGui.TableSetupColumn("Field");
         ImGui.TableSetupColumn("Value", ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableHeadersRow();
+        UiGui.TableHeadersRow();
 
         DrawPayloadRow("Camera position", payload.CameraPosition);
         DrawPayloadRow("Camera target", payload.CameraTarget);
-        DrawPayloadRow("Image rotation", payload.ImageRotation.ToString());
-        DrawPayloadRow("Camera zoom", payload.CameraZoom.ToString());
-        DrawPayloadRow("Banner timeline", payload.BannerTimeline.ToString());
-        DrawPayloadRow("Animation progress", payload.AnimationProgress.ToString("0.###"));
-        DrawPayloadRow("Expression", payload.Expression.ToString());
+        DrawPayloadRow("Image rotation", payload.ImageRotation.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Camera zoom", payload.CameraZoom.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Banner timeline", payload.BannerTimeline.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Animation progress", payload.AnimationProgress.ToString("0.###", UiText.Current.Culture));
+        DrawPayloadRow("Expression", payload.Expression.ToString(UiText.Current.Culture));
         DrawPayloadRow("Head direction", payload.HeadDirection);
         DrawPayloadRow("Eye direction", payload.EyeDirection);
         DrawPayloadRow("Directional light color", payload.DirectionalLightingColor);
-        DrawPayloadRow("Directional light brightness", payload.DirectionalLightingBrightness.ToString());
-        DrawPayloadRow("Directional light angles", $"{payload.DirectionalLightingVerticalAngle} / {payload.DirectionalLightingHorizontalAngle}");
+        DrawPayloadRow("Directional light brightness", payload.DirectionalLightingBrightness.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Directional light angles", UiText.F($"{payload.DirectionalLightingVerticalAngle} / {payload.DirectionalLightingHorizontalAngle}"));
         DrawPayloadRow("Ambient light color", payload.AmbientLightingColor);
-        DrawPayloadRow("Ambient light brightness", payload.AmbientLightingBrightness.ToString());
-        DrawPayloadRow("Banner background", payload.BannerBg.ToString());
+        DrawPayloadRow("Ambient light brightness", payload.AmbientLightingBrightness.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Banner background", payload.BannerBg.ToString(UiText.Current.Culture));
 
         ImGui.EndTable();
     }
@@ -950,23 +914,23 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         ImGui.TableSetupColumn("Loaded");
         ImGui.TableSetupColumn("State / Pose");
         ImGui.TableSetupColumn("Hint", ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableHeadersRow();
+        UiGui.TableHeadersRow();
 
         foreach (var character in snapshot.Characters)
         {
             ImGui.TableNextRow();
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(character.RowIndex.ToString());
+            UiGui.TextUnformatted(character.RowIndex.ToString(UiText.Current.Culture));
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(FormatSafeCharacterName(character.Name));
+            UiGui.TextUnformatted(FormatSafeCharacterName(character.Name));
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(character.Job);
+            UiGui.TextUnformatted(character.Job);
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(character.WorldId == 0 ? "-" : character.WorldId.ToString());
+            UiGui.TextUnformatted(character.WorldId == 0 ? "-" : character.WorldId.ToString(UiText.Current.Culture));
 
             ImGui.TableNextColumn();
             DrawBoolPill(character.CharacterVisible, "Yes", "No");
@@ -975,10 +939,10 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             DrawBoolPill(character.CharacterLoaded, "Yes", "No");
 
             ImGui.TableNextColumn();
-            ImGui.TextWrapped($"State {character.CharaViewState} | Pose {character.PoseClassJob} | CJ {character.PortraitClassJobId}");
+            UiGui.TextWrapped(UiText.F($"State {character.CharaViewState} | Pose {character.PoseClassJob} | CJ {character.PortraitClassJobId}"));
 
             ImGui.TableNextColumn();
-            ImGui.TextWrapped(character.SelectionHint);
+            UiGui.TextWrapped(character.SelectionHint);
         }
 
         ImGui.EndTable();
@@ -1000,7 +964,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         ImGui.TableSetupColumn("Agent Row");
         ImGui.TableSetupColumn("Character");
         ImGui.TableSetupColumn("Note", ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableHeadersRow();
+        UiGui.TableHeadersRow();
 
         foreach (var mapping in snapshot.RailMappings)
         {
@@ -1008,15 +972,15 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
             ImGui.TableNextColumn();
             if (mapping.LikelySelected)
-                ImGui.TextColored(new Vector4(0.55f, 0.93f, 0.61f, 1f), mapping.RailOrder.ToString());
+                UiGui.TextColored(new Vector4(0.55f, 0.93f, 0.61f, 1f), mapping.RailOrder.ToString(UiText.Current.Culture));
             else
-                ImGui.TextUnformatted(mapping.RailOrder.ToString());
+                UiGui.TextUnformatted(mapping.RailOrder.ToString(UiText.Current.Culture));
 
             ImGui.TableNextColumn();
-            ImGui.TextWrapped($"{(mapping.BaseNodeId == 0 ? "-" : mapping.BaseNodeId.ToString())} / {mapping.SliderNodeId?.ToString() ?? "-"}");
+            UiGui.TextWrapped(UiText.F($"{(mapping.BaseNodeId == 0 ? "-" : mapping.BaseNodeId.ToString(UiText.Current.Culture))} / {mapping.SliderNodeId?.ToString(UiText.Current.Culture) ?? "-"}"));
 
             ImGui.TableNextColumn();
-            ImGui.TextWrapped($"({mapping.X:0.##}, {mapping.Y:0.##}) {mapping.Width}x{mapping.Height}");
+            UiGui.TextWrapped($"({mapping.X:0.##}, {mapping.Y:0.##}) {mapping.Width}x{mapping.Height}");
 
             ImGui.TableNextColumn();
             DrawBoolPill(mapping.AnyVisible, "Yes", "No");
@@ -1025,15 +989,15 @@ public sealed class MainWindow : PositionedWindow, IDisposable
             DrawBoolPill(mapping.AnyInteractive, "Yes", "No");
 
             ImGui.TableNextColumn();
-            ImGui.TextUnformatted(mapping.AgentRowIndex?.ToString() ?? "-");
+            UiGui.TextUnformatted(mapping.AgentRowIndex?.ToString(UiText.Current.Culture) ?? "-");
 
             ImGui.TableNextColumn();
-            ImGui.TextWrapped(mapping.CharacterName is null
+            UiGui.TextWrapped(mapping.CharacterName is null
                 ? "-"
-                : $"{FormatSafeCharacterName(mapping.CharacterName)} ({mapping.Job ?? "-"})");
+                : UiText.F($"{FormatSafeCharacterName(mapping.CharacterName)} ({mapping.Job ?? "-"})"));
 
             ImGui.TableNextColumn();
-            ImGui.TextWrapped(mapping.MappingNote);
+            UiGui.TextWrapped(mapping.MappingNote);
         }
 
         ImGui.EndTable();
@@ -1042,11 +1006,11 @@ public sealed class MainWindow : PositionedWindow, IDisposable
     private static void DrawActiveExportPayload(BannerPartyAgentSnapshot snapshot)
     {
         ImGui.Separator();
-        ImGui.TextUnformatted("Read-Only Active Row Payload");
+        UiGui.TextUnformatted("Read-Only Active Row Payload");
 
         if (snapshot.ActiveExportPayload is null)
         {
-            ImGui.TextWrapped(snapshot.ActiveExportStatus);
+            UiGui.TextWrapped(snapshot.ActiveExportStatus);
             return;
         }
 
@@ -1056,23 +1020,23 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
         ImGui.TableSetupColumn("Field");
         ImGui.TableSetupColumn("Value", ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableHeadersRow();
+        UiGui.TableHeadersRow();
 
         DrawPayloadRow("Camera position", payload.CameraPosition);
         DrawPayloadRow("Camera target", payload.CameraTarget);
-        DrawPayloadRow("Image rotation", payload.ImageRotation.ToString());
-        DrawPayloadRow("Camera zoom", payload.CameraZoom.ToString());
-        DrawPayloadRow("Banner timeline", payload.BannerTimeline.ToString());
-        DrawPayloadRow("Animation progress", payload.AnimationProgress.ToString("0.###"));
-        DrawPayloadRow("Expression", payload.Expression.ToString());
+        DrawPayloadRow("Image rotation", payload.ImageRotation.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Camera zoom", payload.CameraZoom.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Banner timeline", payload.BannerTimeline.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Animation progress", payload.AnimationProgress.ToString("0.###", UiText.Current.Culture));
+        DrawPayloadRow("Expression", payload.Expression.ToString(UiText.Current.Culture));
         DrawPayloadRow("Head direction", payload.HeadDirection);
         DrawPayloadRow("Eye direction", payload.EyeDirection);
         DrawPayloadRow("Directional light color", payload.DirectionalLightingColor);
-        DrawPayloadRow("Directional light brightness", payload.DirectionalLightingBrightness.ToString());
-        DrawPayloadRow("Directional light angles", $"{payload.DirectionalLightingVerticalAngle} / {payload.DirectionalLightingHorizontalAngle}");
+        DrawPayloadRow("Directional light brightness", payload.DirectionalLightingBrightness.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Directional light angles", UiText.F($"{payload.DirectionalLightingVerticalAngle} / {payload.DirectionalLightingHorizontalAngle}"));
         DrawPayloadRow("Ambient light color", payload.AmbientLightingColor);
-        DrawPayloadRow("Ambient light brightness", payload.AmbientLightingBrightness.ToString());
-        DrawPayloadRow("Banner background", payload.BannerBg.ToString());
+        DrawPayloadRow("Ambient light brightness", payload.AmbientLightingBrightness.ToString(UiText.Current.Culture));
+        DrawPayloadRow("Banner background", payload.BannerBg.ToString(UiText.Current.Culture));
 
         ImGui.EndTable();
     }
@@ -1081,9 +1045,9 @@ public sealed class MainWindow : PositionedWindow, IDisposable
     {
         ImGui.TableNextRow();
         ImGui.TableNextColumn();
-        ImGui.TextUnformatted(label);
+        UiGui.TextUnformatted(label);
         ImGui.TableNextColumn();
-        ImGui.TextWrapped(value);
+        UiGui.TextWrapped(value);
     }
 
     private void DrawInspectButton(PartyShowcaseMember member, string idSuffix)
@@ -1092,7 +1056,7 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         if (!canInspect)
             ImGui.BeginDisabled();
 
-        if (ImGui.SmallButton($"Inspect##{idSuffix}"))
+        if (UiGui.SmallButton($"Inspect##{idSuffix}"))
             plugin.OpenCharacterInspect(member);
 
         if (!canInspect)
@@ -1103,9 +1067,9 @@ public sealed class MainWindow : PositionedWindow, IDisposable
     {
         ImGui.TableNextRow();
         ImGui.TableNextColumn();
-        ImGui.TextUnformatted(label);
+        UiGui.TextUnformatted(label);
         ImGui.TableNextColumn();
-        ImGui.TextWrapped(value);
+        UiGui.TextWrapped(value);
     }
 
     private string BuildPortraitTestReport(CommendationPortraitResearchSnapshot snapshot)
@@ -1246,8 +1210,8 @@ public sealed class MainWindow : PositionedWindow, IDisposable
     {
         var characterCount = snapshot.BannerPartyAgentSnapshot?.Characters.Length ?? 0;
         return characterCount <= 1
-            ? "Use this instead of reading the raw tables. With one real party member, press once and send the report."
-            : "Use this instead of reading the raw tables. Press once, change the selected portrait row context, press again, then send both reports.";
+            ? "Copy the report after the preview is stable."
+            : "Copy a report before and after changing the selected portrait.";
     }
 
     private static string BuildTestReportClipboardStatus(CommendationPortraitResearchSnapshot snapshot)
@@ -1260,8 +1224,8 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
     private static string GetInspectReportUsageNote(CharacterInspectResearchSnapshot snapshot)
         => snapshot.CaptureReady
-            ? "Use this after CharacterInspect is stable. Use Capture Current Preview if you want the lower-biased widget image saved, then switch inspect targets and report again if needed."
-            : "Open CharacterInspect for a live party member first, then use this instead of reading the raw inspect table.";
+            ? "Open CharacterInspect and wait for a stable preview before capturing."
+            : "Open CharacterInspect and wait for a stable preview before capturing.";
 
     private static string BuildInspectReportClipboardStatus(CharacterInspectResearchSnapshot snapshot)
         => snapshot.CaptureReady
@@ -1270,19 +1234,23 @@ public sealed class MainWindow : PositionedWindow, IDisposable
 
     private static string GetInspectSnipUsageNote(CharacterInspectResearchSnapshot snapshot)
         => snapshot.CaptureReady
-            ? "Use Capture Current Preview while CharacterInspect is stable and keep the footballer window away from the preview area. The crop profile is saved globally for future targets."
-            : "CharacterInspect must be open and stable before preview capture can run.";
+            ? "Keep Footballer away from the preview while capturing. The crop profile applies to future captures."
+            : "Open CharacterInspect and wait for a stable preview before capturing.";
 
     private void DrawPreviewScalingSelector(int currentScalePercent, bool disabled = false)
     {
+        var measuredToolbar = !plugin.SessionDebugUnlocked;
+        if (measuredToolbar)
+            ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(ImGui.GetStyle().FramePadding.X,
+                Math.Max(0, (FootballerPresentation.ToolbarHeight * MaterialTheme.Metrics.Scale - ImGui.GetTextLineHeight()) * .5f)));
         ImGui.BeginDisabled(disabled);
-        ImGui.SetNextItemWidth(84f);
-        if (ImGui.BeginCombo("##PreviewScaling", $"{currentScalePercent}%"))
+        ImGui.SetNextItemWidth(100f * MaterialTheme.Metrics.Scale);
+        if (ImGui.BeginCombo("##PreviewScaling", UiText.F($"{currentScalePercent}%")))
         {
             foreach (var option in PreviewScalePercents)
             {
                 var selected = option == currentScalePercent;
-                if (ImGui.Selectable($"{option}%", selected))
+                if (UiGui.Selectable(UiText.F($"{option}%"), selected))
                 {
                     plugin.Configuration.InspectPreviewWindowScalePercent = option;
                     plugin.Configuration.Save();
@@ -1296,24 +1264,25 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         }
 
         ImGui.SameLine(0f, 6f);
-        ImGui.TextUnformatted("Scaling");
+        UiGui.TextUnformatted("Scaling");
         ImGui.SameLine(0f, 4f);
-        ImGui.TextDisabled("(?)");
+        UiGui.TextDisabled("(?)");
         ShowHoverTooltip("Pick Same as character preview window!");
         ImGui.EndDisabled();
+        if (measuredToolbar) ImGui.PopStyleVar();
     }
 
     private static float ClampCropFraction(float value)
         => float.IsFinite(value) ? Math.Clamp(value, 0f, 0.9f) : 0f;
 
     private static string FormatNodePair(uint baseNodeId, uint? sliderNodeId)
-        => $"{(baseNodeId == 0 ? "-" : baseNodeId.ToString())}/{sliderNodeId?.ToString() ?? "-"}";
+        => UiText.F($"{(baseNodeId == 0 ? "-" : baseNodeId.ToString())}/{sliderNodeId?.ToString() ?? "-"}");
 
     private static string FormatEntityId(uint entityId)
-        => entityId == 0 ? "-" : $"0x{entityId:X8}";
+        => entityId == 0 ? "-" : UiText.F($"0x{entityId:X8}");
 
     private string GetSafeDisplayName(PartyShowcaseMember member)
-        => plugin.FormatDisplayName(member);
+        => GetUiDisplayName(member);
 
     private string GetSafeWorldLabel(PartyShowcaseMember member)
         => plugin.FormatWorldName(member.WorldName);
@@ -1322,5 +1291,5 @@ public sealed class MainWindow : PositionedWindow, IDisposable
         => plugin.FormatCharacterName(characterName);
 
     private static string FormatAddress(nint address)
-        => address == nint.Zero ? "-" : $"0x{address.ToInt64():X}";
+        => address == nint.Zero ? "-" : UiText.F($"0x{address.ToInt64():X}");
 }

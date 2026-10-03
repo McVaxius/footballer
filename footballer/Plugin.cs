@@ -1,4 +1,8 @@
 using System;
+using System.Numerics;
+using AethertekUI;
+using Dalamud.Bindings.ImGui;
+using Dalamud.Interface.Utility;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text.SeStringHandling;
@@ -42,6 +46,15 @@ public sealed class Plugin : IDalamudPlugin
     public FootShowcaseService FootShowcaseService { get; }
     public bool SessionDebugUnlocked { get; private set; }
 
+    private FootballerFonts uiFonts = null!;
+    private UiText uiText = null!;
+    private MaterialTheme uiTheme = null!;
+    private MaterialOptions<string> languageOptions = null!;
+    private string appliedLanguage = "";
+    private uint appliedAccent;
+    private Vector3 accentDraft;
+    private int checkedFontGeneration = -1;
+    private bool fontIssueLogged;
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
     private bool pendingOpenMainUi;
@@ -69,6 +82,7 @@ public sealed class Plugin : IDalamudPlugin
             PrintStatus,
             FormatDisplayName);
         FootShowcaseService = new FootShowcaseService();
+        ApplyAppearance();
         mainWindow = new MainWindow(this);
         configWindow = new ConfigWindow(this);
 
@@ -77,7 +91,7 @@ public sealed class Plugin : IDalamudPlugin
 
         RegisterCommands();
 
-        PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw += DrawUi;
         PluginInterface.UiBuilder.OpenConfigUi += OpenConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += OpenMainUi;
         pendingOpenMainUi = Configuration.OpenMainWindowOnLoad;
@@ -93,7 +107,7 @@ public sealed class Plugin : IDalamudPlugin
     {
         pendingOpenMainUi = false;
         Framework.Update -= OnFrameworkUpdate;
-        PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw -= DrawUi;
         PluginInterface.UiBuilder.OpenConfigUi -= OpenConfigUi;
         PluginInterface.UiBuilder.OpenMainUi -= OpenMainUi;
 
@@ -104,6 +118,82 @@ public sealed class Plugin : IDalamudPlugin
         LodestoneProfileService.Dispose();
         configWindow.Dispose();
         mainWindow.Dispose();
+        uiFonts.Dispose();
+        uiText.Dispose();
+    }
+
+    private void DrawUi()
+    {
+        ApplyAppearance();
+        if(!mainWindow.IsOpen && !configWindow.IsOpen) return;
+        using var text = uiText.Enter();
+        if(!uiFonts.Ready)
+        {
+            if(!fontIssueLogged && uiFonts.LoadException is { } error) { Log.Error(error,"[footballer] Required UI fonts failed to load.");fontIssueLogged=true; }
+            // Do not silently present temporary host fonts as the finished UI.
+            DrawFontStatus(uiFonts.LoadException is null);
+            return;
+        }
+        if(checkedFontGeneration!=uiFonts.Generation)
+        {
+            try
+            {
+                var generation=uiFonts.Generation;
+                uiFonts.CheckGlyphs(UiText.Values(uiText.Resources).Concat(UiText.Languages.Select(l=>l.Name)));
+                checkedFontGeneration=generation;
+            }
+            catch(Exception ex) { if(!fontIssueLogged) { Log.Error(ex,"[footballer] Required UI glyph coverage failed.");fontIssueLogged=true; } DrawFontStatus(false);return; }
+        }
+        using var theme = MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, MaterialStyleMode.ColorsOnly);
+        using var geometry=new MaterialStyleScope();
+        geometry.Style(Dalamud.Bindings.ImGui.ImGuiStyleVar.WindowPadding,new System.Numerics.Vector2(20*ImGuiHelpers.GlobalScale));
+        geometry.Style(ImGuiStyleVar.FrameRounding, 4 * ImGuiHelpers.GlobalScale);
+        geometry.Style(ImGuiStyleVar.ChildRounding, 4 * ImGuiHelpers.GlobalScale);
+        using var body = uiFonts.Push(UiFontRole.Body);
+        WindowSystem.Draw();
+    }
+
+    private static void DrawFontStatus(bool loading)
+    {
+        Dalamud.Bindings.ImGui.ImGui.SetNextWindowSize(new System.Numerics.Vector2(460f*ImGuiHelpers.GlobalScale,0f));
+        if(Dalamud.Bindings.ImGui.ImGui.Begin("Footballer##FontStatus",Dalamud.Bindings.ImGui.ImGuiWindowFlags.AlwaysAutoResize))
+            Dalamud.Bindings.ImGui.ImGui.TextWrapped(UiText.T(loading?"Loading UI fonts...":"UI fonts failed to load. See the plugin log."));
+        Dalamud.Bindings.ImGui.ImGui.End();
+    }
+
+    private void ApplyAppearance()
+    {
+        var language=UiText.Languages.Any(l=>l.Code==Configuration.UiLanguage)?Configuration.UiLanguage:"en";
+        if(language!=appliedLanguage)
+        {
+            uiFonts?.Dispose();
+            uiText?.Dispose();
+            uiText=new(language,role=>uiFonts!.Push(role));
+            uiFonts=new(PluginInterface.UiBuilder.FontAtlas,uiText.GlyphRanges(),language);
+            languageOptions=new(UiText.Languages.Select(l=>new MaterialOption<string>(l.Code,l.Code,l.Name)).ToArray());
+            appliedLanguage=language;
+            checkedFontGeneration=-1;
+            fontIssueLogged=false;
+        }
+        if(uiTheme is null || (Configuration.UiAccentRgb & 0xFFFFFF)!=appliedAccent)
+        {
+            appliedAccent=Configuration.UiAccentRgb & 0xFFFFFF;
+            uiTheme=FootballerPresentation.Theme(appliedAccent);
+            var color=FootballerPresentation.Rgb(appliedAccent);
+            accentDraft=new(color.X,color.Y,color.Z);
+        }
+    }
+
+    public void DrawAppearanceSelector()
+    {
+        var language=appliedLanguage;
+        using var controls=MaterialControls.Push(FootballerPresentation.Controls(28,18));
+        var changed=MaterialAppearanceSelector.Draw("appearance",ref accentDraft,ref language,languageOptions,
+            new(UiText.T("Color"),UiText.T("Language"),UiText.T("Teal"),UiText.T("Blue"),UiText.T("Pink"),UiText.T("Custom RGB")), languageWidth: 140);
+        if(changed.AccentChanged) Configuration.UiAccentRgb=((uint)Math.Clamp((int)MathF.Round(accentDraft.X*255),0,255)<<16)
+            |((uint)Math.Clamp((int)MathF.Round(accentDraft.Y*255),0,255)<<8)|(uint)Math.Clamp((int)MathF.Round(accentDraft.Z*255),0,255);
+        if(changed.LanguageChanged) Configuration.UiLanguage=language;
+        if(changed.AccentChanged || changed.LanguageChanged) Configuration.Save();
     }
 
     public void OpenMainUi()
@@ -347,14 +437,14 @@ public sealed class Plugin : IDalamudPlugin
             return;
 
         var glyph = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled;
-        var state = Configuration.PluginEnabled ? "On" : "Off";
+        var state = uiText.Label(Configuration.PluginEnabled ? "On" : "Off");
         dtrEntry.Text = Configuration.DtrBarMode switch
         {
             1 => new SeString(new TextPayload($"{glyph} FOOT")),
             2 => new SeString(new TextPayload(glyph)),
             _ => new SeString(new TextPayload($"FOOT: {state}")),
         };
-        dtrEntry.Tooltip = new SeString(new TextPayload($"{PluginInfo.DisplayName} {state}. Click to toggle."));
+        dtrEntry.Tooltip = new SeString(new TextPayload(uiText.Format("{0} {1}. Click to toggle.", PluginInfo.DisplayName, state)));
     }
 
     private void RegisterCommands()
@@ -496,7 +586,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private void ShowShowcaseGuidanceToast()
     {
-        var payload = new SeString(new TextPayload("Pick the Scaling to match the window, and click refresh party when ready"));
+        var payload = new SeString(new TextPayload(uiText.Label("Pick the Scaling to match the window, and click refresh party when ready")));
         var showQuestMethod = ToastGui.GetType().GetMethod("ShowQuest", new[] { typeof(SeString) });
         if (showQuestMethod != null)
         {
