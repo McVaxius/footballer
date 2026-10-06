@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-06 - Actions dependency revision
+
+- Pin the existing AethertekUI checkout to published revision `6c193cf06ac67f954c549cafc2033ac0efdd630a`, which includes the Hindi text host required by this plugin. The preceding Actions run checked out the library before those APIs were published; local compilation alone did not establish runner compatibility.
+
 ## 2026-10-06 - Hindi text rendering
 
 - Add all 478 Hindi catalog entries alongside the fourteen existing languages, retaining saved locale positions, native controls and opaque profile/service values. Route visible Hindi text, captions and editable values through Windows text shaping while preserving existing font roles and merges. Keep authored game-rendered DTR and toast text in English for Hindi. The Debug x64 build passes without warnings or errors; the focused Footballer/Dheacon probe passes 6,614 assertions with exact current library/resource bytes. Game, GPU, managed-host and IME acceptance remain separate.
