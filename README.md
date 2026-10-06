@@ -37,6 +37,6 @@ Run `Z:\footballer.bat` to restore and build only the plugin project in Debug/x6
 
 GitHub Actions checks out Footballer and the private AethertekUI repository as siblings. Before CI can build, configure a separate read-only AethertekUI deploy key and store its private key in Footballer's `AETHERTEKUI_DEPLOY_KEY` Actions secret. The release job publishes the packaged manifest version and runs separately from the read-only build job.
 
-The approved reference uses 1536 × 1024 at 100%. Smaller windows and longer translations can wrap the toolbar and reduce the number of cards per row. Game font readiness, textures and visual fidelity require David's screenshot acceptance; local build checks do not establish that acceptance.
+The approved reference uses 1536 × 1024 at 100%. Smaller windows and longer translations can wrap the toolbar and reduce the number of cards per row. Game font readiness, textures and visual fidelity require mcvaxius's screenshot acceptance; local build checks do not establish that acceptance.
 
-Compact mode is available from the main header?s **C** checkbox and in Settings. `UiCompact` defaults to false, uses the existing save path, and shares reduced padding and control/card/row density across windows. Body text remains readable; optional columns and saved widths are preserved.
+Compact mode is available from the main header's **C** checkbox and in Settings. `UiCompact` defaults to false, uses the existing save path, and shares reduced padding and control/card/row density across windows. Body text remains readable; optional columns and saved widths are preserved.

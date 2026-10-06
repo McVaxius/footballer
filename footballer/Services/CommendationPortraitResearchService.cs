@@ -44,6 +44,8 @@ public sealed unsafe class CommendationPortraitResearchService
 
         PortraitAddonNodeSnapshot? bannerPartySnapshot = null;
         BannerPartyAgentSnapshot? bannerPartyAgentSnapshot = null;
+        (string TypeName, string Message)? nodeCaptureError = null;
+        (string TypeName, string Message)? agentCaptureError = null;
 
         try
         {
@@ -51,7 +53,9 @@ public sealed unsafe class CommendationPortraitResearchService
         }
         catch (Exception ex)
         {
-            captureErrors.Add($"node capture: {ex.GetType().Name}: {ex.Message}");
+            var error = (TypeName: ex.GetType().Name, Message: ex.Message);
+            nodeCaptureError = error;
+            captureErrors.Add($"node capture: {error.TypeName}: {error.Message}");
         }
 
         try
@@ -60,7 +64,9 @@ public sealed unsafe class CommendationPortraitResearchService
         }
         catch (Exception ex)
         {
-            captureErrors.Add($"agent capture: {ex.GetType().Name}: {ex.Message}");
+            var error = (TypeName: ex.GetType().Name, Message: ex.Message);
+            agentCaptureError = error;
+            captureErrors.Add($"agent capture: {error.TypeName}: {error.Message}");
         }
 
         string? captureError = captureErrors.Count > 0
@@ -98,7 +104,11 @@ public sealed unsafe class CommendationPortraitResearchService
             nextStep,
             probes,
             bannerPartySnapshot,
-            bannerPartyAgentSnapshot);
+            bannerPartyAgentSnapshot)
+        {
+            NodeCaptureError = nodeCaptureError,
+            AgentCaptureError = agentCaptureError,
+        };
     }
 
     private PortraitAddonNodeSnapshot? CaptureBannerPartySnapshot()

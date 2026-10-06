@@ -113,4 +113,8 @@ public sealed record CommendationPortraitResearchSnapshot(
     string NextResearchStep,
     CommendationAddonProbe[] Probes,
     PortraitAddonNodeSnapshot? BannerPartySnapshot,
-    BannerPartyAgentSnapshot? BannerPartyAgentSnapshot);
+    BannerPartyAgentSnapshot? BannerPartyAgentSnapshot)
+{
+    public (string TypeName, string Message)? NodeCaptureError { get; init; }
+    public (string TypeName, string Message)? AgentCaptureError { get; init; }
+}

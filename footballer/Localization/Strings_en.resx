@@ -1008,4 +1008,420 @@
   <data name="Compact mode" xml:space="preserve">
     <value>Compact mode</value>
   </data>
+  <data name="Inspect pose preset is idle. Target yaw is {0}." xml:space="preserve">
+    <value>Inspect pose preset is idle. Target yaw is {0}.</value>
+  </data>
+  <data name="Cannot queue the inspect pose preset yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>Cannot queue the inspect pose preset yet because the inspect target has no live entity id.</value>
+  </data>
+  <data name="Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so the inspect pose preset cannot run." xml:space="preserve">
+    <value>CharacterInspect has no current entity yet, so the inspect pose preset cannot run.</value>
+  </data>
+  <data name="The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again.</value>
+  </data>
+  <data name="Inspect pose preset timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>Inspect pose preset timed out for {0}. Re-open Inspect and try again.</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset." xml:space="preserve">
+    <value>Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet." xml:space="preserve">
+    <value>CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview character is still unavailable." xml:space="preserve">
+    <value>CharacterInspect is open for {0}, but the preview character is still unavailable.</value>
+  </data>
+  <data name="Inspect pose preset is ready for {0}. {1}" xml:space="preserve">
+    <value>Inspect pose preset is ready for {0}. {1}</value>
+  </data>
+  <data name="Applied the inspect pose preset for {0}. {1}" xml:space="preserve">
+    <value>Applied the inspect pose preset for {0}. {1}</value>
+  </data>
+  <data name="Inspect pose preset is still applying for {0}. {1}" xml:space="preserve">
+    <value>Inspect pose preset is still applying for {0}. {1}</value>
+  </data>
+  <data name="Preview game yaw is {0} and draw rotation is ({1})." xml:space="preserve">
+    <value>Preview game yaw is {0} and draw rotation is ({1}).</value>
+  </data>
+  <data name="Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2})." xml:space="preserve">
+    <value>Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2}).</value>
+  </data>
+  <data name="Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target." xml:space="preserve">
+    <value>Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target.</value>
+  </data>
+  <data name="Barefoot preview mode is off." xml:space="preserve">
+    <value>Barefoot preview mode is off.</value>
+  </data>
+  <data name="Cannot queue barefoot preview mode yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>Cannot queue barefoot preview mode yet because the inspect target has no live entity id.</value>
+  </data>
+  <data name="Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target.</value>
+  </data>
+  <data name="CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet." xml:space="preserve">
+    <value>CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet.</value>
+  </data>
+  <data name="CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue." xml:space="preserve">
+    <value>CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so barefoot preview capture cannot run." xml:space="preserve">
+    <value>CharacterInspect has no current entity yet, so barefoot preview capture cannot run.</value>
+  </data>
+  <data name="Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again.</value>
+  </data>
+  <data name="Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled." xml:space="preserve">
+    <value>Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled.</value>
+  </data>
+  <data name="Barefoot preview update timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>Barefoot preview update timed out for {0}. Re-open Inspect and try again.</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before clearing the feet slot." xml:space="preserve">
+    <value>Waiting for CharacterInspect to switch to {0} before clearing the feet slot.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet." xml:space="preserve">
+    <value>CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet." xml:space="preserve">
+    <value>CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet.</value>
+  </data>
+  <data name="Barefoot preview is ready for {0}. {1}" xml:space="preserve">
+    <value>Barefoot preview is ready for {0}. {1}</value>
+  </data>
+  <data name="Barefoot preview applied for {0}. {1}" xml:space="preserve">
+    <value>Barefoot preview applied for {0}. {1}</value>
+  </data>
+  <data name="Barefoot preview update attempt {0} is still applying for {1}. {2}" xml:space="preserve">
+    <value>Barefoot preview update attempt {0} is still applying for {1}. {2}</value>
+  </data>
+  <data name="Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}" xml:space="preserve">
+    <value>Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}</value>
+  </data>
+  <data name="Current feet state: {0}" xml:space="preserve">
+    <value>Current feet state: {0}</value>
+  </data>
+  <data name="No CharacterInspect preview capture has been saved yet." xml:space="preserve">
+    <value>No CharacterInspect preview capture has been saved yet.</value>
+  </data>
+  <data name="CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable." xml:space="preserve">
+    <value>CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable.</value>
+  </data>
+  <data name="CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet." xml:space="preserve">
+    <value>CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet.</value>
+  </data>
+  <data name="Could not resolve the game window handle for CharacterInspect preview capture." xml:space="preserve">
+    <value>Could not resolve the game window handle for CharacterInspect preview capture.</value>
+  </data>
+  <data name="Could not read the game client bounds for CharacterInspect preview capture." xml:space="preserve">
+    <value>Could not read the game client bounds for CharacterInspect preview capture.</value>
+  </data>
+  <data name="CharacterInspect preview crop landed outside the game client area, so the capture was skipped." xml:space="preserve">
+    <value>CharacterInspect preview crop landed outside the game client area, so the capture was skipped.</value>
+  </data>
+  <data name="Could not translate CharacterInspect preview bounds into screen coordinates." xml:space="preserve">
+    <value>Could not translate CharacterInspect preview bounds into screen coordinates.</value>
+  </data>
+  <data name="CharacterInspect preview capture failed: {0}: {1}" xml:space="preserve">
+    <value>CharacterInspect preview capture failed: {0}: {1}</value>
+  </data>
+  <data name="Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}." xml:space="preserve">
+    <value>Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}.</value>
+  </data>
+  <data name="configured scaling fallback" xml:space="preserve">
+    <value>configured scaling fallback</value>
+  </data>
+  <data name="live preview node scale" xml:space="preserve">
+    <value>live preview node scale</value>
+  </data>
+  <data name="live preview node X scale" xml:space="preserve">
+    <value>live preview node X scale</value>
+  </data>
+  <data name="live preview node Y scale" xml:space="preserve">
+    <value>live preview node Y scale</value>
+  </data>
+  <data name=", failed {0}" xml:space="preserve">
+    <value>, failed {0}</value>
+  </data>
+  <data name=", skipped {0} without live entity ids" xml:space="preserve">
+    <value>, skipped {0} without live entity ids</value>
+  </data>
+  <data name="Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window.</value>
+  </data>
+  <data name="Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window.</value>
+  </data>
+  <data name="Your own feet are hidden because Show own feet is off." xml:space="preserve">
+    <value>Your own feet are hidden because Show own feet is off.</value>
+  </data>
+  <data name="This card is filtered by the {0} feet toggle." xml:space="preserve">
+    <value>This card is filtered by the {0} feet toggle.</value>
+  </data>
+  <data name="Feet are blocked by the current Lodestone privacy gate state." xml:space="preserve">
+    <value>Feet are blocked by the current Lodestone privacy gate state.</value>
+  </data>
+  <data name="This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet." xml:space="preserve">
+    <value>This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet.</value>
+  </data>
+  <data name="The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card." xml:space="preserve">
+    <value>The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card.</value>
+  </data>
+  <data name="Showing the cached Lodestone face image next to the foot showcase card." xml:space="preserve">
+    <value>Showing the cached Lodestone face image next to the foot showcase card.</value>
+  </data>
+  <data name="The face-next-to-feet toggle is currently off." xml:space="preserve">
+    <value>The face-next-to-feet toggle is currently off.</value>
+  </data>
+  <data name="Use Refresh Lodestone to resolve the current face state." xml:space="preserve">
+    <value>Use Refresh Lodestone to resolve the current face state.</value>
+  </data>
+  <data name="{0} / local customize data unavailable" xml:space="preserve">
+    <value>{0} / local customize data unavailable</value>
+  </data>
+  <data name="Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}" xml:space="preserve">
+    <value>Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}</value>
+  </data>
+  <data name=" Barefoot preview mode was enabled when this preview-capture flow ran." xml:space="preserve">
+    <value> Barefoot preview mode was enabled when this preview-capture flow ran.</value>
+  </data>
+  <data name="No home world is available yet." xml:space="preserve">
+    <value>No home world is available yet.</value>
+  </data>
+  <data name="Waiting for lookup." xml:space="preserve">
+    <value>Waiting for lookup.</value>
+  </data>
+  <data name="Refreshing Lodestone search and profile data." xml:space="preserve">
+    <value>Refreshing Lodestone search and profile data.</value>
+  </data>
+  <data name="No Lodestone profile match was found for the current name/world pair." xml:space="preserve">
+    <value>No Lodestone profile match was found for the current name/world pair.</value>
+  </data>
+  <data name="Profile resolved with a face image." xml:space="preserve">
+    <value>Profile resolved with a face image.</value>
+  </data>
+  <data name="Profile resolved but no face image was exposed." xml:space="preserve">
+    <value>Profile resolved but no face image was exposed.</value>
+  </data>
+  <data name="Profile page loaded, but the expected face markup was not found." xml:space="preserve">
+    <value>Profile page loaded, but the expected face markup was not found.</value>
+  </data>
+  <data name="Preview camera is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>Preview camera is unavailable because AgentInspect is not available yet.</value>
+  </data>
+  <data name="CharacterInspect export capture is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>CharacterInspect export capture is unavailable because AgentInspect is not available yet.</value>
+  </data>
+  <data name="AgentInspect is not available yet, so CharacterInspect research cannot run right now." xml:space="preserve">
+    <value>AgentInspect is not available yet, so CharacterInspect research cannot run right now.</value>
+  </data>
+  <data name="Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity." xml:space="preserve">
+    <value>Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity.</value>
+  </data>
+  <data name="CharacterInspect preview camera pointer is not available yet." xml:space="preserve">
+    <value>CharacterInspect preview camera pointer is not available yet.</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run." xml:space="preserve">
+    <value>CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run.</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}." xml:space="preserve">
+    <value>CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}.</value>
+  </data>
+  <data name="CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8})." xml:space="preserve">
+    <value>CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8}).</value>
+  </data>
+  <data name="CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path." xml:space="preserve">
+    <value>CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path.</value>
+  </data>
+  <data name="Press SNIP PREVIEW while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use COPY INSPECT REPORT to capture the current preview camera pose." xml:space="preserve">
+    <value>Press &quot;Capture Current Preview&quot; while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use &quot;COPY INSPECT REPORT&quot; to capture the current preview camera pose.</value>
+  </data>
+  <data name="Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use SNIP PREVIEW once the bounds look correct." xml:space="preserve">
+    <value>Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use &quot;Capture Current Preview&quot; once the bounds look correct.</value>
+  </data>
+  <data name="Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate." xml:space="preserve">
+    <value>Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target." xml:space="preserve">
+    <value>CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target.</value>
+  </data>
+  <data name="CharacterInspect is open, but the preview widget node is not available yet." xml:space="preserve">
+    <value>CharacterInspect is open, but the preview widget node is not available yet.</value>
+  </data>
+  <data name="CharacterInspect preview widget exists, but it is not visible yet." xml:space="preserve">
+    <value>CharacterInspect preview widget exists, but it is not visible yet.</value>
+  </data>
+  <data name="CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet." xml:space="preserve">
+    <value>CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet.</value>
+  </data>
+  <data name="CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose." xml:space="preserve">
+    <value>CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose.</value>
+  </data>
+  <data name="Read-only preview camera state captured from CharacterInspect scene camera manager index {0}." xml:space="preserve">
+    <value>Read-only preview camera state captured from CharacterInspect scene camera manager index {0}.</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera." xml:space="preserve">
+    <value>CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera.</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range." xml:space="preserve">
+    <value>CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range.</value>
+  </data>
+  <data name="Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0})." xml:space="preserve">
+    <value>Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0}).</value>
+  </data>
+  <data name="Read-only preview camera state captured from the raw CharacterInspect scene camera." xml:space="preserve">
+    <value>Read-only preview camera state captured from the raw CharacterInspect scene camera.</value>
+  </data>
+  <data name="Preview window used during portrait updates" xml:space="preserve">
+    <value>Preview window used during portrait updates</value>
+  </data>
+  <data name="Current display-party-member-portraits target" xml:space="preserve">
+    <value>Current display-party-member-portraits target</value>
+  </data>
+  <data name="Not current target; older commendation candidate" xml:space="preserve">
+    <value>Not current target; older commendation candidate</value>
+  </data>
+  <data name="Portrait list / selection surface" xml:space="preserve">
+    <value>Portrait list / selection surface</value>
+  </data>
+  <data name="Portrait editor surface" xml:space="preserve">
+    <value>Portrait editor surface</value>
+  </data>
+  <data name="Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}" xml:space="preserve">
+    <value>Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active." xml:space="preserve">
+    <value>Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active.</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only." xml:space="preserve">
+    <value>Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only.</value>
+  </data>
+  <data name="No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons." xml:space="preserve">
+    <value>No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons.</value>
+  </data>
+  <data name="Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text." xml:space="preserve">
+    <value>Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text.</value>
+  </data>
+  <data name="Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable." xml:space="preserve">
+    <value>Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable.</value>
+  </data>
+  <data name="Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable." xml:space="preserve">
+    <value>Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable.</value>
+  </data>
+  <data name="Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target." xml:space="preserve">
+    <value>Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target.</value>
+  </data>
+  <data name="Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP." xml:space="preserve">
+    <value>Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP.</value>
+  </data>
+  <data name="Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates." xml:space="preserve">
+    <value>Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates.</value>
+  </data>
+  <data name="Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated &quot;Party Members&quot; headers: {3}. Likely 240x540 portrait rails: {4}." xml:space="preserve">
+    <value>Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated "Party Members" headers: {3}. Likely 240x540 portrait rails: {4}.</value>
+  </data>
+  <data name="No active BannerParty row was detected yet." xml:space="preserve">
+    <value>No active BannerParty row was detected yet.</value>
+  </data>
+  <data name="Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}." xml:space="preserve">
+    <value>Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}.</value>
+  </data>
+  <data name="Base portrait rail without an adjacent slider pair." xml:space="preserve">
+    <value>Base portrait rail without an adjacent slider pair.</value>
+  </data>
+  <data name="Currently active portrait rail scaffold." xml:space="preserve">
+    <value>Currently active portrait rail scaffold.</value>
+  </data>
+  <data name="Inactive portrait rail scaffold." xml:space="preserve">
+    <value>Inactive portrait rail scaffold.</value>
+  </data>
+  <data name="Slider-only portrait rail candidate." xml:space="preserve">
+    <value>Slider-only portrait rail candidate.</value>
+  </data>
+  <data name="Current visible portrait render target." xml:space="preserve">
+    <value>Current visible portrait render target.</value>
+  </data>
+  <data name="Portrait is loaded for this row." xml:space="preserve">
+    <value>Portrait is loaded for this row.</value>
+  </data>
+  <data name="Character data is copied but the portrait is not visible yet." xml:space="preserve">
+    <value>Character data is copied but the portrait is not visible yet.</value>
+  </data>
+  <data name="Non-zero CharaView state {0}." xml:space="preserve">
+    <value>Non-zero CharaView state {0}.</value>
+  </data>
+  <data name="Inactive row." xml:space="preserve">
+    <value>Inactive row.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position." xml:space="preserve">
+    <value>Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set." xml:space="preserve">
+    <value>Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order." xml:space="preserve">
+    <value>Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order.</value>
+  </data>
+  <data name=" This is the current active rail candidate." xml:space="preserve">
+    <value> This is the current active rail candidate.</value>
+  </data>
+  <data name="preferring live visible rails before hidden placeholder scaffolds" xml:space="preserve">
+    <value>preferring live visible rails before hidden placeholder scaffolds</value>
+  </data>
+  <data name="using the full ordered rail list because visible rails were insufficient" xml:space="preserve">
+    <value>using the full ordered rail list because visible rails were insufficient</value>
+  </data>
+  <data name="node order" xml:space="preserve">
+    <value>node order</value>
+  </data>
+  <data name="top-to-bottom Y order" xml:space="preserve">
+    <value>top-to-bottom Y order</value>
+  </data>
+  <data name="left-to-right X order" xml:space="preserve">
+    <value>left-to-right X order</value>
+  </data>
+  <data name="Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped." xml:space="preserve">
+    <value>Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped.</value>
+  </data>
+  <data name="Read-only ExportedPortraitData captured for active row {0}" xml:space="preserve">
+    <value>Read-only ExportedPortraitData captured for active row {0}</value>
+  </data>
+  <data name="node capture: {0}: {1}" xml:space="preserve">
+    <value>node capture: {0}: {1}</value>
+  </data>
+  <data name="agent capture: {0}: {1}" xml:space="preserve">
+    <value>agent capture: {0}: {1}</value>
+  </data>
+  <data name="Addon position: ({0:0.##}, {1:0.##})" xml:space="preserve">
+    <value>Addon position: ({0:0.##}, {1:0.##})</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Row {0}" xml:space="preserve">
+    <value>Row {0}</value>
+  </data>
+  <data name="current target" xml:space="preserve">
+    <value>current target</value>
+  </data>
+  <data name="entity {0}" xml:space="preserve">
+    <value>entity {0}</value>
+  </data>
+  <data name="No world yet" xml:space="preserve">
+    <value>No world yet</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>Window appearance</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>Compact visible on main window</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>Language visible on main window</value></data>
+  <data name="Transparency" xml:space="preserve"><value>Transparency</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>Opacity (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Auto-fade when unfocused</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Unfocused opacity (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Unfocused delay (seconds)</value></data>
 </root>

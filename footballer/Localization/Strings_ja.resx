@@ -1008,4 +1008,420 @@
   <data name="Compact mode" xml:space="preserve">
     <value>コンパクトモード</value>
   </data>
+  <data name="Inspect pose preset is idle. Target yaw is {0}." xml:space="preserve">
+    <value>調べるポーズのプリセットは待機中です。目標ヨー角は{0}です。</value>
+  </data>
+  <data name="Cannot queue the inspect pose preset yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>対象に有効なエンティティIDがないため、調べるポーズのプリセットを予約できません。</value>
+  </data>
+  <data name="Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>{0}の調べるポーズを予約しました。CharacterInspectが対象を読み込むまで待機しています。</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so the inspect pose preset cannot run." xml:space="preserve">
+    <value>CharacterInspectに現在のエンティティがないため、調べるポーズを適用できません。</value>
+  </data>
+  <data name="The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>現在のCharacterInspect対象にポーズを適用中です。少し待ってから再度撮影してください。</value>
+  </data>
+  <data name="Inspect pose preset timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0}のポーズ適用がタイムアウトしました。「調べる」を開き直して再試行してください。</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset." xml:space="preserve">
+    <value>ポーズ適用前に、CharacterInspectが{0}へ切り替わるのを待っています。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet." xml:space="preserve">
+    <value>{0}のCharacterInspectは開いていますが、プレビューモデルはポーズ適用の準備ができていません。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview character is still unavailable." xml:space="preserve">
+    <value>{0}のCharacterInspectは開いていますが、プレビューキャラクターはまだ利用できません。</value>
+  </data>
+  <data name="Inspect pose preset is ready for {0}. {1}" xml:space="preserve">
+    <value>{0}の調べるポーズ準備完了。{1}</value>
+  </data>
+  <data name="Applied the inspect pose preset for {0}. {1}" xml:space="preserve">
+    <value>{0}に調べるポーズを適用しました。{1}</value>
+  </data>
+  <data name="Inspect pose preset is still applying for {0}. {1}" xml:space="preserve">
+    <value>{0}に調べるポーズを適用中です。{1}</value>
+  </data>
+  <data name="Preview game yaw is {0} and draw rotation is ({1})." xml:space="preserve">
+    <value>ゲーム内プレビューのヨー角は{0}、描画回転は（{1}）です。</value>
+  </data>
+  <data name="Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2})." xml:space="preserve">
+    <value>現在のプレビューのヨー角は{0}、描画回転は（{1}）です。目標描画回転は（{2}）です。</value>
+  </data>
+  <data name="Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target." xml:space="preserve">
+    <value>裸足プレビューモードはオンです。「調べる」で現在のCharacterInspect対象の足装備スロットを複数の経路からクリアする処理を予約します。</value>
+  </data>
+  <data name="Barefoot preview mode is off." xml:space="preserve">
+    <value>裸足プレビューモードはオフです。</value>
+  </data>
+  <data name="Cannot queue barefoot preview mode yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>対象に有効なエンティティIDがないため、裸足プレビューを予約できません。</value>
+  </data>
+  <data name="Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>{0}の裸足プレビュー更新を予約しました。CharacterInspectが対象を読み込むまで待機しています。</value>
+  </data>
+  <data name="CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet." xml:space="preserve">
+    <value>CharacterInspectが利用できないため、裸足プレビューをまだ予約できません。</value>
+  </data>
+  <data name="CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue." xml:space="preserve">
+    <value>CharacterInspectに現在または保留中の対象がないため、裸足プレビューを予約する対象がありません。</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so barefoot preview capture cannot run." xml:space="preserve">
+    <value>CharacterInspectに現在のエンティティがないため、裸足プレビューを撮影できません。</value>
+  </data>
+  <data name="Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>現在のCharacterInspect対象に裸足プレビューを適用中です。少し待ってから再度撮影してください。</value>
+  </data>
+  <data name="Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled." xml:space="preserve">
+    <value>裸足プレビューモードがオフになったため、保留中の足装備スロットのクリアをキャンセルしました。</value>
+  </data>
+  <data name="Barefoot preview update timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0}の裸足プレビュー更新がタイムアウトしました。「調べる」を開き直して再試行してください。</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before clearing the feet slot." xml:space="preserve">
+    <value>足装備スロットをクリアする前に、CharacterInspectが{0}へ切り替わるのを待っています。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet." xml:space="preserve">
+    <value>{0}のCharacterInspectは開いていますが、プレビューモデルは足装備スロットのクリアの準備ができていません。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet." xml:space="preserve">
+    <value>{0}のCharacterInspectは開いていますが、プレビューモデルの足装備スロットはまだ参照できません。</value>
+  </data>
+  <data name="Barefoot preview is ready for {0}. {1}" xml:space="preserve">
+    <value>{0}の裸足プレビュー準備完了。{1}</value>
+  </data>
+  <data name="Barefoot preview applied for {0}. {1}" xml:space="preserve">
+    <value>{0}に裸足プレビューを適用しました。{1}</value>
+  </data>
+  <data name="Barefoot preview update attempt {0} is still applying for {1}. {2}" xml:space="preserve">
+    <value>裸足プレビュー更新の試行{0}回目を{1}に適用中です。{2}</value>
+  </data>
+  <data name="Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}" xml:space="preserve">
+    <value>調べるアイテム、モデル、描画データ、ライブプレビューの各経路で足装備をクリアしました。{0}</value>
+  </data>
+  <data name="Current feet state: {0}" xml:space="preserve">
+    <value>現在の足の状態：{0}</value>
+  </data>
+  <data name="No CharacterInspect preview capture has been saved yet." xml:space="preserve">
+    <value>CharacterInspectのプレビュー画像はまだ保存されていません。</value>
+  </data>
+  <data name="CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable." xml:space="preserve">
+    <value>CharacterInspectはまだ撮影できません。ウィジェットが表示されて安定するまで、調べるプレビューを開いたままにしてください。</value>
+  </data>
+  <data name="CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet." xml:space="preserve">
+    <value>CharacterInspectのプレビュー範囲を取得できないため、安全に撮影できません。</value>
+  </data>
+  <data name="Could not resolve the game window handle for CharacterInspect preview capture." xml:space="preserve">
+    <value>CharacterInspectのプレビュー撮影用にゲームウィンドウのハンドルを取得できませんでした。</value>
+  </data>
+  <data name="Could not read the game client bounds for CharacterInspect preview capture." xml:space="preserve">
+    <value>CharacterInspectのプレビュー撮影用にゲームのクライアント領域を読み取れませんでした。</value>
+  </data>
+  <data name="CharacterInspect preview crop landed outside the game client area, so the capture was skipped." xml:space="preserve">
+    <value>CharacterInspectの切り抜き範囲がゲームのクライアント領域外のため、撮影をスキップしました。</value>
+  </data>
+  <data name="Could not translate CharacterInspect preview bounds into screen coordinates." xml:space="preserve">
+    <value>CharacterInspectのプレビュー範囲を画面座標に変換できませんでした。</value>
+  </data>
+  <data name="CharacterInspect preview capture failed: {0}: {1}" xml:space="preserve">
+    <value>CharacterInspectのプレビュー撮影に失敗しました：{0}: {1}</value>
+  </data>
+  <data name="Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}." xml:space="preserve">
+    <value>エンティティ{0}のCharacterInspect下部プレビューを{1}x{2}で保存しました。有効倍率：X {3:0.#}% / Y {4:0.#}%（{5}）。設定の代替倍率：{6}%。元の高さ：{7}px。切り抜き：上{8:P0}、下{9:P0}。</value>
+  </data>
+  <data name="configured scaling fallback" xml:space="preserve">
+    <value>設定の代替倍率</value>
+  </data>
+  <data name="live preview node scale" xml:space="preserve">
+    <value>ライブプレビューノードの倍率</value>
+  </data>
+  <data name="live preview node X scale" xml:space="preserve">
+    <value>ライブプレビューノードのX倍率</value>
+  </data>
+  <data name="live preview node Y scale" xml:space="preserve">
+    <value>ライブプレビューノードのY倍率</value>
+  </data>
+  <data name=", failed {0}" xml:space="preserve">
+    <value>、失敗{0}</value>
+  </data>
+  <data name=", skipped {0} without live entity ids" xml:space="preserve">
+    <value>、有効なエンティティIDがないため{0}人をスキップ</value>
+  </data>
+  <data name="Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>裸足プレビューモードが有効です。このカードまたはパーティー表から「調べる」を開き、CharacterInspectが安定したらメインウィンドウで現在のプレビューを撮影してください。</value>
+  </data>
+  <data name="Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>ここでは「調べる」からの直接撮影を使用します。このカードまたはパーティー表から「調べる」を開き、CharacterInspectが安定したらメインウィンドウで現在のプレビューを撮影してください。</value>
+  </data>
+  <data name="Your own feet are hidden because Show own feet is off." xml:space="preserve">
+    <value>「自分の足を表示」がオフのため、自分の足は非表示です。</value>
+  </data>
+  <data name="This card is filtered by the {0} feet toggle." xml:space="preserve">
+    <value>このカードは{0}の足の表示設定で除外されています。</value>
+  </data>
+  <data name="Feet are blocked by the current Lodestone privacy gate state." xml:space="preserve">
+    <value>現在のLodestoneプライバシー設定により足の表示がブロックされています。</value>
+  </data>
+  <data name="This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet." xml:space="preserve">
+    <value>このパーティーメンバーには現在有効なエンティティIDがないため、CharacterInspectを要求できません。</value>
+  </data>
+  <data name="The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card." xml:space="preserve">
+    <value>CharacterInspectのライブ経路は利用できます。「調べる」を開き、メインウィンドウで現在のプレビューを撮影して、このカードの画像を保存してください。</value>
+  </data>
+  <data name="Showing the cached Lodestone face image next to the foot showcase card." xml:space="preserve">
+    <value>足のカードの横にキャッシュ済みLodestone顔画像を表示しています。</value>
+  </data>
+  <data name="The face-next-to-feet toggle is currently off." xml:space="preserve">
+    <value>足の横に顔を表示する設定は現在オフです。</value>
+  </data>
+  <data name="Use Refresh Lodestone to resolve the current face state." xml:space="preserve">
+    <value>Lodestoneを更新して現在の顔の状態を確認してください。</value>
+  </data>
+  <data name="{0} / local customize data unavailable" xml:space="preserve">
+    <value>{0} / ローカルの容姿データなし</value>
+  </data>
+  <data name="Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}" xml:space="preserve">
+    <value>このメンバーの最後に保存したCharacterInspect下部プレビューです。撮影範囲：（{0}, {1}）{2}x{3}。{4}</value>
+  </data>
+  <data name=" Barefoot preview mode was enabled when this preview-capture flow ran." xml:space="preserve">
+    <value> この撮影時には裸足プレビューモードが有効でした。</value>
+  </data>
+  <data name="No home world is available yet." xml:space="preserve">
+    <value>ホームワールドはまだ取得できません。</value>
+  </data>
+  <data name="Waiting for lookup." xml:space="preserve">
+    <value>検索待ちです。</value>
+  </data>
+  <data name="Refreshing Lodestone search and profile data." xml:space="preserve">
+    <value>Lodestoneの検索とプロフィール情報を更新しています。</value>
+  </data>
+  <data name="No Lodestone profile match was found for the current name/world pair." xml:space="preserve">
+    <value>現在の名前とワールドに一致するLodestoneプロフィールが見つかりませんでした。</value>
+  </data>
+  <data name="Profile resolved with a face image." xml:space="preserve">
+    <value>顔画像付きのプロフィールを取得しました。</value>
+  </data>
+  <data name="Profile resolved but no face image was exposed." xml:space="preserve">
+    <value>プロフィールは取得できましたが、顔画像は公開されていません。</value>
+  </data>
+  <data name="Profile page loaded, but the expected face markup was not found." xml:space="preserve">
+    <value>プロフィールページを読み込みましたが、想定の顔画像マークアップが見つかりませんでした。</value>
+  </data>
+  <data name="Preview camera is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspectがまだ利用できないため、プレビューカメラは利用できません。</value>
+  </data>
+  <data name="CharacterInspect export capture is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspectがまだ利用できないため、CharacterInspectのエクスポート取得は利用できません。</value>
+  </data>
+  <data name="AgentInspect is not available yet, so CharacterInspect research cannot run right now." xml:space="preserve">
+    <value>AgentInspectがまだ利用できないため、CharacterInspectの調査は実行できません。</value>
+  </data>
+  <data name="Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity." xml:space="preserve">
+    <value>ゲームにログインし、パーティー行またはカードで「調べる」を使って有効なエンティティのCharacterInspectを開いてください。</value>
+  </data>
+  <data name="CharacterInspect preview camera pointer is not available yet." xml:space="preserve">
+    <value>CharacterInspectのプレビューカメラポインターはまだ取得できません。</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run." xml:space="preserve">
+    <value>エンティティ0x{0:X8}のCharacterInspectが開いています。ライブプレビューノードは{1}x{2}で表示され、状態は下方に拡張した領域からの下部切り抜きと、読み取り専用のカメラ状態取得に十分安定しています。</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}." xml:space="preserve">
+    <value>エンティティ0x{0:X8}のCharacterInspectが開いています。調べる側のCharaView状態は{1}、読込済み={2}、コピー済み={3}です。</value>
+  </data>
+  <data name="CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8})." xml:space="preserve">
+    <value>CharacterInspectは現在非表示ですが、AgentInspectには要求中／現在のエンティティ状態が残っています（{0:X8} -&gt; {1:X8}）。</value>
+  </data>
+  <data name="CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path." xml:space="preserve">
+    <value>CharacterInspectは開いていません。パーティー行またはカードで「調べる」を使い、キャラクターからの直接撮影を開始してください。</value>
+  </data>
+  <data name="Press SNIP PREVIEW while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use COPY INSPECT REPORT to capture the current preview camera pose." xml:space="preserve">
+    <value>CharacterInspectが安定したら「現在のプレビューを保存」を押し、footballerウィンドウをプレビュー領域から離してください。下方に拡張した領域の下部画像が該当カードに表示されることを確認し、「装備確認レポートをコピー」でカメラ姿勢を取得してください。</value>
+  </data>
+  <data name="Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use SNIP PREVIEW once the bounds look correct." xml:space="preserve">
+    <value>プレビューノードが表示され状態が安定するまでCharacterInspectを開いたままにし、範囲が正しければ「現在のプレビューを保存」を使ってください。</value>
+  </data>
+  <data name="Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate." xml:space="preserve">
+    <value>パーティー行またはカードで「調べる」を使い、このセクションを開き直してCharacterInspectと調べる側のCharaView項目が埋まることを確認してください。</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target." xml:space="preserve">
+    <value>CharacterInspectに現在のエンティティがないため、撮影は調べる対象を待っています。</value>
+  </data>
+  <data name="CharacterInspect is open, but the preview widget node is not available yet." xml:space="preserve">
+    <value>CharacterInspectは開いていますが、プレビューウィジェットのノードはまだ取得できません。</value>
+  </data>
+  <data name="CharacterInspect preview widget exists, but it is not visible yet." xml:space="preserve">
+    <value>CharacterInspectのプレビューウィジェットは存在しますが、まだ表示されていません。</value>
+  </data>
+  <data name="CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet." xml:space="preserve">
+    <value>CharacterInspectのプレビューは表示されていますが、調べる側のモデル状態は安全な撮影に必要な初期化が完了していません。</value>
+  </data>
+  <data name="CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose." xml:space="preserve">
+    <value>エンティティ0x{0:X8}のCharacterInspectプレビューが表示され、状態が安定しています。この範囲から下方に拡張した領域を使って下部を撮影し、現在のカメラ姿勢を読み取り専用で取得できます。</value>
+  </data>
+  <data name="Read-only preview camera state captured from CharacterInspect scene camera manager index {0}." xml:space="preserve">
+    <value>CharacterInspectシーンカメラマネージャーのインデックス{0}から、プレビューカメラ状態を読み取り専用で取得しました。</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera." xml:space="preserve">
+    <value>CharacterInspectのシーンカメラマネージャーはありますが、インデックス{0}から現在のカメラを取得できませんでした。</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range." xml:space="preserve">
+    <value>CharacterInspectのシーンカメラマネージャーはありますが、カメラインデックス{0}は想定範囲0-13の外です。</value>
+  </data>
+  <data name="Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0})." xml:space="preserve">
+    <value>マネージャー経路から有効なカメラを取得できなかったため、CharacterInspectの直接のシーンカメラを使用しました（インデックス{0}）。</value>
+  </data>
+  <data name="Read-only preview camera state captured from the raw CharacterInspect scene camera." xml:space="preserve">
+    <value>CharacterInspectの直接のシーンカメラから、プレビューカメラ状態を読み取り専用で取得しました。</value>
+  </data>
+  <data name="Preview window used during portrait updates" xml:space="preserve">
+    <value>ポートレート更新時に使うプレビューウィンドウ</value>
+  </data>
+  <data name="Current display-party-member-portraits target" xml:space="preserve">
+    <value>現在のパーティーメンバー・ポートレート表示対象</value>
+  </data>
+  <data name="Not current target; older commendation candidate" xml:space="preserve">
+    <value>現在の対象外。以前の推薦用候補</value>
+  </data>
+  <data name="Portrait list / selection surface" xml:space="preserve">
+    <value>ポートレート一覧／選択画面</value>
+  </data>
+  <data name="Portrait editor surface" xml:space="preserve">
+    <value>ポートレート編集画面</value>
+  </data>
+  <data name="Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}" xml:space="preserve">
+    <value>関連ポートレート画面は開いていますが、ウィンドウのクラッシュを防ぐためBannerParty取得を安全に中止しました：{0}</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active." xml:space="preserve">
+    <value>関連ポートレート画面が開いています。このビルドではBannerPartyの実際のアドオン情報、エージェント行、アクティブ行の読み取り専用エクスポートを取得します。ポートレートへの書き込みは行いません。</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only." xml:space="preserve">
+    <value>関連ポートレート画面が開いています。このビルドではBannerPartyの実際のアドオン情報とエージェント行の状態を取得し、ポートレートは読み取り専用のままです。</value>
+  </data>
+  <data name="No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons." xml:space="preserve">
+    <value>関連ポートレート画面は開いていません。パーティーメンバーのポートレートまたは別のポートレート画面を開いて、実際のアドオンを調査してください。</value>
+  </data>
+  <data name="Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text." xml:space="preserve">
+    <value>パーティーメンバーのポートレートを開き直し、メインウィンドウが安定していることを確認してください。再度エラーが出たら新しいテキストを送ってください。</value>
+  </data>
+  <data name="Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable." xml:space="preserve">
+    <value>選択したパーティーポートレート行を変更し、アクティブ行の対応と読み取り専用データが変わることを確認してください。読み取りが安定するまで書き込み処理は保留してください。</value>
+  </data>
+  <data name="Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable." xml:space="preserve">
+    <value>下のBannerPartyエージェント行とレール対応で選択中の行を確認してください。エクスポートが安定するまでポートレートは読み取り専用にしてください。</value>
+  </data>
+  <data name="Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target." xml:space="preserve">
+    <value>置換書き込みを試す前に、表示中の画面の実際のアドオン／ノード情報を取得してください。現在の対象はBannerPartyです。</value>
+  </data>
+  <data name="Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP." xml:space="preserve">
+    <value>ポートレート操作を開き、BannerPreview、BannerParty、BannerMIPを再確認してください。</value>
+  </data>
+  <data name="Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates." xml:space="preserve">
+    <value>既知のローカル経路：BannerPreviewのコールバック0は、ワークスペース内の別の場所でポートレート更新の確定に使われています。</value>
+  </data>
+  <data name="Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated &quot;Party Members&quot; headers: {3}. Likely 240x540 portrait rails: {4}." xml:space="preserve">
+    <value>BannerPartyのライブノードを{0}個取得しました。表示：{1}。対話可能／イベント付き：{2}。「Party Members」見出しの繰り返し：{3}。240x540ポートレートレール候補：{4}。</value>
+  </data>
+  <data name="No active BannerParty row was detected yet." xml:space="preserve">
+    <value>BannerPartyのアクティブ行はまだ検出されていません。</value>
+  </data>
+  <data name="Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}." xml:space="preserve">
+    <value>BannerPartyのライブエージェント行を{0}行取得しました。表示CharaView：{1}。読込済み：{2}。アクティブ行推定：{3}。レール対応：{4}。</value>
+  </data>
+  <data name="Base portrait rail without an adjacent slider pair." xml:space="preserve">
+    <value>隣接スライダーペアのない基本ポートレートレール。</value>
+  </data>
+  <data name="Currently active portrait rail scaffold." xml:space="preserve">
+    <value>現在アクティブなポートレートレールの枠組み。</value>
+  </data>
+  <data name="Inactive portrait rail scaffold." xml:space="preserve">
+    <value>非アクティブなポートレートレールの枠組み。</value>
+  </data>
+  <data name="Slider-only portrait rail candidate." xml:space="preserve">
+    <value>スライダーのみのポートレートレール候補。</value>
+  </data>
+  <data name="Current visible portrait render target." xml:space="preserve">
+    <value>現在表示中のポートレート描画対象。</value>
+  </data>
+  <data name="Portrait is loaded for this row." xml:space="preserve">
+    <value>この行のポートレートは読込済みです。</value>
+  </data>
+  <data name="Character data is copied but the portrait is not visible yet." xml:space="preserve">
+    <value>キャラクターデータはコピー済みですが、ポートレートはまだ表示されていません。</value>
+  </data>
+  <data name="Non-zero CharaView state {0}." xml:space="preserve">
+    <value>ゼロ以外のCharaView状態：{0}。</value>
+  </data>
+  <data name="Inactive row." xml:space="preserve">
+    <value>非アクティブ行。</value>
+  </data>
+  <data name="Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position." xml:space="preserve">
+    <value>並び順：{0}；{1}；このレール位置に対応するライブBannerPartyエージェント行はありません。</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set." xml:space="preserve">
+    <value>並び順：{0}；{1}；アクティブ行を優先レール群に合わせて、ライブBannerParty行{2}に対応付けました。</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order." xml:space="preserve">
+    <value>並び順：{0}；{1}；エージェント格納順でライブBannerParty行{2}に対応付けました。</value>
+  </data>
+  <data name=" This is the current active rail candidate." xml:space="preserve">
+    <value> これが現在のアクティブレール候補です。</value>
+  </data>
+  <data name="preferring live visible rails before hidden placeholder scaffolds" xml:space="preserve">
+    <value>非表示の仮枠よりライブ表示レールを優先</value>
+  </data>
+  <data name="using the full ordered rail list because visible rails were insufficient" xml:space="preserve">
+    <value>表示レールが不足するため全レールの並び順を使用</value>
+  </data>
+  <data name="node order" xml:space="preserve">
+    <value>ノード順</value>
+  </data>
+  <data name="top-to-bottom Y order" xml:space="preserve">
+    <value>Y軸の上から下への順</value>
+  </data>
+  <data name="left-to-right X order" xml:space="preserve">
+    <value>X軸の左から右への順</value>
+  </data>
+  <data name="Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped." xml:space="preserve">
+    <value>BannerPartyのアクティブ行は見つかりましたが、CharaViewPortraitが未初期化のため、エクスポートをスキップしました。</value>
+  </data>
+  <data name="Read-only ExportedPortraitData captured for active row {0}" xml:space="preserve">
+    <value>アクティブ行{0}のExportedPortraitDataを読み取り専用で取得</value>
+  </data>
+  <data name="node capture: {0}: {1}" xml:space="preserve">
+    <value>ノード取得：{0}: {1}</value>
+  </data>
+  <data name="agent capture: {0}: {1}" xml:space="preserve">
+    <value>エージェント取得：{0}: {1}</value>
+  </data>
+  <data name="Addon position: ({0:0.##}, {1:0.##})" xml:space="preserve">
+    <value>アドオン位置：（{0:0.##}, {1:0.##}）</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>男性</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>女性</value>
+  </data>
+  <data name="Row {0}" xml:space="preserve">
+    <value>行{0}</value>
+  </data>
+  <data name="current target" xml:space="preserve">
+    <value>現在の対象</value>
+  </data>
+  <data name="entity {0}" xml:space="preserve">
+    <value>エンティティ{0}</value>
+  </data>
+  <data name="No world yet" xml:space="preserve">
+    <value>ワールド未取得</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>ウィンドウの外観</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>メインウィンドウにコンパクト切替を表示</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>メインウィンドウに言語選択を表示</value></data>
+  <data name="Transparency" xml:space="preserve"><value>透明度</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>不透明度 (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>フォーカスがないときに自動で薄くする</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>非フォーカス時の不透明度 (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>非フォーカス時の待機時間 (秒)</value></data>
 </root>

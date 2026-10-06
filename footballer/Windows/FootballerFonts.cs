@@ -1,6 +1,7 @@
 using Dalamud;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.ManagedFontAtlas;
+using AethertekUI;
 
 namespace footballer.Windows;
 
@@ -41,7 +42,7 @@ internal sealed class FootballerFonts : IDisposable
         {
             using var font=handles[index].Lock();
             foreach(var text in strings)
-                foreach(var character in text.Where(c=>!char.IsControl(c)))
+                foreach(var character in MaterialText.NativeGlyphText(text).Where(c=>!char.IsControl(c)))
                     if(ImGui.FindGlyphNoFallback(font.ImFont,character).Handle==null)
                         throw new InvalidOperationException("Required UI glyph missing: U+"+((int)character).ToString("X4")+" in "+(UiFontRole)index);
         }

@@ -1008,4 +1008,420 @@
   <data name="Compact mode" xml:space="preserve">
     <value>Modalità compatta</value>
   </data>
+  <data name="Inspect pose preset is idle. Target yaw is {0}." xml:space="preserve">
+    <value>La posa di ispezione preimpostata è inattiva. L’imbardata di destinazione è {0}.</value>
+  </data>
+  <data name="Cannot queue the inspect pose preset yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>Impossibile accodare la posa di ispezione: il bersaglio non ha un ID entità attivo.</value>
+  </data>
+  <data name="Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>Posa di ispezione accodata per {0}. In attesa che CharacterInspect completi il caricamento del bersaglio.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so the inspect pose preset cannot run." xml:space="preserve">
+    <value>CharacterInspect non ha ancora un’entità corrente; la posa preimpostata non può essere applicata.</value>
+  </data>
+  <data name="The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>La posa preimpostata è ancora in applicazione al bersaglio CharacterInspect. Attendi un momento e riprova la cattura.</value>
+  </data>
+  <data name="Inspect pose preset timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>Tempo scaduto per la posa di ispezione di {0}. Riapri Ispeziona e riprova.</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset." xml:space="preserve">
+    <value>In attesa che CharacterInspect passi a {0} prima di applicare la posa.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet." xml:space="preserve">
+    <value>CharacterInspect è aperto per {0}, ma il modello di anteprima non è ancora pronto per la posa.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview character is still unavailable." xml:space="preserve">
+    <value>CharacterInspect è aperto per {0}, ma il personaggio di anteprima non è ancora disponibile.</value>
+  </data>
+  <data name="Inspect pose preset is ready for {0}. {1}" xml:space="preserve">
+    <value>Posa di ispezione pronta per {0}. {1}</value>
+  </data>
+  <data name="Applied the inspect pose preset for {0}. {1}" xml:space="preserve">
+    <value>Posa di ispezione applicata a {0}. {1}</value>
+  </data>
+  <data name="Inspect pose preset is still applying for {0}. {1}" xml:space="preserve">
+    <value>Posa di ispezione ancora in applicazione a {0}. {1}</value>
+  </data>
+  <data name="Preview game yaw is {0} and draw rotation is ({1})." xml:space="preserve">
+    <value>L’imbardata dell’anteprima in gioco è {0} e la rotazione di rendering è ({1}).</value>
+  </data>
+  <data name="Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2})." xml:space="preserve">
+    <value>Imbardata attuale dell’anteprima: {0}; rotazione di rendering: ({1}). Rotazione di destinazione: ({2}).</value>
+  </data>
+  <data name="Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target." xml:space="preserve">
+    <value>Anteprima a piedi nudi attiva. Usa Ispeziona per accodare la rimozione dello slot piedi nelle varie interfacce del bersaglio CharacterInspect.</value>
+  </data>
+  <data name="Barefoot preview mode is off." xml:space="preserve">
+    <value>Anteprima a piedi nudi disattivata.</value>
+  </data>
+  <data name="Cannot queue barefoot preview mode yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>Impossibile accodare l’anteprima a piedi nudi: il bersaglio non ha un ID entità attivo.</value>
+  </data>
+  <data name="Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>Aggiornamento a piedi nudi accodato per {0}. In attesa che CharacterInspect completi il caricamento del bersaglio.</value>
+  </data>
+  <data name="CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet." xml:space="preserve">
+    <value>CharacterInspect non è disponibile; l’anteprima a piedi nudi non può ancora essere accodata.</value>
+  </data>
+  <data name="CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue." xml:space="preserve">
+    <value>CharacterInspect non ha un bersaglio corrente o in attesa; non c’è nulla da accodare per l’anteprima a piedi nudi.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so barefoot preview capture cannot run." xml:space="preserve">
+    <value>CharacterInspect non ha ancora un’entità corrente; la cattura a piedi nudi non può essere eseguita.</value>
+  </data>
+  <data name="Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>L’anteprima a piedi nudi è ancora in applicazione al bersaglio CharacterInspect. Attendi un momento e riprova la cattura.</value>
+  </data>
+  <data name="Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled." xml:space="preserve">
+    <value>Anteprima a piedi nudi disattivata; la rimozione in attesa dello slot piedi è stata annullata.</value>
+  </data>
+  <data name="Barefoot preview update timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>Tempo scaduto per l’anteprima a piedi nudi di {0}. Riapri Ispeziona e riprova.</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before clearing the feet slot." xml:space="preserve">
+    <value>In attesa che CharacterInspect passi a {0} prima di svuotare lo slot piedi.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet." xml:space="preserve">
+    <value>CharacterInspect è aperto per {0}, ma il modello non è ancora pronto per svuotare lo slot piedi.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet." xml:space="preserve">
+    <value>CharacterInspect è aperto per {0}, ma il modello non espone ancora lo slot piedi.</value>
+  </data>
+  <data name="Barefoot preview is ready for {0}. {1}" xml:space="preserve">
+    <value>Anteprima a piedi nudi pronta per {0}. {1}</value>
+  </data>
+  <data name="Barefoot preview applied for {0}. {1}" xml:space="preserve">
+    <value>Anteprima a piedi nudi applicata a {0}. {1}</value>
+  </data>
+  <data name="Barefoot preview update attempt {0} is still applying for {1}. {2}" xml:space="preserve">
+    <value>Il tentativo {0} di anteprima a piedi nudi è ancora in applicazione a {1}. {2}</value>
+  </data>
+  <data name="Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}" xml:space="preserve">
+    <value>Piedi rimossi da oggetto ispezionato, modello, dati di rendering e anteprima dal vivo. {0}</value>
+  </data>
+  <data name="Current feet state: {0}" xml:space="preserve">
+    <value>Stato attuale dei piedi: {0}</value>
+  </data>
+  <data name="No CharacterInspect preview capture has been saved yet." xml:space="preserve">
+    <value>Nessuna cattura dell’anteprima CharacterInspect è stata ancora salvata.</value>
+  </data>
+  <data name="CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable." xml:space="preserve">
+    <value>CharacterInspect non è ancora pronto per la cattura. Tieni aperta l’anteprima finché il widget non è visibile e stabile.</value>
+  </data>
+  <data name="CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet." xml:space="preserve">
+    <value>I limiti dell’anteprima CharacterInspect non sono disponibili; non è ancora possibile una cattura sicura.</value>
+  </data>
+  <data name="Could not resolve the game window handle for CharacterInspect preview capture." xml:space="preserve">
+    <value>Impossibile individuare l’handle della finestra di gioco per la cattura CharacterInspect.</value>
+  </data>
+  <data name="Could not read the game client bounds for CharacterInspect preview capture." xml:space="preserve">
+    <value>Impossibile leggere i limiti dell’area client del gioco per la cattura CharacterInspect.</value>
+  </data>
+  <data name="CharacterInspect preview crop landed outside the game client area, so the capture was skipped." xml:space="preserve">
+    <value>Il ritaglio CharacterInspect era fuori dall’area client del gioco; la cattura è stata saltata.</value>
+  </data>
+  <data name="Could not translate CharacterInspect preview bounds into screen coordinates." xml:space="preserve">
+    <value>Impossibile convertire i limiti dell’anteprima CharacterInspect in coordinate dello schermo.</value>
+  </data>
+  <data name="CharacterInspect preview capture failed: {0}: {1}" xml:space="preserve">
+    <value>Cattura dell’anteprima CharacterInspect non riuscita: {0}: {1}</value>
+  </data>
+  <data name="Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}." xml:space="preserve">
+    <value>Cattura inferiore di CharacterInspect salvata per l’entità {0} a {1}x{2}. Scala effettiva: X {3:0.#}% / Y {4:0.#}% da {5}. Scala di riserva: {6}%. Altezza sorgente: {7}px. Ritaglio: alto {8:P0}, basso {9:P0}.</value>
+  </data>
+  <data name="configured scaling fallback" xml:space="preserve">
+    <value>scala di riserva configurata</value>
+  </data>
+  <data name="live preview node scale" xml:space="preserve">
+    <value>scala dal vivo del nodo di anteprima</value>
+  </data>
+  <data name="live preview node X scale" xml:space="preserve">
+    <value>scala X dal vivo del nodo di anteprima</value>
+  </data>
+  <data name="live preview node Y scale" xml:space="preserve">
+    <value>scala Y dal vivo del nodo di anteprima</value>
+  </data>
+  <data name=", failed {0}" xml:space="preserve">
+    <value>, non riusciti {0}</value>
+  </data>
+  <data name=", skipped {0} without live entity ids" xml:space="preserve">
+    <value>, saltati {0} senza ID entità attivo</value>
+  </data>
+  <data name="Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>Anteprima a piedi nudi attiva. Usa Ispeziona su questa scheda o nella tabella del gruppo, attendi che CharacterInspect si stabilizzi e cattura l’anteprima dalla finestra principale.</value>
+  </data>
+  <data name="Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>Qui è prevista la cattura diretta dei piedi da Ispeziona. Usa Ispeziona su questa scheda o nella tabella del gruppo, attendi che CharacterInspect si stabilizzi e cattura l’anteprima dalla finestra principale.</value>
+  </data>
+  <data name="Your own feet are hidden because Show own feet is off." xml:space="preserve">
+    <value>I tuoi piedi sono nascosti perché Mostra i miei piedi è disattivato.</value>
+  </data>
+  <data name="This card is filtered by the {0} feet toggle." xml:space="preserve">
+    <value>Questa scheda è filtrata dall’opzione piedi {0}.</value>
+  </data>
+  <data name="Feet are blocked by the current Lodestone privacy gate state." xml:space="preserve">
+    <value>I piedi sono bloccati dall’attuale filtro privacy di Lodestone.</value>
+  </data>
+  <data name="This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet." xml:space="preserve">
+    <value>Questo membro non ha un ID entità attivo; CharacterInspect non può ancora essere richiesto.</value>
+  </data>
+  <data name="The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card." xml:space="preserve">
+    <value>L’interfaccia CharacterInspect dal vivo è disponibile. Apri Ispeziona e cattura l’anteprima dalla finestra principale per salvare un’immagine per questa scheda.</value>
+  </data>
+  <data name="Showing the cached Lodestone face image next to the foot showcase card." xml:space="preserve">
+    <value>Il volto Lodestone in cache è mostrato accanto alla scheda dei piedi.</value>
+  </data>
+  <data name="The face-next-to-feet toggle is currently off." xml:space="preserve">
+    <value>L’opzione volto accanto ai piedi è disattivata.</value>
+  </data>
+  <data name="Use Refresh Lodestone to resolve the current face state." xml:space="preserve">
+    <value>Aggiorna Lodestone per determinare lo stato attuale del volto.</value>
+  </data>
+  <data name="{0} / local customize data unavailable" xml:space="preserve">
+    <value>{0} / dati di personalizzazione locali non disponibili</value>
+  </data>
+  <data name="Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}" xml:space="preserve">
+    <value>Ultima cattura inferiore salvata di CharacterInspect per questo membro. Area: ({0}, {1}) {2}x{3}.{4}</value>
+  </data>
+  <data name=" Barefoot preview mode was enabled when this preview-capture flow ran." xml:space="preserve">
+    <value> L’anteprima a piedi nudi era attiva durante questa cattura.</value>
+  </data>
+  <data name="No home world is available yet." xml:space="preserve">
+    <value>Il mondo di origine non è ancora disponibile.</value>
+  </data>
+  <data name="Waiting for lookup." xml:space="preserve">
+    <value>In attesa della ricerca.</value>
+  </data>
+  <data name="Refreshing Lodestone search and profile data." xml:space="preserve">
+    <value>Aggiornamento dei dati di ricerca e profilo Lodestone.</value>
+  </data>
+  <data name="No Lodestone profile match was found for the current name/world pair." xml:space="preserve">
+    <value>Nessun profilo Lodestone trovato per il nome e il mondo attuali.</value>
+  </data>
+  <data name="Profile resolved with a face image." xml:space="preserve">
+    <value>Profilo trovato con un’immagine del volto.</value>
+  </data>
+  <data name="Profile resolved but no face image was exposed." xml:space="preserve">
+    <value>Profilo trovato, ma nessuna immagine del volto è esposta.</value>
+  </data>
+  <data name="Profile page loaded, but the expected face markup was not found." xml:space="preserve">
+    <value>Pagina del profilo caricata, ma il markup previsto del volto non è stato trovato.</value>
+  </data>
+  <data name="Preview camera is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>La camera di anteprima non è disponibile perché AgentInspect non è ancora disponibile.</value>
+  </data>
+  <data name="CharacterInspect export capture is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>La cattura di esportazione CharacterInspect non è disponibile perché AgentInspect non è ancora disponibile.</value>
+  </data>
+  <data name="AgentInspect is not available yet, so CharacterInspect research cannot run right now." xml:space="preserve">
+    <value>AgentInspect non è ancora disponibile; la ricerca CharacterInspect non può essere eseguita.</value>
+  </data>
+  <data name="Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity." xml:space="preserve">
+    <value>Accedi al gioco e usa Ispeziona su una riga del gruppo o una scheda per aprire CharacterInspect su un’entità attiva.</value>
+  </data>
+  <data name="CharacterInspect preview camera pointer is not available yet." xml:space="preserve">
+    <value>Il puntatore alla camera di anteprima CharacterInspect non è ancora disponibile.</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run." xml:space="preserve">
+    <value>CharacterInspect è aperto per l’entità 0x{0:X8}. Il nodo è visibile a {1}x{2}, lo stato consente un ritaglio inferiore controllato da una sorgente estesa verso il basso e la lettura dello stato della camera.</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}." xml:space="preserve">
+    <value>CharacterInspect è aperto per l’entità 0x{0:X8}. Stato CharaView di ispezione: {1}, caricato={2}, copiato={3}.</value>
+  </data>
+  <data name="CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8})." xml:space="preserve">
+    <value>CharacterInspect non è visibile, ma AgentInspect conserva lo stato dell’entità richiesta/corrente ({0:X8} -&gt; {1:X8}).</value>
+  </data>
+  <data name="CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path." xml:space="preserve">
+    <value>CharacterInspect non è aperto. Usa Ispeziona su una riga del gruppo o una scheda per avviare la cattura diretta del personaggio.</value>
+  </data>
+  <data name="Press SNIP PREVIEW while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use COPY INSPECT REPORT to capture the current preview camera pose." xml:space="preserve">
+    <value>Premi «Acquisisci anteprima» quando CharacterInspect è stabile e allontana la finestra footballer dall’anteprima. Verifica che il ritaglio inferiore della sorgente estesa appaia sulla scheda corretta e usa «COPIA RAPPORTO ESAME» per acquisire la posa della camera.</value>
+  </data>
+  <data name="Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use SNIP PREVIEW once the bounds look correct." xml:space="preserve">
+    <value>Tieni aperto CharacterInspect finché il nodo non è visibile e lo stato stabile; usa «Acquisisci anteprima» quando i limiti sono corretti.</value>
+  </data>
+  <data name="Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate." xml:space="preserve">
+    <value>Usa Ispeziona su una riga del gruppo o una scheda, riapri questa sezione e verifica i campi CharacterInspect e CharaView.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target." xml:space="preserve">
+    <value>CharacterInspect non ha ancora un’entità corrente; la cattura attende il bersaglio di ispezione.</value>
+  </data>
+  <data name="CharacterInspect is open, but the preview widget node is not available yet." xml:space="preserve">
+    <value>CharacterInspect è aperto, ma il nodo del widget di anteprima non è ancora disponibile.</value>
+  </data>
+  <data name="CharacterInspect preview widget exists, but it is not visible yet." xml:space="preserve">
+    <value>Il widget di anteprima CharacterInspect esiste, ma non è ancora visibile.</value>
+  </data>
+  <data name="CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet." xml:space="preserve">
+    <value>L’anteprima è visibile, ma lo stato del modello non è ancora abbastanza inizializzato per una cattura controllata.</value>
+  </data>
+  <data name="CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose." xml:space="preserve">
+    <value>L’anteprima CharacterInspect è visibile e stabile per l’entità 0x{0:X8}. Il ritaglio inferiore può usare direttamente una sorgente estesa verso il basso da questi limiti, e la posa della camera può essere letta.</value>
+  </data>
+  <data name="Read-only preview camera state captured from CharacterInspect scene camera manager index {0}." xml:space="preserve">
+    <value>Stato della camera letto dall’indice {0} del gestore della camera di scena CharacterInspect.</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera." xml:space="preserve">
+    <value>Il gestore della camera CharacterInspect è presente, ma l’indice {0} non ha fornito una camera corrente.</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range." xml:space="preserve">
+    <value>Il gestore della camera CharacterInspect è presente, ma l’indice {0} è fuori dall’intervallo previsto 0-13.</value>
+  </data>
+  <data name="Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0})." xml:space="preserve">
+    <value>Usata la camera di scena diretta di CharacterInspect perché il gestore non ha fornito una camera attiva (indice {0}).</value>
+  </data>
+  <data name="Read-only preview camera state captured from the raw CharacterInspect scene camera." xml:space="preserve">
+    <value>Stato della camera letto dalla camera di scena diretta di CharacterInspect.</value>
+  </data>
+  <data name="Preview window used during portrait updates" xml:space="preserve">
+    <value>Finestra di anteprima usata per aggiornare i ritratti</value>
+  </data>
+  <data name="Current display-party-member-portraits target" xml:space="preserve">
+    <value>Bersaglio attuale per la visualizzazione dei ritratti del gruppo</value>
+  </data>
+  <data name="Not current target; older commendation candidate" xml:space="preserve">
+    <value>Non è il bersaglio attuale; vecchio candidato per encomi</value>
+  </data>
+  <data name="Portrait list / selection surface" xml:space="preserve">
+    <value>Elenco ritratti / area di selezione</value>
+  </data>
+  <data name="Portrait editor surface" xml:space="preserve">
+    <value>Area dell’editor ritratti</value>
+  </data>
+  <data name="Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}" xml:space="preserve">
+    <value>Un’interfaccia ritratto è aperta, ma la cattura BannerParty è fallita senza bloccare la finestra: {0}</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active." xml:space="preserve">
+    <value>Un’interfaccia ritratto è aperta. Questa versione acquisisce dati reali BannerParty, righe dell’agente ed esportazione in sola lettura della riga attiva; nessuna scrittura di ritratto è attiva.</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only." xml:space="preserve">
+    <value>Un’interfaccia ritratto è aperta. Questa versione acquisisce dati reali BannerParty e stato delle righe dell’agente, mantenendo i ritratti in sola lettura.</value>
+  </data>
+  <data name="No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons." xml:space="preserve">
+    <value>Nessuna interfaccia ritratto rilevante è aperta. Apri i ritratti del gruppo o un’altra interfaccia per esaminare gli addon attivi.</value>
+  </data>
+  <data name="Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text." xml:space="preserve">
+    <value>Riapri i ritratti del gruppo e verifica che la finestra principale resti stabile. Se appare un altro errore, invia il nuovo testo.</value>
+  </data>
+  <data name="Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable." xml:space="preserve">
+    <value>Cambia la riga ritratto selezionata e verifica che mappatura attiva e dati in sola lettura seguano. Rimanda la scrittura finché la lettura non è stabile.</value>
+  </data>
+  <data name="Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable." xml:space="preserve">
+    <value>Usa le righe dell’agente BannerParty e la mappatura dei binari per confermare la riga selezionata. Mantieni i ritratti in sola lettura finché l’esportazione non è stabile.</value>
+  </data>
+  <data name="Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target." xml:space="preserve">
+    <value>Acquisisci i dati reali di addon/nodi dell’area visibile prima di tentare scritture sostitutive; il bersaglio attuale è BannerParty.</value>
+  </data>
+  <data name="Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP." xml:space="preserve">
+    <value>Apri un flusso di ritratti e ricontrolla BannerPreview, BannerParty e BannerMIP.</value>
+  </data>
+  <data name="Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates." xml:space="preserve">
+    <value>Interfaccia locale nota: il callback 0 di BannerPreview è usato altrove nello spazio di lavoro per finalizzare gli aggiornamenti dei ritratti.</value>
+  </data>
+  <data name="Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated &quot;Party Members&quot; headers: {3}. Likely 240x540 portrait rails: {4}." xml:space="preserve">
+    <value>Acquisiti {0} nodi BannerParty. Visibili: {1}. Interattivi o con eventi: {2}. Titoli "Party Members" ripetuti: {3}. Probabili binari ritratto 240x540: {4}.</value>
+  </data>
+  <data name="No active BannerParty row was detected yet." xml:space="preserve">
+    <value>Nessuna riga BannerParty attiva rilevata.</value>
+  </data>
+  <data name="Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}." xml:space="preserve">
+    <value>Acquisite {0} righe dell’agente BannerParty. CharaView visibili: {1}. Caricate: {2}. Euristica riga attiva: {3}. Mappature binari: {4}.</value>
+  </data>
+  <data name="Base portrait rail without an adjacent slider pair." xml:space="preserve">
+    <value>Binario ritratto di base senza coppia di cursori adiacente.</value>
+  </data>
+  <data name="Currently active portrait rail scaffold." xml:space="preserve">
+    <value>Struttura del binario ritratto attualmente attiva.</value>
+  </data>
+  <data name="Inactive portrait rail scaffold." xml:space="preserve">
+    <value>Struttura del binario ritratto inattiva.</value>
+  </data>
+  <data name="Slider-only portrait rail candidate." xml:space="preserve">
+    <value>Candidato binario ritratto con solo cursore.</value>
+  </data>
+  <data name="Current visible portrait render target." xml:space="preserve">
+    <value>Bersaglio attuale del rendering ritratto visibile.</value>
+  </data>
+  <data name="Portrait is loaded for this row." xml:space="preserve">
+    <value>Ritratto caricato per questa riga.</value>
+  </data>
+  <data name="Character data is copied but the portrait is not visible yet." xml:space="preserve">
+    <value>Dati del personaggio copiati, ma il ritratto non è ancora visibile.</value>
+  </data>
+  <data name="Non-zero CharaView state {0}." xml:space="preserve">
+    <value>Stato CharaView diverso da zero: {0}.</value>
+  </data>
+  <data name="Inactive row." xml:space="preserve">
+    <value>Riga inattiva.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position." xml:space="preserve">
+    <value>Ordine: {0}; {1}; nessuna riga dell’agente BannerParty è associata a questa posizione del binario.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set." xml:space="preserve">
+    <value>Ordine: {0}; {1}; associato alla riga BannerParty {2} allineando la riga attiva ai binari preferiti.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order." xml:space="preserve">
+    <value>Ordine: {0}; {1}; associato alla riga BannerParty {2} secondo l’ordine di memorizzazione dell’agente.</value>
+  </data>
+  <data name=" This is the current active rail candidate." xml:space="preserve">
+    <value> Questo è il candidato binario attivo attuale.</value>
+  </data>
+  <data name="preferring live visible rails before hidden placeholder scaffolds" xml:space="preserve">
+    <value>preferendo binari visibili alle strutture segnaposto nascoste</value>
+  </data>
+  <data name="using the full ordered rail list because visible rails were insufficient" xml:space="preserve">
+    <value>usando l’elenco completo dei binari perché quelli visibili erano insufficienti</value>
+  </data>
+  <data name="node order" xml:space="preserve">
+    <value>ordine dei nodi</value>
+  </data>
+  <data name="top-to-bottom Y order" xml:space="preserve">
+    <value>ordine Y dall’alto al basso</value>
+  </data>
+  <data name="left-to-right X order" xml:space="preserve">
+    <value>ordine X da sinistra a destra</value>
+  </data>
+  <data name="Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped." xml:space="preserve">
+    <value>Riga BannerParty attiva trovata, ma CharaViewPortrait non sembra inizializzato; esportazione saltata.</value>
+  </data>
+  <data name="Read-only ExportedPortraitData captured for active row {0}" xml:space="preserve">
+    <value>ExportedPortraitData acquisito in sola lettura per la riga attiva {0}</value>
+  </data>
+  <data name="node capture: {0}: {1}" xml:space="preserve">
+    <value>cattura nodi: {0}: {1}</value>
+  </data>
+  <data name="agent capture: {0}: {1}" xml:space="preserve">
+    <value>cattura agente: {0}: {1}</value>
+  </data>
+  <data name="Addon position: ({0:0.##}, {1:0.##})" xml:space="preserve">
+    <value>Posizione addon: ({0:0.##}, {1:0.##})</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Maschio</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Femmina</value>
+  </data>
+  <data name="Row {0}" xml:space="preserve">
+    <value>Riga {0}</value>
+  </data>
+  <data name="current target" xml:space="preserve">
+    <value>bersaglio attuale</value>
+  </data>
+  <data name="entity {0}" xml:space="preserve">
+    <value>entità {0}</value>
+  </data>
+  <data name="No world yet" xml:space="preserve">
+    <value>Mondo non ancora disponibile</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>Aspetto della finestra</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>Mostra la modalità compatta nella finestra principale</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>Mostra la lingua nella finestra principale</value></data>
+  <data name="Transparency" xml:space="preserve"><value>Trasparenza</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>Opacità (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Sfuma automaticamente senza focus</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Opacità senza focus (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Ritardo senza focus (secondi)</value></data>
 </root>

@@ -17,9 +17,10 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
     private readonly Plugin plugin;
 
     public MainWindow(Plugin plugin)
-        : base($"{PluginInfo.DisplayName}##Main")
+        : base($"{PluginInfo.DisplayName}##Main", ImGuiWindowFlags.HorizontalScrollbar)
     {
         this.plugin = plugin;
+        AppearanceOwner = plugin;
         Size = new Vector2(1536, 1024);
         SizeCondition = ImGuiCond.FirstUseEver;
         SizeConstraints = new WindowSizeConstraints
@@ -33,11 +34,25 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
     {
     }
 
+    public override void PreDraw()
+    {
+        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(20, FootballerPresentation.Compact ? 12 : 20) * MaterialTheme.Metrics.Scale);
+        base.PreDraw();
+    }
+
+    public override void PostDraw()
+    {
+        base.PostDraw();
+        ImGui.PopStyleVar();
+    }
+
     public override void Draw()
     {
+        DrawWindowChrome();
         var cfg = plugin.Configuration;
         var showDebug = plugin.SessionDebugUnlocked;
         var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0.0";
+        UiGui.Title(PluginInfo.DisplayName, $"{PluginInfo.DisplayName} v{version}");
         var partyMembers = plugin.GetPartyShowcaseMembers();
         var effectiveRespectPrivacy = plugin.GetEffectiveRespectLodestonePrivacy();
         var cropFractions = plugin.CharacterInspectPreviewCaptureService.GetConfiguredCropFractions();
@@ -66,7 +81,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
 
         var compact = cfg.UiCompact;
         if (ImGui.Checkbox("C##CompactMode", ref compact)) { cfg.UiCompact = compact; cfg.Save(); }
-        if (ImGui.IsItemHovered()) ImGui.SetTooltip(UiText.T("Compact mode"));
+        if (ImGui.IsItemHovered()) MaterialText.SetTooltip(UiText.T("Compact mode"));
         ImGui.SameLine();
         plugin.DrawAppearanceSelector();
 
@@ -164,8 +179,8 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                         UiGui.TextUnformatted(member.Slot.ToString(UiText.Current.Culture));
 
                         ImGui.TableNextColumn();
-                        UiGui.TextUnformatted(GetSafeDisplayName(member));
-                        UiGui.TextDisabled(GetSafeWorldLabel(member));
+                        MaterialText.Text(GetSafeDisplayName(member));
+                        MaterialText.TextDisabled(string.IsNullOrWhiteSpace(member.WorldName) ? UiText.T("No world yet") : GetSafeWorldLabel(member));
 
                         ImGui.TableNextColumn();
                         UiGui.TextUnformatted(UiText.F($"{member.JobAbbreviation} {member.Level}"));
@@ -176,7 +191,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                         ImGui.TableNextColumn();
                         DrawStatusText(LodestoneProfileService.GetStatusLabel(lookup.Status), lookup.Status);
                         if (!string.IsNullOrWhiteSpace(lookup.Note))
-                            UiGui.TextWrapped(lookup.Note);
+                            MaterialText.TextWrapped(IsRawLookupNote(lookup) ? lookup.Note : UiText.T(lookup.Note));
 
                         ImGui.TableNextColumn();
                         DrawFeetGateText(feetGateLabel);
@@ -247,32 +262,38 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
     private void DrawNormalToolbar(Configuration cfg, int scalePercent)
     {
         using var font = UiText.Font(UiFontRole.Action);
+        var metrics = FootballerPresentation.Controls(FootballerPresentation.ToolbarHeight, 26);
+        using var controls = MaterialControls.Push(metrics with
+        {
+            Padding = new Vector2(ImGui.GetStyle().FramePadding.X, metrics.Padding.Y),
+            ItemSpacing = new Vector2(10, 10) * MaterialTheme.Metrics.Scale,
+        });
         var active = plugin.PartyFeetRefreshService.IsActive;
         var enabled = cfg.PluginEnabled;
-        if (UiGui.Toggle("Enabled", ref enabled)) plugin.SetPluginEnabled(enabled, printStatus: true);
-        ToolbarNext(active ? "Refreshing..." : "Refresh party", icon: MaterialIcon.Refresh);
+        if (UiGui.Toggle("Enabled", ref enabled, icon: MaterialIcon.Power)) plugin.SetPluginEnabled(enabled, printStatus: true);
+        ToolbarNext(active ? "Refreshing..." : "Refresh party", measuredPixels: UiGui.ActionWidth(active ? "Refreshing..." : "Refresh party", active ? "Refreshing..." : "Refresh party", MaterialIcon.Refresh));
         if (UiGui.Action(active ? "Refreshing..." : "Refresh party", active ? "Refreshing..." : "Refresh party", MaterialIcon.Refresh, active))
             plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
-        ToolbarNext("Foot showcase", toggle: true);
+        ToolbarNext("Foot showcase", toggle: true, measuredPixels: UiGui.ToggleWidth("Foot showcase", footprint: true));
         var showcase = cfg.ShowFootShowcase;
-        if (UiGui.Toggle("Foot showcase", ref showcase)) { cfg.ShowFootShowcase = showcase; cfg.Save(); }
-        ToolbarNext("Without footwear", toggle: true);
+        if (UiGui.Toggle("Foot showcase", ref showcase, footprint: true)) { cfg.ShowFootShowcase = showcase; cfg.Save(); }
+        ToolbarNext("Settings", measuredPixels: UiGui.ActionWidth("Settings", "Settings", MaterialIcon.Settings));
+        if (UiGui.Action("Settings", "Settings", MaterialIcon.Settings)) plugin.OpenConfigUi();
+        var krangle = cfg.KrangleNames ? "Un-Krangle" : "Krangle Names";
+        ToolbarNext(krangle, measuredPixels: UiGui.ActionWidth(krangle, krangle, MaterialIcon.Group));
+        if (UiGui.Action(krangle, krangle, MaterialIcon.Group)) plugin.SetKrangleNames(!cfg.KrangleNames, printStatus: true);
+        ToolbarNext("Refresh Lodestone", measuredPixels: UiGui.ActionWidth("Refresh Lodestone", "Refresh Lodestone", MaterialIcon.Link));
+        if (UiGui.Action("Refresh Lodestone", "Refresh Lodestone", MaterialIcon.Link, active)) plugin.QueuePartyResearchRefresh(forceLodestone: true);
+        ToolbarNext("Scaling 100%", measuredPixels: PreviewScalingGroupWidth(scalePercent));
+        DrawPreviewScalingSelector(scalePercent, active);
+        ToolbarNext("Without footwear", toggle: true, measuredPixels: UiGui.ToggleWidth("Without footwear", footwear: true));
         var withoutFootwear = cfg.WithoutFootwear;
-        if (UiGui.Toggle("Without footwear", ref withoutFootwear))
+        if (UiGui.Toggle("Without footwear", ref withoutFootwear, footwear: true))
         {
             cfg.WithoutFootwear = withoutFootwear;
             cfg.Save();
             plugin.HandleWithoutFootwearChanged();
         }
-        ToolbarNext("Settings", icon: MaterialIcon.Settings);
-        if (UiGui.Action("Settings", "Settings", MaterialIcon.Settings)) plugin.OpenConfigUi();
-        var krangle = cfg.KrangleNames ? "Un-Krangle" : "Krangle Names";
-        ToolbarNext(krangle);
-        if (UiGui.Action(krangle, krangle)) plugin.SetKrangleNames(!cfg.KrangleNames, printStatus: true);
-        ToolbarNext("Refresh Lodestone", icon: MaterialIcon.Refresh);
-        if (UiGui.Action("Refresh Lodestone", "Refresh Lodestone", MaterialIcon.Refresh, active)) plugin.QueuePartyResearchRefresh(forceLodestone: true);
-        ToolbarNext("Scaling 100%", icon: MaterialIcon.Refresh);
-        DrawPreviewScalingSelector(scalePercent, active);
     }
 
     private void DrawDebugToolbar(Configuration cfg, int scalePercent)
@@ -399,9 +420,9 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                 ImGui.TableSetupColumn("Value", ImGuiTableColumnFlags.WidthStretch);
                 UiGui.TableHeadersRow();
 
-                DrawInspectRow("Agent available", inspectSnapshot.AgentAvailable ? "Yes" : "No");
+                DrawInspectRow("Agent available", inspectSnapshot.AgentAvailable ? UiText.T("Yes") : UiText.T("No"));
                 DrawInspectRow("Agent address", FormatAddress(inspectSnapshot.AgentAddress));
-                DrawInspectRow("Addon visible", inspectSnapshot.AddonVisible ? "Yes" : "No");
+                DrawInspectRow("Addon visible", inspectSnapshot.AddonVisible ? UiText.T("Yes") : UiText.T("No"));
                 DrawInspectRow("Addon address", FormatAddress(inspectSnapshot.AddonAddress));
                 DrawInspectRow("Addon position", inspectSnapshot.AddonAddress == nint.Zero
                     ? "-"
@@ -409,7 +430,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                 DrawInspectRow("Requested entity", FormatEntityId(inspectSnapshot.RequestedEntityId));
                 DrawInspectRow("Current entity", FormatEntityId(inspectSnapshot.CurrentEntityId));
                 DrawInspectRow("Fetch status", UiText.F($"{inspectSnapshot.FetchCharacterDataStatus} / {inspectSnapshot.FetchSearchCommentStatus} / {inspectSnapshot.FetchFreeCompanyStatus}"));
-                DrawInspectRow("Buddy inspect", inspectSnapshot.IsBuddyInspect ? "Yes" : "No");
+                DrawInspectRow("Buddy inspect", inspectSnapshot.IsBuddyInspect ? UiText.T("Yes") : UiText.T("No"));
                 DrawInspectRow("CharaView state", inspectSnapshot.CharaViewState.ToString(UiText.Current.Culture));
                 DrawInspectRow("Client object", UiText.F($"{inspectSnapshot.CharaViewClientObjectId} / {inspectSnapshot.CharaViewClientObjectIndex}"));
                 DrawInspectRow("Loaded / copied", UiText.F($"{(inspectSnapshot.CharaViewCharacterLoaded ? "Y" : "N")} / {(inspectSnapshot.CharaViewCharacterDataCopied ? "Y" : "N")}"));
@@ -431,7 +452,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                 DrawInspectRow("Derived yaw / pitch", inspectSnapshot.CameraRotation);
                 DrawInspectRow("Camera distance", inspectSnapshot.CameraDistance);
                 DrawInspectRow("Camera FoV", inspectSnapshot.CameraFoV);
-                DrawInspectRow("Camera status", inspectSnapshot.CameraSnapshotStatus);
+                DrawInspectRow("Camera status", UiText.T(inspectSnapshot.CameraSnapshotStatus));
                 DrawInspectRow("Preview component", FormatAddress(inspectSnapshot.PreviewComponentAddress));
                 DrawInspectRow("Preview node", FormatAddress(inspectSnapshot.PreviewNodeAddress));
                 DrawInspectRow("Preview bounds", inspectSnapshot.PreviewNodeAddress == nint.Zero
@@ -442,16 +463,16 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                     : $"X {inspectSnapshot.PreviewNodeScaleX:0.###} / Y {inspectSnapshot.PreviewNodeScaleY:0.###}");
                 DrawInspectRow("Preview scaling fallback", UiText.F($"{scalePercent}%"));
                 DrawInspectRow("Stored snip profile", UiText.F($"{cropFractions.TopTrimFraction:P0} top / {cropFractions.BottomTrimFraction:P0} bottom"));
-                DrawInspectRow("Preview visible", inspectSnapshot.PreviewNodeVisible ? "Yes" : "No");
+                DrawInspectRow("Preview visible", inspectSnapshot.PreviewNodeVisible ? UiText.T("Yes") : UiText.T("No"));
                 DrawInspectRow("Collision node", FormatAddress(inspectSnapshot.CollisionNodeAddress));
                 DrawInspectRow("Callback base id", inspectSnapshot.PreviewCallbackBaseId.ToString(UiText.Current.Culture));
-                DrawInspectRow("Capture ready", inspectSnapshot.CaptureReady ? "Yes" : "No");
-                DrawInspectRow("Capture status", inspectSnapshot.ActiveExportStatus);
+                DrawInspectRow("Capture ready", inspectSnapshot.CaptureReady ? UiText.T("Yes") : UiText.T("No"));
+                DrawInspectRow("Capture status", UiText.T(inspectSnapshot.ActiveExportStatus));
                 DrawInspectRow("Latest snip", currentInspectCapture is null ? "-" : Path.GetFileName(currentInspectCapture.FilePath));
                 DrawInspectRow("Snip rect", currentInspectCapture is null
                     ? "-"
                     : UiText.F($"({currentInspectCapture.ClientX}, {currentInspectCapture.ClientY}) {currentInspectCapture.Width}x{currentInspectCapture.Height}"));
-                DrawInspectRow("Snip action", plugin.CharacterInspectPreviewCaptureService.LastCaptureStatus);
+                DrawInspectRow("Snip action", UiText.T(plugin.CharacterInspectPreviewCaptureService.LastCaptureStatus));
 
                 ImGui.EndTable();
             }
@@ -486,7 +507,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         }
 
         UiGui.BulletText(UiText.F($"Configured portrait replacement toggle: {(commendationSnapshot.ReplaceCommendationPicturesConfigured ? "On" : "Off")}"));
-        UiGui.BulletText(commendationSnapshot.SafeStatus);
+        MaterialText.BulletText(FormatPortraitSafeStatus(commendationSnapshot));
         UiGui.BulletText(commendationSnapshot.KnownCallbackSeam);
         UiGui.BulletText(commendationSnapshot.NextResearchStep);
 
@@ -537,7 +558,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             UiGui.BulletText(UiText.F($"Character count: {bannerPartyAgentSnapshot.CharacterCount}"));
             UiGui.BulletText(
                 bannerPartyAgentSnapshot.ActiveCharacterRowIndex is int activeRow
-                    ? UiText.F($"Active row heuristic: {activeRow} ({bannerPartyAgentSnapshot.ActiveCharacterName ?? "Unknown"})")
+                    ? UiText.F($"Active row heuristic: {activeRow} ({(bannerPartyAgentSnapshot.ActiveCharacterName is { } activeName ? FormatBannerCharacterName(activeName, activeRow) : UiText.T("Unknown"))})")
                     : "Active row heuristic: none yet");
             UiGui.BulletText(bannerPartyAgentSnapshot.ActiveExportStatus);
 
@@ -647,7 +668,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             UiGui.TextWrapped(UiText.F($"{eventSummary} | {(node.AppearsInteractive ? "Interactive" : "Passive")} | {flagSummary}"));
 
             ImGui.TableNextColumn();
-            UiGui.TextWrapped(node.Text ?? "-");
+            MaterialText.TextWrapped(node.Text ?? "-");
 
             ImGui.TableNextColumn();
             UiGui.TextUnformatted(FormatAddress(node.Address));
@@ -663,25 +684,25 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         ImGui.BeginChild($"FootCard##{card.Member.CharacterKey}", new Vector2(0f, cardHeight), true);
         ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, showDebug ? new Vector2(6f, 4f) : new Vector2(4f, 3f));
 
-        UiGui.TextUnformatted(GetSafeDisplayName(card.Member));
-        ShowHoverTooltip(UiText.F($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{card.VariantLabel}"));
+        MaterialText.Text(GetSafeDisplayName(card.Member));
+        ShowHoverTooltip($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{GetUiVariantLabel(card)}", false);
 
         if (!showDebug)
         {
             UiGui.TextDisabled(UiText.F($"Feet: {card.FootStatusLabel}"));
-            ShowHoverTooltip(card.FootStatusNote);
+            ShowHoverTooltip(card.FootStatusNote, !IsRawLookupNote(card.Lookup) || card.FootStatusNote != card.Lookup.Note);
         }
         else
         {
-            UiGui.TextDisabled(UiText.F($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}"));
-            ShowHoverTooltip(card.VariantLabel);
+            MaterialText.TextDisabled($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}");
+            ShowHoverTooltip(GetUiVariantLabel(card), false);
 
             ImGui.Spacing();
-            DrawCardStatusBadge("Gate", card.FeetGateLabel, string.IsNullOrWhiteSpace(card.Lookup.Note) ? card.FootStatusNote : card.Lookup.Note);
+            DrawCardStatusBadge("Gate", card.FeetGateLabel, string.IsNullOrWhiteSpace(card.Lookup.Note) ? card.FootStatusNote : card.Lookup.Note, !IsRawLookupNote(card.Lookup));
             ImGui.SameLine();
-            DrawCardStatusBadge("Face", card.FaceStatusLabel, card.FaceStatusNote);
+            DrawCardStatusBadge("Face", card.FaceStatusLabel, card.FaceStatusNote, !IsRawLookupNote(card.Lookup) || card.FaceStatusNote != card.Lookup.Note);
             ImGui.SameLine();
-            DrawCardStatusBadge("Feet", card.FootStatusLabel, card.FootStatusNote);
+            DrawCardStatusBadge("Feet", card.FootStatusLabel, card.FootStatusNote, !IsRawLookupNote(card.Lookup) || card.FootStatusNote != card.Lookup.Note);
         }
 
         ImGui.Spacing();
@@ -759,22 +780,25 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         return Math.Min(columns, cardCount);
     }
 
-    private static void DrawCardStatusBadge(string label, string value, string? tooltip)
+    private static void DrawCardStatusBadge(string label, string value, string? tooltip, bool authoredTooltip = true)
     {
-        ImGui.TextUnformatted(UiText.T(label) + ":");
+        MaterialText.Text(UiText.T(label) + ":");
         ImGui.SameLine(0f, 4f);
         UiGui.TextColored(GetCardStatusColor(value), value);
-        ShowHoverTooltip(tooltip);
+        ShowHoverTooltip(tooltip, authoredTooltip);
     }
 
-    private static void ShowHoverTooltip(string? text)
+    private static bool IsRawLookupNote(LodestoneFaceLookupRecord lookup)
+        => lookup.Status == LodestoneFaceLookupStatus.Error && lookup.ProfileUrl is null;
+
+    private static void ShowHoverTooltip(string? text, bool authored = true)
     {
         if (string.IsNullOrWhiteSpace(text) || !ImGui.IsItemHovered())
             return;
 
         ImGui.BeginTooltip();
         ImGui.PushTextWrapPos(420f * MaterialTheme.Metrics.Scale);
-        UiGui.TextUnformatted(text);
+        MaterialText.Text(authored ? UiText.T(text) : text);
         ImGui.PopTextWrapPos();
         ImGui.EndTooltip();
     }
@@ -808,7 +832,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
 
     private static void DrawCardStatusLine(string label, string value)
     {
-        ImGui.TextUnformatted(UiText.T(label) + ":");
+        MaterialText.Text(UiText.T(label) + ":");
         ImGui.SameLine();
         UiGui.TextColored(GetCardStatusColor(value), value);
     }
@@ -930,10 +954,10 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             UiGui.TextUnformatted(character.RowIndex.ToString(UiText.Current.Culture));
 
             ImGui.TableNextColumn();
-            UiGui.TextUnformatted(FormatSafeCharacterName(character.Name));
+            MaterialText.Text(FormatBannerCharacterName(character.Name, character.RowIndex));
 
             ImGui.TableNextColumn();
-            UiGui.TextUnformatted(character.Job);
+            MaterialText.Text(character.Job);
 
             ImGui.TableNextColumn();
             UiGui.TextUnformatted(character.WorldId == 0 ? "-" : character.WorldId.ToString(UiText.Current.Culture));
@@ -998,9 +1022,9 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             UiGui.TextUnformatted(mapping.AgentRowIndex?.ToString(UiText.Current.Culture) ?? "-");
 
             ImGui.TableNextColumn();
-            UiGui.TextWrapped(mapping.CharacterName is null
+            MaterialText.TextWrapped(mapping.CharacterName is null
                 ? "-"
-                : UiText.F($"{FormatSafeCharacterName(mapping.CharacterName)} ({mapping.Job ?? "-"})"));
+                : $"{FormatBannerCharacterName(mapping.CharacterName, mapping.AgentRowIndex)} ({mapping.Job ?? "-"})");
 
             ImGui.TableNextColumn();
             UiGui.TextWrapped(mapping.MappingNote);
@@ -1053,7 +1077,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         ImGui.TableNextColumn();
         UiGui.TextUnformatted(label);
         ImGui.TableNextColumn();
-        UiGui.TextWrapped(value);
+        MaterialText.TextWrapped(value);
     }
 
     private void DrawInspectButton(PartyShowcaseMember member, string idSuffix)
@@ -1075,7 +1099,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         ImGui.TableNextColumn();
         UiGui.TextUnformatted(label);
         ImGui.TableNextColumn();
-        UiGui.TextWrapped(value);
+        MaterialText.TextWrapped(value);
     }
 
     private string BuildPortraitTestReport(CommendationPortraitResearchSnapshot snapshot)
@@ -1243,16 +1267,94 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             ? "Keep Footballer away from the preview while capturing. The crop profile applies to future captures."
             : "Open CharacterInspect and wait for a stable preview before capturing.";
 
+    private float PreviewScalingGroupWidth(int currentScalePercent)
+    {
+        var s = MaterialTheme.Metrics.Scale;
+        var previewWidth = MaterialText.Measure(UiText.F($"{currentScalePercent}%")).X;
+        if (!plugin.SessionDebugUnlocked)
+        {
+            var field = MathF.Ceiling(Math.Max((FootballerPresentation.Compact ? 106 : 115) * s,
+                previewWidth * (FootballerPresentation.Compact ? 1.18f : 1.26f) + 44 * s));
+            return field + MathF.Ceiling(UiGui.ScaledTextSize(UiText.T("Scaling"), FootballerPresentation.Compact ? .9f : .94f).X)
+                + (FootballerPresentation.Compact ? 77 : 75) * s;
+        }
+        var debugField = MathF.Ceiling(Math.Max(100 * s, previewWidth + ImGui.GetFrameHeight() + 2 * ImGui.GetStyle().FramePadding.X));
+        return debugField + 10 * s + MaterialText.Measure(UiText.T("Scaling")).X + MaterialText.Measure("(?)").X;
+    }
+
     private void DrawPreviewScalingSelector(int currentScalePercent, bool disabled = false)
     {
         var measuredToolbar = !plugin.SessionDebugUnlocked;
+        var s = MaterialTheme.Metrics.Scale;
+        var c = MaterialTheme.Current.Colors;
+        var compact = FootballerPresentation.Compact;
+        var start = ImGui.GetCursorScreenPos();
+        var groupWidth = PreviewScalingGroupWidth(currentScalePercent);
+        var fieldHeight = (compact ? 46 : 54) * s;
         if (measuredToolbar)
             ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(ImGui.GetStyle().FramePadding.X,
-                Math.Max(0, (FootballerPresentation.ToolbarHeight * MaterialTheme.Metrics.Scale - ImGui.GetTextLineHeight()) * .5f)));
+                Math.Max(0, (fieldHeight - ImGui.GetTextLineHeight()) * .5f)));
+        ImGui.BeginGroup();
         ImGui.BeginDisabled(disabled);
-        ImGui.SetNextItemWidth(100f * MaterialTheme.Metrics.Scale);
-        if (ImGui.BeginCombo("##PreviewScaling", UiText.F($"{currentScalePercent}%")))
+        try
         {
+        if (measuredToolbar)
+        {
+            var dl = ImGui.GetWindowDrawList();
+            dl.AddLine(start + new Vector2(0, (compact ? 4 : 7) * s),
+                start + new Vector2(0, (FootballerPresentation.ToolbarHeight - (compact ? 4 : 7)) * s), MaterialCanvas.Color(c.OutlineVariant));
+            var label = UiText.T("Scaling");
+            var labelScale = compact ? .9f : .94f;
+            var labelSize = UiGui.ScaledTextSize(label, labelScale);
+            var labelHeight = MaterialText.RequiresShaping(label) ? labelSize.Y : ImGui.GetTextLineHeight() * labelScale;
+            MaterialText.AddText(dl,ImGui.GetFont(), ImGui.GetFontSize() * labelScale,
+                start + new Vector2((compact ? 22 : 16) * s, (FootballerPresentation.ToolbarHeight * s - labelHeight) * .5f),
+                MaterialCanvas.Color(MaterialColor.Alpha(c.OnSurface, ImGui.GetStyle().Alpha)), label);
+            ImGui.SetCursorScreenPos(start + new Vector2((compact ? 35 : 32) * s + MathF.Ceiling(labelSize.X),
+                (FootballerPresentation.ToolbarHeight * s - fieldHeight) * .5f));
+        }
+        var preview = UiText.F($"{currentScalePercent}%");
+        var previewScale = compact ? 1.18f : 1.26f;
+        var minimum = MathF.Ceiling(MaterialText.Measure(preview).X * (measuredToolbar ? previewScale : 1)
+            + (measuredToolbar ? 44 * s : ImGui.GetFrameHeight() + 2 * ImGui.GetStyle().FramePadding.X));
+        var fieldWidth = MaterialLayout.FitNextItemWidth((measuredToolbar ? compact ? 106 : 115 : 100) * s, minimum);
+        ImGui.SetNextItemWidth(fieldWidth);
+        var fieldStart = ImGui.GetCursorScreenPos();
+        var fieldDrawList = ImGui.GetWindowDrawList();
+        var fieldFont = ImGui.GetFont();
+        var fieldFontSize = ImGui.GetFontSize();
+        var fieldLineHeight = ImGui.GetTextLineHeight();
+        bool opened;
+        using (var style = new MaterialStyleScope())
+        {
+            if (measuredToolbar)
+            {
+                style.Style(ImGuiStyleVar.FrameBorderSize, s);
+                style.Color(ImGuiCol.FrameBg, c.SurfaceContainerLowest);
+                style.Color(ImGuiCol.FrameBgHovered, MaterialColor.Layer(c.SurfaceContainerLowest, c.OnSurface, .08f));
+                style.Color(ImGuiCol.FrameBgActive, MaterialColor.Layer(c.SurfaceContainerLowest, c.OnSurface, .12f));
+                style.Color(ImGuiCol.Border, c.Outline);
+                style.Color(ImGuiCol.Text, Vector4.Zero);
+            }
+            opened = ImGui.BeginCombo("##PreviewScaling", preview, measuredToolbar ? ImGuiComboFlags.NoArrowButton : ImGuiComboFlags.None);
+        }
+        if (measuredToolbar)
+        {
+            var foreground = MaterialColor.Alpha(c.OnSurface, ImGui.GetStyle().Alpha);
+            fieldDrawList.PushClipRect(fieldStart, fieldStart + new Vector2(fieldWidth, fieldHeight), true);
+            try
+            {
+            MaterialText.AddText(fieldDrawList,fieldFont, fieldFontSize * previewScale,
+                fieldStart + new Vector2(14 * s, (fieldHeight - fieldLineHeight * previewScale) * .5f), MaterialCanvas.Color(foreground), preview);
+            MaterialIcons.Draw(MaterialIcon.ChevronDown, fieldDrawList,
+                fieldStart + new Vector2(fieldWidth - 30 * s, (fieldHeight - 18 * s) * .5f), 18 * s, foreground);
+            }
+            finally { fieldDrawList.PopClipRect(); }
+        }
+        if (opened)
+        {
+            try
+            {
             foreach (var option in PreviewScalePercents)
             {
                 var selected = option == currentScalePercent;
@@ -1266,16 +1368,35 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                     ImGui.SetItemDefaultFocus();
             }
 
-            ImGui.EndCombo();
+            }
+            finally { ImGui.EndCombo(); }
         }
 
-        ImGui.SameLine(0f, 6f);
-        UiGui.TextUnformatted("Scaling");
-        ImGui.SameLine(0f, 4f);
-        UiGui.TextDisabled("(?)");
-        ShowHoverTooltip("Pick Same as character preview window!");
-        ImGui.EndDisabled();
-        if (measuredToolbar) ImGui.PopStyleVar();
+        if (measuredToolbar)
+        {
+            ImGui.SetCursorScreenPos(fieldStart + new Vector2(fieldWidth + (compact ? 14 : 15) * s, 0));
+            var infoStart = ImGui.GetCursorScreenPos();
+            MaterialIcons.Draw(MaterialIcon.Info, infoStart + new Vector2(0, (fieldHeight - 28 * s) * .5f), 28 * s, c.OnSurfaceVariant);
+            ImGui.Dummy(new Vector2(28 * s, fieldHeight));
+            ShowHoverTooltip("Pick Same as character preview window!");
+            ImGui.SetCursorScreenPos(start);
+            ImGui.Dummy(new Vector2(groupWidth, FootballerPresentation.ToolbarHeight * s));
+        }
+        else
+        {
+            ImGui.SameLine(0f, 6f * s);
+            UiGui.TextUnformatted("Scaling");
+            ImGui.SameLine(0f, 4f * s);
+            UiGui.TextDisabled("(?)");
+            ShowHoverTooltip("Pick Same as character preview window!");
+        }
+        }
+        finally
+        {
+            ImGui.EndDisabled();
+            ImGui.EndGroup();
+            if (measuredToolbar) ImGui.PopStyleVar();
+        }
     }
 
     private static float ClampCropFraction(float value)
@@ -1291,7 +1412,24 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         => GetUiDisplayName(member);
 
     private string GetSafeWorldLabel(PartyShowcaseMember member)
-        => plugin.FormatWorldName(member.WorldName);
+        => string.IsNullOrWhiteSpace(member.WorldName) ? UiText.T("No world yet") : plugin.FormatWorldName(member.WorldName);
+
+    private static string GetUiVariantLabel(FootShowcaseCard card)
+        => card.Member.HasCustomizeData ? card.VariantLabel : UiText.F("{0} / local customize data unavailable", card.Member.SexLabel);
+
+    private static string FormatPortraitSafeStatus(CommendationPortraitResearchSnapshot snapshot)
+    {
+        if (snapshot.NodeCaptureError is null && snapshot.AgentCaptureError is null) return UiText.T(snapshot.SafeStatus);
+        var errors = new List<string>(2);
+        if (snapshot.NodeCaptureError is { } node) errors.Add(UiText.F("node capture: {0}: {1}", node.TypeName, node.Message));
+        if (snapshot.AgentCaptureError is { } agent) errors.Add(UiText.F("agent capture: {0}: {1}", agent.TypeName, agent.Message));
+        return UiText.F("Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}", string.Join(" | ", errors));
+    }
+
+    private string FormatBannerCharacterName(string? characterName, int? row)
+        => !plugin.Configuration.KrangleNames && row is int index && characterName == $"Row {index}"
+            ? UiText.F("Row {0}", index)
+            : FormatSafeCharacterName(characterName);
 
     private string FormatSafeCharacterName(string? characterName)
         => plugin.FormatCharacterName(characterName);

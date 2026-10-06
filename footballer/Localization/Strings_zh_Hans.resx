@@ -1008,4 +1008,420 @@
   <data name="Compact mode" xml:space="preserve">
     <value>紧凑模式</value>
   </data>
+  <data name="Inspect pose preset is idle. Target yaw is {0}." xml:space="preserve">
+    <value>查看姿势预设处于空闲状态。目标偏航角为 {0}。</value>
+  </data>
+  <data name="Cannot queue the inspect pose preset yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>查看目标没有有效实体 ID，暂时无法将姿势预设加入队列。</value>
+  </data>
+  <data name="Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>已将 {0} 的查看姿势预设加入队列。等待 CharacterInspect 完成目标加载。</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so the inspect pose preset cannot run." xml:space="preserve">
+    <value>CharacterInspect 尚无当前实体，无法应用查看姿势预设。</value>
+  </data>
+  <data name="The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>正在向当前 CharacterInspect 目标应用姿势预设。请稍候再截图。</value>
+  </data>
+  <data name="Inspect pose preset timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0} 的查看姿势预设超时。请重新打开查看后重试。</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset." xml:space="preserve">
+    <value>等待 CharacterInspect 切换到 {0} 后应用姿势预设。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet." xml:space="preserve">
+    <value>已为 {0} 打开 CharacterInspect，但预览模型尚未准备好应用姿势预设。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview character is still unavailable." xml:space="preserve">
+    <value>已为 {0} 打开 CharacterInspect，但预览角色仍不可用。</value>
+  </data>
+  <data name="Inspect pose preset is ready for {0}. {1}" xml:space="preserve">
+    <value>{0} 的查看姿势预设已就绪。{1}</value>
+  </data>
+  <data name="Applied the inspect pose preset for {0}. {1}" xml:space="preserve">
+    <value>已为 {0} 应用查看姿势预设。{1}</value>
+  </data>
+  <data name="Inspect pose preset is still applying for {0}. {1}" xml:space="preserve">
+    <value>正在为 {0} 应用查看姿势预设。{1}</value>
+  </data>
+  <data name="Preview game yaw is {0} and draw rotation is ({1})." xml:space="preserve">
+    <value>游戏预览偏航角为 {0}，绘制旋转为 ({1})。</value>
+  </data>
+  <data name="Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2})." xml:space="preserve">
+    <value>当前预览偏航角为 {0}，绘制旋转为 ({1})。目标绘制旋转为 ({2})。</value>
+  </data>
+  <data name="Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target." xml:space="preserve">
+    <value>裸足预览模式已开启。使用查看，将当前 CharacterInspect 目标的足部槽位多接口清除操作加入队列。</value>
+  </data>
+  <data name="Barefoot preview mode is off." xml:space="preserve">
+    <value>裸足预览模式已关闭。</value>
+  </data>
+  <data name="Cannot queue barefoot preview mode yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>查看目标没有有效实体 ID，暂时无法将裸足预览加入队列。</value>
+  </data>
+  <data name="Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>已将 {0} 的裸足预览更新加入队列。等待 CharacterInspect 完成目标加载。</value>
+  </data>
+  <data name="CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet." xml:space="preserve">
+    <value>CharacterInspect 当前不可用，暂时无法将裸足预览加入队列。</value>
+  </data>
+  <data name="CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue." xml:space="preserve">
+    <value>CharacterInspect 尚无当前或待处理目标，裸足预览没有可加入队列的对象。</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so barefoot preview capture cannot run." xml:space="preserve">
+    <value>CharacterInspect 尚无当前实体，无法进行裸足预览截图。</value>
+  </data>
+  <data name="Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>正在向当前 CharacterInspect 目标应用裸足预览。请稍候再截图。</value>
+  </data>
+  <data name="Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled." xml:space="preserve">
+    <value>裸足预览模式已关闭，已取消待处理的足部槽位清除。</value>
+  </data>
+  <data name="Barefoot preview update timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0} 的裸足预览更新超时。请重新打开查看后重试。</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before clearing the feet slot." xml:space="preserve">
+    <value>等待 CharacterInspect 切换到 {0} 后清除足部槽位。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet." xml:space="preserve">
+    <value>已为 {0} 打开 CharacterInspect，但预览模型尚未准备好清除足部槽位。</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet." xml:space="preserve">
+    <value>已为 {0} 打开 CharacterInspect，但预览模型尚未开放足部槽位。</value>
+  </data>
+  <data name="Barefoot preview is ready for {0}. {1}" xml:space="preserve">
+    <value>{0} 的裸足预览已就绪。{1}</value>
+  </data>
+  <data name="Barefoot preview applied for {0}. {1}" xml:space="preserve">
+    <value>已为 {0} 应用裸足预览。{1}</value>
+  </data>
+  <data name="Barefoot preview update attempt {0} is still applying for {1}. {2}" xml:space="preserve">
+    <value>裸足预览更新尝试 {0} 正在应用于 {1}。{2}</value>
+  </data>
+  <data name="Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}" xml:space="preserve">
+    <value>已通过查看物品、模型、绘制数据和实时预览接口清除足部装备。{0}</value>
+  </data>
+  <data name="Current feet state: {0}" xml:space="preserve">
+    <value>当前足部状态：{0}</value>
+  </data>
+  <data name="No CharacterInspect preview capture has been saved yet." xml:space="preserve">
+    <value>尚未保存 CharacterInspect 预览截图。</value>
+  </data>
+  <data name="CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable." xml:space="preserve">
+    <value>CharacterInspect 尚未准备好截图。请保持查看预览打开，直到控件可见且稳定。</value>
+  </data>
+  <data name="CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet." xml:space="preserve">
+    <value>CharacterInspect 预览边界不可用，暂时无法安全截图。</value>
+  </data>
+  <data name="Could not resolve the game window handle for CharacterInspect preview capture." xml:space="preserve">
+    <value>无法获取用于 CharacterInspect 预览截图的游戏窗口句柄。</value>
+  </data>
+  <data name="Could not read the game client bounds for CharacterInspect preview capture." xml:space="preserve">
+    <value>无法读取用于 CharacterInspect 预览截图的游戏客户区边界。</value>
+  </data>
+  <data name="CharacterInspect preview crop landed outside the game client area, so the capture was skipped." xml:space="preserve">
+    <value>CharacterInspect 预览裁剪区域超出游戏客户区，已跳过截图。</value>
+  </data>
+  <data name="Could not translate CharacterInspect preview bounds into screen coordinates." xml:space="preserve">
+    <value>无法将 CharacterInspect 预览边界转换为屏幕坐标。</value>
+  </data>
+  <data name="CharacterInspect preview capture failed: {0}: {1}" xml:space="preserve">
+    <value>CharacterInspect 预览截图失败：{0}: {1}</value>
+  </data>
+  <data name="Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}." xml:space="preserve">
+    <value>已保存实体 {0} 的 CharacterInspect 下部预览截图，尺寸 {1}x{2}。有效倍率：X {3:0.#}% / Y {4:0.#}%，来源 {5}。配置备用倍率：{6}%。源高度：{7}px。裁剪：顶部 {8:P0}，底部 {9:P0}。</value>
+  </data>
+  <data name="configured scaling fallback" xml:space="preserve">
+    <value>配置备用倍率</value>
+  </data>
+  <data name="live preview node scale" xml:space="preserve">
+    <value>实时预览节点倍率</value>
+  </data>
+  <data name="live preview node X scale" xml:space="preserve">
+    <value>实时预览节点 X 倍率</value>
+  </data>
+  <data name="live preview node Y scale" xml:space="preserve">
+    <value>实时预览节点 Y 倍率</value>
+  </data>
+  <data name=", failed {0}" xml:space="preserve">
+    <value>，失败 {0}</value>
+  </data>
+  <data name=", skipped {0} without live entity ids" xml:space="preserve">
+    <value>，跳过 {0} 名无有效实体 ID 的成员</value>
+  </data>
+  <data name="Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>裸足预览模式已启用。使用此卡片或队伍表中的查看，等待 CharacterInspect 稳定后，从主窗口截取当前预览。</value>
+  </data>
+  <data name="Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>此处使用从查看直接截取足部的方式。使用此卡片或队伍表中的查看，等待 CharacterInspect 稳定后，从主窗口截取当前预览。</value>
+  </data>
+  <data name="Your own feet are hidden because Show own feet is off." xml:space="preserve">
+    <value>显示自己的足部已关闭，因此已隐藏你的足部。</value>
+  </data>
+  <data name="This card is filtered by the {0} feet toggle." xml:space="preserve">
+    <value>此卡片已被 {0} 足部开关过滤。</value>
+  </data>
+  <data name="Feet are blocked by the current Lodestone privacy gate state." xml:space="preserve">
+    <value>当前 Lodestone 隐私状态已阻止足部显示。</value>
+  </data>
+  <data name="This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet." xml:space="preserve">
+    <value>此队员当前没有有效实体 ID，暂时无法请求 CharacterInspect。</value>
+  </data>
+  <data name="The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card." xml:space="preserve">
+    <value>实时 CharacterInspect 接口可用。请打开查看，并从主窗口截取当前预览，为此卡片保存图像。</value>
+  </data>
+  <data name="Showing the cached Lodestone face image next to the foot showcase card." xml:space="preserve">
+    <value>正在足部卡片旁显示缓存的 Lodestone 头像。</value>
+  </data>
+  <data name="The face-next-to-feet toggle is currently off." xml:space="preserve">
+    <value>足部旁显示头像的开关当前已关闭。</value>
+  </data>
+  <data name="Use Refresh Lodestone to resolve the current face state." xml:space="preserve">
+    <value>请刷新 Lodestone 以确定当前头像状态。</value>
+  </data>
+  <data name="{0} / local customize data unavailable" xml:space="preserve">
+    <value>{0} / 本地外观数据不可用</value>
+  </data>
+  <data name="Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}" xml:space="preserve">
+    <value>显示此成员最后保存的 CharacterInspect 下部预览截图。截图区域：({0}, {1}) {2}x{3}。{4}</value>
+  </data>
+  <data name=" Barefoot preview mode was enabled when this preview-capture flow ran." xml:space="preserve">
+    <value> 此次截图时已启用裸足预览模式。</value>
+  </data>
+  <data name="No home world is available yet." xml:space="preserve">
+    <value>所属服务器尚不可用。</value>
+  </data>
+  <data name="Waiting for lookup." xml:space="preserve">
+    <value>等待查询。</value>
+  </data>
+  <data name="Refreshing Lodestone search and profile data." xml:space="preserve">
+    <value>正在刷新 Lodestone 搜索和个人资料数据。</value>
+  </data>
+  <data name="No Lodestone profile match was found for the current name/world pair." xml:space="preserve">
+    <value>未找到与当前姓名和服务器匹配的 Lodestone 个人资料。</value>
+  </data>
+  <data name="Profile resolved with a face image." xml:space="preserve">
+    <value>已找到带头像的个人资料。</value>
+  </data>
+  <data name="Profile resolved but no face image was exposed." xml:space="preserve">
+    <value>已找到个人资料，但未公开头像。</value>
+  </data>
+  <data name="Profile page loaded, but the expected face markup was not found." xml:space="preserve">
+    <value>个人资料页面已加载，但未找到预期的头像标记。</value>
+  </data>
+  <data name="Preview camera is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspect 尚不可用，因此预览相机不可用。</value>
+  </data>
+  <data name="CharacterInspect export capture is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspect 尚不可用，因此 CharacterInspect 导出采集不可用。</value>
+  </data>
+  <data name="AgentInspect is not available yet, so CharacterInspect research cannot run right now." xml:space="preserve">
+    <value>AgentInspect 尚不可用，当前无法运行 CharacterInspect 研究。</value>
+  </data>
+  <data name="Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity." xml:space="preserve">
+    <value>请登录游戏，然后在队伍行或卡片上使用查看，为有效实体打开 CharacterInspect。</value>
+  </data>
+  <data name="CharacterInspect preview camera pointer is not available yet." xml:space="preserve">
+    <value>CharacterInspect 预览相机指针尚不可用。</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run." xml:space="preserve">
+    <value>已为实体 0x{0:X8} 打开 CharacterInspect。实时预览节点以 {1}x{2} 显示，查看状态已足够稳定，可从向下扩展的源区域进行受控下部截图，并只读采集预览相机状态。</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}." xml:space="preserve">
+    <value>已为实体 0x{0:X8} 打开 CharacterInspect。查看端 CharaView 状态为 {1}，已加载={2}，已复制={3}。</value>
+  </data>
+  <data name="CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8})." xml:space="preserve">
+    <value>CharacterInspect 当前不可见，但 AgentInspect 仍保留请求／当前实体状态 ({0:X8} -&gt; {1:X8})。</value>
+  </data>
+  <data name="CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path." xml:space="preserve">
+    <value>CharacterInspect 当前未打开。请在队伍行或卡片上使用查看，以启动直接角色截图流程。</value>
+  </data>
+  <data name="Press SNIP PREVIEW while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use COPY INSPECT REPORT to capture the current preview camera pose." xml:space="preserve">
+    <value>CharacterInspect 稳定后点击 “保存当前预览”，并将 footballer 窗口移开。确认向下扩展源区域的下部截图出现在对应卡片上，再用 “复制装备查看报告” 记录当前相机姿态。</value>
+  </data>
+  <data name="Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use SNIP PREVIEW once the bounds look correct." xml:space="preserve">
+    <value>保持 CharacterInspect 打开，直到预览节点可见且状态稳定，边界正确后使用 “保存当前预览”。</value>
+  </data>
+  <data name="Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate." xml:space="preserve">
+    <value>在队伍行或卡片上使用查看，再重新打开此部分，确认 CharacterInspect 和查看端 CharaView 字段已填充。</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target." xml:space="preserve">
+    <value>CharacterInspect 尚无当前实体，截图正在等待查看目标。</value>
+  </data>
+  <data name="CharacterInspect is open, but the preview widget node is not available yet." xml:space="preserve">
+    <value>CharacterInspect 已打开，但预览控件节点尚不可用。</value>
+  </data>
+  <data name="CharacterInspect preview widget exists, but it is not visible yet." xml:space="preserve">
+    <value>CharacterInspect 预览控件已存在，但尚不可见。</value>
+  </data>
+  <data name="CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet." xml:space="preserve">
+    <value>CharacterInspect 预览可见，但查看端模型尚未充分初始化，暂时无法进行受控截图。</value>
+  </data>
+  <data name="CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose." xml:space="preserve">
+    <value>实体 0x{0:X8} 的 CharacterInspect 预览可见且状态稳定。可从这些边界向下扩展源区域截取下部，并只读获取当前相机姿态。</value>
+  </data>
+  <data name="Read-only preview camera state captured from CharacterInspect scene camera manager index {0}." xml:space="preserve">
+    <value>已从 CharacterInspect 场景相机管理器索引 {0} 只读采集预览相机状态。</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera." xml:space="preserve">
+    <value>CharacterInspect 场景相机管理器存在，但索引 {0} 未找到当前场景相机。</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range." xml:space="preserve">
+    <value>CharacterInspect 场景相机管理器存在，但相机索引 {0} 超出预期的 0-13 范围。</value>
+  </data>
+  <data name="Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0})." xml:space="preserve">
+    <value>管理器未提供有效的当前相机，已改用 CharacterInspect 原始场景相机（索引 {0}）。</value>
+  </data>
+  <data name="Read-only preview camera state captured from the raw CharacterInspect scene camera." xml:space="preserve">
+    <value>已从 CharacterInspect 原始场景相机只读采集预览相机状态。</value>
+  </data>
+  <data name="Preview window used during portrait updates" xml:space="preserve">
+    <value>用于更新肖像的预览窗口</value>
+  </data>
+  <data name="Current display-party-member-portraits target" xml:space="preserve">
+    <value>当前队员肖像显示目标</value>
+  </data>
+  <data name="Not current target; older commendation candidate" xml:space="preserve">
+    <value>非当前目标；旧版最优队员候选</value>
+  </data>
+  <data name="Portrait list / selection surface" xml:space="preserve">
+    <value>肖像列表／选择界面</value>
+  </data>
+  <data name="Portrait editor surface" xml:space="preserve">
+    <value>肖像编辑界面</value>
+  </data>
+  <data name="Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}" xml:space="preserve">
+    <value>相关肖像界面已打开，但 BannerParty 采集已安全失败，未导致窗口崩溃：{0}</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active." xml:space="preserve">
+    <value>相关肖像界面已打开。此版本采集实时 BannerParty 插件节点、代理行和活动行的只读导出数据；未启用肖像写入。</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only." xml:space="preserve">
+    <value>相关肖像界面已打开。此版本采集实时 BannerParty 节点和代理行状态，肖像操作仍为只读。</value>
+  </data>
+  <data name="No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons." xml:space="preserve">
+    <value>当前未打开相关肖像界面。请打开队员肖像窗口或其他肖像界面以探测实时插件节点。</value>
+  </data>
+  <data name="Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text." xml:space="preserve">
+    <value>请重新打开队员肖像窗口并确认主窗口稳定。如出现新的采集错误，请发送新文本。</value>
+  </data>
+  <data name="Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable." xml:space="preserve">
+    <value>更改所选队员肖像行，确认活动行映射和只读数据随之变化。请等待读取路径稳定后再进行写入开发。</value>
+  </data>
+  <data name="Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable." xml:space="preserve">
+    <value>使用下方 BannerParty 代理行和轨道映射确认当前所选队员行，在导出稳定前保持肖像操作只读。</value>
+  </data>
+  <data name="Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target." xml:space="preserve">
+    <value>在尝试替换写入前，先采集可见界面的真实插件节点数据；当前目标为 BannerParty。</value>
+  </data>
+  <data name="Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP." xml:space="preserve">
+    <value>打开肖像流程并重新检查 BannerPreview、BannerParty 和 BannerMIP。</value>
+  </data>
+  <data name="Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates." xml:space="preserve">
+    <value>已知本地接口：工作区其他位置使用 BannerPreview 回调 0 完成肖像更新。</value>
+  </data>
+  <data name="Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated &quot;Party Members&quot; headers: {3}. Likely 240x540 portrait rails: {4}." xml:space="preserve">
+    <value>已采集 {0} 个实时 BannerParty 节点。可见：{1}。交互或带事件：{2}。重复的“Party Members”标题：{3}。可能的 240x540 肖像轨道：{4}。</value>
+  </data>
+  <data name="No active BannerParty row was detected yet." xml:space="preserve">
+    <value>尚未检测到活动 BannerParty 行。</value>
+  </data>
+  <data name="Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}." xml:space="preserve">
+    <value>已采集 {0} 个实时 BannerParty 代理行。可见 CharaView：{1}。已加载：{2}。活动行推断：{3}。轨道映射：{4}。</value>
+  </data>
+  <data name="Base portrait rail without an adjacent slider pair." xml:space="preserve">
+    <value>基础肖像轨道，无相邻滑块对。</value>
+  </data>
+  <data name="Currently active portrait rail scaffold." xml:space="preserve">
+    <value>当前活动肖像轨道框架。</value>
+  </data>
+  <data name="Inactive portrait rail scaffold." xml:space="preserve">
+    <value>非活动肖像轨道框架。</value>
+  </data>
+  <data name="Slider-only portrait rail candidate." xml:space="preserve">
+    <value>仅滑块肖像轨道候选。</value>
+  </data>
+  <data name="Current visible portrait render target." xml:space="preserve">
+    <value>当前可见肖像渲染目标。</value>
+  </data>
+  <data name="Portrait is loaded for this row." xml:space="preserve">
+    <value>已加载此行的肖像。</value>
+  </data>
+  <data name="Character data is copied but the portrait is not visible yet." xml:space="preserve">
+    <value>角色数据已复制，但肖像尚不可见。</value>
+  </data>
+  <data name="Non-zero CharaView state {0}." xml:space="preserve">
+    <value>非零 CharaView 状态：{0}。</value>
+  </data>
+  <data name="Inactive row." xml:space="preserve">
+    <value>非活动行。</value>
+  </data>
+  <data name="Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position." xml:space="preserve">
+    <value>排序：{0}；{1}；此轨道位置未映射实时 BannerParty 代理行。</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set." xml:space="preserve">
+    <value>排序：{0}；{1}；通过将活动行对齐到优先轨道组，映射到实时 BannerParty 行 {2}。</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order." xml:space="preserve">
+    <value>排序：{0}；{1}；按代理存储顺序映射到实时 BannerParty 行 {2}。</value>
+  </data>
+  <data name=" This is the current active rail candidate." xml:space="preserve">
+    <value> 这是当前活动轨道候选。</value>
+  </data>
+  <data name="preferring live visible rails before hidden placeholder scaffolds" xml:space="preserve">
+    <value>优先使用实时可见轨道而非隐藏占位框架</value>
+  </data>
+  <data name="using the full ordered rail list because visible rails were insufficient" xml:space="preserve">
+    <value>可见轨道不足，使用完整有序轨道列表</value>
+  </data>
+  <data name="node order" xml:space="preserve">
+    <value>节点顺序</value>
+  </data>
+  <data name="top-to-bottom Y order" xml:space="preserve">
+    <value>Y 轴从上到下</value>
+  </data>
+  <data name="left-to-right X order" xml:space="preserve">
+    <value>X 轴从左到右</value>
+  </data>
+  <data name="Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped." xml:space="preserve">
+    <value>已找到活动 BannerParty 行，但其 CharaViewPortrait 尚未初始化，已跳过导出。</value>
+  </data>
+  <data name="Read-only ExportedPortraitData captured for active row {0}" xml:space="preserve">
+    <value>已只读采集活动行 {0} 的 ExportedPortraitData</value>
+  </data>
+  <data name="node capture: {0}: {1}" xml:space="preserve">
+    <value>节点采集：{0}: {1}</value>
+  </data>
+  <data name="agent capture: {0}: {1}" xml:space="preserve">
+    <value>代理采集：{0}: {1}</value>
+  </data>
+  <data name="Addon position: ({0:0.##}, {1:0.##})" xml:space="preserve">
+    <value>插件节点位置：({0:0.##}, {1:0.##})</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>男性</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>女性</value>
+  </data>
+  <data name="Row {0}" xml:space="preserve">
+    <value>行 {0}</value>
+  </data>
+  <data name="current target" xml:space="preserve">
+    <value>当前目标</value>
+  </data>
+  <data name="entity {0}" xml:space="preserve">
+    <value>实体 {0}</value>
+  </data>
+  <data name="No world yet" xml:space="preserve">
+    <value>暂无服务器</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>窗口外观</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>在主窗口显示紧凑模式开关</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>在主窗口显示语言选择</value></data>
+  <data name="Transparency" xml:space="preserve"><value>透明度</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>不透明度 (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>失去焦点后自动淡化</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>未聚焦时的不透明度 (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>失去焦点后的等待时间 (秒)</value></data>
 </root>

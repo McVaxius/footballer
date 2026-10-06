@@ -1008,4 +1008,420 @@
   <data name="Compact mode" xml:space="preserve">
     <value>컴팩트 모드</value>
   </data>
+  <data name="Inspect pose preset is idle. Target yaw is {0}." xml:space="preserve">
+    <value>살펴보기 자세 프리셋이 대기 중입니다. 목표 요 각도는 {0}입니다.</value>
+  </data>
+  <data name="Cannot queue the inspect pose preset yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>살펴보기 대상에 활성 엔티티 ID가 없어 자세 프리셋을 대기열에 넣을 수 없습니다.</value>
+  </data>
+  <data name="Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>{0}의 살펴보기 자세를 대기열에 넣었습니다. CharacterInspect가 대상을 불러올 때까지 기다립니다.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so the inspect pose preset cannot run." xml:space="preserve">
+    <value>CharacterInspect에 현재 엔티티가 없어 자세 프리셋을 적용할 수 없습니다.</value>
+  </data>
+  <data name="The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>현재 CharacterInspect 대상에 자세를 적용 중입니다. 잠시 기다린 뒤 다시 캡처하세요.</value>
+  </data>
+  <data name="Inspect pose preset timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0}의 자세 적용 시간이 초과되었습니다. 살펴보기를 다시 열고 재시도하세요.</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset." xml:space="preserve">
+    <value>자세 적용 전에 CharacterInspect가 {0}(으)로 전환되기를 기다립니다.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet." xml:space="preserve">
+    <value>{0}의 CharacterInspect가 열렸지만 미리보기 모델이 자세를 적용할 준비가 되지 않았습니다.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview character is still unavailable." xml:space="preserve">
+    <value>{0}의 CharacterInspect가 열렸지만 미리보기 캐릭터를 아직 사용할 수 없습니다.</value>
+  </data>
+  <data name="Inspect pose preset is ready for {0}. {1}" xml:space="preserve">
+    <value>{0}의 살펴보기 자세가 준비되었습니다. {1}</value>
+  </data>
+  <data name="Applied the inspect pose preset for {0}. {1}" xml:space="preserve">
+    <value>{0}에게 살펴보기 자세를 적용했습니다. {1}</value>
+  </data>
+  <data name="Inspect pose preset is still applying for {0}. {1}" xml:space="preserve">
+    <value>{0}에게 살펴보기 자세를 적용 중입니다. {1}</value>
+  </data>
+  <data name="Preview game yaw is {0} and draw rotation is ({1})." xml:space="preserve">
+    <value>게임 내 미리보기 요 각도는 {0}, 렌더링 회전은 ({1})입니다.</value>
+  </data>
+  <data name="Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2})." xml:space="preserve">
+    <value>현재 미리보기 요 각도는 {0}, 렌더링 회전은 ({1})입니다. 목표 렌더링 회전은 ({2})입니다.</value>
+  </data>
+  <data name="Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target." xml:space="preserve">
+    <value>맨발 미리보기 모드가 켜졌습니다. 살펴보기로 현재 CharacterInspect 대상의 발 장비 슬롯을 여러 경로에서 비우는 작업을 예약하세요.</value>
+  </data>
+  <data name="Barefoot preview mode is off." xml:space="preserve">
+    <value>맨발 미리보기 모드가 꺼졌습니다.</value>
+  </data>
+  <data name="Cannot queue barefoot preview mode yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>살펴보기 대상에 활성 엔티티 ID가 없어 맨발 미리보기를 예약할 수 없습니다.</value>
+  </data>
+  <data name="Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>{0}의 맨발 미리보기 업데이트를 예약했습니다. CharacterInspect가 대상을 불러올 때까지 기다립니다.</value>
+  </data>
+  <data name="CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet." xml:space="preserve">
+    <value>현재 CharacterInspect를 사용할 수 없어 맨발 미리보기를 예약할 수 없습니다.</value>
+  </data>
+  <data name="CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue." xml:space="preserve">
+    <value>CharacterInspect에 현재 또는 대기 중인 대상이 없어 맨발 미리보기를 예약할 대상이 없습니다.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so barefoot preview capture cannot run." xml:space="preserve">
+    <value>CharacterInspect에 현재 엔티티가 없어 맨발 미리보기를 캡처할 수 없습니다.</value>
+  </data>
+  <data name="Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>현재 CharacterInspect 대상에 맨발 미리보기를 적용 중입니다. 잠시 기다린 뒤 다시 캡처하세요.</value>
+  </data>
+  <data name="Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled." xml:space="preserve">
+    <value>맨발 미리보기 모드가 꺼져 대기 중인 발 장비 슬롯 비우기를 취소했습니다.</value>
+  </data>
+  <data name="Barefoot preview update timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0}의 맨발 미리보기 업데이트 시간이 초과되었습니다. 살펴보기를 다시 열고 재시도하세요.</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before clearing the feet slot." xml:space="preserve">
+    <value>발 장비 슬롯을 비우기 전에 CharacterInspect가 {0}(으)로 전환되기를 기다립니다.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet." xml:space="preserve">
+    <value>{0}의 CharacterInspect가 열렸지만 미리보기 모델이 발 장비 슬롯을 비울 준비가 되지 않았습니다.</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet." xml:space="preserve">
+    <value>{0}의 CharacterInspect가 열렸지만 미리보기 모델에서 발 장비 슬롯을 아직 확인할 수 없습니다.</value>
+  </data>
+  <data name="Barefoot preview is ready for {0}. {1}" xml:space="preserve">
+    <value>{0}의 맨발 미리보기가 준비되었습니다. {1}</value>
+  </data>
+  <data name="Barefoot preview applied for {0}. {1}" xml:space="preserve">
+    <value>{0}에게 맨발 미리보기를 적용했습니다. {1}</value>
+  </data>
+  <data name="Barefoot preview update attempt {0} is still applying for {1}. {2}" xml:space="preserve">
+    <value>맨발 미리보기 업데이트 시도 {0}을(를) {1}에게 적용 중입니다. {2}</value>
+  </data>
+  <data name="Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}" xml:space="preserve">
+    <value>살펴보기 아이템, 모델, 렌더링 데이터 및 실시간 미리보기 경로에서 발 장비를 비웠습니다. {0}</value>
+  </data>
+  <data name="Current feet state: {0}" xml:space="preserve">
+    <value>현재 발 상태: {0}</value>
+  </data>
+  <data name="No CharacterInspect preview capture has been saved yet." xml:space="preserve">
+    <value>저장된 CharacterInspect 미리보기 캡처가 아직 없습니다.</value>
+  </data>
+  <data name="CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable." xml:space="preserve">
+    <value>CharacterInspect가 아직 캡처할 준비가 되지 않았습니다. 위젯이 보이고 안정될 때까지 미리보기를 열어 두세요.</value>
+  </data>
+  <data name="CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet." xml:space="preserve">
+    <value>CharacterInspect 미리보기 범위를 사용할 수 없어 아직 안전하게 캡처할 수 없습니다.</value>
+  </data>
+  <data name="Could not resolve the game window handle for CharacterInspect preview capture." xml:space="preserve">
+    <value>CharacterInspect 캡처용 게임 창 핸들을 확인하지 못했습니다.</value>
+  </data>
+  <data name="Could not read the game client bounds for CharacterInspect preview capture." xml:space="preserve">
+    <value>CharacterInspect 캡처용 게임 클라이언트 범위를 읽지 못했습니다.</value>
+  </data>
+  <data name="CharacterInspect preview crop landed outside the game client area, so the capture was skipped." xml:space="preserve">
+    <value>CharacterInspect 자르기 영역이 게임 클라이언트 범위를 벗어나 캡처를 건너뛰었습니다.</value>
+  </data>
+  <data name="Could not translate CharacterInspect preview bounds into screen coordinates." xml:space="preserve">
+    <value>CharacterInspect 미리보기 범위를 화면 좌표로 변환하지 못했습니다.</value>
+  </data>
+  <data name="CharacterInspect preview capture failed: {0}: {1}" xml:space="preserve">
+    <value>CharacterInspect 미리보기 캡처 실패: {0}: {1}</value>
+  </data>
+  <data name="Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}." xml:space="preserve">
+    <value>엔티티 {0}의 CharacterInspect 하단 미리보기를 {1}x{2}로 저장했습니다. 적용 배율: X {3:0.#}% / Y {4:0.#}% ({5}). 설정 대체값: {6}%. 원본 높이: {7}px. 자르기: 위 {8:P0}, 아래 {9:P0}.</value>
+  </data>
+  <data name="configured scaling fallback" xml:space="preserve">
+    <value>설정된 대체 배율</value>
+  </data>
+  <data name="live preview node scale" xml:space="preserve">
+    <value>실시간 미리보기 노드 배율</value>
+  </data>
+  <data name="live preview node X scale" xml:space="preserve">
+    <value>실시간 미리보기 노드 X 배율</value>
+  </data>
+  <data name="live preview node Y scale" xml:space="preserve">
+    <value>실시간 미리보기 노드 Y 배율</value>
+  </data>
+  <data name=", failed {0}" xml:space="preserve">
+    <value>，실패 {0}</value>
+  </data>
+  <data name=", skipped {0} without live entity ids" xml:space="preserve">
+    <value>, 활성 엔티티 ID가 없어 {0}명 건너뜀</value>
+  </data>
+  <data name="Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>맨발 미리보기 모드가 켜져 있습니다. 이 카드나 파티 표에서 살펴보기를 열고 CharacterInspect가 안정되면 메인 창에서 현재 미리보기를 캡처하세요.</value>
+  </data>
+  <data name="Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>여기서는 살펴보기에서 직접 발을 캡처합니다. 이 카드나 파티 표에서 살펴보기를 열고 CharacterInspect가 안정되면 메인 창에서 현재 미리보기를 캡처하세요.</value>
+  </data>
+  <data name="Your own feet are hidden because Show own feet is off." xml:space="preserve">
+    <value>내 발 표시가 꺼져 있어 자신의 발이 숨겨집니다.</value>
+  </data>
+  <data name="This card is filtered by the {0} feet toggle." xml:space="preserve">
+    <value>이 카드는 {0} 발 표시 설정으로 필터링됩니다.</value>
+  </data>
+  <data name="Feet are blocked by the current Lodestone privacy gate state." xml:space="preserve">
+    <value>현재 Lodestone 개인정보 보호 상태로 발 표시가 차단됩니다.</value>
+  </data>
+  <data name="This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet." xml:space="preserve">
+    <value>이 파티원은 현재 활성 엔티티 ID가 없어 CharacterInspect를 요청할 수 없습니다.</value>
+  </data>
+  <data name="The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card." xml:space="preserve">
+    <value>실시간 CharacterInspect 경로를 사용할 수 있습니다. 살펴보기를 열고 메인 창에서 현재 미리보기를 캡처해 이 카드의 이미지를 저장하세요.</value>
+  </data>
+  <data name="Showing the cached Lodestone face image next to the foot showcase card." xml:space="preserve">
+    <value>발 카드 옆에 캐시된 Lodestone 얼굴 이미지를 표시합니다.</value>
+  </data>
+  <data name="The face-next-to-feet toggle is currently off." xml:space="preserve">
+    <value>발 옆에 얼굴 표시 설정이 현재 꺼져 있습니다.</value>
+  </data>
+  <data name="Use Refresh Lodestone to resolve the current face state." xml:space="preserve">
+    <value>Lodestone을 새로 고쳐 현재 얼굴 상태를 확인하세요.</value>
+  </data>
+  <data name="{0} / local customize data unavailable" xml:space="preserve">
+    <value>{0} / 로컬 외형 데이터 없음</value>
+  </data>
+  <data name="Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}" xml:space="preserve">
+    <value>이 파티원의 마지막 저장된 CharacterInspect 하단 미리보기입니다. 캡처 영역: ({0}, {1}) {2}x{3}.{4}</value>
+  </data>
+  <data name=" Barefoot preview mode was enabled when this preview-capture flow ran." xml:space="preserve">
+    <value> 이 캡처 당시 맨발 미리보기 모드가 켜져 있었습니다.</value>
+  </data>
+  <data name="No home world is available yet." xml:space="preserve">
+    <value>출신 서버를 아직 확인할 수 없습니다.</value>
+  </data>
+  <data name="Waiting for lookup." xml:space="preserve">
+    <value>조회 대기 중입니다.</value>
+  </data>
+  <data name="Refreshing Lodestone search and profile data." xml:space="preserve">
+    <value>Lodestone 검색 및 프로필 데이터를 새로 고치는 중입니다.</value>
+  </data>
+  <data name="No Lodestone profile match was found for the current name/world pair." xml:space="preserve">
+    <value>현재 이름과 서버에 해당하는 Lodestone 프로필을 찾지 못했습니다.</value>
+  </data>
+  <data name="Profile resolved with a face image." xml:space="preserve">
+    <value>얼굴 이미지가 있는 프로필을 확인했습니다.</value>
+  </data>
+  <data name="Profile resolved but no face image was exposed." xml:space="preserve">
+    <value>프로필을 확인했지만 얼굴 이미지가 공개되지 않았습니다.</value>
+  </data>
+  <data name="Profile page loaded, but the expected face markup was not found." xml:space="preserve">
+    <value>프로필 페이지를 불러왔지만 예상한 얼굴 마크업을 찾지 못했습니다.</value>
+  </data>
+  <data name="Preview camera is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspect를 아직 사용할 수 없어 미리보기 카메라를 사용할 수 없습니다.</value>
+  </data>
+  <data name="CharacterInspect export capture is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspect를 아직 사용할 수 없어 CharacterInspect 내보내기 캡처를 사용할 수 없습니다.</value>
+  </data>
+  <data name="AgentInspect is not available yet, so CharacterInspect research cannot run right now." xml:space="preserve">
+    <value>AgentInspect를 아직 사용할 수 없어 CharacterInspect 조사를 실행할 수 없습니다.</value>
+  </data>
+  <data name="Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity." xml:space="preserve">
+    <value>게임에 로그인한 뒤 파티 행이나 카드에서 살펴보기를 사용해 활성 엔티티의 CharacterInspect를 여세요.</value>
+  </data>
+  <data name="CharacterInspect preview camera pointer is not available yet." xml:space="preserve">
+    <value>CharacterInspect 미리보기 카메라 포인터를 아직 사용할 수 없습니다.</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run." xml:space="preserve">
+    <value>엔티티 0x{0:X8}의 CharacterInspect가 열렸습니다. 실시간 미리보기 노드가 {1}x{2}로 보이며, 아래로 확장한 원본 영역에서 하단을 안전하게 자르고 카메라 상태를 읽을 만큼 안정되어 있습니다.</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}." xml:space="preserve">
+    <value>엔티티 0x{0:X8}의 CharacterInspect가 열렸습니다. 살펴보기 CharaView 상태: {1}, 불러옴={2}, 복사됨={3}.</value>
+  </data>
+  <data name="CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8})." xml:space="preserve">
+    <value>CharacterInspect는 현재 보이지 않지만 AgentInspect에 요청/현재 엔티티 상태가 남아 있습니다 ({0:X8} -&gt; {1:X8}).</value>
+  </data>
+  <data name="CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path." xml:space="preserve">
+    <value>CharacterInspect가 열려 있지 않습니다. 파티 행이나 카드에서 살펴보기를 사용해 캐릭터 직접 캡처를 시작하세요.</value>
+  </data>
+  <data name="Press SNIP PREVIEW while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use COPY INSPECT REPORT to capture the current preview camera pose." xml:space="preserve">
+    <value>CharacterInspect가 안정되면 ‘현재 미리보기 촬영’를 누르고 footballer 창을 미리보기 영역에서 옮기세요. 아래로 확장한 원본의 하단 이미지가 맞는 카드에 표시되는지 확인하고 ‘살펴보기 보고서 복사’로 카메라 자세를 기록하세요.</value>
+  </data>
+  <data name="Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use SNIP PREVIEW once the bounds look correct." xml:space="preserve">
+    <value>노드가 보이고 상태가 안정될 때까지 CharacterInspect를 열어 두고 범위가 맞으면 ‘현재 미리보기 촬영’를 사용하세요.</value>
+  </data>
+  <data name="Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate." xml:space="preserve">
+    <value>파티 행이나 카드에서 살펴보기를 사용한 뒤 이 섹션을 다시 열어 CharacterInspect와 CharaView 필드가 채워지는지 확인하세요.</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target." xml:space="preserve">
+    <value>CharacterInspect에 현재 엔티티가 없어 캡처가 살펴보기 대상을 기다립니다.</value>
+  </data>
+  <data name="CharacterInspect is open, but the preview widget node is not available yet." xml:space="preserve">
+    <value>CharacterInspect가 열렸지만 미리보기 위젯 노드를 아직 사용할 수 없습니다.</value>
+  </data>
+  <data name="CharacterInspect preview widget exists, but it is not visible yet." xml:space="preserve">
+    <value>CharacterInspect 미리보기 위젯이 있지만 아직 보이지 않습니다.</value>
+  </data>
+  <data name="CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet." xml:space="preserve">
+    <value>CharacterInspect 미리보기가 보이지만 모델 상태가 안전하게 캡처할 만큼 초기화되지 않았습니다.</value>
+  </data>
+  <data name="CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose." xml:space="preserve">
+    <value>엔티티 0x{0:X8}의 CharacterInspect 미리보기가 보이고 안정되어 있습니다. 이 범위에서 아래로 확장한 원본으로 하단을 자르고 현재 카메라 자세를 읽을 수 있습니다.</value>
+  </data>
+  <data name="Read-only preview camera state captured from CharacterInspect scene camera manager index {0}." xml:space="preserve">
+    <value>CharacterInspect 장면 카메라 관리자 인덱스 {0}에서 카메라 상태를 읽기 전용으로 캡처했습니다.</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera." xml:space="preserve">
+    <value>CharacterInspect 카메라 관리자가 있지만 인덱스 {0}에서 현재 장면 카메라를 찾지 못했습니다.</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range." xml:space="preserve">
+    <value>CharacterInspect 카메라 관리자가 있지만 카메라 인덱스 {0}이(가) 예상 범위 0-13 밖입니다.</value>
+  </data>
+  <data name="Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0})." xml:space="preserve">
+    <value>관리자 경로에서 활성 카메라를 찾지 못해 CharacterInspect의 원시 장면 카메라를 사용했습니다 (인덱스 {0}).</value>
+  </data>
+  <data name="Read-only preview camera state captured from the raw CharacterInspect scene camera." xml:space="preserve">
+    <value>CharacterInspect의 원시 장면 카메라에서 카메라 상태를 읽기 전용으로 캡처했습니다.</value>
+  </data>
+  <data name="Preview window used during portrait updates" xml:space="preserve">
+    <value>초상화 업데이트에 사용하는 미리보기 창</value>
+  </data>
+  <data name="Current display-party-member-portraits target" xml:space="preserve">
+    <value>현재 파티원 초상화 표시 대상</value>
+  </data>
+  <data name="Not current target; older commendation candidate" xml:space="preserve">
+    <value>현재 대상 아님; 이전 추천 후보</value>
+  </data>
+  <data name="Portrait list / selection surface" xml:space="preserve">
+    <value>초상화 목록 / 선택 화면</value>
+  </data>
+  <data name="Portrait editor surface" xml:space="preserve">
+    <value>초상화 편집 화면</value>
+  </data>
+  <data name="Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}" xml:space="preserve">
+    <value>관련 초상화 UI가 열렸지만 창이 충돌하지 않도록 BannerParty 캡처가 안전하게 실패했습니다: {0}</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active." xml:space="preserve">
+    <value>관련 초상화 UI가 열렸습니다. 이 빌드는 실제 BannerParty 애드온 정보, 에이전트 행 및 활성 행의 읽기 전용 내보내기를 캡처하며 초상화 쓰기 경로는 활성화되어 있지 않습니다.</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only." xml:space="preserve">
+    <value>관련 초상화 UI가 열렸습니다. 이 빌드는 실제 BannerParty 애드온 정보와 에이전트 행 상태를 캡처하며 초상화 경로는 읽기 전용입니다.</value>
+  </data>
+  <data name="No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons." xml:space="preserve">
+    <value>관련 초상화 UI가 열려 있지 않습니다. 파티원 초상화 창이나 다른 초상화 화면을 열어 활성 애드온을 확인하세요.</value>
+  </data>
+  <data name="Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text." xml:space="preserve">
+    <value>파티원 초상화 창을 다시 열고 메인 창이 안정적인지 확인하세요. 다른 캡처 오류가 나타나면 새 오류 내용을 보내세요.</value>
+  </data>
+  <data name="Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable." xml:space="preserve">
+    <value>선택한 파티 초상화 행을 바꾸고 활성 행 매핑과 읽기 전용 데이터가 함께 바뀌는지 확인하세요. 읽기 경로가 안정될 때까지 쓰기 작업은 보류하세요.</value>
+  </data>
+  <data name="Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable." xml:space="preserve">
+    <value>아래 BannerParty 에이전트 행과 레일 매핑으로 현재 선택한 파티 행을 확인하세요. 내보내기가 안정될 때까지 초상화 경로를 읽기 전용으로 유지하세요.</value>
+  </data>
+  <data name="Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target." xml:space="preserve">
+    <value>대체 쓰기 경로를 시도하기 전에 보이는 화면의 실제 애드온/노드 정보를 캡처하세요. 현재 대상은 BannerParty입니다.</value>
+  </data>
+  <data name="Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP." xml:space="preserve">
+    <value>초상화 흐름을 열고 BannerPreview, BannerParty, BannerMIP를 다시 확인하세요.</value>
+  </data>
+  <data name="Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates." xml:space="preserve">
+    <value>알려진 로컬 경로: BannerPreview 콜백 0은 작업 공간의 다른 곳에서 초상화 업데이트를 완료하는 데 사용됩니다.</value>
+  </data>
+  <data name="Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated &quot;Party Members&quot; headers: {3}. Likely 240x540 portrait rails: {4}." xml:space="preserve">
+    <value>실시간 BannerParty 노드 {0}개 캡처. 표시: {1}. 상호작용 또는 이벤트 노드: {2}. 반복된 "Party Members" 제목: {3}. 240x540 초상화 레일 후보: {4}.</value>
+  </data>
+  <data name="No active BannerParty row was detected yet." xml:space="preserve">
+    <value>활성 BannerParty 행이 아직 감지되지 않았습니다.</value>
+  </data>
+  <data name="Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}." xml:space="preserve">
+    <value>실시간 BannerParty 에이전트 행 {0}개 캡처. 표시 CharaView: {1}. 불러온 CharaView: {2}. 활성 행 추정: {3}. 레일 매핑: {4}.</value>
+  </data>
+  <data name="Base portrait rail without an adjacent slider pair." xml:space="preserve">
+    <value>인접 슬라이더 쌍이 없는 기본 초상화 레일.</value>
+  </data>
+  <data name="Currently active portrait rail scaffold." xml:space="preserve">
+    <value>현재 활성 초상화 레일 구조.</value>
+  </data>
+  <data name="Inactive portrait rail scaffold." xml:space="preserve">
+    <value>비활성 초상화 레일 구조.</value>
+  </data>
+  <data name="Slider-only portrait rail candidate." xml:space="preserve">
+    <value>슬라이더만 있는 초상화 레일 후보.</value>
+  </data>
+  <data name="Current visible portrait render target." xml:space="preserve">
+    <value>현재 보이는 초상화 렌더링 대상.</value>
+  </data>
+  <data name="Portrait is loaded for this row." xml:space="preserve">
+    <value>이 행의 초상화를 불러왔습니다.</value>
+  </data>
+  <data name="Character data is copied but the portrait is not visible yet." xml:space="preserve">
+    <value>캐릭터 데이터를 복사했지만 초상화가 아직 보이지 않습니다.</value>
+  </data>
+  <data name="Non-zero CharaView state {0}." xml:space="preserve">
+    <value>0이 아닌 CharaView 상태: {0}.</value>
+  </data>
+  <data name="Inactive row." xml:space="preserve">
+    <value>비활성 행.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position." xml:space="preserve">
+    <value>정렬: {0}; {1}; 이 레일 위치에 매핑된 실시간 BannerParty 에이전트 행이 없습니다.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set." xml:space="preserve">
+    <value>정렬: {0}; {1}; 활성 행을 우선 레일 집합에 맞춰 실시간 BannerParty 행 {2}에 매핑했습니다.</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order." xml:space="preserve">
+    <value>정렬: {0}; {1}; 에이전트 저장 순서로 실시간 BannerParty 행 {2}에 매핑했습니다.</value>
+  </data>
+  <data name=" This is the current active rail candidate." xml:space="preserve">
+    <value> 이것이 현재 활성 레일 후보입니다.</value>
+  </data>
+  <data name="preferring live visible rails before hidden placeholder scaffolds" xml:space="preserve">
+    <value>숨겨진 자리표시자 구조보다 보이는 실시간 레일 우선</value>
+  </data>
+  <data name="using the full ordered rail list because visible rails were insufficient" xml:space="preserve">
+    <value>보이는 레일이 부족해 전체 정렬된 레일 목록 사용</value>
+  </data>
+  <data name="node order" xml:space="preserve">
+    <value>노드 순서</value>
+  </data>
+  <data name="top-to-bottom Y order" xml:space="preserve">
+    <value>위에서 아래로 Y 순서</value>
+  </data>
+  <data name="left-to-right X order" xml:space="preserve">
+    <value>왼쪽에서 오른쪽으로 X 순서</value>
+  </data>
+  <data name="Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped." xml:space="preserve">
+    <value>활성 BannerParty 행을 찾았지만 CharaViewPortrait가 아직 초기화되지 않아 내보내기를 건너뛰었습니다.</value>
+  </data>
+  <data name="Read-only ExportedPortraitData captured for active row {0}" xml:space="preserve">
+    <value>활성 행 {0}의 ExportedPortraitData를 읽기 전용으로 캡처</value>
+  </data>
+  <data name="node capture: {0}: {1}" xml:space="preserve">
+    <value>노드 캡처: {0}: {1}</value>
+  </data>
+  <data name="agent capture: {0}: {1}" xml:space="preserve">
+    <value>에이전트 캡처: {0}: {1}</value>
+  </data>
+  <data name="Addon position: ({0:0.##}, {1:0.##})" xml:space="preserve">
+    <value>애드온 위치: ({0:0.##}, {1:0.##})</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>남성</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>여성</value>
+  </data>
+  <data name="Row {0}" xml:space="preserve">
+    <value>행 {0}</value>
+  </data>
+  <data name="current target" xml:space="preserve">
+    <value>현재 대상</value>
+  </data>
+  <data name="entity {0}" xml:space="preserve">
+    <value>엔티티 {0}</value>
+  </data>
+  <data name="No world yet" xml:space="preserve">
+    <value>아직 서버 정보 없음</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>창 모양</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>메인 창에 간결 모드 전환 표시</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>메인 창에 언어 선택 표시</value></data>
+  <data name="Transparency" xml:space="preserve"><value>투명도</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>불투명도 (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>포커스를 잃으면 자동으로 흐리게 표시</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>포커스가 없을 때 불투명도 (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>포커스를 잃은 후 대기 시간 (초)</value></data>
 </root>

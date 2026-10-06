@@ -48,7 +48,11 @@ public sealed class Plugin : IDalamudPlugin
 
     private FootballerFonts uiFonts = null!;
     private UiText uiText = null!;
+    private AethertekUI.Dalamud.MaterialTextHost? shapedText;
     private MaterialTheme uiTheme = null!;
+    private static readonly MaterialWindowFold fontStatusMotion = new();
+    private static readonly MaterialWindowDecorations fontStatusDecorations = new();
+    private readonly MaterialWindowOpacity fontStatusOpacity = new();
     private MaterialOptions<string> languageOptions = null!;
     private string appliedLanguage = "";
     private uint appliedAccent;
@@ -120,6 +124,7 @@ public sealed class Plugin : IDalamudPlugin
         mainWindow.Dispose();
         uiFonts.Dispose();
         uiText.Dispose();
+        shapedText?.Dispose();
     }
 
     private void DrawUi()
@@ -127,6 +132,10 @@ public sealed class Plugin : IDalamudPlugin
         ApplyAppearance();
         if(!mainWindow.IsOpen && !configWindow.IsOpen) return;
         using var text = uiText.Enter();
+        shapedText ??= new(TextureProvider);
+        using var shaping = shapedText.Push();
+        using var theme = MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, MaterialStyleMode.ColorsOnly);
+        using var chrome = MaterialWindowChrome.Push();
         if(!uiFonts.Ready)
         {
             if(!fontIssueLogged && uiFonts.LoadException is { } error) { Log.Error(error,"[footballer] Required UI fonts failed to load.");fontIssueLogged=true; }
@@ -139,12 +148,13 @@ public sealed class Plugin : IDalamudPlugin
             try
             {
                 var generation=uiFonts.Generation;
+                foreach (var size in FootballerPresentation.FontSizes)
+                    shapedText.Renderer.CheckGlyphs(uiText.RequiredText, size * ImGuiHelpers.GlobalScale);
                 uiFonts.CheckGlyphs(uiText.RequiredText);
                 checkedFontGeneration=generation;
             }
             catch(Exception ex) { if(!fontIssueLogged) { Log.Error(ex,"[footballer] Required UI glyph coverage failed.");fontIssueLogged=true; } DrawFontStatus(false);return; }
         }
-        using var theme = MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, MaterialStyleMode.ColorsOnly);
         using var geometry=new MaterialStyleScope();
         geometry.Style(Dalamud.Bindings.ImGui.ImGuiStyleVar.WindowPadding,new System.Numerics.Vector2((Configuration.UiCompact ? 12 : 20)*ImGuiHelpers.GlobalScale));
         if (Configuration.UiCompact)
@@ -159,12 +169,25 @@ public sealed class Plugin : IDalamudPlugin
         WindowSystem.Draw();
     }
 
-    private static void DrawFontStatus(bool loading)
+    private void DrawFontStatus(bool loading)
     {
         Dalamud.Bindings.ImGui.ImGui.SetNextWindowSize(new System.Numerics.Vector2(460f*ImGuiHelpers.GlobalScale,0f));
-        if(Dalamud.Bindings.ImGui.ImGui.Begin("Footballer##FontStatus",Dalamud.Bindings.ImGui.ImGuiWindowFlags.AlwaysAutoResize))
-            Dalamud.Bindings.ImGui.ImGui.TextWrapped(UiText.T(loading?"Loading UI fonts...":"UI fonts failed to load. See the plugin log."));
-        Dalamud.Bindings.ImGui.ImGui.End();
+        fontStatusMotion.PreDraw("Footballer##FontStatus", null, null, reducedMotion: false, prepareDecorations: fontStatusDecorations.Prepare);
+        try
+        {
+            if(Dalamud.Bindings.ImGui.ImGui.Begin("Footballer##FontStatus",Dalamud.Bindings.ImGui.ImGuiWindowFlags.AlwaysAutoResize))
+            {
+                fontStatusDecorations.Paint();
+                MaterialText.TextWrapped(UiText.T(loading?"Loading UI fonts...":"UI fonts failed to load. See the plugin log."));
+            }
+        }
+        finally
+        {
+            Dalamud.Bindings.ImGui.ImGui.End();
+            fontStatusDecorations.Paint();
+            fontStatusMotion.PostDraw();
+            ApplyWindowOpacity(fontStatusOpacity, "Footballer##FontStatus");
+        }
     }
 
     private void ApplyAppearance()
@@ -201,6 +224,18 @@ public sealed class Plugin : IDalamudPlugin
             |((uint)Math.Clamp((int)MathF.Round(accentDraft.Y*255),0,255)<<8)|(uint)Math.Clamp((int)MathF.Round(accentDraft.Z*255),0,255);
         if(changed.LanguageChanged) Configuration.UiLanguage=language;
         if(changed.AccentChanged || changed.LanguageChanged) Configuration.Save();
+    }
+
+    public void DrawHeaderAppearanceSelector()
+    {
+        var language = appliedLanguage;
+        var s = MaterialTheme.Metrics.Scale;
+        var compact = FootballerPresentation.Compact;
+        var height = compact ? 47 : 49;
+        using var controls = MaterialControls.Push(FootballerPresentation.Controls(height, compact ? 30 : 32));
+        if (!Configuration.UiLanguageVisibleOnMainWindow) return;
+        if (!MaterialAppearanceSelector.DrawLanguage("appearance", ref language, languageOptions, compact ? 196 : 210)) return;
+        Configuration.UiLanguage = language; Configuration.Save();
     }
 
     public void OpenMainUi()
@@ -444,14 +479,15 @@ public sealed class Plugin : IDalamudPlugin
             return;
 
         var glyph = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled;
-        var state = uiText.Label(Configuration.PluginEnabled ? "On" : "Off");
+        var nativeEnglish = uiText.Language == "hi";
+        var state = nativeEnglish ? (Configuration.PluginEnabled ? "On" : "Off") : uiText.Label(Configuration.PluginEnabled ? "On" : "Off");
         dtrEntry.Text = Configuration.DtrBarMode switch
         {
             1 => new SeString(new TextPayload($"{glyph} FOOT")),
             2 => new SeString(new TextPayload(glyph)),
             _ => new SeString(new TextPayload($"FOOT: {state}")),
         };
-        dtrEntry.Tooltip = new SeString(new TextPayload(uiText.Format("{0} {1}. Click to toggle.", PluginInfo.DisplayName, state)));
+        dtrEntry.Tooltip = new SeString(new TextPayload(nativeEnglish ? $"{PluginInfo.DisplayName} {state}. Click to toggle." : uiText.Format("{0} {1}. Click to toggle.", PluginInfo.DisplayName, state)));
     }
 
     private void RegisterCommands()
@@ -593,7 +629,8 @@ public sealed class Plugin : IDalamudPlugin
 
     private void ShowShowcaseGuidanceToast()
     {
-        var payload = new SeString(new TextPayload(uiText.Label("Pick the Scaling to match the window, and click refresh party when ready")));
+        const string guidance = "Pick the Scaling to match the window, and click refresh party when ready";
+        var payload = new SeString(new TextPayload(uiText.Language == "hi" ? guidance : uiText.Label(guidance)));
         var showQuestMethod = ToastGui.GetType().GetMethod("ShowQuest", new[] { typeof(SeString) });
         if (showQuestMethod != null)
         {
@@ -614,4 +651,63 @@ public sealed class Plugin : IDalamudPlugin
         var member = members.FirstOrDefault(candidate => candidate.EntityId != 0 && candidate.EntityId == currentEntityId);
         return member?.CharacterKey ?? $"entity-{currentEntityId:X8}";
     }
+    internal void ApplyWindowOpacity(MaterialWindowOpacity opacity, string name)
+    {
+        opacity.Apply(name, Math.Clamp(Configuration.UiWindowOpacityPercent, 10, 100) / 100f, Configuration.UiTransparencyEnabled,
+            Configuration.UiAutoFade, Math.Clamp(Configuration.UiFadedOpacityPercent, 10, 100) / 100f,
+            float.IsFinite(Configuration.UiUnfocusedDelaySeconds) ? Math.Max(0, Configuration.UiUnfocusedDelaySeconds) : 10);
+    }
+
+    internal void DrawWindowAppearance()
+    {
+        UiGui.TextUnformatted("Window appearance");
+        DrawAppearanceSelector();
+        var compact = Configuration.UiCompact;
+        if (UiGui.Checkbox("Compact mode", ref compact)) { Configuration.UiCompact = compact; Configuration.Save(); }
+        var config = Configuration;
+        var changed = false;
+        var compactVisibleOnMainWindow = config.UiCompactVisibleOnMainWindow;
+        if (UiGui.Checkbox("Compact visible on main window###UiCompactVisibleOnMainWindowSettings", ref compactVisibleOnMainWindow))
+        { config.UiCompactVisibleOnMainWindow = compactVisibleOnMainWindow; changed = true; }
+        var languageVisibleOnMainWindow = config.UiLanguageVisibleOnMainWindow;
+        if (UiGui.Checkbox("Language visible on main window###UiLanguageVisibleOnMainWindowSettings", ref languageVisibleOnMainWindow))
+        { config.UiLanguageVisibleOnMainWindow = languageVisibleOnMainWindow; changed = true; }
+        var transparencyEnabled = config.UiTransparencyEnabled;
+        if (UiGui.Checkbox("Transparency###UiTransparencyEnabledSettings", ref transparencyEnabled))
+        { config.UiTransparencyEnabled = transparencyEnabled; changed = true; }
+        var autoFade = config.UiAutoFade;
+        if (UiGui.Checkbox("Auto-fade when unfocused###UiAutoFadeSettings", ref autoFade))
+        { config.UiAutoFade = autoFade; changed = true; }
+        ImGui.BeginDisabled(!transparencyEnabled);
+        try
+        {
+        var opacity = Math.Clamp(config.UiWindowOpacityPercent, 10, 100);
+        ImGui.SetNextItemWidth(180 * MaterialTheme.Metrics.Scale);
+        if (UiGui.AppearanceSliderInt("Opacity (%)###UiWindowOpacityPercentSettings", ref opacity, 10, 100, "%d%%", ImGuiSliderFlags.AlwaysClamp))
+        { config.UiWindowOpacityPercent = opacity; changed = true; }
+        var fadedOpacity = Math.Clamp(config.UiFadedOpacityPercent, 10, 100);
+        ImGui.SetNextItemWidth(180 * MaterialTheme.Metrics.Scale);
+        if (UiGui.AppearanceSliderInt("Unfocused opacity (%)###UiFadedOpacityPercentSettings", ref fadedOpacity, 10, 100, "%d%%", ImGuiSliderFlags.AlwaysClamp))
+        { config.UiFadedOpacityPercent = fadedOpacity; changed = true; }
+        ImGui.BeginDisabled(!autoFade);
+        try
+        {
+        var delay = float.IsFinite(config.UiUnfocusedDelaySeconds) ? Math.Max(0, config.UiUnfocusedDelaySeconds) : 10;
+        ImGui.SetNextItemWidth(180 * MaterialTheme.Metrics.Scale);
+        if (UiGui.AppearanceInputFloat("Unfocused delay (seconds)###UiUnfocusedDelaySecondsSettings", ref delay))
+        { delay = float.IsFinite(delay) ? Math.Max(0, delay) : 10; config.UiUnfocusedDelaySeconds = delay; changed = true; }
+        }
+        finally { ImGui.EndDisabled(); }
+        }
+        finally { ImGui.EndDisabled(); }
+        if (changed) config.Save();
+    }
+
+    internal void DrawTransparency()
+    {
+        var enabled = Configuration.UiTransparencyEnabled;
+        if (UiGui.Checkbox("Transparency###UiTransparencyHeader", ref enabled))
+        { Configuration.UiTransparencyEnabled = enabled; Configuration.Save(); }
+    }
+
 }

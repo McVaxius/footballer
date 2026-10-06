@@ -10,22 +10,37 @@ public sealed partial class MainWindow
 {
     private void DrawPresentation(Configuration cfg, int scalePercent, IReadOnlyList<FootShowcaseCard> cards)
     {
+        var s = MaterialTheme.Metrics.Scale;
+        var start = ImGui.GetCursorScreenPos();
         DrawPresentationHeader();
-        ImGui.Dummy(new Vector2(0, (FootballerPresentation.Compact ? 8 : 20) * MaterialTheme.Metrics.Scale));
+        ImGui.SetCursorScreenPos(new Vector2(start.X, ImGui.GetItemRectMax().Y + (FootballerPresentation.Compact ? 14 : 18) * s));
         DrawNormalToolbar(cfg, scalePercent);
-        ImGui.Dummy(new Vector2(0, (FootballerPresentation.Compact ? 8 : 20) * MaterialTheme.Metrics.Scale));
+        ImGui.SetCursorScreenPos(new Vector2(start.X, ImGui.GetItemRectMax().Y + (FootballerPresentation.Compact ? 4 : 20) * s));
         DrawPresentationStatus(cfg, cards);
-        ImGui.Dummy(new Vector2(0, FootballerPresentation.RegionGap * MaterialTheme.Metrics.Scale));
+        var statusBottom = ImGui.GetItemRectMax().Y;
 
         if (cards.Count == 0)
         {
+            ImGui.SetCursorScreenPos(new Vector2(start.X, statusBottom + FootballerPresentation.RegionGap * s));
             UiGui.TextWrapped("No local player or party members are available yet, so there is nothing to render in the live showcase.");
             return;
         }
 
-        var s = MaterialTheme.Metrics.Scale;
-        var columns = Math.Clamp((int)((ImGui.GetContentRegionAvail().X + FootballerPresentation.CardGap * s) / (FootballerPresentation.CardWidth * s)), 1, 4);
+        var minimumCardWidth = FootballerPresentation.CardWidth * s;
+        var callerScale = ImGuiP.GetCurrentWindow().FontWindowScale;
+        using (UiText.Font(UiFontRole.PluginName))
+        {
+            ImGui.SetWindowFontScale(callerScale * FootballerPresentation.CardNameScale);
+            try
+            {
+                minimumCardWidth = Math.Max(minimumCardWidth, cards.Max(card => MaterialText.Measure(GetUiDisplayName(card.Member)).X)
+                    + (FootballerPresentation.Compact ? 104 : 110) * s);
+            }
+            finally { ImGui.SetWindowFontScale(callerScale); }
+        }
+        var columns = Math.Clamp((int)((ImGui.GetContentRegionAvail().X + FootballerPresentation.CardGap * s) / (minimumCardWidth + FootballerPresentation.CardGap * s)), 1, 4);
         columns = Math.Min(columns, cards.Count);
+        ImGui.SetCursorScreenPos(new Vector2(start.X, statusBottom + (FootballerPresentation.RegionGap - 7) * s));
         ImGui.PushStyleVar(ImGuiStyleVar.CellPadding, new Vector2(FootballerPresentation.CardGap * .5f * s, 7 * s));
         if (ImGui.BeginTable("FootballerFootShowcaseTable", columns, ImGuiTableFlags.SizingStretchSame))
         {
@@ -46,47 +61,115 @@ public sealed partial class MainWindow
         var width = ImGui.GetContentRegionAvail().X;
         var c = MaterialTheme.Current.Colors;
         var compact = FootballerPresentation.Compact;
-        var titleX = compact ? 78 : 108;
-        FootballerPresentation.Footprint(start + new Vector2(12, 0) * s, (compact ? 60 : 86) * s, c.Primary);
-        ImGui.SetCursorScreenPos(start + new Vector2(titleX, 0) * s);
+        var titleX = compact ? 98 : 108;
+        FootballerPresentation.Footprint(start + new Vector2(compact ? 19 : 16, compact ? 0 : -4) * s,
+            (compact ? new Vector2(63, 72) : new Vector2(77, 89)) * s, c.Primary);
+        ImGui.SetCursorScreenPos(start + new Vector2(titleX, compact ? -2 : -6) * s);
         float titleWidth;
         using (UiText.Font(compact ? UiFontRole.CompactTitle : UiFontRole.Title))
         {
-            ImGui.TextUnformatted(PluginInfo.DisplayName);
-            titleWidth = ImGui.GetItemRectSize().X;
+            var callerScale = ImGuiP.GetCurrentWindow().FontWindowScale;
+            ImGui.SetWindowFontScale(callerScale * FootballerPresentation.TitleScale);
+            try
+            {
+                MaterialText.Text(PluginInfo.DisplayName);
+                titleWidth = ImGui.GetItemRectSize().X;
+            }
+            finally { ImGui.SetWindowFontScale(callerScale); }
         }
         ImGui.SetCursorScreenPos(start + new Vector2(titleX * s + titleWidth + 18 * s, (compact ? 18 : 27) * s));
-        ImGui.TextColored(c.OnSurfaceVariant, "v" + typeof(Plugin).Assembly.GetName().Version);
+        MaterialText.TextColored(c.OnSurfaceVariant, "v" + typeof(Plugin).Assembly.GetName().Version);
         ImGui.SetCursorScreenPos(start + new Vector2(titleX, compact ? 43 : 58) * s);
-        using (UiText.Font(compact ? UiFontRole.Body : UiFontRole.PluginName)) UiGui.TextColored(c.OnSurfaceVariant, "Party feet previews, simply.");
+        using (UiText.Font(compact ? UiFontRole.Body : UiFontRole.PluginName))
+        {
+            var callerScale = ImGuiP.GetCurrentWindow().FontWindowScale;
+            ImGui.SetWindowFontScale(callerScale * FootballerPresentation.SubtitleScale);
+            try { UiGui.TextColored(c.OnSurfaceVariant, "Party feet previews, simply."); }
+            finally { ImGui.SetWindowFontScale(callerScale); }
+        }
 
-        var rightWidth = 716 * s;
-        var wideHeader = width >= 1280 * s;
-        var controlsY = start.Y + (wideHeader ? 16 : compact ? 78 : 104) * s;
+        var languageLabel = UiText.Languages.First(language => language.Code == UiText.Current.Language).Name;
+        var languageWidth = (compact ? 196 : 210) * s;
+        var languageMinimum = MathF.Ceiling(MaterialText.Measure(languageLabel).X + (compact ? 101 : 105) * s);
+        var transparencyWidth = ImGui.GetFrameHeight() + ImGui.GetStyle().ItemInnerSpacing.X + MaterialText.Measure(UiText.T("Transparency")).X;
+        var rightWidth = (compact ? 225 : 247) * s + transparencyWidth + 40 * s
+            + (plugin.Configuration.UiCompactVisibleOnMainWindow ? ImGui.GetFrameHeight() + MaterialText.Measure("C").X + 26 * s : 0)
+            + (plugin.Configuration.UiLanguageVisibleOnMainWindow ? Math.Max(languageWidth, languageMinimum) + 20 * s : 0);
+        var wideHeader = width >= Math.Max(1280 * s, rightWidth + 560 * s);
+        var controlsY = start.Y + (wideHeader ? compact ? 8 : 16 : compact ? 78 : 104) * s;
         ImGui.SetCursorScreenPos(new Vector2(wideHeader ? start.X + width - rightWidth : start.X, controlsY));
-        var compactPreference = plugin.Configuration.UiCompact;
-        if (ImGui.Checkbox("C##CompactMode", ref compactPreference)) { plugin.Configuration.UiCompact = compactPreference; plugin.Configuration.Save(); }
-        if (ImGui.IsItemHovered()) ImGui.SetTooltip(UiText.T("Compact mode"));
-        ImGui.SameLine(0, 12 * s);
-        plugin.DrawAppearanceSelector();
-        if (wideHeader) ImGui.SetCursorScreenPos(new Vector2(start.X + width - 250 * s, controlsY));
+        if (plugin.Configuration.UiCompactVisibleOnMainWindow)
+        {
+            var compactPreference = plugin.Configuration.UiCompact;
+            bool compactChanged;
+            using (var checkboxStyle = new MaterialStyleScope())
+            {
+                if (compact)
+                {
+                    checkboxStyle.Style(ImGuiStyleVar.FramePadding, new Vector2(ImGui.GetStyle().FramePadding.X, 0));
+                    checkboxStyle.Style(ImGuiStyleVar.ItemInnerSpacing, new Vector2(15 * s, ImGui.GetStyle().ItemInnerSpacing.Y));
+                    ImGui.SetCursorPosY(ImGui.GetCursorPosY() + (47 * s - ImGui.GetFrameHeight()) * .5f);
+                }
+                compactChanged = ImGui.Checkbox("C##CompactMode", ref compactPreference);
+            }
+            if (compactChanged) { plugin.Configuration.UiCompact = compactPreference; plugin.Configuration.Save(); }
+            if (ImGui.IsItemHovered()) MaterialText.SetTooltip(UiText.T("Compact mode"));
+            ImGui.SetCursorScreenPos(new Vector2(ImGui.GetItemRectMax().X + (compact ? 26 : 12) * s, controlsY));
+        }
+        if (plugin.Configuration.UiLanguageVisibleOnMainWindow)
+        {
+            plugin.DrawHeaderAppearanceSelector();
+            ImGui.SameLine(0, 20 * s);
+        }
+        plugin.DrawTransparency();
+        if (wideHeader) ImGui.SetCursorScreenPos(new Vector2(start.X + width - (compact ? 225 : 247) * s, controlsY));
         else ImGui.SameLine(0, 20 * s);
+        var linkStart = ImGui.GetCursorScreenPos();
+        ImGui.GetWindowDrawList().AddLine(linkStart + new Vector2(compact ? -23 : -28, 6) * s, linkStart + new Vector2(compact ? -23 : -28, 42) * s, MaterialCanvas.Color(c.OutlineVariant));
         using (UiText.Font(UiFontRole.Action))
         {
-            if (UiGui.Action("Ko-fi", "Ko-fi", MaterialIcon.ExternalLink, height: 36)) plugin.OpenUrl(PluginInfo.SupportUrl);
-            ImGui.SameLine(0, 10 * s);
-            if (UiGui.Action("Discord", "Discord", height: 36)) plugin.OpenUrl(PluginInfo.DiscordUrl);
+            if (DrawHeaderLink("Ko-fi", c.Primary, false)) plugin.OpenUrl(PluginInfo.SupportUrl);
+            ImGui.SameLine(0, (compact ? 18 : 34) * s);
+            if (DrawHeaderLink("Discord", FootballerPresentation.Rgb(0x928DFF), true)) plugin.OpenUrl(PluginInfo.DiscordUrl);
         }
         ImGui.SetCursorScreenPos(start);
-        ImGui.Dummy(new Vector2(width, (wideHeader ? FootballerPresentation.HeaderHeight : compact ? 116 : 146) * s));
+        ImGui.Dummy(new Vector2(width, (wideHeader ? FootballerPresentation.HeaderHeight : compact ? 137 : 165) * s));
         ImGui.GetWindowDrawList().AddLine(new Vector2(start.X, ImGui.GetItemRectMax().Y), ImGui.GetItemRectMax(), MaterialCanvas.Color(c.OutlineVariant));
     }
 
-    // Every group wraps in its original order, including the additional footwear preference.
-    private void ToolbarNext(string label, bool toggle = false, MaterialIcon icon = MaterialIcon.None)
+    private static bool DrawHeaderLink(string id, Vector4 color, bool discord)
     {
         var s = MaterialTheme.Metrics.Scale;
-        var desired = ImGui.CalcTextSize(UiText.T(label)).X + (toggle ? 86 : icon == MaterialIcon.None ? 32 : 64) * s;
+        var label = UiText.T(id);
+        var width = MaterialText.Measure(label).X + 50 * s;
+        var height = MaterialText.RequiresShaping(label) ? Math.Max(46 * s, MaterialText.Measure(label).Y + 14 * s) : 46 * s;
+        ImGui.PushStyleVar(ImGuiStyleVar.FrameBorderSize, 0);
+        ImGui.PushStyleColor(ImGuiCol.Text, Vector4.Zero);
+        ImGui.PushStyleColor(ImGuiCol.Button, Vector4.Zero);
+        ImGui.PushStyleColor(ImGuiCol.ButtonHovered, Vector4.Zero);
+        ImGui.PushStyleColor(ImGuiCol.ButtonActive, Vector4.Zero);
+        var clicked = ImGui.Button(id, new Vector2(width, height));
+        ImGui.PopStyleColor(4);
+        ImGui.PopStyleVar();
+        var min = ImGui.GetItemRectMin();
+        var max = ImGui.GetItemRectMax();
+        if (ImGui.IsItemHovered()) color = MaterialColor.Layer(color, MaterialTheme.Current.Colors.OnSurface, .12f);
+        color.W *= ImGui.GetStyle().Alpha;
+        var iconPosition = min + new Vector2(0, 7) * s;
+        if (discord) FootballerPresentation.Discord(iconPosition, 32 * s, color);
+        else MaterialIcons.Draw(MaterialIcon.Heart, iconPosition, 32 * s, color);
+        var dl = ImGui.GetWindowDrawList();
+        dl.PushClipRect(min, max, true);
+        try { MaterialText.AddText(dl,min + new Vector2(44 * s, (height - MaterialText.Measure(label).Y) * .5f), MaterialCanvas.Color(color), label); }
+        finally { dl.PopClipRect(); }
+        return clicked;
+    }
+
+    // Keep each complete group together when the translated toolbar needs another row.
+    private void ToolbarNext(string label, bool toggle = false, MaterialIcon icon = MaterialIcon.None, float measuredPixels = 0)
+    {
+        var s = MaterialTheme.Metrics.Scale;
+        var desired = measuredPixels > 0 ? measuredPixels : MaterialText.Measure(UiText.T(label)).X + (toggle ? icon == MaterialIcon.None ? 86 : 118 : icon == MaterialIcon.None ? 32 : 64) * s;
         var right = ImGui.GetCursorScreenPos().X + ImGui.GetContentRegionAvail().X;
         if (ImGui.GetItemRectMax().X + 10 * s + desired <= right) ImGui.SameLine(0, 10 * s);
     }
@@ -102,17 +185,17 @@ public sealed partial class MainWindow
         var previews = cards.Count(card => !string.IsNullOrWhiteSpace(card.FootImagePath));
         var hidden = cards.Count(card => card.FootStatusLabel == "Hidden");
         var counts = UiText.F("{0} previews available · {1} hidden by privacy", previews, hidden);
-        var wrapped = ImGui.CalcTextSize(state).X + ImGui.CalcTextSize(counts).X + 80 * s > width;
-        var height = Math.Max(FootballerPresentation.StatusHeight * s, (wrapped ? 2 : 1) * ImGui.GetTextLineHeight() + 24 * s);
+        var wrapped = MaterialText.Measure(state).X + MaterialText.Measure(counts).X + 80 * s > width;
+        var height = Math.Max(FootballerPresentation.StatusHeight * s, (wrapped ? 2 : 1) * ImGui.GetTextLineHeight() + (FootballerPresentation.Compact ? 22 : 24) * s);
         FootballerPresentation.Surface(start, start + new Vector2(width, height), true);
         var dot = start + new Vector2(24 * s, (wrapped ? 24 * s : height * .5f));
         ImGui.GetWindowDrawList().AddCircleFilled(dot, 10 * s, MaterialCanvas.Color(refresh.IsActive ? FootballerPresentation.Pending : FootballerPresentation.Ready), 24);
         ImGui.SetCursorScreenPos(dot + new Vector2(24 * s, -ImGui.GetTextLineHeight() * .5f));
-        ImGui.TextColored(c.OnSurfaceVariant, state);
+        MaterialText.TextColored(c.OnSurfaceVariant, state);
         ShowHoverTooltip(refresh.LastStatus);
-        ImGui.SetCursorScreenPos(new Vector2(wrapped ? start.X + 48 * s : start.X + width - ImGui.CalcTextSize(counts).X - 18 * s,
+        ImGui.SetCursorScreenPos(new Vector2(wrapped ? start.X + 48 * s : start.X + width - MaterialText.Measure(counts).X - 18 * s,
             wrapped ? dot.Y + ImGui.GetTextLineHeight() * .5f + 4 * s : dot.Y - ImGui.GetTextLineHeight() * .5f));
-        ImGui.TextColored(c.OnSurfaceVariant, counts);
+        MaterialText.TextColored(c.OnSurfaceVariant, counts);
         ImGui.SetCursorScreenPos(start);
         ImGui.Dummy(new Vector2(width, height));
         if (refresh.IsActive) UiGui.TextWrapped(refresh.LastStatus);
@@ -128,29 +211,34 @@ public sealed partial class MainWindow
         var cardWidth = ImGui.GetContentRegionAvail().X;
         var cardHeight = FootballerPresentation.CardHeight * s;
         // Longer resource strings grow the content; the child scrolls rather than truncating it.
-        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(FootballerPresentation.Compact ? 12 : 18) * s);
+        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(18) * s);
         ImGui.PushStyleVar(ImGuiStyleVar.ChildBorderSize, 0);
         ImGui.PushStyleColor(ImGuiCol.ChildBg, Vector4.Zero);
         var origin = ImGui.GetCursorScreenPos();
         FootballerPresentation.Surface(origin, origin + new Vector2(cardWidth, cardHeight));
-        if (ImGui.BeginChild($"FootCard##{card.Member.CharacterKey}", new Vector2(0, cardHeight), false))
+        if (ImGui.BeginChild($"FootCard##{card.Member.CharacterKey}", new Vector2(0, cardHeight), false, ImGuiWindowFlags.AlwaysUseWindowPadding))
         {
             var start = ImGui.GetCursorScreenPos();
             var width = ImGui.GetContentRegionAvail().X;
+            var compact = FootballerPresentation.Compact;
+            var nameX = compact ? 68 : 74;
+            var iconSize = compact ? 42 : 48;
             var icon = Plugin.TextureProvider.GetFromGameIcon(new GameIconLookup(62100u + card.Member.JobId)).GetWrapOrEmpty();
-            if (icon.Handle != nint.Zero) ImGui.Image(icon.Handle, new Vector2(48) * s);
-            else ImGui.Dummy(new Vector2(48) * s);
-            ImGui.SetCursorScreenPos(start + new Vector2(74, 0) * s);
+            if (icon.Handle != nint.Zero) ImGui.Image(icon.Handle, new Vector2(iconSize) * s);
+            else ImGui.Dummy(new Vector2(iconSize) * s);
+            ImGui.SetCursorScreenPos(start + new Vector2(nameX, compact ? -8 : -6) * s);
             using (UiText.Font(UiFontRole.PluginName))
             {
-                ImGui.PushTextWrapPos(ImGui.GetCursorPosX() + Math.Max(1, width - 74 * s));
-                ImGui.TextUnformatted(GetUiDisplayName(card.Member));
-                ImGui.PopTextWrapPos();
+                var callerScale = ImGuiP.GetCurrentWindow().FontWindowScale;
+                ImGui.SetWindowFontScale(callerScale * FootballerPresentation.CardNameScale);
+                try { MaterialText.Text(GetUiDisplayName(card.Member)); }
+                finally { ImGui.SetWindowFontScale(callerScale); }
             }
-            ShowHoverTooltip($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{card.VariantLabel}");
-            UiGui.TextDisabled(UiText.F("Lv {0}  {1}", card.Member.Level, card.Member.JobAbbreviation));
-            var headerBottom = Math.Max(start.Y + 54 * s, ImGui.GetItemRectMax().Y);
-            var faceTop = new Vector2(start.X, headerBottom + (FootballerPresentation.Compact ? 8 : 16) * s);
+            ShowHoverTooltip($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{GetUiVariantLabel(card)}", false);
+            ImGui.SetCursorScreenPos(start + new Vector2(nameX, compact ? 20 : 29) * s);
+            UiGui.TextColored(c.OnSurfaceVariant, UiText.F("Lv {0}  {1}", card.Member.Level, card.Member.JobAbbreviation));
+            var headerBottom = Math.Max(start.Y + (compact ? 44 : 54) * s, ImGui.GetItemRectMax().Y);
+            var faceTop = new Vector2(start.X, headerBottom + (compact ? 8 : 18) * s);
             var faceSize = Math.Min(FootballerPresentation.FaceSize * s, width * .5f);
             var faceBox = new Vector2(faceSize);
             DrawImageBox(card.FaceImagePath, faceTop, faceBox, false, null);
@@ -160,12 +248,12 @@ public sealed partial class MainWindow
             var statusColor = GetCardStatusColor(card.FootStatusLabel);
             var noteWidth = Math.Max(1, width - faceSize - 16 * s);
             var text = UiText.T(label);
-            var lines = ImGui.CalcTextSize(text, false, noteWidth - 18 * s).Y;
+            var lines = MaterialText.Measure(text, false, noteWidth - 18 * s).Y;
             var noteTop = faceTop.Y + Math.Max(0, (faceSize - lines) * .5f);
             if (!privacyHidden) ImGui.GetWindowDrawList().AddCircleFilled(new Vector2(faceTop.X + faceSize + 18 * s, noteTop + ImGui.GetTextLineHeight() * .5f), 8 * s, MaterialCanvas.Color(statusColor), 20);
             ImGui.SetCursorScreenPos(new Vector2(faceTop.X + faceSize + (privacyHidden ? 16 : 34) * s, noteTop));
             ImGui.PushTextWrapPos(ImGui.GetCursorPosX() + Math.Max(1, noteWidth - (privacyHidden ? 0 : 18 * s)));
-            ImGui.TextColored(c.OnSurfaceVariant, text);
+            MaterialText.TextColored(c.OnSurfaceVariant, text);
             ImGui.PopTextWrapPos();
             ShowHoverTooltip(CardGuidance(card));
             var dividerY = Math.Max(faceTop.Y + faceSize, ImGui.GetItemRectMax().Y) + (FootballerPresentation.Compact ? 10 : 18) * s;
@@ -222,7 +310,7 @@ public sealed partial class MainWindow
             }
             else FootballerPresentation.Footprint(center - new Vector2(26, 28) * s, 60 * s, MaterialColor.Alpha(c.OnSurfaceVariant, .5f));
             var text = UiText.T(placeholder ?? "No image yet.");
-            dl.AddText(min + new Vector2((size.X - ImGui.CalcTextSize(text).X) * .5f, size.Y * .5f + 40 * s), MaterialCanvas.Color(c.OnSurfaceVariant), text);
+            MaterialText.AddText(dl,min + new Vector2((size.X - MaterialText.Measure(text).X) * .5f, size.Y * .5f + 40 * s), MaterialCanvas.Color(c.OnSurfaceVariant), text);
         }
         else
         {

@@ -1,0 +1,1443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <data name="Active Services" xml:space="preserve">
+    <value>सक्रिय सेवाएँ</value>
+  </data>
+  <data name="Active camera" xml:space="preserve">
+    <value>सक्रिय कैमरा</value>
+  </data>
+  <data name="Active row heuristic: none yet" xml:space="preserve">
+    <value>सक्रिय पंक्ति का अनुमान: अभी कोई नहीं</value>
+  </data>
+  <data name="Active row heuristic: {0} ({1})" xml:space="preserve">
+    <value>सक्रिय पंक्ति का अनुमान: {0} ({1})</value>
+  </data>
+  <data name="Addon" xml:space="preserve">
+    <value>ऐडऑन</value>
+  </data>
+  <data name="Addon address" xml:space="preserve">
+    <value>ऐडऑन का पता</value>
+  </data>
+  <data name="Addon address: {0}" xml:space="preserve">
+    <value>ऐडऑन का पता: {0}</value>
+  </data>
+  <data name="Addon position" xml:space="preserve">
+    <value>ऐडऑन की स्थिति</value>
+  </data>
+  <data name="Addon visible" xml:space="preserve">
+    <value>ऐडऑन दिखाई दे रहा है</value>
+  </data>
+  <data name="Addr" xml:space="preserve">
+    <value>पता</value>
+  </data>
+  <data name="Agent" xml:space="preserve">
+    <value>एजेंट</value>
+  </data>
+  <data name="Agent Row" xml:space="preserve">
+    <value>एजेंट की पंक्ति</value>
+  </data>
+  <data name="Agent address" xml:space="preserve">
+    <value>एजेंट का पता</value>
+  </data>
+  <data name="Agent address: {0}" xml:space="preserve">
+    <value>एजेंट का पता: {0}</value>
+  </data>
+  <data name="Agent available" xml:space="preserve">
+    <value>एजेंट उपलब्ध है</value>
+  </data>
+  <data name="Allowed" xml:space="preserve">
+    <value>अनुमति है</value>
+  </data>
+  <data name="Ambient light brightness" xml:space="preserve">
+    <value>परिवेश प्रकाश की चमक</value>
+  </data>
+  <data name="Ambient light color" xml:space="preserve">
+    <value>परिवेश प्रकाश का रंग</value>
+  </data>
+  <data name="Animation progress" xml:space="preserve">
+    <value>एनीमेशन की प्रगति</value>
+  </data>
+  <data name="Auto refresh party on showcase open" xml:space="preserve">
+    <value>शोकेस खुलने पर पार्टी स्वतः रीफ़्रेश करें</value>
+  </data>
+  <data name="Auto refresh party on showcase open: {0}" xml:space="preserve">
+    <value>शोकेस खुलने पर पार्टी स्वतः रीफ़्रेश करें: {0}</value>
+  </data>
+  <data name="Automatic party feet recapture queue from Refresh party" xml:space="preserve">
+    <value>पार्टी रीफ़्रेश से पार्टी के पैरों के स्वचालित दोबारा कैप्चर की कतार</value>
+  </data>
+  <data name="Automatic party feet refresh finished. Captured {0}/{1} member(s){2}." xml:space="preserve">
+    <value>पार्टी के पैरों का स्वचालित रीफ़्रेश पूरा हुआ। {0}/{1} सदस्य कैप्चर हुए{2}।</value>
+  </data>
+  <data name="Automatically refresh party once when showcase opens" xml:space="preserve">
+    <value>शोकेस खुलने पर पार्टी एक बार स्वतः रीफ़्रेश करें</value>
+  </data>
+  <data name="Banner background" xml:space="preserve">
+    <value>बैनर की पृष्ठभूमि</value>
+  </data>
+  <data name="Banner timeline" xml:space="preserve">
+    <value>बैनर की टाइमलाइन</value>
+  </data>
+  <data name="BannerParty read-only research" xml:space="preserve">
+    <value>BannerParty का केवल पढ़ने वाला अनुसंधान</value>
+  </data>
+  <data name="Barefoot apply: {0}" xml:space="preserve">
+    <value>नंगे पैर लागू करना: {0}</value>
+  </data>
+  <data name="Base" xml:space="preserve">
+    <value>मूल</value>
+  </data>
+  <data name="Base / Slider" xml:space="preserve">
+    <value>मूल / स्लाइडर</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>नीला</value>
+  </data>
+  <data name="Buddy inspect" xml:space="preserve">
+    <value>साथी का निरीक्षण</value>
+  </data>
+  <data name="Bypassed" xml:space="preserve">
+    <value>बाइपास किया गया</value>
+  </data>
+  <data name="CID" xml:space="preserve">
+    <value>CID</value>
+  </data>
+  <data name="COPY INSPECT REPORT" xml:space="preserve">
+    <value>निरीक्षण रिपोर्ट कॉपी करें</value>
+  </data>
+  <data name="COPY TEST REPORT" xml:space="preserve">
+    <value>टेस्ट रिपोर्ट कॉपी करें</value>
+  </data>
+  <data name="Cached Lodestone search/profile lookup state with local face thumbnails" xml:space="preserve">
+    <value>स्थानीय चेहरे के थंबनेल सहित कैश किए गए Lodestone खोज/प्रोफ़ाइल की स्थिति</value>
+  </data>
+  <data name="Callback base id" xml:space="preserve">
+    <value>कॉलबैक का मूल ID</value>
+  </data>
+  <data name="Camera FoV" xml:space="preserve">
+    <value>कैमरे का दृश्य क्षेत्र</value>
+  </data>
+  <data name="Camera distance" xml:space="preserve">
+    <value>कैमरे की दूरी</value>
+  </data>
+  <data name="Camera look-at" xml:space="preserve">
+    <value>कैमरे का देखने का बिंदु</value>
+  </data>
+  <data name="Camera position" xml:space="preserve">
+    <value>कैमरे की स्थिति</value>
+  </data>
+  <data name="Camera status" xml:space="preserve">
+    <value>कैमरे की अवस्था</value>
+  </data>
+  <data name="Camera target" xml:space="preserve">
+    <value>कैमरे का लक्ष्य</value>
+  </data>
+  <data name="Camera zoom" xml:space="preserve">
+    <value>कैमरे का ज़ूम</value>
+  </data>
+  <data name="Capture Current Preview" xml:space="preserve">
+    <value>मौजूदा प्रीव्यू कैप्चर करें</value>
+  </data>
+  <data name="Capture Folder" xml:space="preserve">
+    <value>कैप्चर फ़ोल्डर</value>
+  </data>
+  <data name="Capture failed for {0}: {1}" xml:space="preserve">
+    <value>{0} का कैप्चर विफल: {1}</value>
+  </data>
+  <data name="Capture ready" xml:space="preserve">
+    <value>कैप्चर तैयार है</value>
+  </data>
+  <data name="Capture status" xml:space="preserve">
+    <value>कैप्चर की स्थिति</value>
+  </data>
+  <data name="CharaView state" xml:space="preserve">
+    <value>CharaView की स्थिति</value>
+  </data>
+  <data name="Character" xml:space="preserve">
+    <value>पात्र</value>
+  </data>
+  <data name="Character Inspect Research" xml:space="preserve">
+    <value>CharacterInspect अनुसंधान</value>
+  </data>
+  <data name="Character count: {0}" xml:space="preserve">
+    <value>पात्रों की संख्या: {0}</value>
+  </data>
+  <data name="CharacterInspect Capture State" xml:space="preserve">
+    <value>CharacterInspect कैप्चर की स्थिति</value>
+  </data>
+  <data name="CharacterInspect is still settling on {0} ({1}/{2})." xml:space="preserve">
+    <value>CharacterInspect अभी {0} पर स्थिर हो रहा है ({1}/{2})।</value>
+  </data>
+  <data name="Check DTR toggle behavior and party snapshot population" xml:space="preserve">
+    <value>DTR टॉगल का व्यवहार और पार्टी स्नैपशॉट भरना जाँचें</value>
+  </data>
+  <data name="Choose which party previews to show. Lodestone privacy is respected in normal use." xml:space="preserve">
+    <value>चुनें कि कौन से पार्टी प्रीव्यू दिखें। सामान्य प्रयोग में Lodestone गोपनीयता का पालन होता है।</value>
+  </data>
+  <data name="Client object" xml:space="preserve">
+    <value>क्लाइंट ऑब्जेक्ट</value>
+  </data>
+  <data name="Collision node" xml:space="preserve">
+    <value>टकराव नोड</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>रंग</value>
+  </data>
+  <data name="Configured portrait replacement toggle: {0}" xml:space="preserve">
+    <value>कॉन्फ़िगर किया गया पोर्ट्रेट प्रतिस्थापन टॉगल: {0}</value>
+  </data>
+  <data name="Confirm the inspect preview rotates to the stored side-angle pose before capture" xml:space="preserve">
+    <value>कैप्चर से पहले जाँचें कि निरीक्षण प्रीव्यू सहेजे गए किनारे के कोण वाले पोज़ पर घूमता है</value>
+  </data>
+  <data name="Copy a report before and after changing the selected portrait." xml:space="preserve">
+    <value>चुना हुआ पोर्ट्रेट बदलने से पहले और बाद में रिपोर्ट कॉपी करें।</value>
+  </data>
+  <data name="Copy the report after the preview is stable." xml:space="preserve">
+    <value>प्रीव्यू स्थिर होने के बाद रिपोर्ट कॉपी करें।</value>
+  </data>
+  <data name="Current Defaults" xml:space="preserve">
+    <value>मौजूदा डिफ़ॉल्ट</value>
+  </data>
+  <data name="Current entity" xml:space="preserve">
+    <value>मौजूदा इकाई</value>
+  </data>
+  <data name="Current party showcase data model with real or krangled labels from a saved toggle" xml:space="preserve">
+    <value>सहेजे गए टॉगल के अनुसार वास्तविक या क्रैंगल किए नामों वाला मौजूदा पार्टी शोकेस डेटा मॉडल</value>
+  </data>
+  <data name="Custom RGB" xml:space="preserve">
+    <value>कस्टम RGB</value>
+  </data>
+  <data name="DTR disabled glyph" xml:space="preserve">
+    <value>DTR अक्षम ग्लिफ़</value>
+  </data>
+  <data name="DTR enabled glyph" xml:space="preserve">
+    <value>DTR सक्षम ग्लिफ़</value>
+  </data>
+  <data name="DTR mode" xml:space="preserve">
+    <value>DTR मोड</value>
+  </data>
+  <data name="Debug snapshots refresh on demand." xml:space="preserve">
+    <value>डीबग स्नैपशॉट माँगने पर रीफ़्रेश होते हैं।</value>
+  </data>
+  <data name="Debug: Respect Lodestone privacy" xml:space="preserve">
+    <value>डीबग: Lodestone गोपनीयता का पालन करें</value>
+  </data>
+  <data name="Default: Krangle labels" xml:space="preserve">
+    <value>डिफ़ॉल्ट: नामों को क्रैंगल करें</value>
+  </data>
+  <data name="Default: Replace party portrait window pictures" xml:space="preserve">
+    <value>डिफ़ॉल्ट: पार्टी पोर्ट्रेट विंडो की तस्वीरें बदलें</value>
+  </data>
+  <data name="Default: Show face next to feet" xml:space="preserve">
+    <value>डिफ़ॉल्ट: पैरों के पास चेहरा दिखाएँ</value>
+  </data>
+  <data name="Default: Show female feet" xml:space="preserve">
+    <value>डिफ़ॉल्ट: स्त्री के पैर दिखाएँ</value>
+  </data>
+  <data name="Default: Show foot showcase" xml:space="preserve">
+    <value>डिफ़ॉल्ट: पैरों का शोकेस</value>
+  </data>
+  <data name="Default: Show male feet" xml:space="preserve">
+    <value>डिफ़ॉल्ट: पुरुष के पैर दिखाएँ</value>
+  </data>
+  <data name="Default: Show own feet" xml:space="preserve">
+    <value>डिफ़ॉल्ट: अपने पैर दिखाएँ</value>
+  </data>
+  <data name="Default: Without footwear" xml:space="preserve">
+    <value>डिफ़ॉल्ट: जूतों के बिना</value>
+  </data>
+  <data name="Derived yaw / pitch" xml:space="preserve">
+    <value>निकाला गया यॉ / पिच</value>
+  </data>
+  <data name="Direct CharacterInspect foot-capture research" xml:space="preserve">
+    <value>सीधे CharacterInspect से पैरों के कैप्चर का अनुसंधान</value>
+  </data>
+  <data name="Directional light angles" xml:space="preserve">
+    <value>दिशात्मक प्रकाश के कोण</value>
+  </data>
+  <data name="Directional light brightness" xml:space="preserve">
+    <value>दिशात्मक प्रकाश की चमक</value>
+  </data>
+  <data name="Directional light color" xml:space="preserve">
+    <value>दिशात्मक प्रकाश का रंग</value>
+  </data>
+  <data name="Discord" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="Enable Without footwear and confirm Inspect clears the preview feet slot before capture" xml:space="preserve">
+    <value>जूतों के बिना सक्षम करें और जाँचें कि कैप्चर से पहले Inspect प्रीव्यू के पैर स्लॉट को साफ़ करता है</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>सक्षम</value>
+  </data>
+  <data name="Evt" xml:space="preserve">
+    <value>इवेंट</value>
+  </data>
+  <data name="Evt / Flags" xml:space="preserve">
+    <value>इवेंट / फ़्लैग</value>
+  </data>
+  <data name="Expression" xml:space="preserve">
+    <value>भाव</value>
+  </data>
+  <data name="Eye direction" xml:space="preserve">
+    <value>आँखों की दिशा</value>
+  </data>
+  <data name="Face" xml:space="preserve">
+    <value>चेहरा</value>
+  </data>
+  <data name="Face unavailable — feet hidden" xml:space="preserve">
+    <value>चेहरा अनुपलब्ध — पैर छिपे हैं</value>
+  </data>
+  <data name="Face visible" xml:space="preserve">
+    <value>चेहरा दिखाई दे रहा है</value>
+  </data>
+  <data name="Feet" xml:space="preserve">
+    <value>पैर</value>
+  </data>
+  <data name="Feet are hidden when Lodestone does not expose a face." xml:space="preserve">
+    <value>Lodestone चेहरा उपलब्ध नहीं कराता तो पैर छिपाए जाते हैं।</value>
+  </data>
+  <data name="Feet preview" xml:space="preserve">
+    <value>पैरों का प्रीव्यू</value>
+  </data>
+  <data name="Feet: {0}" xml:space="preserve">
+    <value>पैर: {0}</value>
+  </data>
+  <data name="Fetch status" xml:space="preserve">
+    <value>प्राप्त करने की स्थिति</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>फ़ील्ड</value>
+  </data>
+  <data name="Filtered" xml:space="preserve">
+    <value>फ़िल्टर किया गया</value>
+  </data>
+  <data name="Flags" xml:space="preserve">
+    <value>फ़्लैग</value>
+  </data>
+  <data name="Foot showcase" xml:space="preserve">
+    <value>पैरों का शोकेस</value>
+  </data>
+  <data name="Foot showcase: {0}" xml:space="preserve">
+    <value>पैरों का शोकेस: {0}</value>
+  </data>
+  <data name="Footballer Settings" xml:space="preserve">
+    <value>Footballer सेटिंग</value>
+  </data>
+  <data name="Footballer is disabled — enable it before refreshing party feet." xml:space="preserve">
+    <value>Footballer अक्षम है — पार्टी के पैर रीफ़्रेश करने से पहले इसे सक्षम करें।</value>
+  </data>
+  <data name="Forced / On" xml:space="preserve">
+    <value>बलपूर्वक / चालू</value>
+  </data>
+  <data name="Gate" xml:space="preserve">
+    <value>अनुमति की शर्त</value>
+  </data>
+  <data name="Head direction" xml:space="preserve">
+    <value>सिर की दिशा</value>
+  </data>
+  <data name="Hidden" xml:space="preserve">
+    <value>छिपा हुआ</value>
+  </data>
+  <data name="Hidden CharacterInspect/BannerParty debug surfaces behind /footballer debug" xml:space="preserve">
+    <value>CharacterInspect/BannerParty के डीबग भाग /footballer debug के पीछे छिपे हैं</value>
+  </data>
+  <data name="Hidden by privacy" xml:space="preserve">
+    <value>गोपनीयता के कारण छिपा हुआ</value>
+  </data>
+  <data name="Hidden by your display settings." xml:space="preserve">
+    <value>आपकी प्रदर्शन सेटिंग ने छिपाया है।</value>
+  </data>
+  <data name="Hide feet when a character's face is unavailable on Lodestone to respect privacy." xml:space="preserve">
+    <value>गोपनीयता का पालन करने के लिए Lodestone पर पात्र का चेहरा अनुपलब्ध होने पर पैर छिपाएँ।</value>
+  </data>
+  <data name="Hint" xml:space="preserve">
+    <value>संकेत</value>
+  </data>
+  <data name="Hold" xml:space="preserve">
+    <value>रोकें</value>
+  </data>
+  <data name="Holding {0} steady for capture ({1}/{2}). Waiting {3:0.0}s more before saving the feet preview." xml:space="preserve">
+    <value>कैप्चर के लिए {0} को स्थिर रखा है ({1}/{2})। पैरों का प्रीव्यू सहेजने से पहले {3:0.0}s और प्रतीक्षा है।</value>
+  </data>
+  <data name="Icon + text" xml:space="preserve">
+    <value>आइकन + पाठ</value>
+  </data>
+  <data name="Icon only" xml:space="preserve">
+    <value>केवल आइकन</value>
+  </data>
+  <data name="Idx" xml:space="preserve">
+    <value>सूचकांक</value>
+  </data>
+  <data name="Image rotation" xml:space="preserve">
+    <value>चित्र का घुमाव</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>निरीक्षण</value>
+  </data>
+  <data name="Inspect Capture" xml:space="preserve">
+    <value>निरीक्षण कैप्चर</value>
+  </data>
+  <data name="Inspect active" xml:space="preserve">
+    <value>निरीक्षण सक्रिय</value>
+  </data>
+  <data name="Inspect and capture tools are available in debug mode." xml:space="preserve">
+    <value>निरीक्षण और कैप्चर के साधन डीबग मोड में उपलब्ध हैं।</value>
+  </data>
+  <data name="Inspect buttons plus a queued preset inspect pose and action-driven preview capture" xml:space="preserve">
+    <value>निरीक्षण बटन, कतारबद्ध प्रीसेट निरीक्षण पोज़ और कार्रवाई से चलने वाला प्रीव्यू कैप्चर</value>
+  </data>
+  <data name="Inspect requested" xml:space="preserve">
+    <value>निरीक्षण का अनुरोध किया</value>
+  </data>
+  <data name="Inspect state recorded" xml:space="preserve">
+    <value>निरीक्षण की स्थिति दर्ज की</value>
+  </data>
+  <data name="Inspect-ready" xml:space="preserve">
+    <value>निरीक्षण तैयार</value>
+  </data>
+  <data name="Interactive" xml:space="preserve">
+    <value>इंटरैक्टिव</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>जॉब</value>
+  </data>
+  <data name="Keep Footballer away from the preview while capturing. The crop profile applies to future captures." xml:space="preserve">
+    <value>कैप्चर के दौरान Footballer को प्रीव्यू से दूर रखें। क्रॉप प्रोफ़ाइल आगे के कैप्चर पर लागू होती है।</value>
+  </data>
+  <data name="Ko-fi" xml:space="preserve">
+    <value>Ko-fi</value>
+  </data>
+  <data name="Ko-fi and Discord links" xml:space="preserve">
+    <value>Ko-fi और Discord लिंक</value>
+  </data>
+  <data name="Krangle Names" xml:space="preserve">
+    <value>नामों को क्रैंगल करें</value>
+  </data>
+  <data name="Krangle labels" xml:space="preserve">
+    <value>नामों को क्रैंगल करें</value>
+  </data>
+  <data name="Krangle labels: {0}" xml:space="preserve">
+    <value>नामों को क्रैंगल करें: {0}</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>भाषा</value>
+  </data>
+  <data name="Last saved CharacterInspect preview. Refresh party to capture a new image." xml:space="preserve">
+    <value>पिछला सहेजा गया CharacterInspect प्रीव्यू। नया चित्र कैप्चर करने के लिए पार्टी रीफ़्रेश करें।</value>
+  </data>
+  <data name="Latest saved preview snip: {0}" xml:space="preserve">
+    <value>पिछला सहेजा गया प्रीव्यू अंश: {0}</value>
+  </data>
+  <data name="Latest snip" xml:space="preserve">
+    <value>पिछला अंश</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>लिंक</value>
+  </data>
+  <data name="Live BannerParty Addon Capture" xml:space="preserve">
+    <value>लाइव BannerParty ऐडऑन कैप्चर</value>
+  </data>
+  <data name="Live BannerParty Agent" xml:space="preserve">
+    <value>लाइव BannerParty एजेंट</value>
+  </data>
+  <data name="Live Party Foot Showcase" xml:space="preserve">
+    <value>लाइव पार्टी के पैरों का शोकेस</value>
+  </data>
+  <data name="Live Shell Controls" xml:space="preserve">
+    <value>लाइव मुख्य नियंत्रण</value>
+  </data>
+  <data name="Live Today" xml:space="preserve">
+    <value>आज लाइव</value>
+  </data>
+  <data name="Live party foot showcase cards with honest capture status" xml:space="preserve">
+    <value>सटीक कैप्चर स्थिति वाले लाइव पार्टी के पैरों के शोकेस कार्ड</value>
+  </data>
+  <data name="Live party showcase and optional krangle toggle" xml:space="preserve">
+    <value>लाइव पार्टी शोकेस और वैकल्पिक क्रैंगल टॉगल</value>
+  </data>
+  <data name="Load plugin and open the main window" xml:space="preserve">
+    <value>प्लगइन लोड करके मुख्य विंडो खोलें</value>
+  </data>
+  <data name="Loaded" xml:space="preserve">
+    <value>लोड किया गया</value>
+  </data>
+  <data name="Loaded / copied" xml:space="preserve">
+    <value>लोड / कॉपी किया गया</value>
+  </data>
+  <data name="Loading UI fonts..." xml:space="preserve">
+    <value>UI फ़ॉन्ट लोड हो रहे हैं...</value>
+  </data>
+  <data name="Lodestone" xml:space="preserve">
+    <value>Lodestone</value>
+  </data>
+  <data name="Lodestone face cache + privacy gating" xml:space="preserve">
+    <value>Lodestone चेहरे का कैश + गोपनीयता की शर्त</value>
+  </data>
+  <data name="Lodestone privacy gate (debug): {0}" xml:space="preserve">
+    <value>Lodestone गोपनीयता की शर्त (डीबग): {0}</value>
+  </data>
+  <data name="Lodestone privacy gate: Forced on" xml:space="preserve">
+    <value>Lodestone गोपनीयता की शर्त: बलपूर्वक चालू</value>
+  </data>
+  <data name="Lookup error" xml:space="preserve">
+    <value>खोज की त्रुटि</value>
+  </data>
+  <data name="Lv {0}  {1}" xml:space="preserve">
+    <value>स्तर {0}  {1}</value>
+  </data>
+  <data name="Main window, settings window, and DTR toggle" xml:space="preserve">
+    <value>मुख्य विंडो, सेटिंग विंडो और DTR टॉगल</value>
+  </data>
+  <data name="Main-window CharacterInspect scaling selector plus showcase-open guidance toast" xml:space="preserve">
+    <value>मुख्य विंडो का CharacterInspect स्केल चयन और शोकेस खुलने पर मार्गदर्शन संदेश</value>
+  </data>
+  <data name="Manager current camera" xml:space="preserve">
+    <value>मैनेजर का मौजूदा कैमरा</value>
+  </data>
+  <data name="Match Scaling to CharacterInspect (60–200%) before capturing." xml:space="preserve">
+    <value>कैप्चर से पहले स्केल को CharacterInspect (60–200%) से मिलाएँ।</value>
+  </data>
+  <data name="Match Scaling to CharacterInspect, then Refresh party to capture a preview." xml:space="preserve">
+    <value>स्केल को CharacterInspect से मिलाएँ, फिर प्रीव्यू कैप्चर करने के लिए पार्टी रीफ़्रेश करें।</value>
+  </data>
+  <data name="N" xml:space="preserve">
+    <value>नहीं</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>नहीं</value>
+  </data>
+  <data name="No automatic party feet refresh is queued." xml:space="preserve">
+    <value>पार्टी के पैरों का कोई स्वचालित रीफ़्रेश कतार में नहीं है।</value>
+  </data>
+  <data name="No cached BannerParty addon or agent snapshot is available yet." xml:space="preserve">
+    <value>कैश किया गया BannerParty ऐडऑन या एजेंट स्नैपशॉट अभी उपलब्ध नहीं है।</value>
+  </data>
+  <data name="No cached CharacterInspect debug snapshot is available yet." xml:space="preserve">
+    <value>कैश किया गया CharacterInspect डीबग स्नैपशॉट अभी उपलब्ध नहीं है।</value>
+  </data>
+  <data name="No cached portrait debug snapshot is available yet." xml:space="preserve">
+    <value>कैश किया गया पोर्ट्रेट डीबग स्नैपशॉट अभी उपलब्ध नहीं है।</value>
+  </data>
+  <data name="No eligible image. Faces come from Lodestone; feet need a saved CharacterInspect capture." xml:space="preserve">
+    <value>योग्य चित्र नहीं है। चेहरे Lodestone से आते हैं; पैरों के लिए सहेजा गया CharacterInspect कैप्चर चाहिए।</value>
+  </data>
+  <data name="No face exposed" xml:space="preserve">
+    <value>चेहरा उपलब्ध नहीं कराया गया</value>
+  </data>
+  <data name="No feet preview yet — match Scaling, then Refresh party." xml:space="preserve">
+    <value>पैरों का प्रीव्यू अभी नहीं है — स्केल मिलाएँ, फिर पार्टी रीफ़्रेश करें।</value>
+  </data>
+  <data name="No feet previews yet — match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
+    <value>पैरों के प्रीव्यू अभी नहीं हैं — स्केल को CharacterInspect से मिलाएँ, फिर पार्टी रीफ़्रेश करें।</value>
+  </data>
+  <data name="No image yet." xml:space="preserve">
+    <value>चित्र अभी नहीं है।</value>
+  </data>
+  <data name="No live entity" xml:space="preserve">
+    <value>लाइव इकाई नहीं है</value>
+  </data>
+  <data name="No live party members are available for an automatic feet refresh." xml:space="preserve">
+    <value>पैरों के स्वचालित रीफ़्रेश के लिए लाइव पार्टी सदस्य उपलब्ध नहीं हैं।</value>
+  </data>
+  <data name="No local player or party members are available yet, so there is nothing to render in the live showcase." xml:space="preserve">
+    <value>स्थानीय खिलाड़ी या पार्टी सदस्य अभी उपलब्ध नहीं हैं, इसलिए लाइव शोकेस में दिखाने के लिए कुछ नहीं है।</value>
+  </data>
+  <data name="No local player or party members are available yet." xml:space="preserve">
+    <value>स्थानीय खिलाड़ी या पार्टी सदस्य अभी उपलब्ध नहीं हैं।</value>
+  </data>
+  <data name="No party members detected — join or form a party, then Refresh party." xml:space="preserve">
+    <value>पार्टी सदस्य नहीं मिले — पार्टी में जुड़ें या बनाएँ, फिर पार्टी रीफ़्रेश करें।</value>
+  </data>
+  <data name="No profile match" xml:space="preserve">
+    <value>मेल खाती प्रोफ़ाइल नहीं है</value>
+  </data>
+  <data name="Node count: {0}" xml:space="preserve">
+    <value>नोड की संख्या: {0}</value>
+  </data>
+  <data name="NodeId" xml:space="preserve">
+    <value>नोड ID</value>
+  </data>
+  <data name="Not checked" xml:space="preserve">
+    <value>जाँचा नहीं गया</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>टिप्पणी</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>बंद</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>चालू</value>
+  </data>
+  <data name="Open CharacterInspect and wait for a stable preview before capturing." xml:space="preserve">
+    <value>कैप्चर से पहले CharacterInspect खोलकर स्थिर प्रीव्यू की प्रतीक्षा करें।</value>
+  </data>
+  <data name="Open main window on load" xml:space="preserve">
+    <value>लोड होने पर मुख्य विंडो खोलें</value>
+  </data>
+  <data name="Override Off" xml:space="preserve">
+    <value>ओवरराइड बंद</value>
+  </data>
+  <data name="Party Portrait Window Research" xml:space="preserve">
+    <value>पार्टी पोर्ट्रेट विंडो अनुसंधान</value>
+  </data>
+  <data name="Party Showcase Model" xml:space="preserve">
+    <value>पार्टी शोकेस मॉडल</value>
+  </data>
+  <data name="Party feet previews, simply." xml:space="preserve">
+    <value>पार्टी के पैरों के आसान प्रीव्यू।</value>
+  </data>
+  <data name="Party feet refresh: {0}" xml:space="preserve">
+    <value>पार्टी के पैरों का रीफ़्रेश: {0}</value>
+  </data>
+  <data name="Party feet workflow: Ready" xml:space="preserve">
+    <value>पार्टी के पैरों का कार्यप्रवाह: तैयार</value>
+  </data>
+  <data name="Party feet workflow: Refreshing" xml:space="preserve">
+    <value>पार्टी के पैरों का कार्यप्रवाह: रीफ़्रेश हो रहा है</value>
+  </data>
+  <data name="Party snapshot, Lodestone lookup and privacy state." xml:space="preserve">
+    <value>पार्टी स्नैपशॉट, Lodestone खोज और गोपनीयता की स्थिति।</value>
+  </data>
+  <data name="Passive" xml:space="preserve">
+    <value>निष्क्रिय</value>
+  </data>
+  <data name="Pending capture" xml:space="preserve">
+    <value>कैप्चर लंबित है</value>
+  </data>
+  <data name="Pick Same as character preview window!" xml:space="preserve">
+    <value>पात्र की प्रीव्यू विंडो जैसा ही चुनें!</value>
+  </data>
+  <data name="Pick the Scaling to match the window, and click refresh party when ready" xml:space="preserve">
+    <value>विंडो से मेल खाता स्केल चुनें और तैयार होने पर पार्टी रीफ़्रेश पर क्लिक करें</value>
+  </data>
+  <data name="Pink" xml:space="preserve">
+    <value>गुलाबी</value>
+  </data>
+  <data name="Plugin enabled" xml:space="preserve">
+    <value>प्लगइन सक्षम है</value>
+  </data>
+  <data name="Portrait write-path research" xml:space="preserve">
+    <value>पोर्ट्रेट लिखने के पथ का अनुसंधान</value>
+  </data>
+  <data name="Pos" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Pose" xml:space="preserve">
+    <value>पोज़</value>
+  </data>
+  <data name="Pose preset: {0}" xml:space="preserve">
+    <value>पोज़ प्रीसेट: {0}</value>
+  </data>
+  <data name="Preview bounds" xml:space="preserve">
+    <value>प्रीव्यू की सीमाएँ</value>
+  </data>
+  <data name="Preview captured" xml:space="preserve">
+    <value>प्रीव्यू कैप्चर किया</value>
+  </data>
+  <data name="Preview character" xml:space="preserve">
+    <value>प्रीव्यू का पात्र</value>
+  </data>
+  <data name="Preview component" xml:space="preserve">
+    <value>प्रीव्यू का घटक</value>
+  </data>
+  <data name="Preview draw object" xml:space="preserve">
+    <value>प्रीव्यू का ड्रॉ ऑब्जेक्ट</value>
+  </data>
+  <data name="Preview draw position" xml:space="preserve">
+    <value>प्रीव्यू के ड्रॉ की स्थिति</value>
+  </data>
+  <data name="Preview draw rotation" xml:space="preserve">
+    <value>प्रीव्यू के ड्रॉ का घुमाव</value>
+  </data>
+  <data name="Preview game position" xml:space="preserve">
+    <value>प्रीव्यू की गेम स्थिति</value>
+  </data>
+  <data name="Preview game rotation" xml:space="preserve">
+    <value>प्रीव्यू का गेम घुमाव</value>
+  </data>
+  <data name="Preview node" xml:space="preserve">
+    <value>प्रीव्यू का नोड</value>
+  </data>
+  <data name="Preview node scale" xml:space="preserve">
+    <value>प्रीव्यू नोड का स्केल</value>
+  </data>
+  <data name="Preview scaling" xml:space="preserve">
+    <value>प्रीव्यू का स्केल</value>
+  </data>
+  <data name="Preview scaling fallback" xml:space="preserve">
+    <value>प्रीव्यू स्केल का वैकल्पिक मान</value>
+  </data>
+  <data name="Preview scaling: {0}%" xml:space="preserve">
+    <value>प्रीव्यू का स्केल: {0}%</value>
+  </data>
+  <data name="Preview snip: {0}" xml:space="preserve">
+    <value>प्रीव्यू अंश: {0}</value>
+  </data>
+  <data name="Preview visible" xml:space="preserve">
+    <value>प्रीव्यू दिखाई दे रहा है</value>
+  </data>
+  <data name="Preview-only barefoot multi-seam apply path when Without footwear is enabled" xml:space="preserve">
+    <value>जूतों के बिना सक्षम होने पर केवल प्रीव्यू में कई सीमाओं से नंगे पैर लागू करने का पथ</value>
+  </data>
+  <data name="Privacy is always on. /footballer debug exposes the session-only override." xml:space="preserve">
+    <value>गोपनीयता हमेशा चालू रहती है। /footballer debug केवल इस सत्र का ओवरराइड दिखाता है।</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>प्रोफ़ाइल</value>
+  </data>
+  <data name="Queued automatic party feet refresh for {0} member(s)." xml:space="preserve">
+    <value>{0} सदस्यों के लिए पार्टी के पैरों का स्वचालित रीफ़्रेश कतार में जोड़ा।</value>
+  </data>
+  <data name="Rail" xml:space="preserve">
+    <value>रेल</value>
+  </data>
+  <data name="Raw scene camera" xml:space="preserve">
+    <value>मूल दृश्य कैमरा</value>
+  </data>
+  <data name="Read-Only Active Row Payload" xml:space="preserve">
+    <value>सक्रिय पंक्ति का केवल पढ़ने वाला पेलोड</value>
+  </data>
+  <data name="Refresh Inspect Debug" xml:space="preserve">
+    <value>निरीक्षण डीबग रीफ़्रेश करें</value>
+  </data>
+  <data name="Refresh Inspect Debug to populate the snapshot and report." xml:space="preserve">
+    <value>स्नैपशॉट और रिपोर्ट भरने के लिए निरीक्षण डीबग रीफ़्रेश करें।</value>
+  </data>
+  <data name="Refresh Lodestone" xml:space="preserve">
+    <value>Lodestone रीफ़्रेश करें</value>
+  </data>
+  <data name="Refresh Lodestone lookup state and confirm face thumbnails can appear on the showcase cards" xml:space="preserve">
+    <value>Lodestone खोज की स्थिति रीफ़्रेश करके जाँचें कि शोकेस कार्ड पर चेहरे के थंबनेल आ सकते हैं</value>
+  </data>
+  <data name="Refresh Portrait Debug" xml:space="preserve">
+    <value>पोर्ट्रेट डीबग रीफ़्रेश करें</value>
+  </data>
+  <data name="Refresh Portrait Debug to populate the snapshot and report." xml:space="preserve">
+    <value>स्नैपशॉट और रिपोर्ट भरने के लिए पोर्ट्रेट डीबग रीफ़्रेश करें।</value>
+  </data>
+  <data name="Refresh party" xml:space="preserve">
+    <value>पार्टी रीफ़्रेश करें</value>
+  </data>
+  <data name="Refreshing" xml:space="preserve">
+    <value>रीफ़्रेश हो रहा है</value>
+  </data>
+  <data name="Refreshing feet preview for {0} ({1}/{2}). Requested CharacterInspect." xml:space="preserve">
+    <value>{0} के पैरों का प्रीव्यू रीफ़्रेश हो रहा है ({1}/{2})। CharacterInspect का अनुरोध किया।</value>
+  </data>
+  <data name="Refreshing..." xml:space="preserve">
+    <value>रीफ़्रेश हो रहा है...</value>
+  </data>
+  <data name="Replace party portrait window pictures" xml:space="preserve">
+    <value>पार्टी पोर्ट्रेट विंडो की तस्वीरें बदलें</value>
+  </data>
+  <data name="Replace party portrait window pictures: {0}" xml:space="preserve">
+    <value>पार्टी पोर्ट्रेट विंडो की तस्वीरें बदलें: {0}</value>
+  </data>
+  <data name="Requested entity" xml:space="preserve">
+    <value>अनुरोधित इकाई</value>
+  </data>
+  <data name="Research Notes" xml:space="preserve">
+    <value>अनुसंधान टिप्पणियाँ</value>
+  </data>
+  <data name="Reset snip profile" xml:space="preserve">
+    <value>अंश प्रोफ़ाइल रीसेट करें</value>
+  </data>
+  <data name="Retest Focus" xml:space="preserve">
+    <value>फ़ोकस दोबारा जाँचें</value>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>दोबारा प्रयास करें</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>भूमिका</value>
+  </data>
+  <data name="Rollout Phases" xml:space="preserve">
+    <value>रोलआउट के चरण</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>पंक्ति</value>
+  </data>
+  <data name="Saved globally for future targets." xml:space="preserve">
+    <value>भविष्य के लक्ष्यों के लिए वैश्विक रूप से सहेजा गया।</value>
+  </data>
+  <data name="Scaling" xml:space="preserve">
+    <value>स्केल</value>
+  </data>
+  <data name="Scaling 100%" xml:space="preserve">
+    <value>स्केल 100%</value>
+  </data>
+  <data name="Scene camera manager" xml:space="preserve">
+    <value>दृश्य कैमरा मैनेजर</value>
+  </data>
+  <data name="Scene manager index" xml:space="preserve">
+    <value>दृश्य मैनेजर का सूचकांक</value>
+  </data>
+  <data name="Scroll down to &quot;The Dumpster Fire&quot; channel to discuss issues / suggestions for specific plugins." xml:space="preserve">
+    <value>विशिष्ट प्लगइन की समस्याओं या सुझावों पर चर्चा करने के लिए नीचे "The Dumpster Fire" चैनल तक जाएँ।</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोज</value>
+  </data>
+  <data name="Self hidden" xml:space="preserve">
+    <value>स्वयं छिपा है</value>
+  </data>
+  <data name="Session debug controls are visible. Privacy override is experimental." xml:space="preserve">
+    <value>सत्र के डीबग नियंत्रण दिखाई दे रहे हैं। गोपनीयता ओवरराइड प्रयोगात्मक है।</value>
+  </data>
+  <data name="Session debug mode is active. Hidden research surfaces are visible below." xml:space="preserve">
+    <value>सत्र का डीबग मोड सक्रिय है। छिपे अनुसंधान भाग नीचे दिखाई दे रहे हैं।</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="Shell and docs" xml:space="preserve">
+    <value>मुख्य नियंत्रण और दस्तावेज़</value>
+  </data>
+  <data name="Show DTR bar entry" xml:space="preserve">
+    <value>DTR बार प्रविष्टि दिखाएँ</value>
+  </data>
+  <data name="Show face next to feet" xml:space="preserve">
+    <value>पैरों के पास चेहरा दिखाएँ</value>
+  </data>
+  <data name="Show face next to feet: {0}" xml:space="preserve">
+    <value>पैरों के पास चेहरा दिखाएँ: {0}</value>
+  </data>
+  <data name="Show female feet" xml:space="preserve">
+    <value>स्त्री के पैर दिखाएँ</value>
+  </data>
+  <data name="Show female feet: {0}" xml:space="preserve">
+    <value>स्त्री के पैर दिखाएँ: {0}</value>
+  </data>
+  <data name="Show male feet" xml:space="preserve">
+    <value>पुरुष के पैर दिखाएँ</value>
+  </data>
+  <data name="Show male feet: {0}" xml:space="preserve">
+    <value>पुरुष के पैर दिखाएँ: {0}</value>
+  </data>
+  <data name="Show own feet" xml:space="preserve">
+    <value>अपने पैर दिखाएँ</value>
+  </data>
+  <data name="Show own feet: {0}" xml:space="preserve">
+    <value>अपने पैर दिखाएँ: {0}</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>आकार</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>स्लाइडर</value>
+  </data>
+  <data name="Slot" xml:space="preserve">
+    <value>स्थान</value>
+  </data>
+  <data name="Snapshot captured" xml:space="preserve">
+    <value>स्नैपशॉट कैप्चर किया</value>
+  </data>
+  <data name="Snip action" xml:space="preserve">
+    <value>अंश की कार्रवाई</value>
+  </data>
+  <data name="Snip bottom trim %" xml:space="preserve">
+    <value>अंश का निचला ट्रिम %</value>
+  </data>
+  <data name="Snip rect" xml:space="preserve">
+    <value>अंश का आयत</value>
+  </data>
+  <data name="Snip top trim %" xml:space="preserve">
+    <value>अंश का ऊपरी ट्रिम %</value>
+  </data>
+  <data name="Standard /footballer, /foot, /footballer ws, and /footballer j shell controls" xml:space="preserve">
+    <value>मानक /footballer, /foot, /footballer ws और /footballer j मुख्य नियंत्रण</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="State / Pose" xml:space="preserve">
+    <value>स्थिति / पोज़</value>
+  </data>
+  <data name="State {0} | Pose {1} | CJ {2}" xml:space="preserve">
+    <value>स्थिति {0} | पोज़ {1} | CJ {2}</value>
+  </data>
+  <data name="Stored Display Defaults" xml:space="preserve">
+    <value>सहेजे गए प्रदर्शन डिफ़ॉल्ट</value>
+  </data>
+  <data name="Stored crop defaults: 65% top / 20% bottom." xml:space="preserve">
+    <value>सहेजे गए क्रॉप डिफ़ॉल्ट: ऊपर 65% / नीचे 20%।</value>
+  </data>
+  <data name="Stored privacy/default configuration values" xml:space="preserve">
+    <value>सहेजे गए गोपनीयता/डिफ़ॉल्ट कॉन्फ़िगरेशन मान</value>
+  </data>
+  <data name="Stored snip profile" xml:space="preserve">
+    <value>सहेजी गई अंश प्रोफ़ाइल</value>
+  </data>
+  <data name="Teal" xml:space="preserve">
+    <value>टील</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>पाठ</value>
+  </data>
+  <data name="Text only" xml:space="preserve">
+    <value>केवल पाठ</value>
+  </data>
+  <data name="The foot showcase toggle is currently off." xml:space="preserve">
+    <value>पैरों के शोकेस का टॉगल अभी बंद है।</value>
+  </data>
+  <data name="This member is not available for inspection in the current game scene." xml:space="preserve">
+    <value>मौजूदा गेम दृश्य में यह सदस्य निरीक्षण के लिए उपलब्ध नहीं है।</value>
+  </data>
+  <data name="Timed out while refreshing {0}." xml:space="preserve">
+    <value>{0} को रीफ़्रेश करते समय समय समाप्त हुआ।</value>
+  </data>
+  <data name="Toggle male/female/self/showcase/face settings and confirm the live showcase cards respond immediately" xml:space="preserve">
+    <value>पुरुष/स्त्री/स्वयं/शोकेस/चेहरे की सेटिंग बदलकर जाँचें कि लाइव शोकेस कार्ड तुरंत प्रतिक्रिया देते हैं</value>
+  </data>
+  <data name="Treat portrait-window replacement and the showcase window as explicit experiments with safe toggles and hidden debug surfaces." xml:space="preserve">
+    <value>पोर्ट्रेट विंडो के प्रतिस्थापन और शोकेस विंडो को सुरक्षित टॉगल और छिपे डीबग भाग वाले स्पष्ट प्रयोग मानें।</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="Type /footballer debug and confirm the hidden inspect and BannerParty research surfaces appear" xml:space="preserve">
+    <value>/footballer debug लिखकर जाँचें कि छिपे निरीक्षण और BannerParty अनुसंधान भाग दिखाई देते हैं</value>
+  </data>
+  <data name="UI fonts failed to load. See the plugin log." xml:space="preserve">
+    <value>UI फ़ॉन्ट लोड नहीं हो सके। प्लगइन लॉग देखें।</value>
+  </data>
+  <data name="Un-Krangle" xml:space="preserve">
+    <value>क्रैंगल हटाएँ</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>अज्ञात</value>
+  </data>
+  <data name="Updated the feet preview for {0} ({1}/{2})." xml:space="preserve">
+    <value>{0} के पैरों का प्रीव्यू अपडेट किया ({1}/{2})।</value>
+  </data>
+  <data name="Use /foot ws and /foot j" xml:space="preserve">
+    <value>/foot ws और /foot j प्रयोग करें</value>
+  </data>
+  <data name="Use Capture Current Preview and confirm the saved CharacterInspect image lands on the matching showcase card" xml:space="preserve">
+    <value>मौजूदा प्रीव्यू कैप्चर करें प्रयोग करके जाँचें कि सहेजा गया CharacterInspect चित्र संबंधित शोकेस कार्ड पर आता है</value>
+  </data>
+  <data name="Use Inspect on a party row or showcase card and confirm CharacterInspect opens for that member" xml:space="preserve">
+    <value>पार्टी पंक्ति या शोकेस कार्ड पर निरीक्षण प्रयोग करके जाँचें कि उस सदस्य का CharacterInspect खुलता है</value>
+  </data>
+  <data name="Use Inspect, wait for a stable preview, then Capture Current Preview. Refresh party captures each member after a two-second hold." xml:space="preserve">
+    <value>निरीक्षण प्रयोग करें, स्थिर प्रीव्यू की प्रतीक्षा करें, फिर मौजूदा प्रीव्यू कैप्चर करें। पार्टी रीफ़्रेश हर सदस्य को दो सेकंड स्थिर रखकर कैप्चर करता है।</value>
+  </data>
+  <data name="Use Refresh party and confirm the plugin walks the live party snapshot and refreshes feet captures sequentially" xml:space="preserve">
+    <value>पार्टी रीफ़्रेश प्रयोग करके जाँचें कि प्लगइन लाइव पार्टी स्नैपशॉट के सभी सदस्यों के पैरों का कैप्चर क्रम से रीफ़्रेश करता है</value>
+  </data>
+  <data name="Use live CharacterInspect preview capture plus a queued preset inspect yaw and a preview-only multi-seam feet clear and redraw path for the current direct character-derived branch, then defer true foot-only crop/export until that path stays stable." xml:space="preserve">
+    <value>मौजूदा सीधे पात्र से बने पथ के लिए लाइव CharacterInspect प्रीव्यू कैप्चर, कतारबद्ध प्रीसेट निरीक्षण यॉ और केवल प्रीव्यू में कई सीमाओं से पैर साफ़ करके री-ड्रॉ करने का पथ प्रयोग करें; यह स्थिर होने तक केवल पैरों का वास्तविक क्रॉप/निर्यात बाद में करें।</value>
+  </data>
+  <data name="Use the TTSL Lodestone face approach as the likely path for adjacent identity visuals." xml:space="preserve">
+    <value>पास की पहचान तस्वीरों के संभावित पथ के लिए TTSL का Lodestone चेहरे वाला तरीका प्रयोग करें।</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>मान</value>
+  </data>
+  <data name="Verify the hidden privacy override only appears after /footballer debug" xml:space="preserve">
+    <value>जाँचें कि छिपा गोपनीयता ओवरराइड केवल /footballer debug के बाद दिखाई देता है</value>
+  </data>
+  <data name="Visible" xml:space="preserve">
+    <value>दिखाई दे रहा है</value>
+  </data>
+  <data name="Waiting for AgentInspect before refreshing {0} ({1}/{2})." xml:space="preserve">
+    <value>{0} को रीफ़्रेश करने से पहले AgentInspect की प्रतीक्षा है ({1}/{2})।</value>
+  </data>
+  <data name="Waiting for AgentInspect before starting {0} ({1}/{2})." xml:space="preserve">
+    <value>{0} शुरू करने से पहले AgentInspect की प्रतीक्षा है ({1}/{2})।</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} ({1}/{2})." xml:space="preserve">
+    <value>CharacterInspect के {0} पर जाने की प्रतीक्षा है ({1}/{2})।</value>
+  </data>
+  <data name="Waiting for the Lodestone privacy check. Use Refresh Lodestone to retry." xml:space="preserve">
+    <value>Lodestone गोपनीयता जाँच की प्रतीक्षा है। दोबारा प्रयास के लिए Lodestone रीफ़्रेश प्रयोग करें।</value>
+  </data>
+  <data name="Waiting for the barefoot preview apply path on {0} ({1}/{2})." xml:space="preserve">
+    <value>{0} पर नंगे पैर प्रीव्यू लागू करने के पथ की प्रतीक्षा है ({1}/{2})।</value>
+  </data>
+  <data name="Waiting for the inspect preview to become capture-ready for {0} ({1}/{2})." xml:space="preserve">
+    <value>{0} के निरीक्षण प्रीव्यू के कैप्चर तैयार होने की प्रतीक्षा है ({1}/{2})।</value>
+  </data>
+  <data name="Waiting for the preset inspect pose on {0} ({1}/{2})." xml:space="preserve">
+    <value>{0} पर प्रीसेट निरीक्षण पोज़ की प्रतीक्षा है ({1}/{2})।</value>
+  </data>
+  <data name="Window Behavior" xml:space="preserve">
+    <value>विंडो का व्यवहार</value>
+  </data>
+  <data name="Without footwear" xml:space="preserve">
+    <value>जूतों के बिना</value>
+  </data>
+  <data name="Without footwear removes shoes in the inspect preview only. Refresh party to save new previews." xml:space="preserve">
+    <value>जूतों के बिना केवल निरीक्षण प्रीव्यू से जूते हटाता है। नए प्रीव्यू सहेजने के लिए पार्टी रीफ़्रेश करें।</value>
+  </data>
+  <data name="Without footwear: {0}" xml:space="preserve">
+    <value>जूतों के बिना: {0}</value>
+  </data>
+  <data name="World" xml:space="preserve">
+    <value>वर्ल्ड</value>
+  </data>
+  <data name="Y" xml:space="preserve">
+    <value>हाँ</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>हाँ</value>
+  </data>
+  <data name="Zoom ratio" xml:space="preserve">
+    <value>ज़ूम का अनुपात</value>
+  </data>
+  <data name="{0:P0} top / {1:P0} bottom" xml:space="preserve">
+    <value>ऊपर {0:P0} / नीचे {1:P0}</value>
+  </data>
+  <data name="{0} (You)" xml:space="preserve">
+    <value>{0} (आप)</value>
+  </data>
+  <data name="{0} previews available · {1} hidden by privacy" xml:space="preserve">
+    <value>{0} प्रीव्यू उपलब्ध · गोपनीयता से {1} छिपे</value>
+  </data>
+  <data name="{0} {1}. Click to toggle." xml:space="preserve">
+    <value>{0} {1}। टॉगल करने के लिए क्लिक करें।</value>
+  </data>
+  <data name="Compact mode" xml:space="preserve">
+    <value>कॉम्पैक्ट मोड</value>
+  </data>
+  <data name="Inspect pose preset is idle. Target yaw is {0}." xml:space="preserve">
+    <value>निरीक्षण पोज़ का प्रीसेट निष्क्रिय है। लक्षित यॉ {0} है।</value>
+  </data>
+  <data name="Cannot queue the inspect pose preset yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>निरीक्षण लक्ष्य का लाइव इकाई ID नहीं है, इसलिए निरीक्षण पोज़ का प्रीसेट अभी कतार में नहीं जुड़ सकता।</value>
+  </data>
+  <data name="Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>{0} के लिए निरीक्षण पोज़ का प्रीसेट कतार में जोड़ा। CharacterInspect के उस लक्ष्य को लोड करने की प्रतीक्षा है।</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so the inspect pose preset cannot run." xml:space="preserve">
+    <value>CharacterInspect की मौजूदा इकाई अभी नहीं है, इसलिए निरीक्षण पोज़ का प्रीसेट नहीं चल सकता।</value>
+  </data>
+  <data name="The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>निरीक्षण पोज़ का प्रीसेट मौजूदा CharacterInspect लक्ष्य पर अभी लागू हो रहा है। कुछ प्रतीक्षा करके दोबारा कैप्चर करें।</value>
+  </data>
+  <data name="Inspect pose preset timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0} के निरीक्षण पोज़ प्रीसेट का समय समाप्त हुआ। Inspect फिर खोलकर दोबारा प्रयास करें।</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset." xml:space="preserve">
+    <value>निरीक्षण पोज़ का प्रीसेट लागू करने से पहले CharacterInspect के {0} पर जाने की प्रतीक्षा है।</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet." xml:space="preserve">
+    <value>{0} का CharacterInspect खुला है, लेकिन प्रीव्यू मॉडल निरीक्षण पोज़ के प्रीसेट के लिए अभी तैयार नहीं है।</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview character is still unavailable." xml:space="preserve">
+    <value>{0} का CharacterInspect खुला है, लेकिन प्रीव्यू पात्र अभी उपलब्ध नहीं है।</value>
+  </data>
+  <data name="Inspect pose preset is ready for {0}. {1}" xml:space="preserve">
+    <value>{0} का निरीक्षण पोज़ प्रीसेट तैयार है। {1}</value>
+  </data>
+  <data name="Applied the inspect pose preset for {0}. {1}" xml:space="preserve">
+    <value>{0} का निरीक्षण पोज़ प्रीसेट लागू किया। {1}</value>
+  </data>
+  <data name="Inspect pose preset is still applying for {0}. {1}" xml:space="preserve">
+    <value>{0} का निरीक्षण पोज़ प्रीसेट अभी लागू हो रहा है। {1}</value>
+  </data>
+  <data name="Preview game yaw is {0} and draw rotation is ({1})." xml:space="preserve">
+    <value>प्रीव्यू का गेम यॉ {0} और ड्रॉ घुमाव ({1}) है।</value>
+  </data>
+  <data name="Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2})." xml:space="preserve">
+    <value>मौजूदा प्रीव्यू यॉ {0} और ड्रॉ घुमाव ({1}) है। लक्षित ड्रॉ घुमाव ({2}) है।</value>
+  </data>
+  <data name="Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target." xml:space="preserve">
+    <value>नंगे पैर प्रीव्यू मोड चालू है। मौजूदा CharacterInspect लक्ष्य के पैर स्लॉट को कई सीमाओं से साफ़ करने की कतार के लिए Inspect प्रयोग करें।</value>
+  </data>
+  <data name="Barefoot preview mode is off." xml:space="preserve">
+    <value>नंगे पैर प्रीव्यू मोड बंद है।</value>
+  </data>
+  <data name="Cannot queue barefoot preview mode yet because the inspect target has no live entity id." xml:space="preserve">
+    <value>निरीक्षण लक्ष्य का लाइव इकाई ID नहीं है, इसलिए नंगे पैर प्रीव्यू मोड अभी कतार में नहीं जुड़ सकता।</value>
+  </data>
+  <data name="Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
+    <value>{0} के लिए नंगे पैर प्रीव्यू अपडेट कतार में जोड़ा। CharacterInspect के उस लक्ष्य को लोड करने की प्रतीक्षा है।</value>
+  </data>
+  <data name="CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet." xml:space="preserve">
+    <value>CharacterInspect अभी उपलब्ध नहीं है, इसलिए नंगे पैर प्रीव्यू मोड अभी कतार में नहीं जुड़ सकता।</value>
+  </data>
+  <data name="CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue." xml:space="preserve">
+    <value>CharacterInspect का मौजूदा या लंबित लक्ष्य अभी नहीं है, इसलिए नंगे पैर प्रीव्यू मोड की कतार में जोड़ने के लिए कुछ नहीं है।</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so barefoot preview capture cannot run." xml:space="preserve">
+    <value>CharacterInspect की मौजूदा इकाई अभी नहीं है, इसलिए नंगे पैर प्रीव्यू कैप्चर नहीं चल सकता।</value>
+  </data>
+  <data name="Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
+    <value>मौजूदा CharacterInspect लक्ष्य पर नंगे पैर प्रीव्यू अभी लागू हो रहा है। कुछ प्रतीक्षा करके दोबारा कैप्चर करें।</value>
+  </data>
+  <data name="Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled." xml:space="preserve">
+    <value>नंगे पैर प्रीव्यू मोड बंद हुआ, इसलिए पैर स्लॉट साफ़ करने का लंबित काम रद्द हुआ।</value>
+  </data>
+  <data name="Barefoot preview update timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
+    <value>{0} के नंगे पैर प्रीव्यू अपडेट का समय समाप्त हुआ। Inspect फिर खोलकर दोबारा प्रयास करें।</value>
+  </data>
+  <data name="Waiting for CharacterInspect to switch to {0} before clearing the feet slot." xml:space="preserve">
+    <value>पैर स्लॉट साफ़ करने से पहले CharacterInspect के {0} पर जाने की प्रतीक्षा है।</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet." xml:space="preserve">
+    <value>{0} का CharacterInspect खुला है, लेकिन प्रीव्यू मॉडल पैर स्लॉट साफ़ करने के लिए अभी तैयार नहीं है।</value>
+  </data>
+  <data name="CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet." xml:space="preserve">
+    <value>{0} का CharacterInspect खुला है, लेकिन प्रीव्यू मॉडल पैर स्लॉट उपलब्ध कराने के लिए अभी तैयार नहीं है।</value>
+  </data>
+  <data name="Barefoot preview is ready for {0}. {1}" xml:space="preserve">
+    <value>{0} का नंगे पैर प्रीव्यू तैयार है। {1}</value>
+  </data>
+  <data name="Barefoot preview applied for {0}. {1}" xml:space="preserve">
+    <value>{0} पर नंगे पैर प्रीव्यू लागू हुआ। {1}</value>
+  </data>
+  <data name="Barefoot preview update attempt {0} is still applying for {1}. {2}" xml:space="preserve">
+    <value>नंगे पैर प्रीव्यू अपडेट का प्रयास {0} अभी {1} पर लागू हो रहा है। {2}</value>
+  </data>
+  <data name="Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}" xml:space="preserve">
+    <value>निरीक्षण आइटम, मॉडल, ड्रॉ डेटा और लाइव प्रीव्यू की सीमाओं में पैर साफ़ किए गए। {0}</value>
+  </data>
+  <data name="Current feet state: {0}" xml:space="preserve">
+    <value>पैरों की मौजूदा स्थिति: {0}</value>
+  </data>
+  <data name="No CharacterInspect preview capture has been saved yet." xml:space="preserve">
+    <value>CharacterInspect का प्रीव्यू कैप्चर अभी सहेजा नहीं गया है।</value>
+  </data>
+  <data name="CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू कैप्चर के लिए अभी तैयार नहीं है। विजेट दिखाई देने और स्थिर होने तक निरीक्षण प्रीव्यू खुला रखें।</value>
+  </data>
+  <data name="CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू की सीमाएँ उपलब्ध नहीं हैं, इसलिए अभी सुरक्षित कैप्चर करने के लिए कुछ नहीं है।</value>
+  </data>
+  <data name="Could not resolve the game window handle for CharacterInspect preview capture." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू कैप्चर के लिए गेम विंडो का हैंडल नहीं मिला।</value>
+  </data>
+  <data name="Could not read the game client bounds for CharacterInspect preview capture." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू कैप्चर के लिए गेम क्लाइंट की सीमाएँ नहीं पढ़ी जा सकीं।</value>
+  </data>
+  <data name="CharacterInspect preview crop landed outside the game client area, so the capture was skipped." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू का क्रॉप गेम क्लाइंट के क्षेत्र से बाहर आया, इसलिए कैप्चर छोड़ा गया।</value>
+  </data>
+  <data name="Could not translate CharacterInspect preview bounds into screen coordinates." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू की सीमाएँ स्क्रीन के निर्देशांक में नहीं बदली जा सकीं।</value>
+  </data>
+  <data name="CharacterInspect preview capture failed: {0}: {1}" xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू कैप्चर विफल: {0}: {1}</value>
+  </data>
+  <data name="Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}." xml:space="preserve">
+    <value>इकाई {0} का नीचे केंद्रित CharacterInspect प्रीव्यू कैप्चर {1}x{2} में सहेजा। प्रभावी प्रीव्यू स्केल: X {3:0.#}% / Y {4:0.#}%, स्रोत {5}। कॉन्फ़िगरेशन का वैकल्पिक मान: {6}%। स्रोत की ऊँचाई: {7}px। क्रॉप प्रोफ़ाइल: ऊपर {8:P0}, नीचे {9:P0}।</value>
+  </data>
+  <data name="configured scaling fallback" xml:space="preserve">
+    <value>कॉन्फ़िगर किया गया स्केल का वैकल्पिक मान</value>
+  </data>
+  <data name="live preview node scale" xml:space="preserve">
+    <value>लाइव प्रीव्यू नोड का स्केल</value>
+  </data>
+  <data name="live preview node X scale" xml:space="preserve">
+    <value>लाइव प्रीव्यू नोड का X स्केल</value>
+  </data>
+  <data name="live preview node Y scale" xml:space="preserve">
+    <value>लाइव प्रीव्यू नोड का Y स्केल</value>
+  </data>
+  <data name=", failed {0}" xml:space="preserve">
+    <value>, विफल {0}</value>
+  </data>
+  <data name=", skipped {0} without live entity ids" xml:space="preserve">
+    <value>, लाइव इकाई ID के बिना छोड़े गए {0}</value>
+  </data>
+  <data name="Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>नंगे पैर प्रीव्यू मोड सक्षम है। इस कार्ड या पार्टी टेबल में Inspect प्रयोग करें, CharacterInspect के स्थिर होने की प्रतीक्षा करें, फिर मुख्य विंडो से मौजूदा प्रीव्यू कैप्चर करें।</value>
+  </data>
+  <data name="Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
+    <value>यहाँ निरीक्षण से सीधे पैरों का कैप्चर करना इच्छित पथ है। इस कार्ड या पार्टी टेबल में Inspect प्रयोग करें, CharacterInspect के स्थिर होने की प्रतीक्षा करें, फिर मुख्य विंडो से मौजूदा प्रीव्यू कैप्चर करें।</value>
+  </data>
+  <data name="Your own feet are hidden because Show own feet is off." xml:space="preserve">
+    <value>अपने पैर दिखाएँ बंद है, इसलिए आपके पैर छिपे हैं।</value>
+  </data>
+  <data name="This card is filtered by the {0} feet toggle." xml:space="preserve">
+    <value>यह कार्ड {0} पैर टॉगल से फ़िल्टर हुआ है।</value>
+  </data>
+  <data name="Feet are blocked by the current Lodestone privacy gate state." xml:space="preserve">
+    <value>Lodestone गोपनीयता की मौजूदा शर्त ने पैर रोके हैं।</value>
+  </data>
+  <data name="This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet." xml:space="preserve">
+    <value>इस पार्टी सदस्य का लाइव इकाई ID अभी उपलब्ध नहीं है, इसलिए CharacterInspect का अनुरोध अभी नहीं हो सकता।</value>
+  </data>
+  <data name="The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card." xml:space="preserve">
+    <value>लाइव CharacterInspect सीमा उपलब्ध है, लेकिन इस कार्ड का चित्र सहेजने के लिए निरीक्षण खोलकर मुख्य विंडो से मौजूदा प्रीव्यू कैप्चर करना अभी आवश्यक है।</value>
+  </data>
+  <data name="Showing the cached Lodestone face image next to the foot showcase card." xml:space="preserve">
+    <value>पैरों के शोकेस कार्ड के पास कैश किया गया Lodestone चेहरे का चित्र दिखाया जा रहा है।</value>
+  </data>
+  <data name="The face-next-to-feet toggle is currently off." xml:space="preserve">
+    <value>पैरों के पास चेहरा टॉगल अभी बंद है।</value>
+  </data>
+  <data name="Use Refresh Lodestone to resolve the current face state." xml:space="preserve">
+    <value>चेहरे की मौजूदा स्थिति जानने के लिए Lodestone रीफ़्रेश प्रयोग करें।</value>
+  </data>
+  <data name="{0} / local customize data unavailable" xml:space="preserve">
+    <value>{0} / स्थानीय अनुकूलन डेटा अनुपलब्ध</value>
+  </data>
+  <data name="Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}" xml:space="preserve">
+    <value>इस सदस्य का पिछला सहेजा गया नीचे केंद्रित CharacterInspect प्रीव्यू कैप्चर दिखाया जा रहा है। कैप्चर आयत: ({0}, {1}) {2}x{3}।{4}</value>
+  </data>
+  <data name=" Barefoot preview mode was enabled when this preview-capture flow ran." xml:space="preserve">
+    <value> नंगे पैर प्रीव्यू मोड इस प्रीव्यू कैप्चर कार्यप्रवाह के दौरान सक्षम था।</value>
+  </data>
+  <data name="No home world is available yet." xml:space="preserve">
+    <value>होम वर्ल्ड अभी उपलब्ध नहीं है।</value>
+  </data>
+  <data name="Waiting for lookup." xml:space="preserve">
+    <value>खोज की प्रतीक्षा है।</value>
+  </data>
+  <data name="Refreshing Lodestone search and profile data." xml:space="preserve">
+    <value>Lodestone खोज और प्रोफ़ाइल डेटा रीफ़्रेश हो रहा है।</value>
+  </data>
+  <data name="No Lodestone profile match was found for the current name/world pair." xml:space="preserve">
+    <value>मौजूदा नाम/वर्ल्ड की जोड़ी से मेल खाती Lodestone प्रोफ़ाइल नहीं मिली।</value>
+  </data>
+  <data name="Profile resolved with a face image." xml:space="preserve">
+    <value>चेहरे के चित्र सहित प्रोफ़ाइल मिली।</value>
+  </data>
+  <data name="Profile resolved but no face image was exposed." xml:space="preserve">
+    <value>प्रोफ़ाइल मिली, लेकिन चेहरे का चित्र उपलब्ध नहीं कराया गया।</value>
+  </data>
+  <data name="Profile page loaded, but the expected face markup was not found." xml:space="preserve">
+    <value>प्रोफ़ाइल पेज लोड हुआ, लेकिन चेहरे का अपेक्षित मार्कअप नहीं मिला।</value>
+  </data>
+  <data name="Preview camera is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspect अभी उपलब्ध नहीं है, इसलिए प्रीव्यू कैमरा अनुपलब्ध है।</value>
+  </data>
+  <data name="CharacterInspect export capture is unavailable because AgentInspect is not available yet." xml:space="preserve">
+    <value>AgentInspect अभी उपलब्ध नहीं है, इसलिए CharacterInspect निर्यात कैप्चर अनुपलब्ध है।</value>
+  </data>
+  <data name="AgentInspect is not available yet, so CharacterInspect research cannot run right now." xml:space="preserve">
+    <value>AgentInspect अभी उपलब्ध नहीं है, इसलिए CharacterInspect अनुसंधान अभी नहीं चल सकता।</value>
+  </data>
+  <data name="Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity." xml:space="preserve">
+    <value>गेम में लॉग इन करें, फिर लाइव इकाई का CharacterInspect खोलने के लिए पार्टी पंक्ति या शोकेस कार्ड पर Inspect प्रयोग करें।</value>
+  </data>
+  <data name="CharacterInspect preview camera pointer is not available yet." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू कैमरे का पॉइंटर अभी उपलब्ध नहीं है।</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run." xml:space="preserve">
+    <value>इकाई 0x{0:X8} का CharacterInspect खुला है। लाइव प्रीव्यू नोड {1}x{2} में दिखाई दे रहा है, निरीक्षण की स्थिति नीचे विस्तारित स्रोत क्षेत्र से नियंत्रित नीचे केंद्रित प्रीव्यू अंश के लिए पर्याप्त स्थिर है और कैमरे की केवल पढ़ने वाली स्थिति कैप्चर हो सकती है।</value>
+  </data>
+  <data name="CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}." xml:space="preserve">
+    <value>इकाई 0x{0:X8} का CharacterInspect खुला है। निरीक्षण की CharaView स्थिति {1} है, लोड={2}, कॉपी={3}।</value>
+  </data>
+  <data name="CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8})." xml:space="preserve">
+    <value>CharacterInspect अभी दिखाई नहीं दे रहा, लेकिन AgentInspect में अनुरोध/मौजूदा इकाई की स्थिति अभी है ({0:X8} -&gt; {1:X8})।</value>
+  </data>
+  <data name="CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path." xml:space="preserve">
+    <value>CharacterInspect अभी खुला नहीं है। पात्र से सीधे बने कैप्चर पथ के लिए पार्टी पंक्ति या शोकेस कार्ड पर Inspect प्रयोग करें।</value>
+  </data>
+  <data name="Press SNIP PREVIEW while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use COPY INSPECT REPORT to capture the current preview camera pose." xml:space="preserve">
+    <value>CharacterInspect स्थिर होने पर "मौजूदा प्रीव्यू कैप्चर करें" दबाएँ, Footballer विंडो को प्रीव्यू क्षेत्र से दूर रखें, जाँचें कि नीचे विस्तारित स्रोत क्षेत्र का नीचे केंद्रित सहेजा चित्र संबंधित शोकेस कार्ड पर आता है और कैमरे का मौजूदा पोज़ लेने के लिए "निरीक्षण रिपोर्ट कॉपी करें" प्रयोग करें।</value>
+  </data>
+  <data name="Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use SNIP PREVIEW once the bounds look correct." xml:space="preserve">
+    <value>प्रीव्यू नोड दिखाई देने और निरीक्षण की स्थिति स्थिर होने तक CharacterInspect खुला रखें, फिर सीमाएँ सही होने पर "मौजूदा प्रीव्यू कैप्चर करें" प्रयोग करें।</value>
+  </data>
+  <data name="Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate." xml:space="preserve">
+    <value>पार्टी पंक्ति या शोकेस कार्ड पर Inspect प्रयोग करें, फिर यह भाग दोबारा खोलकर जाँचें कि CharacterInspect और निरीक्षण के CharaView फ़ील्ड भरते हैं।</value>
+  </data>
+  <data name="CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target." xml:space="preserve">
+    <value>CharacterInspect की मौजूदा इकाई अभी नहीं है, इसलिए निरीक्षण कैप्चर लक्ष्य की प्रतीक्षा कर रहा है।</value>
+  </data>
+  <data name="CharacterInspect is open, but the preview widget node is not available yet." xml:space="preserve">
+    <value>CharacterInspect खुला है, लेकिन प्रीव्यू विजेट नोड अभी उपलब्ध नहीं है।</value>
+  </data>
+  <data name="CharacterInspect preview widget exists, but it is not visible yet." xml:space="preserve">
+    <value>CharacterInspect का प्रीव्यू विजेट मौजूद है, लेकिन अभी दिखाई नहीं दे रहा है।</value>
+  </data>
+  <data name="CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू दिखाई दे रहा है, लेकिन निरीक्षण मॉडल की स्थिति नियंत्रित कैप्चर के लिए अभी पर्याप्त प्रारंभित नहीं लगती।</value>
+  </data>
+  <data name="CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose." xml:space="preserve">
+    <value>CharacterInspect प्रीव्यू दिखाई दे रहा है और इकाई 0x{0:X8} के लिए निरीक्षण की स्थिति स्थिर है। इन सीमाओं से नीचे विस्तारित स्रोत क्षेत्र के सीधे नीचे केंद्रित प्रीव्यू अंश लिए जा सकते हैं और कैमरे की केवल पढ़ने वाली स्थिति का कैप्चर मौजूदा कैमरा पोज़ जाँच सकता है।</value>
+  </data>
+  <data name="Read-only preview camera state captured from CharacterInspect scene camera manager index {0}." xml:space="preserve">
+    <value>CharacterInspect दृश्य कैमरा मैनेजर सूचकांक {0} से प्रीव्यू कैमरे की केवल पढ़ने वाली स्थिति कैप्चर की।</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera." xml:space="preserve">
+    <value>CharacterInspect दृश्य कैमरा मैनेजर मौजूद है, लेकिन सूचकांक {0} से मौजूदा दृश्य कैमरा नहीं मिला।</value>
+  </data>
+  <data name="CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range." xml:space="preserve">
+    <value>CharacterInspect दृश्य कैमरा मैनेजर मौजूद है, लेकिन कैमरा सूचकांक {0} अपेक्षित 0-13 सीमा से बाहर है।</value>
+  </data>
+  <data name="Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0})." xml:space="preserve">
+    <value>CharacterInspect के मूल दृश्य कैमरे का विकल्प प्रयोग किया क्योंकि दृश्य कैमरा मैनेजर पथ से लाइव मौजूदा कैमरा नहीं मिला (सूचकांक {0})।</value>
+  </data>
+  <data name="Read-only preview camera state captured from the raw CharacterInspect scene camera." xml:space="preserve">
+    <value>CharacterInspect के मूल दृश्य कैमरे से प्रीव्यू कैमरे की केवल पढ़ने वाली स्थिति कैप्चर की।</value>
+  </data>
+  <data name="Preview window used during portrait updates" xml:space="preserve">
+    <value>पोर्ट्रेट अपडेट के दौरान प्रयोग होने वाली प्रीव्यू विंडो</value>
+  </data>
+  <data name="Current display-party-member-portraits target" xml:space="preserve">
+    <value>सदस्यों के पोर्ट्रेट दिखाने का मौजूदा लक्ष्य</value>
+  </data>
+  <data name="Not current target; older commendation candidate" xml:space="preserve">
+    <value>मौजूदा लक्ष्य नहीं; पुराना कमेंडेशन उम्मीदवार</value>
+  </data>
+  <data name="Portrait list / selection surface" xml:space="preserve">
+    <value>पोर्ट्रेट सूची / चयन का भाग</value>
+  </data>
+  <data name="Portrait editor surface" xml:space="preserve">
+    <value>पोर्ट्रेट संपादक का भाग</value>
+  </data>
+  <data name="Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}" xml:space="preserve">
+    <value>संबंधित पोर्ट्रेट UI अभी खुला है, लेकिन विंडो क्रैश करने के बजाय BannerParty कैप्चर सुरक्षित रूप से विफल हुआ: {0}</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active." xml:space="preserve">
+    <value>संबंधित पोर्ट्रेट UI अभी खुला है। यह बिल्ड अब लाइव BannerParty ऐडऑन की वास्तविक स्थिति, लाइव एजेंट की पंक्तियाँ और सक्रिय पंक्ति का केवल पढ़ने वाला निर्यात पेलोड कैप्चर करता है; पोर्ट्रेट लिखने का कोई पथ सक्रिय नहीं है।</value>
+  </data>
+  <data name="Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only." xml:space="preserve">
+    <value>संबंधित पोर्ट्रेट UI अभी खुला है। यह बिल्ड लाइव BannerParty ऐडऑन की वास्तविक स्थिति और एजेंट पंक्ति की स्थिति कैप्चर करता है, लेकिन पोर्ट्रेट पथ अभी केवल पढ़ने वाला है।</value>
+  </data>
+  <data name="No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons." xml:space="preserve">
+    <value>संबंधित पोर्ट्रेट UI अभी खुला नहीं है। लाइव ऐडऑन जाँचने के लिए पार्टी सदस्यों के पोर्ट्रेट की विंडो या पोर्ट्रेट का अन्य भाग खोलें।</value>
+  </data>
+  <data name="Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text." xml:space="preserve">
+    <value>पार्टी सदस्यों के पोर्ट्रेट की विंडो फिर खोलकर जाँचें कि मुख्य विंडो स्थिर रहती है। कैप्चर की दूसरी त्रुटि आए तो नया पाठ भेजें।</value>
+  </data>
+  <data name="Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable." xml:space="preserve">
+    <value>चुनी गई पार्टी पोर्ट्रेट पंक्ति बदलकर जाँचें कि सक्रिय पंक्ति का मैप और केवल पढ़ने वाला पेलोड साथ में बदलते हैं। पढ़ने वाला पथ स्थिर होने तक लिखने वाला काम बाद के लिए रखें।</value>
+  </data>
+  <data name="Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable." xml:space="preserve">
+    <value>मौजूदा चुनी हुई पार्टी पंक्ति जानने के लिए नीचे BannerParty एजेंट की पंक्तियाँ और रेल मैप जाँचें, फिर निर्यात स्थिर होने तक पोर्ट्रेट पथ केवल पढ़ने वाला रखें।</value>
+  </data>
+  <data name="Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target." xml:space="preserve">
+    <value>प्रतिस्थापन लिखने का पथ आज़माने से पहले दिखाई दे रहे भाग के ऐडऑन/नोड की वास्तविक स्थिति कैप्चर करें; मौजूदा लक्ष्य BannerParty है।</value>
+  </data>
+  <data name="Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP." xml:space="preserve">
+    <value>पोर्ट्रेट कार्यप्रवाह खोलकर BannerPreview, BannerParty और BannerMIP दोबारा जाँचें।</value>
+  </data>
+  <data name="Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates." xml:space="preserve">
+    <value>ज्ञात स्थानीय सीमा: कार्यक्षेत्र के अन्य हिस्से में BannerPreview कॉलबैक 0 पोर्ट्रेट अपडेट पूरा करने के लिए प्रयोग होता है।</value>
+  </data>
+  <data name="Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated &quot;Party Members&quot; headers: {3}. Likely 240x540 portrait rails: {4}." xml:space="preserve">
+    <value>{0} लाइव BannerParty नोड कैप्चर किए। दिखाई दे रहे नोड: {1}। इंटरैक्टिव या इवेंट वाले नोड: {2}। दोहराए गए "Party Members" शीर्षक: {3}। संभावित 240x540 पोर्ट्रेट रेल: {4}।</value>
+  </data>
+  <data name="No active BannerParty row was detected yet." xml:space="preserve">
+    <value>सक्रिय BannerParty पंक्ति अभी नहीं मिली।</value>
+  </data>
+  <data name="Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}." xml:space="preserve">
+    <value>{0} लाइव BannerParty एजेंट पंक्तियाँ कैप्चर कीं। दिखाई दे रहे CharaView: {1}। लोड किए गए CharaView: {2}। सक्रिय पंक्ति का अनुमान: {3}। रेल मैप: {4}।</value>
+  </data>
+  <data name="Base portrait rail without an adjacent slider pair." xml:space="preserve">
+    <value>पास के स्लाइडर जोड़े के बिना मूल पोर्ट्रेट रेल।</value>
+  </data>
+  <data name="Currently active portrait rail scaffold." xml:space="preserve">
+    <value>मौजूदा सक्रिय पोर्ट्रेट रेल का ढाँचा।</value>
+  </data>
+  <data name="Inactive portrait rail scaffold." xml:space="preserve">
+    <value>निष्क्रिय पोर्ट्रेट रेल का ढाँचा।</value>
+  </data>
+  <data name="Slider-only portrait rail candidate." xml:space="preserve">
+    <value>केवल स्लाइडर वाला पोर्ट्रेट रेल उम्मीदवार।</value>
+  </data>
+  <data name="Current visible portrait render target." xml:space="preserve">
+    <value>पोर्ट्रेट का मौजूदा दिखाई दे रहा रेंडर लक्ष्य।</value>
+  </data>
+  <data name="Portrait is loaded for this row." xml:space="preserve">
+    <value>इस पंक्ति का पोर्ट्रेट लोड है।</value>
+  </data>
+  <data name="Character data is copied but the portrait is not visible yet." xml:space="preserve">
+    <value>पात्र का डेटा कॉपी है, लेकिन पोर्ट्रेट अभी दिखाई नहीं दे रहा।</value>
+  </data>
+  <data name="Non-zero CharaView state {0}." xml:space="preserve">
+    <value>CharaView की गैर-शून्य स्थिति {0}।</value>
+  </data>
+  <data name="Inactive row." xml:space="preserve">
+    <value>निष्क्रिय पंक्ति।</value>
+  </data>
+  <data name="Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position." xml:space="preserve">
+    <value>क्रम {0}; {1}; इस रेल स्थान से कोई लाइव BannerParty एजेंट पंक्ति नहीं जुड़ी है।</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set." xml:space="preserve">
+    <value>क्रम {0}; {1}; सक्रिय पंक्ति को प्राथमिकता वाले रेल समूह से मिलाकर लाइव BannerParty पंक्ति {2} से जोड़ा गया।</value>
+  </data>
+  <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order." xml:space="preserve">
+    <value>क्रम {0}; {1}; एजेंट के भंडारण क्रम से लाइव BannerParty पंक्ति {2} से जोड़ा गया।</value>
+  </data>
+  <data name=" This is the current active rail candidate." xml:space="preserve">
+    <value> यह मौजूदा सक्रिय रेल उम्मीदवार है।</value>
+  </data>
+  <data name="preferring live visible rails before hidden placeholder scaffolds" xml:space="preserve">
+    <value>छिपे प्लेसहोल्डर ढाँचों से पहले लाइव दिखाई दे रहे रेल को प्राथमिकता</value>
+  </data>
+  <data name="using the full ordered rail list because visible rails were insufficient" xml:space="preserve">
+    <value>दिखाई दे रहे रेल अपर्याप्त होने पर पूरी क्रमबद्ध रेल सूची का प्रयोग</value>
+  </data>
+  <data name="node order" xml:space="preserve">
+    <value>नोड का क्रम</value>
+  </data>
+  <data name="top-to-bottom Y order" xml:space="preserve">
+    <value>ऊपर से नीचे Y क्रम</value>
+  </data>
+  <data name="left-to-right X order" xml:space="preserve">
+    <value>बाएँ से दाएँ X क्रम</value>
+  </data>
+  <data name="Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped." xml:space="preserve">
+    <value>सक्रिय BannerParty पंक्ति मिली, लेकिन उसका CharaViewPortrait अभी प्रारंभित नहीं लगता, इसलिए निर्यात छोड़ा गया।</value>
+  </data>
+  <data name="Read-only ExportedPortraitData captured for active row {0}" xml:space="preserve">
+    <value>सक्रिय पंक्ति {0} का केवल पढ़ने वाला ExportedPortraitData कैप्चर किया</value>
+  </data>
+  <data name="node capture: {0}: {1}" xml:space="preserve">
+    <value>नोड कैप्चर: {0}: {1}</value>
+  </data>
+  <data name="agent capture: {0}: {1}" xml:space="preserve">
+    <value>एजेंट कैप्चर: {0}: {1}</value>
+  </data>
+  <data name="Addon position: ({0:0.##}, {1:0.##})" xml:space="preserve">
+    <value>ऐडऑन की स्थिति: ({0:0.##}, {1:0.##})</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>पुरुष</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>स्त्री</value>
+  </data>
+  <data name="Row {0}" xml:space="preserve">
+    <value>पंक्ति {0}</value>
+  </data>
+  <data name="current target" xml:space="preserve">
+    <value>मौजूदा लक्ष्य</value>
+  </data>
+  <data name="entity {0}" xml:space="preserve">
+    <value>इकाई {0}</value>
+  </data>
+  <data name="No world yet" xml:space="preserve">
+    <value>वर्ल्ड अभी नहीं है</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve">
+    <value>विंडो का रूप</value>
+  </data>
+  <data name="Compact visible on main window" xml:space="preserve">
+    <value>मुख्य विंडो पर कॉम्पैक्ट नियंत्रण दिखाएँ</value>
+  </data>
+  <data name="Language visible on main window" xml:space="preserve">
+    <value>मुख्य विंडो पर भाषा नियंत्रण दिखाएँ</value>
+  </data>
+  <data name="Transparency" xml:space="preserve">
+    <value>पारदर्शिता</value>
+  </data>
+  <data name="Opacity (%)" xml:space="preserve">
+    <value>अपारदर्शिता (%)</value>
+  </data>
+  <data name="Auto-fade when unfocused" xml:space="preserve">
+    <value>फ़ोकस हटने पर स्वतः धुंधला करें</value>
+  </data>
+  <data name="Unfocused opacity (%)" xml:space="preserve">
+    <value>फ़ोकस हटने पर अपारदर्शिता (%)</value>
+  </data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve">
+    <value>फ़ोकस हटने की देरी (सेकंड)</value>
+  </data>
+</root>

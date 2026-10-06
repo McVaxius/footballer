@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using AethertekUI.Dalamud;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
@@ -8,6 +9,9 @@ namespace footballer.Windows;
 
 public abstract class PositionedWindow : Window
 {
+    private readonly MaterialWindowMotion motion = new();
+    private readonly AethertekUI.MaterialWindowOpacity opacity = new();
+    protected Plugin AppearanceOwner { get; set; } = null!;
     private Vector2? pendingWindowPosition;
     private bool pendingPositionConditionReset;
 
@@ -24,14 +28,23 @@ public abstract class PositionedWindow : Window
 
     public override void PreDraw()
     {
-        if (!pendingWindowPosition.HasValue)
-            return;
-
-        Position = pendingWindowPosition.Value;
-        PositionCondition = ImGuiCond.Always;
-        pendingWindowPosition = null;
-        pendingPositionConditionReset = true;
+        if (pendingWindowPosition.HasValue)
+        {
+            Position = pendingWindowPosition.Value;
+            PositionCondition = ImGuiCond.Always;
+            pendingWindowPosition = null;
+            pendingPositionConditionReset = true;
+        }
+        motion.Prepare(this, reducedMotion: false, roundedCorners: true);
     }
+
+    public override void PostDraw()
+    {
+        motion.Restore(this);
+        AppearanceOwner.ApplyWindowOpacity(opacity, WindowName);
+    }
+
+    protected void DrawWindowChrome() => motion.DrawChrome();
 
     protected void FinalizePendingWindowPlacement()
     {

@@ -11,14 +11,17 @@ internal static class FootballerPresentation
     // Footballer-main-v3: native chrome retained; measured content at 100%.
     internal const uint ReferenceAccent = 0xE96D9E;
     internal static bool Compact => MaterialTheme.Current.Density == MaterialDensity.Compact;
-    internal static float HeaderHeight => Compact ? 72 : 96;
+    internal static float HeaderHeight => Compact ? 77 : 96;
     internal static float ToolbarHeight => Compact ? 48 : 66;
     internal static float StatusHeight => Compact ? 42 : 52;
     internal static float CardHeight => Compact ? 404 : 592;
-    internal static float CardWidth => Compact ? 330 : 363;
+    internal static float CardWidth => Compact ? 330 : 357;
     internal static float CardGap => Compact ? 12 : 14;
     internal static float RegionGap => Compact ? 10 : 14;
     internal static float FaceSize => Compact ? 104 : 158;
+    internal static float TitleScale => Compact ? 1.08f : 1.11f;
+    internal static float SubtitleScale => Compact ? 1.33f : 1.15f;
+    internal static float CardNameScale => Compact ? 1 : 1.17f;
     internal static readonly float[] FontSizes = [16, 16, 38, 20, 22, 18, 32];
     internal static readonly string[] FontFiles = ["segoeui.ttf", "seguisb.ttf", "segoeuib.ttf", "seguisb.ttf", "seguisb.ttf", "seguisb.ttf", "segoeuib.ttf"];
     internal static float AtlasHeight(UiFontRole role) => FontSizes[(int)role] * 4 / 3;
@@ -71,6 +74,9 @@ internal static class FootballerPresentation
         Dalamud.Bindings.ImGui.ImGui.GetWindowDrawList().AddRect(min, max, MaterialCanvas.Color(c.OutlineVariant), 4 * MaterialTheme.Metrics.Scale);
     }
     internal static void Footprint(Vector2 origin, float size, Vector4 color)
+        => Footprint(origin, new Vector2(size), color);
+
+    internal static void Footprint(Vector2 origin, Vector2 size, Vector4 color)
     {
         var dl = Dalamud.Bindings.ImGui.ImGui.GetWindowDrawList();
         var ink = MaterialCanvas.Color(color);
@@ -94,5 +100,33 @@ internal static class FootballerPresentation
         Ellipse(.48f, .14f, .067f, .078f, -.22f);
         Ellipse(.32f, .19f, .050f, .060f, -.22f);
         Ellipse(.21f, .28f, .038f, .046f, -.22f);
+    }
+    internal static void Shoe(Vector2 origin, float size, Vector4 color)
+    {
+        var dl = ImGui.GetWindowDrawList();
+        var ink = MaterialCanvas.Color(color);
+        Vector2 P(float x, float y) => origin + new Vector2(x, y) * size;
+        dl.AddQuadFilled(P(.08f, .64f), P(.94f, .5f), P(.94f, .7f), P(.12f, .78f), ink);
+        dl.AddQuadFilled(P(.36f, .58f), P(.58f, .28f), P(.72f, .42f), P(.62f, .57f), ink);
+        dl.AddQuadFilled(P(.62f, .42f), P(.92f, .38f), P(.94f, .56f), P(.62f, .58f), ink);
+        var cut = MaterialCanvas.Color(MaterialTheme.Current.Colors.SurfaceContainerHigh);
+        dl.AddLine(P(.32f, .57f), P(.43f, .65f), cut, Math.Max(1, size * .05f));
+        dl.AddLine(P(.43f, .49f), P(.54f, .57f), cut, Math.Max(1, size * .05f));
+        dl.AddLine(P(.12f, .72f), P(.54f, .72f), cut, Math.Max(1, size * .05f));
+        dl.AddLine(P(.54f, .72f), P(.92f, .64f), cut, Math.Max(1, size * .05f));
+    }
+    internal static void Discord(Vector2 origin, float size, Vector4 color)
+    {
+        var dl = ImGui.GetWindowDrawList();
+        var ink = MaterialCanvas.Color(color);
+        Vector2 P(float x, float y) => origin + new Vector2(x, y) * size;
+        dl.AddRectFilled(P(.08f, .2f), P(.92f, .8f), ink, size * .18f);
+        dl.AddQuadFilled(P(.14f, .26f), P(.3f, .13f), P(.4f, .18f), P(.22f, .47f), ink);
+        dl.AddQuadFilled(P(.6f, .18f), P(.7f, .13f), P(.86f, .26f), P(.78f, .47f), ink);
+        dl.AddQuadFilled(P(.08f, .57f), P(.37f, .7f), P(.31f, .9f), P(.04f, .78f), ink);
+        dl.AddQuadFilled(P(.63f, .7f), P(.92f, .57f), P(.96f, .78f), P(.69f, .9f), ink);
+        var cut = MaterialCanvas.Color(MaterialTheme.Current.Colors.Background);
+        dl.AddCircleFilled(P(.34f, .5f), size * .075f, cut, 20);
+        dl.AddCircleFilled(P(.66f, .5f), size * .075f, cut, 20);
     }
 }

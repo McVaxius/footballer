@@ -7,1421 +7,1421 @@
     <value>2.0</value>
   </resheader>
   <data name="Active Services" xml:space="preserve">
-    <value>Services actifs</value>
+    <value>Dịch vụ đang hoạt động</value>
   </data>
   <data name="Active camera" xml:space="preserve">
-    <value>Caméra active</value>
+    <value>Camera đang hoạt động</value>
   </data>
   <data name="Active row heuristic: none yet" xml:space="preserve">
-    <value>Ligne active estimée : aucune</value>
+    <value>Suy đoán hàng hiện tại: chưa có</value>
   </data>
   <data name="Active row heuristic: {0} ({1})" xml:space="preserve">
-    <value>Ligne active estimée : {0} ({1})</value>
+    <value>Suy đoán hàng hiện tại: {0} ({1})</value>
   </data>
   <data name="Addon" xml:space="preserve">
     <value>Addon</value>
   </data>
   <data name="Addon address" xml:space="preserve">
-    <value>Adresse de l'addon</value>
+    <value>Địa chỉ addon</value>
   </data>
   <data name="Addon address: {0}" xml:space="preserve">
-    <value>Adresse de l'addon: {0}</value>
+    <value>Địa chỉ addon: {0}</value>
   </data>
   <data name="Addon position" xml:space="preserve">
-    <value>Position de l'addon</value>
+    <value>Vị trí addon</value>
   </data>
   <data name="Addon visible" xml:space="preserve">
-    <value>Addon visible</value>
+    <value>Addon hiển thị</value>
   </data>
   <data name="Addr" xml:space="preserve">
-    <value>Adresse</value>
+    <value>Địa chỉ</value>
   </data>
   <data name="Agent" xml:space="preserve">
     <value>Agent</value>
   </data>
   <data name="Agent Row" xml:space="preserve">
-    <value>Ligne de l'agent</value>
+    <value>Hàng agent</value>
   </data>
   <data name="Agent address" xml:space="preserve">
-    <value>Adresse de l'agent</value>
+    <value>Địa chỉ agent</value>
   </data>
   <data name="Agent address: {0}" xml:space="preserve">
-    <value>Adresse de l'agent: {0}</value>
+    <value>Địa chỉ agent: {0}</value>
   </data>
   <data name="Agent available" xml:space="preserve">
-    <value>Agent disponible</value>
+    <value>Agent khả dụng</value>
   </data>
   <data name="Allowed" xml:space="preserve">
-    <value>Autorisé</value>
+    <value>Cho phép</value>
   </data>
   <data name="Ambient light brightness" xml:space="preserve">
-    <value>Intensité de lumière ambiante</value>
+    <value>Độ sáng môi trường</value>
   </data>
   <data name="Ambient light color" xml:space="preserve">
-    <value>Couleur de lumière ambiante</value>
+    <value>Màu ánh sáng môi trường</value>
   </data>
   <data name="Animation progress" xml:space="preserve">
-    <value>Progression de l'animation</value>
+    <value>Tiến độ hoạt ảnh</value>
   </data>
   <data name="Auto refresh party on showcase open" xml:space="preserve">
-    <value>Actualiser à l'ouverture</value>
+    <value>Tự làm mới tổ đội khi mở trưng bày</value>
   </data>
   <data name="Auto refresh party on showcase open: {0}" xml:space="preserve">
-    <value>Actualiser à l'ouverture: {0}</value>
+    <value>Tự làm mới tổ đội khi mở trưng bày: {0}</value>
   </data>
   <data name="Automatic party feet recapture queue from Refresh party" xml:space="preserve">
-    <value>File de captures automatiques via l'actualisation du groupe</value>
+    <value>Hàng đợi tự chụp lại chân tổ đội từ Làm mới tổ đội</value>
   </data>
   <data name="Automatic party feet refresh finished. Captured {0}/{1} member(s){2}." xml:space="preserve">
-    <value>Actualisation terminée. {0}/{1} membres capturés{2}.</value>
+    <value>Đã làm mới chân tổ đội. Chụp được {0}/{1} thành viên{2}.</value>
   </data>
   <data name="Automatically refresh party once when showcase opens" xml:space="preserve">
-    <value>Actualiser le groupe une fois à l'ouverture</value>
+    <value>Tự làm mới tổ đội một lần khi mở trưng bày</value>
   </data>
   <data name="Banner background" xml:space="preserve">
-    <value>Fond de bannière</value>
+    <value>Nền khung chân dung</value>
   </data>
   <data name="Banner timeline" xml:space="preserve">
-    <value>Chronologie de bannière</value>
+    <value>Dòng thời gian chân dung</value>
   </data>
   <data name="BannerParty read-only research" xml:space="preserve">
-    <value>Recherche BannerParty en lecture seule</value>
+    <value>Nghiên cứu BannerParty chỉ đọc</value>
   </data>
   <data name="Barefoot apply: {0}" xml:space="preserve">
-    <value>Application pieds nus : {0}</value>
+    <value>Áp dụng chân trần: {0}</value>
   </data>
   <data name="Base" xml:space="preserve">
-    <value>Base</value>
+    <value>Cơ sở</value>
   </data>
   <data name="Base / Slider" xml:space="preserve">
-    <value>Base / Curseur</value>
+    <value>Cơ sở / Thanh trượt</value>
   </data>
   <data name="Blue" xml:space="preserve">
-    <value>Bleu</value>
+    <value>Xanh dương</value>
   </data>
   <data name="Buddy inspect" xml:space="preserve">
-    <value>Examen du compagnon</value>
+    <value>Kiểm tra đồng hành</value>
   </data>
   <data name="Bypassed" xml:space="preserve">
-    <value>Contourné</value>
+    <value>Bỏ qua giới hạn</value>
   </data>
   <data name="CID" xml:space="preserve">
     <value>CID</value>
   </data>
   <data name="COPY INSPECT REPORT" xml:space="preserve">
-    <value>COPIER LE RAPPORT D'EXAMEN</value>
+    <value>SAO CHÉP BÁO CÁO KIỂM TRA</value>
   </data>
   <data name="COPY TEST REPORT" xml:space="preserve">
-    <value>COPIER LE RAPPORT DE TEST</value>
+    <value>SAO CHÉP BÁO CÁO THỬ</value>
   </data>
   <data name="Cached Lodestone search/profile lookup state with local face thumbnails" xml:space="preserve">
-    <value>Recherche Lodestone en cache avec vignettes locales</value>
+    <value>Trạng thái tra cứu tìm kiếm/hồ sơ Lodestone đã lưu cùng ảnh mặt thu nhỏ cục bộ</value>
   </data>
   <data name="Callback base id" xml:space="preserve">
-    <value>ID de base du callback</value>
+    <value>ID cơ sở callback</value>
   </data>
   <data name="Camera FoV" xml:space="preserve">
-    <value>Champ de vision</value>
+    <value>Góc nhìn camera</value>
   </data>
   <data name="Camera distance" xml:space="preserve">
-    <value>Distance de la caméra</value>
+    <value>Khoảng cách camera</value>
   </data>
   <data name="Camera look-at" xml:space="preserve">
-    <value>Point visé par la caméra</value>
+    <value>Hướng nhìn camera</value>
   </data>
   <data name="Camera position" xml:space="preserve">
-    <value>Position de la caméra</value>
+    <value>Vị trí camera</value>
   </data>
   <data name="Camera status" xml:space="preserve">
-    <value>État de la caméra</value>
+    <value>Trạng thái camera</value>
   </data>
   <data name="Camera target" xml:space="preserve">
-    <value>Cible de la caméra</value>
+    <value>Mục tiêu camera</value>
   </data>
   <data name="Camera zoom" xml:space="preserve">
-    <value>Zoom de la caméra</value>
+    <value>Thu phóng camera</value>
   </data>
   <data name="Capture Current Preview" xml:space="preserve">
-    <value>Capturer l'aperçu actuel</value>
+    <value>Chụp xem trước hiện tại</value>
   </data>
   <data name="Capture Folder" xml:space="preserve">
-    <value>Dossier des captures</value>
+    <value>Thư mục ảnh chụp</value>
   </data>
   <data name="Capture failed for {0}: {1}" xml:space="preserve">
-    <value>Capture de {0} échouée : {1}</value>
+    <value>Chụp thất bại cho {0}: {1}</value>
   </data>
   <data name="Capture ready" xml:space="preserve">
-    <value>Prêt à capturer</value>
+    <value>Sẵn sàng chụp</value>
   </data>
   <data name="Capture status" xml:space="preserve">
-    <value>État de capture</value>
+    <value>Trạng thái chụp</value>
   </data>
   <data name="CharaView state" xml:space="preserve">
-    <value>État CharaView</value>
+    <value>Trạng thái CharaView</value>
   </data>
   <data name="Character" xml:space="preserve">
-    <value>Personnage</value>
+    <value>Nhân vật</value>
   </data>
   <data name="Character Inspect Research" xml:space="preserve">
-    <value>Recherche d'examen</value>
+    <value>Nghiên cứu kiểm tra nhân vật</value>
   </data>
   <data name="Character count: {0}" xml:space="preserve">
-    <value>Nombre de personnages : {0}</value>
+    <value>Số nhân vật: {0}</value>
   </data>
   <data name="CharacterInspect Capture State" xml:space="preserve">
-    <value>État de capture CharacterInspect</value>
+    <value>Trạng thái chụp CharacterInspect</value>
   </data>
   <data name="CharacterInspect is still settling on {0} ({1}/{2})." xml:space="preserve">
-    <value>CharacterInspect se stabilise pour {0} ({1}/{2}).</value>
+    <value>CharacterInspect vẫn đang ổn định cho {0} ({1}/{2}).</value>
   </data>
   <data name="Check DTR toggle behavior and party snapshot population" xml:space="preserve">
-    <value>Vérifier DTR et données du groupe</value>
+    <value>Kiểm tra nút DTR và việc điền ảnh chụp tổ đội</value>
   </data>
   <data name="Choose which party previews to show. Lodestone privacy is respected in normal use." xml:space="preserve">
-    <value>Choisissez les aperçus du groupe. La confidentialité Lodestone est respectée en usage normal.</value>
+    <value>Chọn ảnh tổ đội muốn hiển thị. Quyền riêng tư Lodestone được tôn trọng khi dùng bình thường.</value>
   </data>
   <data name="Client object" xml:space="preserve">
-    <value>Objet client</value>
+    <value>Đối tượng client</value>
   </data>
   <data name="Collision node" xml:space="preserve">
-    <value>Nœud de collision</value>
+    <value>Nút va chạm</value>
   </data>
   <data name="Color" xml:space="preserve">
-    <value>Couleur</value>
+    <value>Màu</value>
   </data>
   <data name="Configured portrait replacement toggle: {0}" xml:space="preserve">
-    <value>Remplacement des portraits configuré : {0}</value>
+    <value>Tùy chọn thay ảnh chân dung đã đặt: {0}</value>
   </data>
   <data name="Confirm the inspect preview rotates to the stored side-angle pose before capture" xml:space="preserve">
-    <value>Vérifier la pose de profil enregistrée avant la capture</value>
+    <value>Kiểm tra xem trước xoay sang góc nghiêng đã lưu trước khi chụp</value>
   </data>
   <data name="Copy a report before and after changing the selected portrait." xml:space="preserve">
-    <value>Copiez un rapport avant et après avoir changé le portrait sélectionné.</value>
+    <value>Sao chép báo cáo trước và sau khi đổi chân dung được chọn.</value>
   </data>
   <data name="Copy the report after the preview is stable." xml:space="preserve">
-    <value>Copiez le rapport une fois l'aperçu stable.</value>
+    <value>Sao chép báo cáo sau khi xem trước ổn định.</value>
   </data>
   <data name="Current Defaults" xml:space="preserve">
-    <value>Valeurs par défaut</value>
+    <value>Mặc định hiện tại</value>
   </data>
   <data name="Current entity" xml:space="preserve">
-    <value>Entité actuelle</value>
+    <value>Thực thể hiện tại</value>
   </data>
   <data name="Current party showcase data model with real or krangled labels from a saved toggle" xml:space="preserve">
-    <value>Données du groupe avec noms réels ou brouillés enregistrés</value>
+    <value>Mô hình dữ liệu trưng bày tổ đội hiện tại với nhãn thật hoặc nhãn Krangle từ tùy chọn đã lưu</value>
   </data>
   <data name="Custom RGB" xml:space="preserve">
-    <value>RVB personnalisé</value>
+    <value>RGB tùy chỉnh</value>
   </data>
   <data name="DTR disabled glyph" xml:space="preserve">
-    <value>Symbole DTR inactif</value>
+    <value>Ký tự DTR khi tắt</value>
   </data>
   <data name="DTR enabled glyph" xml:space="preserve">
-    <value>Symbole DTR actif</value>
+    <value>Ký tự DTR khi bật</value>
   </data>
   <data name="DTR mode" xml:space="preserve">
-    <value>Mode DTR</value>
+    <value>Chế độ DTR</value>
   </data>
   <data name="Debug snapshots refresh on demand." xml:space="preserve">
-    <value>Les instantanés debug sont actualisés à la demande.</value>
+    <value>Ảnh chụp gỡ lỗi làm mới theo yêu cầu.</value>
   </data>
   <data name="Debug: Respect Lodestone privacy" xml:space="preserve">
-    <value>Debug : respecter la confidentialité Lodestone</value>
+    <value>Gỡ lỗi: Tôn trọng quyền riêng tư Lodestone</value>
   </data>
   <data name="Default: Krangle labels" xml:space="preserve">
-    <value>Par défaut : Brouiller les noms</value>
+    <value>Mặc định: Nhãn Krangle</value>
   </data>
   <data name="Default: Replace party portrait window pictures" xml:space="preserve">
-    <value>Par défaut : Remplacer les portraits du groupe</value>
+    <value>Mặc định: Thay ảnh cửa sổ chân dung tổ đội</value>
   </data>
   <data name="Default: Show face next to feet" xml:space="preserve">
-    <value>Par défaut : Afficher le visage avec les pieds</value>
+    <value>Mặc định: Hiện mặt cạnh chân</value>
   </data>
   <data name="Default: Show female feet" xml:space="preserve">
-    <value>Par défaut : Afficher les pieds féminins</value>
+    <value>Mặc định: Hiện chân nữ</value>
   </data>
   <data name="Default: Show foot showcase" xml:space="preserve">
-    <value>Par défaut : Galerie des pieds</value>
+    <value>Mặc định: Hiện trưng bày chân</value>
   </data>
   <data name="Default: Show male feet" xml:space="preserve">
-    <value>Par défaut : Afficher les pieds masculins</value>
+    <value>Mặc định: Hiện chân nam</value>
   </data>
   <data name="Default: Show own feet" xml:space="preserve">
-    <value>Par défaut : Afficher vos pieds</value>
+    <value>Mặc định: Hiện chân của mình</value>
   </data>
   <data name="Default: Without footwear" xml:space="preserve">
-    <value>Par défaut : Sans chaussures</value>
+    <value>Mặc định: Không giày dép</value>
   </data>
   <data name="Derived yaw / pitch" xml:space="preserve">
-    <value>Lacet / tangage calculés</value>
+    <value>Góc xoay / nghiêng suy ra</value>
   </data>
   <data name="Direct CharacterInspect foot-capture research" xml:space="preserve">
-    <value>Recherche de capture des pieds CharacterInspect</value>
+    <value>Nghiên cứu chụp chân trực tiếp từ CharacterInspect</value>
   </data>
   <data name="Directional light angles" xml:space="preserve">
-    <value>Angles de lumière directionnelle</value>
+    <value>Góc ánh sáng định hướng</value>
   </data>
   <data name="Directional light brightness" xml:space="preserve">
-    <value>Intensité de lumière directionnelle</value>
+    <value>Độ sáng định hướng</value>
   </data>
   <data name="Directional light color" xml:space="preserve">
-    <value>Couleur de lumière directionnelle</value>
+    <value>Màu ánh sáng định hướng</value>
   </data>
   <data name="Discord" xml:space="preserve">
     <value>Discord</value>
   </data>
   <data name="Enable Without footwear and confirm Inspect clears the preview feet slot before capture" xml:space="preserve">
-    <value>Activer Sans chaussures et vérifier le retrait avant capture</value>
+    <value>Bật Không giày dép và kiểm tra ô chân xem trước được xóa trước khi chụp</value>
   </data>
   <data name="Enabled" xml:space="preserve">
-    <value>Activé</value>
+    <value>Đã bật</value>
   </data>
   <data name="Evt" xml:space="preserve">
-    <value>Événement</value>
+    <value>Sự kiện</value>
   </data>
   <data name="Evt / Flags" xml:space="preserve">
-    <value>Événement / Drapeaux</value>
+    <value>Sự kiện / Cờ</value>
   </data>
   <data name="Expression" xml:space="preserve">
-    <value>Expression</value>
+    <value>Biểu cảm</value>
   </data>
   <data name="Eye direction" xml:space="preserve">
-    <value>Direction du regard</value>
+    <value>Hướng mắt</value>
   </data>
   <data name="Face" xml:space="preserve">
-    <value>Visage</value>
+    <value>Mặt</value>
   </data>
   <data name="Face unavailable — feet hidden" xml:space="preserve">
-    <value>Visage indisponible — pieds masqués</value>
+    <value>Chưa có mặt — chân bị ẩn</value>
   </data>
   <data name="Face visible" xml:space="preserve">
-    <value>Visage visible</value>
+    <value>Mặt hiển thị</value>
   </data>
   <data name="Feet" xml:space="preserve">
-    <value>Pieds</value>
+    <value>Chân</value>
   </data>
   <data name="Feet are hidden when Lodestone does not expose a face." xml:space="preserve">
-    <value>Les pieds sont masqués si Lodestone ne montre pas de visage.</value>
+    <value>Chân bị ẩn khi Lodestone không công khai mặt.</value>
   </data>
   <data name="Feet preview" xml:space="preserve">
-    <value>Aperçu des pieds</value>
+    <value>Xem trước chân</value>
   </data>
   <data name="Feet: {0}" xml:space="preserve">
-    <value>Pieds : {0}</value>
+    <value>Chân: {0}</value>
   </data>
   <data name="Fetch status" xml:space="preserve">
-    <value>État de récupération</value>
+    <value>Trạng thái lấy dữ liệu</value>
   </data>
   <data name="Field" xml:space="preserve">
-    <value>Champ</value>
+    <value>Trường</value>
   </data>
   <data name="Filtered" xml:space="preserve">
-    <value>Filtré</value>
+    <value>Đã lọc</value>
   </data>
   <data name="Flags" xml:space="preserve">
-    <value>Drapeaux</value>
+    <value>Cờ</value>
   </data>
   <data name="Foot showcase" xml:space="preserve">
-    <value>Galerie des pieds</value>
+    <value>Trưng bày chân</value>
   </data>
   <data name="Foot showcase: {0}" xml:space="preserve">
-    <value>Galerie des pieds: {0}</value>
+    <value>Trưng bày chân: {0}</value>
   </data>
   <data name="Footballer Settings" xml:space="preserve">
-    <value>Paramètres Footballer</value>
+    <value>Cài đặt Footballer</value>
   </data>
   <data name="Footballer is disabled — enable it before refreshing party feet." xml:space="preserve">
-    <value>Footballer est désactivé — activez-le avant d'actualiser les pieds du groupe.</value>
+    <value>Footballer đang tắt — hãy bật trước khi làm mới chân tổ đội.</value>
   </data>
   <data name="Forced / On" xml:space="preserve">
-    <value>Forcé / actif</value>
+    <value>Bắt buộc / Bật</value>
   </data>
   <data name="Gate" xml:space="preserve">
-    <value>Autorisation</value>
+    <value>Điều kiện</value>
   </data>
   <data name="Head direction" xml:space="preserve">
-    <value>Direction de la tête</value>
+    <value>Hướng đầu</value>
   </data>
   <data name="Hidden" xml:space="preserve">
-    <value>Masqué</value>
+    <value>Ẩn</value>
   </data>
   <data name="Hidden CharacterInspect/BannerParty debug surfaces behind /footballer debug" xml:space="preserve">
-    <value>Outils CharacterInspect/BannerParty via /footballer debug</value>
+    <value>Giao diện gỡ lỗi CharacterInspect/BannerParty ẩn sau /footballer debug</value>
   </data>
   <data name="Hidden by privacy" xml:space="preserve">
-    <value>Masqué par confidentialité</value>
+    <value>Ẩn do quyền riêng tư</value>
   </data>
   <data name="Hidden by your display settings." xml:space="preserve">
-    <value>Masqué par vos paramètres d'affichage.</value>
+    <value>Ẩn theo cài đặt hiển thị của bạn.</value>
   </data>
   <data name="Hide feet when a character's face is unavailable on Lodestone to respect privacy." xml:space="preserve">
-    <value>Masquer les pieds si le visage est absent de Lodestone.</value>
+    <value>Ẩn chân khi mặt nhân vật không có trên Lodestone để tôn trọng quyền riêng tư.</value>
   </data>
   <data name="Hint" xml:space="preserve">
-    <value>Indication</value>
+    <value>Gợi ý</value>
   </data>
   <data name="Hold" xml:space="preserve">
-    <value>En attente</value>
+    <value>Chờ</value>
   </data>
   <data name="Holding {0} steady for capture ({1}/{2}). Waiting {3:0.0}s more before saving the feet preview." xml:space="preserve">
-    <value>Maintien de {0} pour la capture ({1}/{2}). Encore {3:0.0}s avant l'enregistrement.</value>
+    <value>Giữ {0} ổn định để chụp ({1}/{2}). Chờ thêm {3:0.0}s trước khi lưu ảnh chân.</value>
   </data>
   <data name="Icon + text" xml:space="preserve">
-    <value>Icône + texte</value>
+    <value>Biểu tượng + chữ</value>
   </data>
   <data name="Icon only" xml:space="preserve">
-    <value>Icône seule</value>
+    <value>Chỉ biểu tượng</value>
   </data>
   <data name="Idx" xml:space="preserve">
-    <value>Indice</value>
+    <value>Chỉ mục</value>
   </data>
   <data name="Image rotation" xml:space="preserve">
-    <value>Rotation de l'image</value>
+    <value>Xoay ảnh</value>
   </data>
   <data name="Inspect" xml:space="preserve">
-    <value>Examiner</value>
+    <value>Kiểm tra</value>
   </data>
   <data name="Inspect Capture" xml:space="preserve">
-    <value>Capture d'examen</value>
+    <value>Chụp kiểm tra</value>
   </data>
   <data name="Inspect active" xml:space="preserve">
-    <value>Examen actif</value>
+    <value>Kiểm tra đang hoạt động</value>
   </data>
   <data name="Inspect and capture tools are available in debug mode." xml:space="preserve">
-    <value>Les outils d'examen et de capture sont disponibles en mode debug.</value>
+    <value>Công cụ kiểm tra và chụp có trong chế độ gỡ lỗi.</value>
   </data>
   <data name="Inspect buttons plus a queued preset inspect pose and action-driven preview capture" xml:space="preserve">
-    <value>Examen, pose prédéfinie et capture manuelle</value>
+    <value>Nút Kiểm tra cùng tư thế xếp hàng và chụp xem trước theo thao tác</value>
   </data>
   <data name="Inspect requested" xml:space="preserve">
-    <value>Examen demandé</value>
+    <value>Đã yêu cầu kiểm tra</value>
   </data>
   <data name="Inspect state recorded" xml:space="preserve">
-    <value>État d'examen enregistré</value>
+    <value>Đã ghi trạng thái kiểm tra</value>
   </data>
   <data name="Inspect-ready" xml:space="preserve">
-    <value>Prêt à examiner</value>
+    <value>Sẵn sàng kiểm tra</value>
   </data>
   <data name="Interactive" xml:space="preserve">
-    <value>Interactif</value>
+    <value>Tương tác</value>
   </data>
   <data name="Job" xml:space="preserve">
-    <value>Job</value>
+    <value>Nghề</value>
   </data>
   <data name="Keep Footballer away from the preview while capturing. The crop profile applies to future captures." xml:space="preserve">
-    <value>Éloignez Footballer de l'aperçu pendant la capture. Le recadrage s'applique aux captures futures.</value>
+    <value>Di chuyển Footballer khỏi vùng xem trước khi chụp. Thiết lập cắt áp dụng cho các lần chụp sau.</value>
   </data>
   <data name="Ko-fi" xml:space="preserve">
     <value>Ko-fi</value>
   </data>
   <data name="Ko-fi and Discord links" xml:space="preserve">
-    <value>Liens Ko-fi et Discord</value>
+    <value>Liên kết Ko-fi và Discord</value>
   </data>
   <data name="Krangle Names" xml:space="preserve">
-    <value>Brouiller les noms</value>
+    <value>Trộn tên</value>
   </data>
   <data name="Krangle labels" xml:space="preserve">
-    <value>Brouiller les noms</value>
+    <value>Trộn nhãn</value>
   </data>
   <data name="Krangle labels: {0}" xml:space="preserve">
-    <value>Brouiller les noms: {0}</value>
+    <value>Trộn nhãn: {0}</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Langue</value>
+    <value>Ngôn ngữ</value>
   </data>
   <data name="Last saved CharacterInspect preview. Refresh party to capture a new image." xml:space="preserve">
-    <value>Dernier aperçu CharacterInspect enregistré. Actualisez le groupe pour une nouvelle image.</value>
+    <value>Ảnh xem trước CharacterInspect đã lưu gần nhất. Làm mới tổ đội để chụp ảnh mới.</value>
   </data>
   <data name="Latest saved preview snip: {0}" xml:space="preserve">
-    <value>Dernière capture d'aperçu : {0}</value>
+    <value>Ảnh xem trước đã lưu gần nhất: {0}</value>
   </data>
   <data name="Latest snip" xml:space="preserve">
-    <value>Dernière capture</value>
+    <value>Ảnh cắt gần nhất</value>
   </data>
   <data name="Links" xml:space="preserve">
-    <value>Liens</value>
+    <value>Liên kết</value>
   </data>
   <data name="Live BannerParty Addon Capture" xml:space="preserve">
-    <value>Capture de l'addon BannerParty</value>
+    <value>Thu thập addon BannerParty trực tiếp</value>
   </data>
   <data name="Live BannerParty Agent" xml:space="preserve">
-    <value>Agent BannerParty actif</value>
+    <value>Agent BannerParty trực tiếp</value>
   </data>
   <data name="Live Party Foot Showcase" xml:space="preserve">
-    <value>Galerie des pieds en direct</value>
+    <value>Trưng bày chân tổ đội trực tiếp</value>
   </data>
   <data name="Live Shell Controls" xml:space="preserve">
-    <value>Contrôles du plugin</value>
+    <value>Điều khiển chính trực tiếp</value>
   </data>
   <data name="Live Today" xml:space="preserve">
-    <value>Disponible aujourd'hui</value>
+    <value>Hoạt động hiện tại</value>
   </data>
   <data name="Live party foot showcase cards with honest capture status" xml:space="preserve">
-    <value>Cartes des pieds avec état réel de capture</value>
+    <value>Thẻ chân tổ đội trực tiếp với trạng thái chụp đúng thực tế</value>
   </data>
   <data name="Live party showcase and optional krangle toggle" xml:space="preserve">
-    <value>Galerie du groupe et brouillage facultatif</value>
+    <value>Trưng bày tổ đội trực tiếp và tùy chọn trộn nhãn</value>
   </data>
   <data name="Load plugin and open the main window" xml:space="preserve">
-    <value>Charger le plugin et ouvrir la fenêtre principale</value>
+    <value>Tải plugin và mở cửa sổ chính</value>
   </data>
   <data name="Loaded" xml:space="preserve">
-    <value>Chargé</value>
+    <value>Đã tải</value>
   </data>
   <data name="Loaded / copied" xml:space="preserve">
-    <value>Chargé / copié</value>
+    <value>Đã tải / sao chép</value>
   </data>
   <data name="Loading UI fonts..." xml:space="preserve">
-    <value>Chargement des polices…</value>
+    <value>Đang tải phông giao diện...</value>
   </data>
   <data name="Lodestone" xml:space="preserve">
     <value>Lodestone</value>
   </data>
   <data name="Lodestone face cache + privacy gating" xml:space="preserve">
-    <value>Cache des visages Lodestone et confidentialité</value>
+    <value>Ảnh mặt Lodestone đã lưu + điều kiện quyền riêng tư</value>
   </data>
   <data name="Lodestone privacy gate (debug): {0}" xml:space="preserve">
-    <value>Confidentialité Lodestone (debug) : {0}</value>
+    <value>Điều kiện quyền riêng tư Lodestone (gỡ lỗi): {0}</value>
   </data>
   <data name="Lodestone privacy gate: Forced on" xml:space="preserve">
-    <value>Confidentialité Lodestone : toujours active</value>
+    <value>Điều kiện quyền riêng tư Lodestone: Bắt buộc bật</value>
   </data>
   <data name="Lookup error" xml:space="preserve">
-    <value>Erreur de recherche</value>
+    <value>Lỗi tra cứu</value>
   </data>
   <data name="Lv {0}  {1}" xml:space="preserve">
-    <value>Nv {0}  {1}</value>
+    <value>Cấp {0}  {1}</value>
   </data>
   <data name="Main window, settings window, and DTR toggle" xml:space="preserve">
-    <value>Fenêtre principale, paramètres et commutateur DTR</value>
+    <value>Cửa sổ chính, cài đặt và nút DTR</value>
   </data>
   <data name="Main-window CharacterInspect scaling selector plus showcase-open guidance toast" xml:space="preserve">
-    <value>Échelle CharacterInspect et indication à l'ouverture</value>
+    <value>Chọn tỉ lệ CharacterInspect ở cửa sổ chính và hướng dẫn khi mở trưng bày</value>
   </data>
   <data name="Manager current camera" xml:space="preserve">
-    <value>Caméra actuelle du gestionnaire</value>
+    <value>Camera hiện tại của trình quản lý</value>
   </data>
   <data name="Match Scaling to CharacterInspect (60–200%) before capturing." xml:space="preserve">
-    <value>Alignez l'échelle sur CharacterInspect (60–200 %) avant de capturer.</value>
+    <value>Chỉnh Tỉ lệ khớp CharacterInspect (60–200%) trước khi chụp.</value>
   </data>
   <data name="Match Scaling to CharacterInspect, then Refresh party to capture a preview." xml:space="preserve">
-    <value>Alignez l'échelle sur CharacterInspect, puis actualisez le groupe.</value>
+    <value>Chỉnh Tỉ lệ khớp CharacterInspect, rồi Làm mới tổ đội để chụp xem trước.</value>
   </data>
   <data name="N" xml:space="preserve">
-    <value>Non</value>
+    <value>Không</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>Non</value>
+    <value>Không</value>
   </data>
   <data name="No automatic party feet refresh is queued." xml:space="preserve">
-    <value>Aucune actualisation automatique des pieds en attente.</value>
+    <value>Chưa xếp làm mới chân tổ đội tự động.</value>
   </data>
   <data name="No cached BannerParty addon or agent snapshot is available yet." xml:space="preserve">
-    <value>Aucun instantané de l'addon ou de l'agent BannerParty.</value>
+    <value>Chưa có dữ liệu addon hoặc agent BannerParty đã lưu.</value>
   </data>
   <data name="No cached CharacterInspect debug snapshot is available yet." xml:space="preserve">
-    <value>Aucun instantané debug CharacterInspect en cache.</value>
+    <value>Chưa có dữ liệu gỡ lỗi CharacterInspect đã lưu.</value>
   </data>
   <data name="No cached portrait debug snapshot is available yet." xml:space="preserve">
-    <value>Aucun instantané debug des portraits en cache.</value>
+    <value>Chưa có dữ liệu gỡ lỗi chân dung đã lưu.</value>
   </data>
   <data name="No eligible image. Faces come from Lodestone; feet need a saved CharacterInspect capture." xml:space="preserve">
-    <value>Aucune image admissible. Les visages viennent de Lodestone ; les pieds nécessitent une capture CharacterInspect.</value>
+    <value>Chưa có ảnh phù hợp. Mặt lấy từ Lodestone; chân cần ảnh CharacterInspect đã lưu.</value>
   </data>
   <data name="No face exposed" xml:space="preserve">
-    <value>Aucun visage visible</value>
+    <value>Mặt không công khai</value>
   </data>
   <data name="No feet preview yet — match Scaling, then Refresh party." xml:space="preserve">
-    <value>Pas encore d'aperçu — ajustez l'échelle, puis actualisez le groupe.</value>
+    <value>Chưa có ảnh chân — chỉnh Tỉ lệ rồi Làm mới tổ đội.</value>
   </data>
   <data name="No feet previews yet — match Scaling to CharacterInspect, then Refresh party." xml:space="preserve">
-    <value>Pas encore d'aperçus — alignez l'échelle sur CharacterInspect, puis actualisez le groupe.</value>
+    <value>Chưa có ảnh chân — chỉnh Tỉ lệ khớp CharacterInspect rồi Làm mới tổ đội.</value>
   </data>
   <data name="No image yet." xml:space="preserve">
-    <value>Pas encore d'image.</value>
+    <value>Chưa có ảnh.</value>
   </data>
   <data name="No live entity" xml:space="preserve">
-    <value>Entité absente</value>
+    <value>Không có thực thể đang hoạt động</value>
   </data>
   <data name="No live party members are available for an automatic feet refresh." xml:space="preserve">
-    <value>Aucun membre disponible pour l'actualisation automatique.</value>
+    <value>Chưa có thành viên tổ đội đang hoạt động để tự làm mới chân.</value>
   </data>
   <data name="No local player or party members are available yet, so there is nothing to render in the live showcase." xml:space="preserve">
-    <value>Aucun joueur ou membre du groupe disponible. La galerie est vide.</value>
+    <value>Chưa có nhân vật cục bộ hoặc thành viên tổ đội nên chưa có gì để hiển thị trong trưng bày trực tiếp.</value>
   </data>
   <data name="No local player or party members are available yet." xml:space="preserve">
-    <value>Aucun joueur ou membre du groupe disponible.</value>
+    <value>Chưa có nhân vật cục bộ hoặc thành viên tổ đội.</value>
   </data>
   <data name="No party members detected — join or form a party, then Refresh party." xml:space="preserve">
-    <value>Aucun membre détecté — rejoignez ou formez un groupe, puis actualisez-le.</value>
+    <value>Chưa thấy thành viên — vào hoặc lập tổ đội rồi Làm mới tổ đội.</value>
   </data>
   <data name="No profile match" xml:space="preserve">
-    <value>Aucun profil trouvé</value>
+    <value>Không khớp hồ sơ</value>
   </data>
   <data name="Node count: {0}" xml:space="preserve">
-    <value>Nombre de nœuds : {0}</value>
+    <value>Số nút: {0}</value>
   </data>
   <data name="NodeId" xml:space="preserve">
     <value>NodeId</value>
   </data>
   <data name="Not checked" xml:space="preserve">
-    <value>Non vérifié</value>
+    <value>Chưa kiểm tra</value>
   </data>
   <data name="Note" xml:space="preserve">
-    <value>Note</value>
+    <value>Ghi chú</value>
   </data>
   <data name="Off" xml:space="preserve">
-    <value>Désactivé</value>
+    <value>Tắt</value>
   </data>
   <data name="On" xml:space="preserve">
-    <value>Activé</value>
+    <value>Bật</value>
   </data>
   <data name="Open CharacterInspect and wait for a stable preview before capturing." xml:space="preserve">
-    <value>Ouvrez CharacterInspect et attendez un aperçu stable avant de capturer.</value>
+    <value>Mở CharacterInspect và chờ xem trước ổn định trước khi chụp.</value>
   </data>
   <data name="Open main window on load" xml:space="preserve">
-    <value>Ouvrir la fenêtre au chargement</value>
+    <value>Mở cửa sổ chính khi tải</value>
   </data>
   <data name="Override Off" xml:space="preserve">
-    <value>Dérogation inactive</value>
+    <value>Ghi đè tắt</value>
   </data>
   <data name="Party Portrait Window Research" xml:space="preserve">
-    <value>Recherche des portraits du groupe</value>
+    <value>Nghiên cứu cửa sổ chân dung tổ đội</value>
   </data>
   <data name="Party Showcase Model" xml:space="preserve">
-    <value>Modèle de galerie</value>
+    <value>Mô hình trưng bày tổ đội</value>
   </data>
   <data name="Party feet previews, simply." xml:space="preserve">
-    <value>Les pieds du groupe, tout simplement.</value>
+    <value>Xem chân tổ đội thật đơn giản.</value>
   </data>
   <data name="Party feet refresh: {0}" xml:space="preserve">
-    <value>Actualisation des pieds : {0}</value>
+    <value>Làm mới chân tổ đội: {0}</value>
   </data>
   <data name="Party feet workflow: Ready" xml:space="preserve">
-    <value>Aperçu des pieds : prêt</value>
+    <value>Quy trình chân tổ đội: Sẵn sàng</value>
   </data>
   <data name="Party feet workflow: Refreshing" xml:space="preserve">
-    <value>Aperçu des pieds : actualisation</value>
+    <value>Quy trình chân tổ đội: Đang làm mới</value>
   </data>
   <data name="Party snapshot, Lodestone lookup and privacy state." xml:space="preserve">
-    <value>Instantané du groupe, recherche Lodestone et confidentialité.</value>
+    <value>Dữ liệu tổ đội, tra cứu Lodestone và trạng thái quyền riêng tư.</value>
   </data>
   <data name="Passive" xml:space="preserve">
-    <value>Passif</value>
+    <value>Thụ động</value>
   </data>
   <data name="Pending capture" xml:space="preserve">
-    <value>Capture en attente</value>
+    <value>Đang chờ chụp</value>
   </data>
   <data name="Pick Same as character preview window!" xml:space="preserve">
-    <value>Choisissez la même échelle que l'aperçu du personnage !</value>
+    <value>Chọn giống cửa sổ xem trước nhân vật!</value>
   </data>
   <data name="Pick the Scaling to match the window, and click refresh party when ready" xml:space="preserve">
-    <value>Ajustez l'échelle à la fenêtre, puis actualisez le groupe.</value>
+    <value>Chọn Tỉ lệ khớp cửa sổ rồi nhấn Làm mới tổ đội khi sẵn sàng</value>
   </data>
   <data name="Pink" xml:space="preserve">
-    <value>Rose</value>
+    <value>Hồng</value>
   </data>
   <data name="Plugin enabled" xml:space="preserve">
-    <value>Plugin activé</value>
+    <value>Plugin đã bật</value>
   </data>
   <data name="Portrait write-path research" xml:space="preserve">
-    <value>Recherche d'écriture des portraits</value>
+    <value>Nghiên cứu luồng ghi chân dung</value>
   </data>
   <data name="Pos" xml:space="preserve">
-    <value>Position</value>
+    <value>Vị trí</value>
   </data>
   <data name="Pose" xml:space="preserve">
-    <value>Pose</value>
+    <value>Tư thế</value>
   </data>
   <data name="Pose preset: {0}" xml:space="preserve">
-    <value>Pose prédéfinie : {0}</value>
+    <value>Thiết lập tư thế: {0}</value>
   </data>
   <data name="Preview bounds" xml:space="preserve">
-    <value>Limites de l'aperçu</value>
+    <value>Vùng xem trước</value>
   </data>
   <data name="Preview captured" xml:space="preserve">
-    <value>Aperçu capturé</value>
+    <value>Đã chụp xem trước</value>
   </data>
   <data name="Preview character" xml:space="preserve">
-    <value>Personnage d'aperçu</value>
+    <value>Nhân vật xem trước</value>
   </data>
   <data name="Preview component" xml:space="preserve">
-    <value>Composant d'aperçu</value>
+    <value>Thành phần xem trước</value>
   </data>
   <data name="Preview draw object" xml:space="preserve">
-    <value>Objet de rendu de l'aperçu</value>
+    <value>Đối tượng hiển thị xem trước</value>
   </data>
   <data name="Preview draw position" xml:space="preserve">
-    <value>Position de rendu de l'aperçu</value>
+    <value>Vị trí hiển thị xem trước</value>
   </data>
   <data name="Preview draw rotation" xml:space="preserve">
-    <value>Rotation de rendu de l'aperçu</value>
+    <value>Xoay hiển thị xem trước</value>
   </data>
   <data name="Preview game position" xml:space="preserve">
-    <value>Position en jeu de l'aperçu</value>
+    <value>Vị trí xem trước trong game</value>
   </data>
   <data name="Preview game rotation" xml:space="preserve">
-    <value>Rotation en jeu de l'aperçu</value>
+    <value>Xoay xem trước trong game</value>
   </data>
   <data name="Preview node" xml:space="preserve">
-    <value>Nœud d'aperçu</value>
+    <value>Nút xem trước</value>
   </data>
   <data name="Preview node scale" xml:space="preserve">
-    <value>Échelle du nœud d'aperçu</value>
+    <value>Tỉ lệ nút xem trước</value>
   </data>
   <data name="Preview scaling" xml:space="preserve">
-    <value>Échelle de l'aperçu</value>
+    <value>Tỉ lệ xem trước</value>
   </data>
   <data name="Preview scaling fallback" xml:space="preserve">
-    <value>Échelle de secours</value>
+    <value>Tỉ lệ xem trước dự phòng</value>
   </data>
   <data name="Preview scaling: {0}%" xml:space="preserve">
-    <value>Échelle de l'aperçu: {0}%</value>
+    <value>Tỉ lệ xem trước: {0}%</value>
   </data>
   <data name="Preview snip: {0}" xml:space="preserve">
-    <value>Capture d'aperçu : {0}</value>
+    <value>Ảnh cắt xem trước: {0}</value>
   </data>
   <data name="Preview visible" xml:space="preserve">
-    <value>Aperçu visible</value>
+    <value>Xem trước hiển thị</value>
   </data>
   <data name="Preview-only barefoot multi-seam apply path when Without footwear is enabled" xml:space="preserve">
-    <value>Le mode pieds nus modifie uniquement l'aperçu</value>
+    <value>Luồng chân trần qua nhiều giao diện chỉ áp dụng cho xem trước khi bật Không giày dép</value>
   </data>
   <data name="Privacy is always on. /footballer debug exposes the session-only override." xml:space="preserve">
-    <value>La confidentialité est toujours active. /footballer debug affiche la dérogation pour cette session.</value>
+    <value>Quyền riêng tư luôn bật. /footballer debug mở ghi đè chỉ cho phiên hiện tại.</value>
   </data>
   <data name="Profile" xml:space="preserve">
-    <value>Profil</value>
+    <value>Hồ sơ</value>
   </data>
   <data name="Queued automatic party feet refresh for {0} member(s)." xml:space="preserve">
-    <value>Actualisation automatique prévue pour {0} membres.</value>
+    <value>Đã xếp làm mới chân tự động cho {0} thành viên.</value>
   </data>
   <data name="Rail" xml:space="preserve">
-    <value>Rail</value>
+    <value>Thanh</value>
   </data>
   <data name="Raw scene camera" xml:space="preserve">
-    <value>Caméra de scène brute</value>
+    <value>Camera cảnh gốc</value>
   </data>
   <data name="Read-Only Active Row Payload" xml:space="preserve">
-    <value>Données de ligne active (lecture seule)</value>
+    <value>Dữ liệu hàng hiện tại chỉ đọc</value>
   </data>
   <data name="Refresh Inspect Debug" xml:space="preserve">
-    <value>Actualiser le debug d'examen</value>
+    <value>Làm mới gỡ lỗi kiểm tra</value>
   </data>
   <data name="Refresh Inspect Debug to populate the snapshot and report." xml:space="preserve">
-    <value>Actualisez le debug d'examen pour remplir l'instantané et le rapport.</value>
+    <value>Làm mới gỡ lỗi kiểm tra để điền dữ liệu và báo cáo.</value>
   </data>
   <data name="Refresh Lodestone" xml:space="preserve">
-    <value>Actualiser Lodestone</value>
+    <value>Làm mới Lodestone</value>
   </data>
   <data name="Refresh Lodestone lookup state and confirm face thumbnails can appear on the showcase cards" xml:space="preserve">
-    <value>Actualiser Lodestone et vérifier les vignettes</value>
+    <value>Làm mới tra cứu Lodestone và kiểm tra ảnh mặt thu nhỏ có thể hiện trên thẻ trưng bày</value>
   </data>
   <data name="Refresh Portrait Debug" xml:space="preserve">
-    <value>Actualiser le debug des portraits</value>
+    <value>Làm mới gỡ lỗi chân dung</value>
   </data>
   <data name="Refresh Portrait Debug to populate the snapshot and report." xml:space="preserve">
-    <value>Actualisez le debug des portraits pour remplir l'instantané et le rapport.</value>
+    <value>Làm mới gỡ lỗi chân dung để điền dữ liệu và báo cáo.</value>
   </data>
   <data name="Refresh party" xml:space="preserve">
-    <value>Actualiser le groupe</value>
+    <value>Làm mới tổ đội</value>
   </data>
   <data name="Refreshing" xml:space="preserve">
-    <value>Actualisation</value>
+    <value>Đang làm mới</value>
   </data>
   <data name="Refreshing feet preview for {0} ({1}/{2}). Requested CharacterInspect." xml:space="preserve">
-    <value>Actualisation des pieds de {0} ({1}/{2}). CharacterInspect demandé.</value>
+    <value>Đang làm mới ảnh chân cho {0} ({1}/{2}). Đã yêu cầu CharacterInspect.</value>
   </data>
   <data name="Refreshing..." xml:space="preserve">
-    <value>Actualisation…</value>
+    <value>Đang làm mới...</value>
   </data>
   <data name="Replace party portrait window pictures" xml:space="preserve">
-    <value>Remplacer les portraits du groupe</value>
+    <value>Thay ảnh cửa sổ chân dung tổ đội</value>
   </data>
   <data name="Replace party portrait window pictures: {0}" xml:space="preserve">
-    <value>Remplacer les portraits du groupe: {0}</value>
+    <value>Thay ảnh cửa sổ chân dung tổ đội: {0}</value>
   </data>
   <data name="Requested entity" xml:space="preserve">
-    <value>Entité demandée</value>
+    <value>Thực thể được yêu cầu</value>
   </data>
   <data name="Research Notes" xml:space="preserve">
-    <value>Notes de recherche</value>
+    <value>Ghi chú nghiên cứu</value>
   </data>
   <data name="Reset snip profile" xml:space="preserve">
-    <value>Réinitialiser le recadrage</value>
+    <value>Đặt lại thiết lập cắt</value>
   </data>
   <data name="Retest Focus" xml:space="preserve">
-    <value>Points à revérifier</value>
+    <value>Trọng tâm kiểm tra lại</value>
   </data>
   <data name="Retry" xml:space="preserve">
-    <value>Réessayer</value>
+    <value>Thử lại</value>
   </data>
   <data name="Role" xml:space="preserve">
-    <value>Rôle</value>
+    <value>Vai trò</value>
   </data>
   <data name="Rollout Phases" xml:space="preserve">
-    <value>Phases de déploiement</value>
+    <value>Giai đoạn triển khai</value>
   </data>
   <data name="Row" xml:space="preserve">
-    <value>Ligne</value>
+    <value>Hàng</value>
   </data>
   <data name="Saved globally for future targets." xml:space="preserve">
-    <value>Enregistré pour toutes les cibles futures.</value>
+    <value>Đã lưu chung cho các mục tiêu sau.</value>
   </data>
   <data name="Scaling" xml:space="preserve">
-    <value>Échelle</value>
+    <value>Tỉ lệ</value>
   </data>
   <data name="Scaling 100%" xml:space="preserve">
-    <value>Échelle 100%</value>
+    <value>Tỉ lệ 100%</value>
   </data>
   <data name="Scene camera manager" xml:space="preserve">
-    <value>Gestionnaire de caméra</value>
+    <value>Trình quản lý camera cảnh</value>
   </data>
   <data name="Scene manager index" xml:space="preserve">
-    <value>Index du gestionnaire</value>
+    <value>Chỉ mục trình quản lý cảnh</value>
   </data>
   <data name="Scroll down to &quot;The Dumpster Fire&quot; channel to discuss issues / suggestions for specific plugins." xml:space="preserve">
-    <value>Consultez le canal « The Dumpster Fire » pour les problèmes et suggestions de plugins.</value>
+    <value>Cuộn xuống kênh "The Dumpster Fire" để thảo luận lỗi hoặc góp ý cho từng plugin.</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Rechercher</value>
+    <value>Tìm kiếm</value>
   </data>
   <data name="Self hidden" xml:space="preserve">
-    <value>Vos pieds masqués</value>
+    <value>Ẩn bản thân</value>
   </data>
   <data name="Session debug controls are visible. Privacy override is experimental." xml:space="preserve">
-    <value>Contrôles debug de session visibles. La dérogation de confidentialité est expérimentale.</value>
+    <value>Điều khiển gỡ lỗi phiên hiện rõ. Ghi đè quyền riêng tư đang thử nghiệm.</value>
   </data>
   <data name="Session debug mode is active. Hidden research surfaces are visible below." xml:space="preserve">
-    <value>Mode debug de session actif. Les outils de recherche sont affichés ci-dessous.</value>
+    <value>Chế độ gỡ lỗi phiên đang bật. Các vùng nghiên cứu ẩn hiện bên dưới.</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Paramètres</value>
+    <value>Cài đặt</value>
   </data>
   <data name="Shell and docs" xml:space="preserve">
-    <value>Structure et documentation</value>
+    <value>Điều khiển chính và tài liệu</value>
   </data>
   <data name="Show DTR bar entry" xml:space="preserve">
-    <value>Afficher l'entrée DTR</value>
+    <value>Hiện mục thanh DTR</value>
   </data>
   <data name="Show face next to feet" xml:space="preserve">
-    <value>Afficher le visage avec les pieds</value>
+    <value>Hiện mặt cạnh chân</value>
   </data>
   <data name="Show face next to feet: {0}" xml:space="preserve">
-    <value>Afficher le visage avec les pieds: {0}</value>
+    <value>Hiện mặt cạnh chân: {0}</value>
   </data>
   <data name="Show female feet" xml:space="preserve">
-    <value>Afficher les pieds féminins</value>
+    <value>Hiện chân nữ</value>
   </data>
   <data name="Show female feet: {0}" xml:space="preserve">
-    <value>Afficher les pieds féminins: {0}</value>
+    <value>Hiện chân nữ: {0}</value>
   </data>
   <data name="Show male feet" xml:space="preserve">
-    <value>Afficher les pieds masculins</value>
+    <value>Hiện chân nam</value>
   </data>
   <data name="Show male feet: {0}" xml:space="preserve">
-    <value>Afficher les pieds masculins: {0}</value>
+    <value>Hiện chân nam: {0}</value>
   </data>
   <data name="Show own feet" xml:space="preserve">
-    <value>Afficher vos pieds</value>
+    <value>Hiện chân của mình</value>
   </data>
   <data name="Show own feet: {0}" xml:space="preserve">
-    <value>Afficher vos pieds: {0}</value>
+    <value>Hiện chân của mình: {0}</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>Taille</value>
+    <value>Kích thước</value>
   </data>
   <data name="Slider" xml:space="preserve">
-    <value>Curseur</value>
+    <value>Thanh trượt</value>
   </data>
   <data name="Slot" xml:space="preserve">
-    <value>Emplacement</value>
+    <value>Ô</value>
   </data>
   <data name="Snapshot captured" xml:space="preserve">
-    <value>Instantané capturé</value>
+    <value>Đã thu thập dữ liệu</value>
   </data>
   <data name="Snip action" xml:space="preserve">
-    <value>Action de recadrage</value>
+    <value>Thao tác cắt</value>
   </data>
   <data name="Snip bottom trim %" xml:space="preserve">
-    <value>Recadrage inférieur %</value>
+    <value>Cắt dưới %</value>
   </data>
   <data name="Snip rect" xml:space="preserve">
-    <value>Zone de recadrage</value>
+    <value>Vùng cắt</value>
   </data>
   <data name="Snip top trim %" xml:space="preserve">
-    <value>Recadrage supérieur %</value>
+    <value>Cắt trên %</value>
   </data>
   <data name="Standard /footballer, /foot, /footballer ws, and /footballer j shell controls" xml:space="preserve">
-    <value>Commandes /footballer, /foot, /footballer ws et /footballer j</value>
+    <value>Điều khiển chuẩn /footballer, /foot, /footballer ws và /footballer j</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>État</value>
+    <value>Trạng thái</value>
   </data>
   <data name="State / Pose" xml:space="preserve">
-    <value>État / pose</value>
+    <value>Trạng thái / Tư thế</value>
   </data>
   <data name="State {0} | Pose {1} | CJ {2}" xml:space="preserve">
-    <value>État {0} | Pose {1} | CJ {2}</value>
+    <value>Trạng thái {0} | Tư thế {1} | CJ {2}</value>
   </data>
   <data name="Stored Display Defaults" xml:space="preserve">
-    <value>Affichage par défaut enregistré</value>
+    <value>Mặc định hiển thị đã lưu</value>
   </data>
   <data name="Stored crop defaults: 65% top / 20% bottom." xml:space="preserve">
-    <value>Recadrage par défaut : 65 % en haut / 20 % en bas.</value>
+    <value>Cắt mặc định đã lưu: 65% trên / 20% dưới.</value>
   </data>
   <data name="Stored privacy/default configuration values" xml:space="preserve">
-    <value>Confidentialité et valeurs par défaut enregistrées</value>
+    <value>Giá trị quyền riêng tư/mặc định đã lưu</value>
   </data>
   <data name="Stored snip profile" xml:space="preserve">
-    <value>Recadrage enregistré</value>
+    <value>Thiết lập cắt đã lưu</value>
   </data>
   <data name="Teal" xml:space="preserve">
-    <value>Turquoise</value>
+    <value>Xanh ngọc</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>Texte</value>
+    <value>Chữ</value>
   </data>
   <data name="Text only" xml:space="preserve">
-    <value>Texte seul</value>
+    <value>Chỉ chữ</value>
   </data>
   <data name="The foot showcase toggle is currently off." xml:space="preserve">
-    <value>La galerie des pieds est désactivée.</value>
+    <value>Tùy chọn trưng bày chân đang tắt.</value>
   </data>
   <data name="This member is not available for inspection in the current game scene." xml:space="preserve">
-    <value>Ce membre ne peut pas être examiné dans la scène actuelle.</value>
+    <value>Thành viên này không thể kiểm tra trong cảnh game hiện tại.</value>
   </data>
   <data name="Timed out while refreshing {0}." xml:space="preserve">
-    <value>Délai dépassé lors de l'actualisation de {0}.</value>
+    <value>Hết thời gian làm mới {0}.</value>
   </data>
   <data name="Toggle male/female/self/showcase/face settings and confirm the live showcase cards respond immediately" xml:space="preserve">
-    <value>Basculer sexe/soi/galerie/visage et vérifier l'affichage immédiat</value>
+    <value>Đổi tùy chọn nam/nữ/bản thân/trưng bày/mặt và kiểm tra thẻ phản hồi ngay</value>
   </data>
   <data name="Treat portrait-window replacement and the showcase window as explicit experiments with safe toggles and hidden debug surfaces." xml:space="preserve">
-    <value>Le remplacement des portraits et la galerie restent des expériences désactivables avec debug masqué.</value>
+    <value>Xem việc thay ảnh chân dung và cửa sổ trưng bày là thử nghiệm có tùy chọn an toàn cùng vùng gỡ lỗi ẩn.</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type</value>
+    <value>Loại</value>
   </data>
   <data name="Type /footballer debug and confirm the hidden inspect and BannerParty research surfaces appear" xml:space="preserve">
-    <value>/footballer debug affiche les outils d'examen et BannerParty</value>
+    <value>Gõ /footballer debug và kiểm tra vùng nghiên cứu Inspect cùng BannerParty hiện ra</value>
   </data>
   <data name="UI fonts failed to load. See the plugin log." xml:space="preserve">
-    <value>Échec du chargement des polices. Consultez le journal du plugin.</value>
+    <value>Không tải được phông giao diện. Xem nhật ký plugin.</value>
   </data>
   <data name="Un-Krangle" xml:space="preserve">
-    <value>Noms d'origine</value>
+    <value>Khôi phục tên</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Inconnu</value>
+    <value>Không rõ</value>
   </data>
   <data name="Updated the feet preview for {0} ({1}/{2})." xml:space="preserve">
-    <value>Aperçu des pieds de {0} actualisé ({1}/{2}).</value>
+    <value>Đã cập nhật ảnh chân cho {0} ({1}/{2}).</value>
   </data>
   <data name="Use /foot ws and /foot j" xml:space="preserve">
-    <value>Utiliser /foot ws et /foot j</value>
+    <value>Dùng /foot ws và /foot j</value>
   </data>
   <data name="Use Capture Current Preview and confirm the saved CharacterInspect image lands on the matching showcase card" xml:space="preserve">
-    <value>Capturer l'aperçu et vérifier la carte correspondante</value>
+    <value>Dùng Chụp xem trước hiện tại và kiểm tra ảnh CharacterInspect đã lưu hiện trên đúng thẻ</value>
   </data>
   <data name="Use Inspect on a party row or showcase card and confirm CharacterInspect opens for that member" xml:space="preserve">
-    <value>Examiner une ligne/carte ouvre CharacterInspect pour ce membre</value>
+    <value>Dùng Kiểm tra trên hàng tổ đội hoặc thẻ và xác nhận CharacterInspect mở cho thành viên đó</value>
   </data>
   <data name="Use Inspect, wait for a stable preview, then Capture Current Preview. Refresh party captures each member after a two-second hold." xml:space="preserve">
-    <value>Examinez, attendez un aperçu stable, puis capturez. L'actualisation attend deux secondes avant chaque capture.</value>
+    <value>Dùng Kiểm tra, chờ xem trước ổn định rồi Chụp xem trước hiện tại. Làm mới tổ đội chụp từng thành viên sau khi giữ hai giây.</value>
   </data>
   <data name="Use Refresh party and confirm the plugin walks the live party snapshot and refreshes feet captures sequentially" xml:space="preserve">
-    <value>Actualiser le groupe et vérifier les captures séquentielles</value>
+    <value>Dùng Làm mới tổ đội và kiểm tra plugin duyệt thành viên hiện tại rồi cập nhật ảnh chân lần lượt</value>
   </data>
   <data name="Use live CharacterInspect preview capture plus a queued preset inspect yaw and a preview-only multi-seam feet clear and redraw path for the current direct character-derived branch, then defer true foot-only crop/export until that path stays stable." xml:space="preserve">
-    <value>Capture CharacterInspect avec pose prédéfinie et pieds nus ; export des pieds seuls à étudier ensuite.</value>
+    <value>Dùng ảnh xem trước CharacterInspect trực tiếp, góc xoay xếp hàng và luồng xóa trang bị chân qua nhiều giao diện chỉ trong xem trước cho nhánh lấy từ nhân vật hiện tại. Hoãn cắt/xuất chỉ chân đến khi luồng đó ổn định.</value>
   </data>
   <data name="Use the TTSL Lodestone face approach as the likely path for adjacent identity visuals." xml:space="preserve">
-    <value>Approche TTSL des visages Lodestone pour les images d'identité complémentaires.</value>
+    <value>Dùng phương pháp ảnh mặt Lodestone của TTSL làm hướng khả dĩ cho hình nhận diện bên cạnh.</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>Valeur</value>
+    <value>Giá trị</value>
   </data>
   <data name="Verify the hidden privacy override only appears after /footballer debug" xml:space="preserve">
-    <value>La dérogation apparaît uniquement après /footballer debug</value>
+    <value>Kiểm tra ghi đè quyền riêng tư chỉ hiện sau /footballer debug</value>
   </data>
   <data name="Visible" xml:space="preserve">
-    <value>Visible</value>
+    <value>Hiển thị</value>
   </data>
   <data name="Waiting for AgentInspect before refreshing {0} ({1}/{2})." xml:space="preserve">
-    <value>Attente d'AgentInspect pour {0} ({1}/{2}).</value>
+    <value>Đang chờ AgentInspect trước khi làm mới {0} ({1}/{2}).</value>
   </data>
   <data name="Waiting for AgentInspect before starting {0} ({1}/{2})." xml:space="preserve">
-    <value>Attente d'AgentInspect pour démarrer {0} ({1}/{2}).</value>
+    <value>Đang chờ AgentInspect trước khi bắt đầu {0} ({1}/{2}).</value>
   </data>
   <data name="Waiting for CharacterInspect to switch to {0} ({1}/{2})." xml:space="preserve">
-    <value>Attente du passage de CharacterInspect à {0} ({1}/{2}).</value>
+    <value>Đang chờ CharacterInspect chuyển sang {0} ({1}/{2}).</value>
   </data>
   <data name="Waiting for the Lodestone privacy check. Use Refresh Lodestone to retry." xml:space="preserve">
-    <value>Vérification de confidentialité en attente. Actualisez Lodestone pour réessayer.</value>
+    <value>Đang chờ kiểm tra quyền riêng tư Lodestone. Dùng Làm mới Lodestone để thử lại.</value>
   </data>
   <data name="Waiting for the barefoot preview apply path on {0} ({1}/{2})." xml:space="preserve">
-    <value>Attente de l'aperçu pieds nus de {0} ({1}/{2}).</value>
+    <value>Đang chờ áp dụng chân trần cho {0} ({1}/{2}).</value>
   </data>
   <data name="Waiting for the inspect preview to become capture-ready for {0} ({1}/{2})." xml:space="preserve">
-    <value>Attente d'un aperçu prêt pour {0} ({1}/{2}).</value>
+    <value>Đang chờ xem trước kiểm tra sẵn sàng chụp cho {0} ({1}/{2}).</value>
   </data>
   <data name="Waiting for the preset inspect pose on {0} ({1}/{2})." xml:space="preserve">
-    <value>Attente de la pose prédéfinie de {0} ({1}/{2}).</value>
+    <value>Đang chờ tư thế kiểm tra đã đặt cho {0} ({1}/{2}).</value>
   </data>
   <data name="Window Behavior" xml:space="preserve">
-    <value>Comportement des fenêtres</value>
+    <value>Hành vi cửa sổ</value>
   </data>
   <data name="Without footwear" xml:space="preserve">
-    <value>Sans chaussures</value>
+    <value>Không giày dép</value>
   </data>
   <data name="Without footwear removes shoes in the inspect preview only. Refresh party to save new previews." xml:space="preserve">
-    <value>Sans chaussures retire les chaussures uniquement dans l'aperçu d'examen. Actualisez le groupe pour enregistrer de nouveaux aperçus.</value>
+    <value>Không giày dép chỉ bỏ giày trong xem trước kiểm tra. Làm mới tổ đội để lưu ảnh mới.</value>
   </data>
   <data name="Without footwear: {0}" xml:space="preserve">
-    <value>Sans chaussures: {0}</value>
+    <value>Không giày dép: {0}</value>
   </data>
   <data name="World" xml:space="preserve">
-    <value>Monde</value>
+    <value>Máy chủ</value>
   </data>
   <data name="Y" xml:space="preserve">
-    <value>Oui</value>
+    <value>Có</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Oui</value>
+    <value>Có</value>
   </data>
   <data name="Zoom ratio" xml:space="preserve">
-    <value>Facteur de zoom</value>
+    <value>Tỉ lệ thu phóng</value>
   </data>
   <data name="{0:P0} top / {1:P0} bottom" xml:space="preserve">
-    <value>{0:P0} en haut / {1:P0} en bas</value>
+    <value>{0:P0} trên / {1:P0} dưới</value>
   </data>
   <data name="{0} (You)" xml:space="preserve">
-    <value>{0} (Vous)</value>
+    <value>{0} (Bạn)</value>
   </data>
   <data name="{0} previews available · {1} hidden by privacy" xml:space="preserve">
-    <value>{0} aperçus · {1} masqués par confidentialité</value>
+    <value>{0} ảnh xem trước · {1} bị ẩn do quyền riêng tư</value>
   </data>
   <data name="{0} {1}. Click to toggle." xml:space="preserve">
-    <value>{0} {1}. Cliquez pour basculer.</value>
+    <value>{0} {1}. Nhấn để chuyển đổi.</value>
   </data>
   <data name="Compact mode" xml:space="preserve">
-    <value>Mode compact</value>
+    <value>Chế độ gọn</value>
   </data>
   <data name="Inspect pose preset is idle. Target yaw is {0}." xml:space="preserve">
-    <value>Le préréglage de pose d’inspection est inactif. Le lacet cible est {0}.</value>
+    <value>Thiết lập tư thế kiểm tra đang chờ. Góc xoay đích là {0}.</value>
   </data>
   <data name="Cannot queue the inspect pose preset yet because the inspect target has no live entity id." xml:space="preserve">
-    <value>Le préréglage de pose ne peut pas encore être mis en file : la cible d’inspection n’a pas d’identifiant d’entité actif.</value>
+    <value>Chưa thể xếp tư thế kiểm tra vào hàng đợi vì mục tiêu không có ID thực thể đang hoạt động.</value>
   </data>
   <data name="Queued the inspect pose preset for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
-    <value>Préréglage de pose mis en file pour {0}. En attente du chargement complet de la cible dans CharacterInspect.</value>
+    <value>Đã xếp tư thế kiểm tra cho {0}. Đang chờ CharacterInspect tải xong mục tiêu.</value>
   </data>
   <data name="CharacterInspect has no current entity yet, so the inspect pose preset cannot run." xml:space="preserve">
-    <value>CharacterInspect n’a pas encore d’entité courante ; le préréglage de pose ne peut pas être appliqué.</value>
+    <value>CharacterInspect chưa có thực thể hiện tại nên không thể áp dụng tư thế kiểm tra.</value>
   </data>
   <data name="The inspect pose preset is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
-    <value>Le préréglage de pose est encore en cours d’application à la cible CharacterInspect. Patientez, puis capturez à nouveau.</value>
+    <value>Đang áp dụng tư thế cho mục tiêu CharacterInspect hiện tại. Hãy chờ một chút rồi chụp lại.</value>
   </data>
   <data name="Inspect pose preset timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
-    <value>Délai dépassé pour le préréglage de pose de {0}. Rouvrez l’inspection et réessayez.</value>
+    <value>Tư thế kiểm tra cho {0} đã hết thời gian chờ. Mở lại Kiểm tra và thử lại.</value>
   </data>
   <data name="Waiting for CharacterInspect to switch to {0} before applying the inspect pose preset." xml:space="preserve">
-    <value>En attente du passage de CharacterInspect à {0} avant d’appliquer le préréglage de pose.</value>
+    <value>Đang chờ CharacterInspect chuyển sang {0} trước khi áp dụng tư thế.</value>
   </data>
   <data name="CharacterInspect is open for {0}, but the preview model is not ready for the inspect pose preset yet." xml:space="preserve">
-    <value>CharacterInspect est ouvert pour {0}, mais le modèle d’aperçu n’est pas encore prêt pour le préréglage de pose.</value>
+    <value>CharacterInspect đã mở cho {0}, nhưng mô hình xem trước chưa sẵn sàng áp dụng tư thế.</value>
   </data>
   <data name="CharacterInspect is open for {0}, but the preview character is still unavailable." xml:space="preserve">
-    <value>CharacterInspect est ouvert pour {0}, mais le personnage d’aperçu reste indisponible.</value>
+    <value>CharacterInspect đã mở cho {0}, nhưng nhân vật xem trước vẫn chưa khả dụng.</value>
   </data>
   <data name="Inspect pose preset is ready for {0}. {1}" xml:space="preserve">
-    <value>Préréglage de pose prêt pour {0}. {1}</value>
+    <value>Tư thế kiểm tra đã sẵn sàng cho {0}. {1}</value>
   </data>
   <data name="Applied the inspect pose preset for {0}. {1}" xml:space="preserve">
-    <value>Préréglage de pose appliqué à {0}. {1}</value>
+    <value>Đã áp dụng tư thế kiểm tra cho {0}. {1}</value>
   </data>
   <data name="Inspect pose preset is still applying for {0}. {1}" xml:space="preserve">
-    <value>Préréglage de pose toujours en cours d’application à {0}. {1}</value>
+    <value>Đang áp dụng tư thế kiểm tra cho {0}. {1}</value>
   </data>
   <data name="Preview game yaw is {0} and draw rotation is ({1})." xml:space="preserve">
-    <value>Le lacet de l’aperçu en jeu est {0} et la rotation du rendu est ({1}).</value>
+    <value>Góc xoay xem trước trong game là {0}, góc xoay hiển thị là ({1}).</value>
   </data>
   <data name="Current preview yaw is {0} and draw rotation is ({1}). Target draw rotation is ({2})." xml:space="preserve">
-    <value>Lacet actuel de l’aperçu : {0} ; rotation du rendu : ({1}). Rotation cible du rendu : ({2}).</value>
+    <value>Góc xoay xem trước hiện tại là {0}, góc xoay hiển thị là ({1}). Góc xoay hiển thị đích là ({2}).</value>
   </data>
   <data name="Barefoot preview mode is on. Use Inspect to queue a multi-seam feet-slot clear for the current CharacterInspect target." xml:space="preserve">
-    <value>Le mode pieds nus est activé. Utilisez Inspecter pour mettre en file l’effacement de l’emplacement des pieds sur les différentes interfaces de la cible CharacterInspect.</value>
+    <value>Chế độ xem trước chân trần đã bật. Dùng Kiểm tra để xếp thao tác xóa ô chân qua nhiều giao diện cho mục tiêu CharacterInspect hiện tại.</value>
   </data>
   <data name="Barefoot preview mode is off." xml:space="preserve">
-    <value>Le mode pieds nus est désactivé.</value>
+    <value>Chế độ xem trước chân trần đã tắt.</value>
   </data>
   <data name="Cannot queue barefoot preview mode yet because the inspect target has no live entity id." xml:space="preserve">
-    <value>Le mode pieds nus ne peut pas encore être mis en file : la cible d’inspection n’a pas d’identifiant d’entité actif.</value>
+    <value>Chưa thể xếp xem trước chân trần vào hàng đợi vì mục tiêu không có ID thực thể đang hoạt động.</value>
   </data>
   <data name="Queued a barefoot preview update for {0}. Waiting for CharacterInspect to finish loading that target." xml:space="preserve">
-    <value>Mise à jour pieds nus en file pour {0}. En attente du chargement complet de la cible dans CharacterInspect.</value>
+    <value>Đã xếp cập nhật xem trước chân trần cho {0}. Đang chờ CharacterInspect tải xong mục tiêu.</value>
   </data>
   <data name="CharacterInspect is unavailable right now, so barefoot preview mode cannot queue yet." xml:space="preserve">
-    <value>CharacterInspect est indisponible ; le mode pieds nus ne peut pas encore être mis en file.</value>
+    <value>CharacterInspect hiện chưa khả dụng nên chưa thể xếp xem trước chân trần vào hàng đợi.</value>
   </data>
   <data name="CharacterInspect has no current or pending target yet, so barefoot preview mode has nothing to queue." xml:space="preserve">
-    <value>CharacterInspect n’a ni cible courante ni cible en attente ; aucune prévisualisation pieds nus à mettre en file.</value>
+    <value>CharacterInspect chưa có mục tiêu hiện tại hoặc đang chờ nên không có gì để xếp vào hàng đợi chân trần.</value>
   </data>
   <data name="CharacterInspect has no current entity yet, so barefoot preview capture cannot run." xml:space="preserve">
-    <value>CharacterInspect n’a pas encore d’entité courante ; la capture pieds nus ne peut pas être effectuée.</value>
+    <value>CharacterInspect chưa có thực thể hiện tại nên không thể chụp xem trước chân trần.</value>
   </data>
   <data name="Barefoot preview is still being applied to the current CharacterInspect target. Wait a moment, then capture again." xml:space="preserve">
-    <value>Le mode pieds nus est encore en cours d’application à la cible CharacterInspect. Patientez, puis capturez à nouveau.</value>
+    <value>Đang áp dụng xem trước chân trần cho mục tiêu CharacterInspect hiện tại. Hãy chờ một chút rồi chụp lại.</value>
   </data>
   <data name="Barefoot preview mode was turned off, so the pending feet-slot clear was cancelled." xml:space="preserve">
-    <value>Le mode pieds nus a été désactivé ; l’effacement en attente de l’emplacement des pieds a été annulé.</value>
+    <value>Chế độ xem trước chân trần đã tắt nên thao tác xóa ô chân đang chờ đã bị hủy.</value>
   </data>
   <data name="Barefoot preview update timed out for {0}. Re-open Inspect and try again." xml:space="preserve">
-    <value>Délai dépassé pour la mise à jour pieds nus de {0}. Rouvrez l’inspection et réessayez.</value>
+    <value>Cập nhật xem trước chân trần cho {0} đã hết thời gian chờ. Mở lại Kiểm tra và thử lại.</value>
   </data>
   <data name="Waiting for CharacterInspect to switch to {0} before clearing the feet slot." xml:space="preserve">
-    <value>En attente du passage de CharacterInspect à {0} avant d’effacer l’emplacement des pieds.</value>
+    <value>Đang chờ CharacterInspect chuyển sang {0} trước khi xóa ô chân.</value>
   </data>
   <data name="CharacterInspect is open for {0}, but the preview model is not ready for a feet-slot clear yet." xml:space="preserve">
-    <value>CharacterInspect est ouvert pour {0}, mais le modèle d’aperçu n’est pas encore prêt pour l’effacement des pieds.</value>
+    <value>CharacterInspect đã mở cho {0}, nhưng mô hình xem trước chưa sẵn sàng xóa ô chân.</value>
   </data>
   <data name="CharacterInspect is open for {0}, but the preview model is not ready to expose a feet slot yet." xml:space="preserve">
-    <value>CharacterInspect est ouvert pour {0}, mais le modèle d’aperçu ne permet pas encore d’accéder à l’emplacement des pieds.</value>
+    <value>CharacterInspect đã mở cho {0}, nhưng mô hình xem trước chưa cung cấp ô chân.</value>
   </data>
   <data name="Barefoot preview is ready for {0}. {1}" xml:space="preserve">
-    <value>Aperçu pieds nus prêt pour {0}. {1}</value>
+    <value>Xem trước chân trần đã sẵn sàng cho {0}. {1}</value>
   </data>
   <data name="Barefoot preview applied for {0}. {1}" xml:space="preserve">
-    <value>Aperçu pieds nus appliqué à {0}. {1}</value>
+    <value>Đã áp dụng xem trước chân trần cho {0}. {1}</value>
   </data>
   <data name="Barefoot preview update attempt {0} is still applying for {1}. {2}" xml:space="preserve">
-    <value>La tentative {0} de mise à jour pieds nus est encore en cours pour {1}. {2}</value>
+    <value>Lần cập nhật chân trần {0} vẫn đang áp dụng cho {1}. {2}</value>
   </data>
   <data name="Feet cleared across the inspect item, model, draw-data, and live preview seams. {0}" xml:space="preserve">
-    <value>Pieds effacés dans l’objet inspecté, le modèle, les données de rendu et l’aperçu en direct. {0}</value>
+    <value>Đã xóa trang bị chân ở vật phẩm kiểm tra, mô hình, dữ liệu hiển thị và xem trước trực tiếp. {0}</value>
   </data>
   <data name="Current feet state: {0}" xml:space="preserve">
-    <value>État actuel des pieds : {0}</value>
+    <value>Trạng thái chân hiện tại: {0}</value>
   </data>
   <data name="No CharacterInspect preview capture has been saved yet." xml:space="preserve">
-    <value>Aucune capture d’aperçu CharacterInspect n’a encore été enregistrée.</value>
+    <value>Chưa lưu ảnh xem trước CharacterInspect nào.</value>
   </data>
   <data name="CharacterInspect is not ready for preview capture yet. Keep the inspect preview open until the widget is visible and stable." xml:space="preserve">
-    <value>CharacterInspect n’est pas encore prêt pour la capture. Gardez l’aperçu ouvert jusqu’à ce que le widget soit visible et stable.</value>
+    <value>CharacterInspect chưa sẵn sàng chụp. Giữ cửa sổ xem trước mở đến khi thành phần hiển thị và ổn định.</value>
   </data>
   <data name="CharacterInspect preview bounds are unavailable, so there is nothing safe to capture yet." xml:space="preserve">
-    <value>Les limites de l’aperçu CharacterInspect sont indisponibles ; aucune capture sûre n’est encore possible.</value>
+    <value>Chưa có vùng xem trước CharacterInspect nên chưa thể chụp an toàn.</value>
   </data>
   <data name="Could not resolve the game window handle for CharacterInspect preview capture." xml:space="preserve">
-    <value>Impossible de déterminer le handle de la fenêtre du jeu pour capturer l’aperçu CharacterInspect.</value>
+    <value>Không xác định được handle cửa sổ game để chụp xem trước CharacterInspect.</value>
   </data>
   <data name="Could not read the game client bounds for CharacterInspect preview capture." xml:space="preserve">
-    <value>Impossible de lire les limites de la zone cliente du jeu pour capturer l’aperçu CharacterInspect.</value>
+    <value>Không đọc được vùng khách của cửa sổ game để chụp xem trước CharacterInspect.</value>
   </data>
   <data name="CharacterInspect preview crop landed outside the game client area, so the capture was skipped." xml:space="preserve">
-    <value>Le recadrage CharacterInspect était hors de la zone cliente du jeu ; la capture a été ignorée.</value>
+    <value>Vùng cắt xem trước CharacterInspect nằm ngoài vùng khách của game nên đã bỏ qua ảnh chụp.</value>
   </data>
   <data name="Could not translate CharacterInspect preview bounds into screen coordinates." xml:space="preserve">
-    <value>Impossible de convertir les limites de l’aperçu CharacterInspect en coordonnées d’écran.</value>
+    <value>Không chuyển được vùng xem trước CharacterInspect sang tọa độ màn hình.</value>
   </data>
   <data name="CharacterInspect preview capture failed: {0}: {1}" xml:space="preserve">
-    <value>Échec de capture de l’aperçu CharacterInspect : {0} : {1}</value>
+    <value>Chụp xem trước CharacterInspect thất bại: {0}: {1}</value>
   </data>
   <data name="Saved a lower-biased CharacterInspect preview capture for entity {0} at {1}x{2}. Effective preview scale: X {3:0.#}% / Y {4:0.#}% from {5}. Config fallback: {6}%. Source height: {7}px. Crop profile: top {8:P0}, bottom {9:P0}." xml:space="preserve">
-    <value>Capture basse de l’aperçu CharacterInspect enregistrée pour l’entité {0}, en {1}x{2}. Échelle effective : X {3:0.#}% / Y {4:0.#}% depuis {5}. Repli configuré : {6}%. Hauteur source : {7}px. Recadrage : haut {8:P0}, bas {9:P0}.</value>
+    <value>Đã lưu ảnh phần dưới CharacterInspect cho thực thể {0} ở {1}x{2}. Tỉ lệ hiệu lực: X {3:0.#}% / Y {4:0.#}% từ {5}. Tỉ lệ dự phòng: {6}%. Chiều cao nguồn: {7}px. Cắt: trên {8:P0}, dưới {9:P0}.</value>
   </data>
   <data name="configured scaling fallback" xml:space="preserve">
-    <value>échelle de repli configurée</value>
+    <value>tỉ lệ dự phòng đã đặt</value>
   </data>
   <data name="live preview node scale" xml:space="preserve">
-    <value>échelle du nœud d’aperçu en direct</value>
+    <value>tỉ lệ nút xem trước trực tiếp</value>
   </data>
   <data name="live preview node X scale" xml:space="preserve">
-    <value>échelle X du nœud d’aperçu en direct</value>
+    <value>tỉ lệ X của nút xem trước trực tiếp</value>
   </data>
   <data name="live preview node Y scale" xml:space="preserve">
-    <value>échelle Y du nœud d’aperçu en direct</value>
+    <value>tỉ lệ Y của nút xem trước trực tiếp</value>
   </data>
   <data name=", failed {0}" xml:space="preserve">
-    <value>, échecs {0}</value>
+    <value>, thất bại {0}</value>
   </data>
   <data name=", skipped {0} without live entity ids" xml:space="preserve">
-    <value>, {0} ignorés sans identifiant d’entité actif</value>
+    <value>, bỏ qua {0} thành viên không có ID thực thể đang hoạt động</value>
   </data>
   <data name="Barefoot preview mode is enabled. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
-    <value>Le mode pieds nus est activé. Utilisez Inspecter sur cette carte ou dans la table du groupe, attendez que CharacterInspect se stabilise, puis capturez l’aperçu courant depuis la fenêtre principale.</value>
+    <value>Chế độ xem trước chân trần đã bật. Dùng Kiểm tra trên thẻ này hoặc bảng tổ đội, chờ CharacterInspect ổn định rồi chụp xem trước hiện tại từ cửa sổ chính.</value>
   </data>
   <data name="Direct inspect-derived foot capture is the intended path here. Use Inspect on this card or in the party table, wait for CharacterInspect to settle, then use Capture current preview from the main window." xml:space="preserve">
-    <value>La capture directe des pieds depuis l’inspection est prévue ici. Utilisez Inspecter sur cette carte ou dans la table du groupe, attendez que CharacterInspect se stabilise, puis capturez l’aperçu courant depuis la fenêtre principale.</value>
+    <value>Ở đây dùng ảnh chân lấy trực tiếp từ Kiểm tra. Dùng Kiểm tra trên thẻ này hoặc bảng tổ đội, chờ CharacterInspect ổn định rồi chụp xem trước hiện tại từ cửa sổ chính.</value>
   </data>
   <data name="Your own feet are hidden because Show own feet is off." xml:space="preserve">
-    <value>Vos pieds sont masqués car l’affichage de vos propres pieds est désactivé.</value>
+    <value>Chân của bạn bị ẩn vì Hiện chân của mình đang tắt.</value>
   </data>
   <data name="This card is filtered by the {0} feet toggle." xml:space="preserve">
-    <value>Cette carte est filtrée par l’option de pieds {0}.</value>
+    <value>Thẻ này bị lọc bởi tùy chọn chân {0}.</value>
   </data>
   <data name="Feet are blocked by the current Lodestone privacy gate state." xml:space="preserve">
-    <value>Les pieds sont bloqués par l’état actuel du filtre de confidentialité Lodestone.</value>
+    <value>Chân bị chặn bởi trạng thái quyền riêng tư Lodestone hiện tại.</value>
   </data>
   <data name="This party member is not currently backed by a live entity id, so CharacterInspect cannot be requested yet." xml:space="preserve">
-    <value>Ce membre du groupe n’a pas d’identifiant d’entité actif ; CharacterInspect ne peut pas encore être demandé.</value>
+    <value>Thành viên này hiện không có ID thực thể đang hoạt động nên chưa thể yêu cầu CharacterInspect.</value>
   </data>
   <data name="The live CharacterInspect seam is available, but you still need to open inspect and use Capture current preview from the main window to save an image for this card." xml:space="preserve">
-    <value>L’interface CharacterInspect en direct est disponible. Ouvrez l’inspection et capturez l’aperçu courant depuis la fenêtre principale pour enregistrer une image pour cette carte.</value>
+    <value>Giao diện CharacterInspect trực tiếp đã có. Hãy mở Kiểm tra và chụp xem trước hiện tại từ cửa sổ chính để lưu ảnh cho thẻ này.</value>
   </data>
   <data name="Showing the cached Lodestone face image next to the foot showcase card." xml:space="preserve">
-    <value>L’image du visage Lodestone en cache est affichée à côté de la carte des pieds.</value>
+    <value>Đang hiện ảnh mặt Lodestone đã lưu cạnh thẻ chân.</value>
   </data>
   <data name="The face-next-to-feet toggle is currently off." xml:space="preserve">
-    <value>L’option du visage à côté des pieds est désactivée.</value>
+    <value>Tùy chọn hiện mặt cạnh chân đang tắt.</value>
   </data>
   <data name="Use Refresh Lodestone to resolve the current face state." xml:space="preserve">
-    <value>Actualisez Lodestone pour déterminer l’état actuel du visage.</value>
+    <value>Dùng Làm mới Lodestone để xác định trạng thái mặt hiện tại.</value>
   </data>
   <data name="{0} / local customize data unavailable" xml:space="preserve">
-    <value>{0} / données de personnalisation locales indisponibles</value>
+    <value>{0} / chưa có dữ liệu ngoại hình cục bộ</value>
   </data>
   <data name="Showing the last saved lower-biased CharacterInspect preview capture for this member. Capture rect: ({0}, {1}) {2}x{3}.{4}" xml:space="preserve">
-    <value>Dernière capture basse de l’aperçu CharacterInspect de ce membre. Zone de capture : ({0}, {1}) {2}x{3}.{4}</value>
+    <value>Đang hiện ảnh phần dưới CharacterInspect đã lưu gần nhất của thành viên này. Vùng chụp: ({0}, {1}) {2}x{3}.{4}</value>
   </data>
   <data name=" Barefoot preview mode was enabled when this preview-capture flow ran." xml:space="preserve">
-    <value> Le mode pieds nus était activé lors de cette capture.</value>
+    <value> Chế độ chân trần đã bật khi chụp ảnh xem trước này.</value>
   </data>
   <data name="No home world is available yet." xml:space="preserve">
-    <value>Le Monde d’origine est encore indisponible.</value>
+    <value>Chưa có máy chủ gốc.</value>
   </data>
   <data name="Waiting for lookup." xml:space="preserve">
-    <value>En attente de recherche.</value>
+    <value>Đang chờ tra cứu.</value>
   </data>
   <data name="Refreshing Lodestone search and profile data." xml:space="preserve">
-    <value>Actualisation des données de recherche et de profil Lodestone.</value>
+    <value>Đang làm mới dữ liệu tìm kiếm và hồ sơ Lodestone.</value>
   </data>
   <data name="No Lodestone profile match was found for the current name/world pair." xml:space="preserve">
-    <value>Aucun profil Lodestone trouvé pour ce nom et ce Monde.</value>
+    <value>Không tìm thấy hồ sơ Lodestone khớp tên và máy chủ hiện tại.</value>
   </data>
   <data name="Profile resolved with a face image." xml:space="preserve">
-    <value>Profil trouvé avec une image du visage.</value>
+    <value>Đã tìm thấy hồ sơ có ảnh mặt.</value>
   </data>
   <data name="Profile resolved but no face image was exposed." xml:space="preserve">
-    <value>Profil trouvé, mais aucune image du visage n’est exposée.</value>
+    <value>Đã tìm thấy hồ sơ nhưng ảnh mặt không được công khai.</value>
   </data>
   <data name="Profile page loaded, but the expected face markup was not found." xml:space="preserve">
-    <value>Page de profil chargée, mais le balisage attendu du visage est introuvable.</value>
+    <value>Đã tải trang hồ sơ nhưng không tìm thấy mã đánh dấu ảnh mặt như dự kiến.</value>
   </data>
   <data name="Preview camera is unavailable because AgentInspect is not available yet." xml:space="preserve">
-    <value>Caméra d’aperçu indisponible car AgentInspect n’est pas encore disponible.</value>
+    <value>Camera xem trước chưa khả dụng vì AgentInspect chưa sẵn sàng.</value>
   </data>
   <data name="CharacterInspect export capture is unavailable because AgentInspect is not available yet." xml:space="preserve">
-    <value>Capture d’export CharacterInspect indisponible car AgentInspect n’est pas encore disponible.</value>
+    <value>Chưa thể thu thập bản xuất CharacterInspect vì AgentInspect chưa sẵn sàng.</value>
   </data>
   <data name="AgentInspect is not available yet, so CharacterInspect research cannot run right now." xml:space="preserve">
-    <value>AgentInspect n’est pas encore disponible ; la recherche CharacterInspect ne peut pas être effectuée.</value>
+    <value>AgentInspect chưa sẵn sàng nên hiện không thể nghiên cứu CharacterInspect.</value>
   </data>
   <data name="Log into the game, then use Inspect on a party row or showcase card to open CharacterInspect for a live entity." xml:space="preserve">
-    <value>Connectez-vous au jeu, puis utilisez Inspecter sur une ligne du groupe ou une carte pour ouvrir CharacterInspect sur une entité active.</value>
+    <value>Đăng nhập vào game rồi dùng Kiểm tra trên hàng tổ đội hoặc thẻ để mở CharacterInspect cho thực thể đang hoạt động.</value>
   </data>
   <data name="CharacterInspect preview camera pointer is not available yet." xml:space="preserve">
-    <value>Le pointeur de caméra d’aperçu CharacterInspect n’est pas encore disponible.</value>
+    <value>Chưa có con trỏ camera xem trước CharacterInspect.</value>
   </data>
   <data name="CharacterInspect is open for entity 0x{0:X8}. The live preview node is visible at {1}x{2}, the inspect-side state is stable enough for controlled lower-biased preview snipping from a down-extended source region, and read-only preview camera state capture can run." xml:space="preserve">
-    <value>CharacterInspect est ouvert pour l’entité 0x{0:X8}. Le nœud d’aperçu est visible en {1}x{2}, l’état d’inspection permet une capture basse contrôlée depuis une source étendue vers le bas, et l’état de caméra peut être lu sans modification.</value>
+    <value>CharacterInspect đã mở cho thực thể 0x{0:X8}. Nút xem trước hiển thị ở {1}x{2}, trạng thái đủ ổn định để chụp phần dưới từ vùng nguồn mở rộng xuống dưới và đọc trạng thái camera mà không sửa đổi.</value>
   </data>
   <data name="CharacterInspect is open for entity 0x{0:X8}. Inspect-side CharaView state is {1}, loaded={2}, copied={3}." xml:space="preserve">
-    <value>CharacterInspect est ouvert pour l’entité 0x{0:X8}. État CharaView d’inspection : {1}, chargé={2}, copié={3}.</value>
+    <value>CharacterInspect đã mở cho thực thể 0x{0:X8}. Trạng thái CharaView phía kiểm tra: {1}, đã tải={2}, đã sao chép={3}.</value>
   </data>
   <data name="CharacterInspect is not visible right now, but AgentInspect still has request/current entity state ({0:X8} -&gt; {1:X8})." xml:space="preserve">
-    <value>CharacterInspect n’est pas visible, mais AgentInspect conserve l’état des entités demandée/courante ({0:X8} -&gt; {1:X8}).</value>
+    <value>CharacterInspect hiện không hiển thị, nhưng AgentInspect vẫn giữ trạng thái thực thể yêu cầu/hiện tại ({0:X8} -&gt; {1:X8}).</value>
   </data>
   <data name="CharacterInspect is not open right now. Use Inspect on a party row or showcase card to drive the direct character-derived capture path." xml:space="preserve">
-    <value>CharacterInspect n’est pas ouvert. Utilisez Inspecter sur une ligne du groupe ou une carte pour lancer la capture directe du personnage.</value>
+    <value>CharacterInspect hiện chưa mở. Dùng Kiểm tra trên hàng tổ đội hoặc thẻ để bắt đầu chụp trực tiếp từ nhân vật.</value>
   </data>
   <data name="Press SNIP PREVIEW while CharacterInspect is stable, keep the footballer window away from the preview area, confirm the lower-biased saved image from the down-extended source region lands on the matching showcase card, and use COPY INSPECT REPORT to capture the current preview camera pose." xml:space="preserve">
-    <value>Appuyez sur « Capturer l&apos;aperçu actuel » lorsque CharacterInspect est stable et éloignez la fenêtre footballer de l’aperçu. Vérifiez que la capture basse de la source étendue apparaît sur la bonne carte, puis utilisez « COPIER LE RAPPORT D&apos;EXAMEN » pour relever la pose de caméra.</value>
+    <value>Nhấn “Chụp xem trước hiện tại” khi CharacterInspect ổn định và di chuyển cửa sổ footballer khỏi vùng xem trước. Kiểm tra ảnh phần dưới từ nguồn mở rộng nằm trên đúng thẻ, rồi dùng “SAO CHÉP BÁO CÁO KIỂM TRA” để ghi tư thế camera hiện tại.</value>
   </data>
   <data name="Keep CharacterInspect open until the preview node becomes visible and the inspect-side state stabilizes, then use SNIP PREVIEW once the bounds look correct." xml:space="preserve">
-    <value>Gardez CharacterInspect ouvert jusqu’à ce que le nœud soit visible et l’état stable, puis utilisez « Capturer l&apos;aperçu actuel » lorsque les limites sont correctes.</value>
+    <value>Giữ CharacterInspect mở đến khi nút xem trước hiển thị và trạng thái ổn định, rồi dùng “Chụp xem trước hiện tại” khi vùng chụp đúng.</value>
   </data>
   <data name="Use Inspect on a party row or showcase card, then re-open this section and confirm CharacterInspect plus the inspect-side CharaView fields populate." xml:space="preserve">
-    <value>Utilisez Inspecter sur une ligne du groupe ou une carte, rouvrez cette section et vérifiez les champs CharacterInspect et CharaView d’inspection.</value>
+    <value>Dùng Kiểm tra trên hàng tổ đội hoặc thẻ, mở lại phần này và kiểm tra các trường CharacterInspect và CharaView đã có dữ liệu.</value>
   </data>
   <data name="CharacterInspect has no current entity yet, so inspect capture is waiting on the inspect target." xml:space="preserve">
-    <value>CharacterInspect n’a pas encore d’entité courante ; la capture attend la cible d’inspection.</value>
+    <value>CharacterInspect chưa có thực thể hiện tại nên thao tác chụp đang chờ mục tiêu kiểm tra.</value>
   </data>
   <data name="CharacterInspect is open, but the preview widget node is not available yet." xml:space="preserve">
-    <value>CharacterInspect est ouvert, mais le nœud du widget d’aperçu n’est pas encore disponible.</value>
+    <value>CharacterInspect đã mở nhưng chưa có nút thành phần xem trước.</value>
   </data>
   <data name="CharacterInspect preview widget exists, but it is not visible yet." xml:space="preserve">
-    <value>Le widget d’aperçu CharacterInspect existe, mais n’est pas encore visible.</value>
+    <value>Thành phần xem trước CharacterInspect đã có nhưng chưa hiển thị.</value>
   </data>
   <data name="CharacterInspect preview is visible, but the inspect-side model state does not look initialized enough for controlled capture yet." xml:space="preserve">
-    <value>L’aperçu CharacterInspect est visible, mais le modèle d’inspection n’est pas encore assez initialisé pour une capture contrôlée.</value>
+    <value>Xem trước CharacterInspect đã hiển thị, nhưng trạng thái mô hình chưa khởi tạo đủ để chụp có kiểm soát.</value>
   </data>
   <data name="CharacterInspect preview is visible and the inspect-side state is stable for entity 0x{0:X8}. Raw lower-biased preview snipping can use a down-extended source region from these bounds directly, and read-only preview camera state capture can inspect the current camera pose." xml:space="preserve">
-    <value>L’aperçu CharacterInspect est visible et stable pour l’entité 0x{0:X8}. La capture basse peut utiliser directement une source étendue vers le bas depuis ces limites, et la pose de caméra peut être lue sans modification.</value>
+    <value>Xem trước CharacterInspect hiển thị và ổn định cho thực thể 0x{0:X8}. Có thể chụp phần dưới từ vùng nguồn mở rộng xuống dưới và đọc tư thế camera hiện tại mà không sửa đổi.</value>
   </data>
   <data name="Read-only preview camera state captured from CharacterInspect scene camera manager index {0}." xml:space="preserve">
-    <value>État de caméra lu sans modification depuis l’index {0} du gestionnaire de caméra de scène CharacterInspect.</value>
+    <value>Đã đọc trạng thái camera xem trước từ chỉ mục {0} của trình quản lý camera cảnh CharacterInspect.</value>
   </data>
   <data name="CharacterInspect scene camera manager is present, but index {0} did not resolve to a current scene camera." xml:space="preserve">
-    <value>Le gestionnaire de caméra CharacterInspect est présent, mais l’index {0} n’a pas fourni de caméra courante.</value>
+    <value>Có trình quản lý camera cảnh CharacterInspect nhưng chỉ mục {0} không trả về camera hiện tại.</value>
   </data>
   <data name="CharacterInspect scene camera manager is present, but camera index {0} is outside the expected 0-13 range." xml:space="preserve">
-    <value>Le gestionnaire de caméra CharacterInspect est présent, mais l’index {0} est hors de la plage attendue 0-13.</value>
+    <value>Có trình quản lý camera cảnh CharacterInspect nhưng chỉ mục {0} nằm ngoài phạm vi 0-13 dự kiến.</value>
   </data>
   <data name="Fell back to the raw CharacterInspect scene camera because the scene camera manager path did not yield a live current camera (index {0})." xml:space="preserve">
-    <value>Repli sur la caméra de scène brute CharacterInspect car le gestionnaire n’a pas fourni de caméra courante active (index {0}).</value>
+    <value>Đã dùng camera cảnh gốc của CharacterInspect vì đường qua trình quản lý không trả về camera hiện tại đang hoạt động (chỉ mục {0}).</value>
   </data>
   <data name="Read-only preview camera state captured from the raw CharacterInspect scene camera." xml:space="preserve">
-    <value>État de caméra lu sans modification depuis la caméra de scène brute CharacterInspect.</value>
+    <value>Đã đọc trạng thái camera xem trước từ camera cảnh gốc của CharacterInspect.</value>
   </data>
   <data name="Preview window used during portrait updates" xml:space="preserve">
-    <value>Fenêtre d’aperçu utilisée pendant les mises à jour de portrait</value>
+    <value>Cửa sổ xem trước dùng khi cập nhật chân dung</value>
   </data>
   <data name="Current display-party-member-portraits target" xml:space="preserve">
-    <value>Cible actuelle d’affichage des portraits du groupe</value>
+    <value>Mục tiêu hiện tại của cửa sổ chân dung tổ đội</value>
   </data>
   <data name="Not current target; older commendation candidate" xml:space="preserve">
-    <value>Hors cible actuelle ; ancien candidat de recommandation</value>
+    <value>Không phải mục tiêu hiện tại; ứng viên bình chọn cũ</value>
   </data>
   <data name="Portrait list / selection surface" xml:space="preserve">
-    <value>Liste des portraits / surface de sélection</value>
+    <value>Danh sách chân dung / vùng chọn</value>
   </data>
   <data name="Portrait editor surface" xml:space="preserve">
-    <value>Surface d’édition des portraits</value>
+    <value>Vùng chỉnh sửa chân dung</value>
   </data>
   <data name="Relevant portrait UI is open right now, but BannerParty capture failed safely instead of crashing the window: {0}" xml:space="preserve">
-    <value>Une interface de portrait est ouverte, mais la capture BannerParty a échoué sans faire planter la fenêtre : {0}</value>
+    <value>Giao diện chân dung đang mở, nhưng thu thập BannerParty đã thất bại an toàn mà không làm lỗi cửa sổ: {0}</value>
   </data>
   <data name="Relevant portrait UI is open right now. This build now captures live BannerParty addon truth, live agent rows, and a read-only export payload for the active row; no portrait write path is active." xml:space="preserve">
-    <value>Une interface de portrait est ouverte. Cette version capture les données réelles de BannerParty, les lignes d’agent et l’export en lecture seule de la ligne active ; aucune écriture de portrait n’est active.</value>
+    <value>Giao diện chân dung đang mở. Bản này thu thập dữ liệu BannerParty thực tế, hàng agent trực tiếp và dữ liệu xuất chỉ đọc của hàng hiện tại; chưa có luồng ghi chân dung.</value>
   </data>
   <data name="Relevant portrait UI is open right now. This build captures live BannerParty addon truth plus agent-row state, but still keeps the portrait path read-only." xml:space="preserve">
-    <value>Une interface de portrait est ouverte. Cette version capture les données réelles BannerParty et l’état des lignes d’agent, en gardant les portraits en lecture seule.</value>
+    <value>Giao diện chân dung đang mở. Bản này thu thập dữ liệu BannerParty thực tế và trạng thái hàng agent, nhưng vẫn giữ luồng chân dung chỉ đọc.</value>
   </data>
   <data name="No relevant portrait UI is open right now. Open the display party member portraits window or another portrait surface to probe live addons." xml:space="preserve">
-    <value>Aucune interface de portrait pertinente n’est ouverte. Ouvrez les portraits du groupe ou une autre surface de portrait pour sonder les addons actifs.</value>
+    <value>Chưa mở giao diện chân dung phù hợp. Mở cửa sổ chân dung tổ đội hoặc giao diện chân dung khác để kiểm tra addon trực tiếp.</value>
   </data>
   <data name="Re-open the display party member portraits window and confirm the main window stays stable. If another capture error appears, send the new text." xml:space="preserve">
-    <value>Rouvrez les portraits du groupe et vérifiez que la fenêtre principale reste stable. Si une autre erreur de capture apparaît, envoyez le nouveau texte.</value>
+    <value>Mở lại cửa sổ chân dung tổ đội và kiểm tra cửa sổ chính vẫn ổn định. Nếu có lỗi thu thập khác, hãy gửi nội dung mới.</value>
   </data>
   <data name="Change the selected party portrait row and confirm the active-row mapping and read-only payload change with it. Keep write-path work deferred until that read path stays stable." xml:space="preserve">
-    <value>Changez la ligne de portrait sélectionnée et vérifiez que la correspondance active et les données en lecture seule suivent. Différez l’écriture jusqu’à stabilisation de la lecture.</value>
+    <value>Đổi hàng chân dung được chọn và kiểm tra ánh xạ hàng hiện tại cùng dữ liệu chỉ đọc thay đổi theo. Hoãn phần ghi đến khi đường đọc ổn định.</value>
   </data>
   <data name="Use the BannerParty agent rows and rail mapping below to confirm which party row is currently selected, then keep the portrait path read-only until the export stays stable." xml:space="preserve">
-    <value>Utilisez les lignes d’agent BannerParty et la correspondance des rails pour confirmer la ligne sélectionnée. Gardez les portraits en lecture seule jusqu’à stabilisation de l’export.</value>
+    <value>Dùng hàng agent BannerParty và ánh xạ thanh bên dưới để xác nhận hàng đang chọn. Giữ luồng chân dung chỉ đọc đến khi xuất ổn định.</value>
   </data>
   <data name="Capture addon/node truth for the visible surface before attempting any replacement write path, with BannerParty as the current target." xml:space="preserve">
-    <value>Capturez les données réelles addon/nœud de la surface visible avant toute écriture de remplacement, avec BannerParty comme cible actuelle.</value>
+    <value>Thu thập dữ liệu addon/nút thực tế của vùng đang hiển thị trước khi thử ghi thay thế; mục tiêu hiện tại là BannerParty.</value>
   </data>
   <data name="Open a portrait flow and re-check BannerPreview, BannerParty, and BannerMIP." xml:space="preserve">
-    <value>Ouvrez un parcours de portrait et revérifiez BannerPreview, BannerParty et BannerMIP.</value>
+    <value>Mở luồng chân dung và kiểm tra lại BannerPreview, BannerParty cùng BannerMIP.</value>
   </data>
   <data name="Known local seam: BannerPreview callback 0 is used elsewhere in the workspace to finalize portrait updates." xml:space="preserve">
-    <value>Interface locale connue : le callback 0 de BannerPreview est utilisé ailleurs dans l’espace de travail pour finaliser les mises à jour de portrait.</value>
+    <value>Giao diện cục bộ đã biết: callback 0 của BannerPreview được dùng ở nơi khác trong không gian làm việc để hoàn tất cập nhật chân dung.</value>
   </data>
   <data name="Captured {0} live BannerParty nodes. Visible nodes: {1}. Interactive or event-bearing nodes: {2}. Repeated &quot;Party Members&quot; headers: {3}. Likely 240x540 portrait rails: {4}." xml:space="preserve">
-    <value>{0} nœuds BannerParty capturés. Visibles : {1}. Interactifs ou avec événements : {2}. Titres « Party Members » répétés : {3}. Rails de portrait 240x540 probables : {4}.</value>
+    <value>Đã thu thập {0} nút BannerParty trực tiếp. Hiển thị: {1}. Tương tác hoặc có sự kiện: {2}. Tiêu đề "Party Members" lặp: {3}. Thanh chân dung 240x540 khả dĩ: {4}.</value>
   </data>
   <data name="No active BannerParty row was detected yet." xml:space="preserve">
-    <value>Aucune ligne BannerParty active détectée.</value>
+    <value>Chưa phát hiện hàng BannerParty hiện tại.</value>
   </data>
   <data name="Captured {0} live BannerParty agent rows. Visible CharaViews: {1}. Loaded CharaViews: {2}. Active row heuristic: {3}. Rail mappings: {4}." xml:space="preserve">
-    <value>{0} lignes d’agent BannerParty capturées. CharaViews visibles : {1}. Chargées : {2}. Heuristique de ligne active : {3}. Correspondances de rails : {4}.</value>
+    <value>Đã thu thập {0} hàng agent BannerParty trực tiếp. CharaView hiển thị: {1}. Đã tải: {2}. Suy đoán hàng hiện tại: {3}. Ánh xạ thanh: {4}.</value>
   </data>
   <data name="Base portrait rail without an adjacent slider pair." xml:space="preserve">
-    <value>Rail de portrait de base sans paire de curseurs adjacente.</value>
+    <value>Thanh chân dung cơ sở không có cặp thanh trượt liền kề.</value>
   </data>
   <data name="Currently active portrait rail scaffold." xml:space="preserve">
-    <value>Structure de rail de portrait actuellement active.</value>
+    <value>Khung thanh chân dung đang hoạt động.</value>
   </data>
   <data name="Inactive portrait rail scaffold." xml:space="preserve">
-    <value>Structure de rail de portrait inactive.</value>
+    <value>Khung thanh chân dung không hoạt động.</value>
   </data>
   <data name="Slider-only portrait rail candidate." xml:space="preserve">
-    <value>Candidat de rail de portrait avec curseur seul.</value>
+    <value>Ứng viên thanh chân dung chỉ có thanh trượt.</value>
   </data>
   <data name="Current visible portrait render target." xml:space="preserve">
-    <value>Cible actuelle du rendu de portrait visible.</value>
+    <value>Mục tiêu hiển thị chân dung hiện tại.</value>
   </data>
   <data name="Portrait is loaded for this row." xml:space="preserve">
-    <value>Portrait chargé pour cette ligne.</value>
+    <value>Đã tải chân dung cho hàng này.</value>
   </data>
   <data name="Character data is copied but the portrait is not visible yet." xml:space="preserve">
-    <value>Données du personnage copiées, mais le portrait n’est pas encore visible.</value>
+    <value>Đã sao chép dữ liệu nhân vật nhưng chân dung chưa hiển thị.</value>
   </data>
   <data name="Non-zero CharaView state {0}." xml:space="preserve">
-    <value>État CharaView non nul : {0}.</value>
+    <value>Trạng thái CharaView khác 0: {0}.</value>
   </data>
   <data name="Inactive row." xml:space="preserve">
-    <value>Ligne inactive.</value>
+    <value>Hàng không hoạt động.</value>
   </data>
   <data name="Ordered by {0}; {1}; no live BannerParty agent row is mapped to this rail position." xml:space="preserve">
-    <value>Ordre : {0} ; {1} ; aucune ligne d’agent BannerParty n’est associée à cette position de rail.</value>
+    <value>Thứ tự: {0}; {1}; không có hàng agent BannerParty trực tiếp ánh xạ tới vị trí thanh này.</value>
   </data>
   <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by aligning the active row to the preferred rail set." xml:space="preserve">
-    <value>Ordre : {0} ; {1} ; ligne BannerParty {2} associée en alignant la ligne active sur les rails préférés.</value>
+    <value>Thứ tự: {0}; {1}; ánh xạ tới hàng BannerParty {2} bằng cách căn hàng hiện tại với nhóm thanh ưu tiên.</value>
   </data>
   <data name="Ordered by {0}; {1}; mapped to live BannerParty row {2} by agent storage order." xml:space="preserve">
-    <value>Ordre : {0} ; {1} ; ligne BannerParty {2} associée selon l’ordre de stockage de l’agent.</value>
+    <value>Thứ tự: {0}; {1}; ánh xạ tới hàng BannerParty {2} theo thứ tự lưu của agent.</value>
   </data>
   <data name=" This is the current active rail candidate." xml:space="preserve">
-    <value> Il s’agit du candidat de rail actif actuel.</value>
+    <value> Đây là ứng viên thanh đang hoạt động.</value>
   </data>
   <data name="preferring live visible rails before hidden placeholder scaffolds" xml:space="preserve">
-    <value>rails visibles actifs préférés aux structures de substitution masquées</value>
+    <value>ưu tiên thanh trực tiếp hiển thị hơn khung giữ chỗ bị ẩn</value>
   </data>
   <data name="using the full ordered rail list because visible rails were insufficient" xml:space="preserve">
-    <value>liste complète des rails ordonnés utilisée car les rails visibles sont insuffisants</value>
+    <value>dùng toàn bộ danh sách thanh đã sắp xếp vì thanh hiển thị không đủ</value>
   </data>
   <data name="node order" xml:space="preserve">
-    <value>ordre des nœuds</value>
+    <value>thứ tự nút</value>
   </data>
   <data name="top-to-bottom Y order" xml:space="preserve">
-    <value>ordre Y de haut en bas</value>
+    <value>thứ tự Y từ trên xuống</value>
   </data>
   <data name="left-to-right X order" xml:space="preserve">
-    <value>ordre X de gauche à droite</value>
+    <value>thứ tự X từ trái sang phải</value>
   </data>
   <data name="Active BannerParty row was found, but its CharaViewPortrait does not look initialized yet so export was skipped." xml:space="preserve">
-    <value>Ligne BannerParty active trouvée, mais son CharaViewPortrait ne semble pas encore initialisé ; export ignoré.</value>
+    <value>Đã tìm thấy hàng BannerParty hiện tại nhưng CharaViewPortrait chưa khởi tạo nên đã bỏ qua xuất.</value>
   </data>
   <data name="Read-only ExportedPortraitData captured for active row {0}" xml:space="preserve">
-    <value>ExportedPortraitData capturé en lecture seule pour la ligne active {0}</value>
+    <value>Đã thu thập ExportedPortraitData chỉ đọc cho hàng hiện tại {0}</value>
   </data>
   <data name="node capture: {0}: {1}" xml:space="preserve">
-    <value>capture des nœuds : {0} : {1}</value>
+    <value>thu thập nút: {0}: {1}</value>
   </data>
   <data name="agent capture: {0}: {1}" xml:space="preserve">
-    <value>capture de l’agent : {0} : {1}</value>
+    <value>thu thập agent: {0}: {1}</value>
   </data>
   <data name="Addon position: ({0:0.##}, {1:0.##})" xml:space="preserve">
-    <value>Position de l’addon : ({0:0.##}, {1:0.##})</value>
+    <value>Vị trí addon: ({0:0.##}, {1:0.##})</value>
   </data>
   <data name="Male" xml:space="preserve">
-    <value>Masculin</value>
+    <value>Nam</value>
   </data>
   <data name="Female" xml:space="preserve">
-    <value>Féminin</value>
+    <value>Nữ</value>
   </data>
   <data name="Row {0}" xml:space="preserve">
-    <value>Ligne {0}</value>
+    <value>Hàng {0}</value>
   </data>
   <data name="current target" xml:space="preserve">
-    <value>cible courante</value>
+    <value>mục tiêu hiện tại</value>
   </data>
   <data name="entity {0}" xml:space="preserve">
-    <value>entité {0}</value>
+    <value>thực thể {0}</value>
   </data>
   <data name="No world yet" xml:space="preserve">
-    <value>Aucun monde pour le moment</value>
+    <value>Chưa có máy chủ</value>
   </data>
-  <data name="Window appearance" xml:space="preserve"><value>Apparence de la fenêtre</value></data>
-  <data name="Compact visible on main window" xml:space="preserve"><value>Afficher le mode compact dans la fenêtre principale</value></data>
-  <data name="Language visible on main window" xml:space="preserve"><value>Afficher la langue dans la fenêtre principale</value></data>
-  <data name="Transparency" xml:space="preserve"><value>Transparence</value></data>
-  <data name="Opacity (%)" xml:space="preserve"><value>Opacité (%)</value></data>
-  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Atténuer automatiquement sans focus</value></data>
-  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Opacité sans focus (%)</value></data>
-  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Délai sans focus (secondes)</value></data>
+  <data name="Window appearance" xml:space="preserve"><value>Giao diện cửa sổ</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>Hiển thị chế độ gọn trên cửa sổ chính</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>Hiển thị lựa chọn ngôn ngữ trên cửa sổ chính</value></data>
+  <data name="Transparency" xml:space="preserve"><value>Độ trong suốt</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>Độ đục (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Tự giảm độ đục khi mất tiêu điểm</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Độ đục khi mất tiêu điểm (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Độ trễ khi mất tiêu điểm (giây)</value></data>
 </root>

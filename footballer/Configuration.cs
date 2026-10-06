@@ -14,6 +14,13 @@ public sealed class Configuration : IPluginConfiguration
     public string UiLanguage { get; set; } = "en";
     public uint UiAccentRgb { get; set; } = 0xE96D9E;
     public bool UiCompact { get; set; } = false;
+    public bool UiCompactVisibleOnMainWindow { get; set; } = true;
+    public bool UiLanguageVisibleOnMainWindow { get; set; } = true;
+    public bool UiTransparencyEnabled { get; set; } = true;
+    public int UiWindowOpacityPercent { get; set; } = 100;
+    public bool UiAutoFade { get; set; } = true;
+    public int UiFadedOpacityPercent { get; set; } = 50;
+    public float UiUnfocusedDelaySeconds { get; set; } = 10;
     public bool PluginEnabled { get; set; } = false;
     public bool DtrBarEnabled { get; set; } = true;
     public int DtrBarMode { get; set; } = 1;

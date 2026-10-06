@@ -1,4 +1,5 @@
 using System.Numerics;
+using AethertekUI;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Windowing;
 
@@ -10,9 +11,10 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
     private readonly Plugin plugin;
 
     public ConfigWindow(Plugin plugin)
-        : base($"{PluginInfo.DisplayName} Settings##Config")
+        : base($"{PluginInfo.DisplayName} Settings##Config", ImGuiWindowFlags.HorizontalScrollbar)
     {
         this.plugin = plugin;
+        AppearanceOwner = plugin;
         SizeConstraints = new WindowSizeConstraints
         {
             MinimumSize = new Vector2(660f, 520f),
@@ -26,11 +28,11 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
 
     public override void Draw()
     {
+        DrawWindowChrome();
         var cfg = plugin.Configuration;
         UiGui.Title("Footballer Settings", UiText.T("Footballer Settings"));
-        var compact = cfg.UiCompact;
-        if (UiGui.Checkbox("Compact mode", ref compact)) { cfg.UiCompact = compact; cfg.Save(); }
-        plugin.DrawAppearanceSelector();
+        if (MaterialText.CollapsingHeader(UiText.T("Window appearance") + "###WindowAppearanceSection", ImGuiTreeNodeFlags.DefaultOpen))
+            plugin.DrawWindowAppearance();
         ImGui.Separator();
 
         UiGui.TextWrapped("Choose which party previews to show. Lodestone privacy is respected in normal use.");
