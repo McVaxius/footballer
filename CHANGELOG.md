@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased - CJK atlas construction
+
+- Request a 4096 x 4096 managed atlas and merge one bundled Noto CJK face per font role for the selected language, including Simplified and Traditional Chinese aliases. Preserve existing font sizes, glyph ranges, Windows and symbol fonts, and font lifecycle.
+
+## Unreleased - Native titlebar shortcuts
+
+- Add Settings, Footballer enabled, Refresh party and Refresh Lodestone shortcuts to the native main titlebar. Keep all body controls and reuse the current refresh guard and party snapshot.
+- Reserve title and button space before window motion and keep custom title text clear of native buttons.
+- Validate the current Debug/x64 build through the unchanged launcher: zero warnings and errors. Focused English installed-host checks pass 535 assertions and 28 native title/body pointer presses across both densities and 100/150 percent scales, including collapsed shortcuts, fresh refresh admission and exact save/feedback. Managed-icon, GPU and game acceptance remain pending.
+
+## Unreleased - Community invite
+
+- Update the existing Discord community button and current README link to https://discord.gg/ac6gjDvR8R.
+
 ## 2026-10-06 - Actions dependency revision
 
 - Pin the existing AethertekUI checkout to published revision `6c193cf06ac67f954c549cafc2033ac0efdd630a`, which includes the Hindi text host required by this plugin. The preceding Actions run checked out the library before those APIs were published; local compilation alone did not establish runner compatibility.

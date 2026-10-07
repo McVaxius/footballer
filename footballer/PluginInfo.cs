@@ -8,7 +8,7 @@ internal static class PluginInfo
     public const string Visibility = "Private";
     public const string Summary = "Privacy-respecting party-foot showcase plugin with a saved main-window krangle toggle, a preview-scaling selector for CharacterInspect snips, cached Lodestone face gating, compact normal-mode character boxes, automatic party feet recapture on Refresh party, a preset inspect pose, preview-only barefoot mode, and hidden CharacterInspect/BannerParty research surfaces behind /footballer debug.";
     public const string SupportUrl = "https://ko-fi.com/mcvaxius";
-    public const string DiscordUrl = "https://discord.gg/VsXqydsvpu";
+    public const string DiscordUrl = "https://discord.gg/ac6gjDvR8R";
     public const string DiscordFeedbackNote = "Scroll down to \"The Dumpster Fire\" channel to discuss issues / suggestions for specific plugins.";
     public const string ShellStatus =
         "Current build status: core showcase live. The normal window now keeps the party showcase, Inspect flow, preset inspect pose, preview capture flow, stored crop profile, stored preview scaling selector, optional one-shot auto-refresh-on-open, and preview-only multi-seam barefoot apply path active without frame-by-frame research polling. Raw CharacterInspect and BannerParty tables still exist, but only behind /footballer debug.";

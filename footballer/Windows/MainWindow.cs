@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Text;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface;
 using Dalamud.Interface.Windowing;
 using footballer.Models;
 using footballer.Services;
@@ -28,6 +29,30 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             MinimumSize = new Vector2(820f, 640f),
             MaximumSize = new Vector2(1900f, 1300f),
         };
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.Cog, Priority = 0, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.OpenConfigUi(); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Settings")),
+        });
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.PowerOff, Priority = -10, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.SetPluginEnabled(!plugin.Configuration.PluginEnabled, printStatus: true); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Enabled") + "\n" + UiText.T(plugin.Configuration.PluginEnabled ? "Yes" : "No")),
+        });
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.Sync, Priority = -20, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) RefreshPartyFromUi(forceLodestone: false, refreshFeetCaptures: true); },
+            ShowTooltip = () => ShowRefreshTitleTooltip("Refresh party"),
+        });
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.Globe, Priority = -30, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) RefreshPartyFromUi(forceLodestone: true); },
+            ShowTooltip = () => ShowRefreshTitleTooltip("Refresh Lodestone"),
+        });
     }
 
     public void Dispose()
@@ -37,6 +62,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
     public override void PreDraw()
     {
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(20, FootballerPresentation.Compact ? 12 : 20) * MaterialTheme.Metrics.Scale);
+        UiGui.ReserveTitleSpace(this, $"{PluginInfo.DisplayName} v{typeof(Plugin).Assembly.GetName().Version}", 820);
         base.PreDraw();
     }
 
@@ -52,7 +78,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         var cfg = plugin.Configuration;
         var showDebug = plugin.SessionDebugUnlocked;
         var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0.0";
-        UiGui.Title(PluginInfo.DisplayName, $"{PluginInfo.DisplayName} v{version}");
+        UiGui.TitleWithButtons(PluginInfo.DisplayName, $"{PluginInfo.DisplayName} v{version}", this);
         var partyMembers = plugin.GetPartyShowcaseMembers();
         var effectiveRespectPrivacy = plugin.GetEffectiveRespectLodestonePrivacy();
         var cropFractions = plugin.CharacterInspectPreviewCaptureService.GetConfiguredCropFractions();
@@ -273,7 +299,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         if (UiGui.Toggle("Enabled", ref enabled, icon: MaterialIcon.Power)) plugin.SetPluginEnabled(enabled, printStatus: true);
         ToolbarNext(active ? "Refreshing..." : "Refresh party", measuredPixels: UiGui.ActionWidth(active ? "Refreshing..." : "Refresh party", active ? "Refreshing..." : "Refresh party", MaterialIcon.Refresh));
         if (UiGui.Action(active ? "Refreshing..." : "Refresh party", active ? "Refreshing..." : "Refresh party", MaterialIcon.Refresh, active))
-            plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
+            RefreshPartyFromUi(forceLodestone: false, refreshFeetCaptures: true);
         ToolbarNext("Foot showcase", toggle: true, measuredPixels: UiGui.ToggleWidth("Foot showcase", footprint: true));
         var showcase = cfg.ShowFootShowcase;
         if (UiGui.Toggle("Foot showcase", ref showcase, footprint: true)) { cfg.ShowFootShowcase = showcase; cfg.Save(); }
@@ -283,7 +309,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         ToolbarNext(krangle, measuredPixels: UiGui.ActionWidth(krangle, krangle, MaterialIcon.Group));
         if (UiGui.Action(krangle, krangle, MaterialIcon.Group)) plugin.SetKrangleNames(!cfg.KrangleNames, printStatus: true);
         ToolbarNext("Refresh Lodestone", measuredPixels: UiGui.ActionWidth("Refresh Lodestone", "Refresh Lodestone", MaterialIcon.Link));
-        if (UiGui.Action("Refresh Lodestone", "Refresh Lodestone", MaterialIcon.Link, active)) plugin.QueuePartyResearchRefresh(forceLodestone: true);
+        if (UiGui.Action("Refresh Lodestone", "Refresh Lodestone", MaterialIcon.Link, active)) RefreshPartyFromUi(forceLodestone: true);
         ToolbarNext("Scaling 100%", measuredPixels: PreviewScalingGroupWidth(scalePercent));
         DrawPreviewScalingSelector(scalePercent, active);
         ToolbarNext("Without footwear", toggle: true, measuredPixels: UiGui.ToggleWidth("Without footwear", footwear: true));
@@ -330,15 +356,24 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
 
         ImGui.SameLine();
         if (UiGui.SmallButton("Refresh party"))
-            plugin.QueuePartyResearchRefresh(forceLodestone: false, refreshFeetCaptures: true);
+            RefreshPartyFromUi(forceLodestone: false, refreshFeetCaptures: true);
 
         ImGui.SameLine();
         if (UiGui.SmallButton("Refresh Lodestone"))
-            plugin.QueuePartyResearchRefresh(forceLodestone: true);
+            RefreshPartyFromUi(forceLodestone: true);
 
         ImGui.SameLine();
         DrawPreviewScalingSelector(scalePercent);
     }
+
+    private void RefreshPartyFromUi(bool forceLodestone, bool refreshFeetCaptures = false)
+    {
+        if (plugin.PartyFeetRefreshService.IsActive) return;
+        plugin.QueuePartyResearchRefresh(forceLodestone, refreshFeetCaptures);
+    }
+
+    private void ShowRefreshTitleTooltip(string label)
+        => MaterialText.SetTooltip(UiText.T(label) + "\n" + UiText.T(plugin.PartyFeetRefreshService.IsActive ? "Refreshing..." : plugin.PartyFeetRefreshService.LastStatus));
 
     private void DrawDebugResearchSections(
         IReadOnlyList<PartyShowcaseMember> partyMembers,
