@@ -73,7 +73,6 @@ internal static class UiGui
     // Native controls retain the original ID, hit testing, focus and keyboard behavior.
     internal static bool Action(string id, string text, MaterialIcon icon = MaterialIcon.None, bool disabled = false, float height = 0)
     {
-        if (height <= 0) height = FootballerPresentation.ToolbarHeight;
         var c = MaterialTheme.Current.Colors;
         var s = MaterialTheme.Metrics.Scale;
         var label = UiText.T(text);
@@ -84,7 +83,10 @@ internal static class UiGui
         ImGui.BeginGroup();
         try
         {
-            if (MaterialText.RequiresShaping(label)) height = Math.Max(height, MaterialText.Measure(label).Y / s + 16);
+            using var controls = MaterialControls.Push(MaterialControlContext.Toolbar);
+            using var lineHeight = MaterialText.PushLineHeight(label);
+            var contentHeight = Math.Max(MaterialText.Measure(label).Y, icon == MaterialIcon.None ? 0 : (compact ? 32 : 36) * s);
+            height = Math.Max(height, Math.Max(MaterialControls.Metrics.Height, contentHeight + (compact ? 4 : 8) * s) / s);
             ImGui.BeginDisabled(disabled);
             try
             {
@@ -211,6 +213,8 @@ internal static class UiGui
     internal static bool Button(string label,string? display=null)
     {
         var translated=display ?? UiText.T(label.Split("##",2)[0]);
+        using var controls = ImGui.GetStyle().FramePadding.Y == 0 || MaterialControls.Context == MaterialControlContext.Dense
+            ? default(MaterialControls.ControlScope) : MaterialControls.Push(MaterialControlContext.Toolbar);
         using var height = MaterialText.PushLineHeight(translated);
         var width=MaterialText.Measure(translated).X+2*ImGui.GetStyle().FramePadding.X;
         if(width>ImGui.GetContentRegionAvail().X && ImGui.GetCursorPosX()>ImGui.GetStyle().WindowPadding.X+1) ImGui.NewLine();
