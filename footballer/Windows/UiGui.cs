@@ -362,7 +362,7 @@ internal static class UiGui
             && style.WindowMenuButtonPosition != ImGuiDir.None;
         var controls = AdditionalTitleButtonWidth(owner, fontSize)
             + ((owner.ShowCloseButton ? 1 : 0) + (collapse ? 1 : 0)) * (fontSize + style.ItemInnerSpacing.X);
-        var required = (MaterialText.Measure(visible).X + controls + style.FramePadding.X * 2 + style.ItemInnerSpacing.X)
+        var required = (MaterialText.Measure(visible).X + fontSize + controls + style.FramePadding.X * 2 + style.ItemInnerSpacing.X * 2)
             / ImGui.GetIO().FontGlobalScale;
         var bounds = owner.SizeConstraints ?? new WindowSizeConstraints();
         bounds.MinimumSize = new(Math.Max(minimumWidth, required), bounds.MinimumSize.Y);
@@ -375,6 +375,18 @@ internal static class UiGui
         var count = owner.TitleBarButtons.Count(button => !owner.IsClickthrough || button.AvailableClickthrough);
         if (owner.AllowPinning || owner.AllowClickthrough || owner.AllowBackgroundBlur) count++;
         return count * (fontSize + ImGui.GetStyle().ItemInnerSpacing.X);
+    }
+
+    internal static unsafe void ImageTitle(Window owner, string visibleTitle,
+        Dalamud.Interface.Textures.TextureWraps.IDalamudTextureWrap icon)
+    {
+        var window = ImGuiP.FindWindowByName(owner.WindowName);
+        if (window.Handle == null) return;
+        var count = owner.TitleBarButtons.Count(button => !owner.IsClickthrough || button.AvailableClickthrough);
+        if (owner.AllowPinning || owner.AllowClickthrough || owner.AllowBackgroundBlur) count++;
+        var extraRight = count * (ImGuiP.CalcFontSize(window) + ImGui.GetStyle().ItemInnerSpacing.X);
+        using var font = UiText.Font(UiFontRole.Body);
+        MaterialWindowHeader.PaintTitle(window, visibleTitle, icon.Handle, icon.Size, extraRight, owner.ShowCloseButton);
     }
 
     internal static void TitleWithButtons(string original,string translated, Window? owner)

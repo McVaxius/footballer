@@ -72,13 +72,15 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         ImGui.PopStyleVar();
     }
 
+    protected override void PaintWindowTitle()
+        => UiGui.ImageTitle(this, $"{PluginInfo.DisplayName} v{typeof(Plugin).Assembly.GetName().Version}", plugin.OriginalIcon);
+
     public override void Draw()
     {
         DrawWindowChrome();
         var cfg = plugin.Configuration;
         var showDebug = plugin.SessionDebugUnlocked;
         var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0.0";
-        UiGui.TitleWithButtons(PluginInfo.DisplayName, $"{PluginInfo.DisplayName} v{version}", this);
         var partyMembers = plugin.GetPartyShowcaseMembers();
         var effectiveRespectPrivacy = plugin.GetEffectiveRespectLodestonePrivacy();
         var cropFractions = plugin.CharacterInspectPreviewCaptureService.GetConfiguredCropFractions();

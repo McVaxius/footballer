@@ -41,10 +41,13 @@ public abstract class PositionedWindow : Window
     public override void PostDraw()
     {
         motion.Restore(this);
+        PaintWindowTitle();
         AppearanceOwner.ApplyWindowOpacity(opacity, WindowName);
     }
 
     protected void DrawWindowChrome() => motion.DrawChrome();
+
+    protected virtual void PaintWindowTitle() { }
 
     protected void FinalizePendingWindowPlacement()
     {

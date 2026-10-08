@@ -62,8 +62,10 @@ public sealed partial class MainWindow
         var c = MaterialTheme.Current.Colors;
         var compact = FootballerPresentation.Compact;
         var titleX = compact ? 98 : 108;
-        FootballerPresentation.Footprint(start + new Vector2(compact ? 19 : 16, compact ? 0 : -4) * s,
-            (compact ? new Vector2(63, 72) : new Vector2(77, 89)) * s, c.Primary);
+        var icon = plugin.OriginalIcon;
+        var imageMin = start + new Vector2(compact ? 19 : 16, compact ? 0 : -4) * s;
+        var imageSize = (compact ? new Vector2(63, 72) : new Vector2(77, 89)) * s;
+        MaterialCanvas.DrawImage(ImGui.GetWindowDrawList(), icon.Handle, icon.Size, imageMin, imageMin + imageSize);
         ImGui.SetCursorScreenPos(start + new Vector2(titleX, compact ? -2 : -6) * s);
         float titleWidth;
         using (UiText.Font(compact ? UiFontRole.CompactTitle : UiFontRole.Title))
