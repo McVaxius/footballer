@@ -29,11 +29,32 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
     public override void Draw()
     {
         DrawWindowChrome();
-        var cfg = plugin.Configuration;
         UiGui.Title("Footballer Settings", UiText.T("Footballer Settings"));
-        if (MaterialText.CollapsingHeader(UiText.T("Window appearance") + "###WindowAppearanceSection", ImGuiTreeNodeFlags.DefaultOpen))
-            plugin.DrawWindowAppearance();
-        ImGui.Separator();
+        var settingsRoot = ImGui.GetID("");
+        using var tabs = MaterialTabs.Begin("FootballerSettingsTabs", new[] { UiText.T("Settings"), UiText.T("Window appearance") }, ImGuiTabBarFlags.FittingPolicyScroll);
+        if (tabs.Visible)
+        {
+            using (var general = MaterialTabs.Item(UiText.T("Settings") + "###Settings", ImGuiTabItemFlags.NoPushId))
+                if (general.Visible)
+                {
+                    ImGuiP.PushOverrideID(settingsRoot);
+                    try { DrawGeneralSettings(); }
+                    finally { ImGui.PopID(); }
+                }
+            using (var appearance = MaterialTabs.Item(UiText.T("Window appearance") + "###WindowAppearance", ImGuiTabItemFlags.NoPushId))
+                if (appearance.Visible)
+                {
+                    ImGuiP.PushOverrideID(settingsRoot);
+                    try { plugin.DrawWindowAppearance(); }
+                    finally { ImGui.PopID(); }
+                }
+        }
+        FinalizePendingWindowPlacement();
+    }
+
+    private void DrawGeneralSettings()
+    {
+        var cfg = plugin.Configuration;
 
         UiGui.TextWrapped("Choose which party previews to show. Lodestone privacy is respected in normal use.");
         ImGui.Separator();
@@ -172,6 +193,5 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         foreach (var phase in PluginInfo.Phases)
             UiGui.BulletText(phase);
 
-        FinalizePendingWindowPlacement();
     }
 }
