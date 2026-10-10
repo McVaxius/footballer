@@ -93,8 +93,8 @@ public sealed partial class MainWindow
         var languageLabel = UiText.Languages.First(language => language.Code == UiText.Current.Language).Name;
         var languageWidth = (compact ? 196 : 210) * s;
         var languageMinimum = MathF.Ceiling(MaterialText.Measure(languageLabel).X + (compact ? 101 : 105) * s);
-        var transparencyWidth = ImGui.GetFrameHeight() + ImGui.GetStyle().ItemInnerSpacing.X + MaterialText.Measure(UiText.T("Transparency")).X;
-        var rightWidth = (compact ? 225 : 247) * s + transparencyWidth + 40 * s
+        var transparencyWidth = plugin.Configuration.UiTransparencyVisibleOnMainWindow ? ImGui.GetFrameHeight() + ImGui.GetStyle().ItemInnerSpacing.X + MaterialText.Measure(UiText.T("Transparency")).X + 20 * s : 0;
+        var rightWidth = (compact ? 225 : 247) * s + transparencyWidth + 20 * s
             + (plugin.Configuration.UiCompactVisibleOnMainWindow ? ImGui.GetFrameHeight() + MaterialText.Measure("C").X + 26 * s : 0)
             + (plugin.Configuration.UiLanguageVisibleOnMainWindow ? Math.Max(languageWidth, languageMinimum) + 20 * s : 0);
         var wideHeader = width >= Math.Max(1280 * s, rightWidth + 560 * s);
@@ -123,9 +123,10 @@ public sealed partial class MainWindow
             plugin.DrawHeaderAppearanceSelector();
             ImGui.SameLine(0, 20 * s);
         }
-        plugin.DrawTransparency();
+        if (plugin.Configuration.UiTransparencyVisibleOnMainWindow)
+            plugin.DrawTransparency();
         if (wideHeader) ImGui.SetCursorScreenPos(new Vector2(start.X + width - (compact ? 225 : 247) * s, controlsY));
-        else ImGui.SameLine(0, 20 * s);
+        else if (plugin.Configuration.UiCompactVisibleOnMainWindow || plugin.Configuration.UiLanguageVisibleOnMainWindow || plugin.Configuration.UiTransparencyVisibleOnMainWindow) ImGui.SameLine(0, 20 * s);
         var linkStart = ImGui.GetCursorScreenPos();
         ImGui.GetWindowDrawList().AddLine(linkStart + new Vector2(compact ? -23 : -28, 6) * s, linkStart + new Vector2(compact ? -23 : -28, 42) * s, MaterialCanvas.Color(c.OutlineVariant));
         using (UiText.Font(UiFontRole.Action))

@@ -13,8 +13,21 @@ public sealed class Configuration : IPluginConfiguration
     public int Version { get; set; } = 4;
     public string UiLanguage { get; set; } = "en";
     public uint UiAccentRgb { get; set; } = 0xE96D9E;
-    public bool UiCompact { get; set; } = false;
-    public bool UiCompactVisibleOnMainWindow { get; set; } = true;
+    public bool UiCompact { get; set; } = true;
+    public bool UiCompactVisibleOnMainWindow { get; set; }
+    public bool UiTransparencyVisibleOnMainWindow { get; set; }
+    public bool UiCompactDefaultsApplied { get; set; }
+    [Newtonsoft.Json.JsonExtensionData]
+    public System.Collections.Generic.Dictionary<string, Newtonsoft.Json.Linq.JToken>? AdditionalSettings { get; set; }
+
+    internal bool ApplyCompactDefaults()
+    {
+        if (UiCompactDefaultsApplied) return false;
+        UiCompact = true;
+        UiCompactVisibleOnMainWindow = UiTransparencyVisibleOnMainWindow = false;
+        UiCompactDefaultsApplied = true;
+        return true;
+    }
     public bool UiLanguageVisibleOnMainWindow { get; set; } = true;
     public bool UiTransparencyEnabled { get; set; } = true;
     public int UiWindowOpacityPercent { get; set; } = 100;
