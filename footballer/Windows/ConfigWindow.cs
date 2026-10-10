@@ -7,6 +7,7 @@ namespace footballer.Windows;
 
 public sealed class ConfigWindow : PositionedWindow, IDisposable
 {
+    private readonly AethertekUI.Dalamud.MaterialSupportLog supportLog = new();
     private static readonly string[] DtrModes = { "Text only", "Icon + text", "Icon only" };
     private readonly Plugin plugin;
 
@@ -54,6 +55,8 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
 
     private void DrawGeneralSettings()
     {
+        supportLog.Draw(Plugin.PluginInterface, key => UiText.T(key),
+            path => System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = path, UseShellExecute = true }), ex => Plugin.Log.Error(ex, "Dalamud log export failed."), Plugin.CommandManager);
         var cfg = plugin.Configuration;
 
         UiGui.TextWrapped("Choose which party previews to show. Lodestone privacy is respected in normal use.");

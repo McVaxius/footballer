@@ -46,3 +46,9 @@ GitHub Actions checks out Footballer and the private AethertekUI repository as s
 The approved reference uses 1536 × 1024 at 100%. Smaller windows and longer translations can wrap the toolbar and reduce the number of cards per row. Game font readiness, textures and visual fidelity require mcvaxius's screenshot acceptance; local build checks do not establish that acceptance.
 
 Compact mode is available from the main header's **C** checkbox and in Settings. `UiCompact` defaults to false, uses the existing save path, and shares reduced padding and control/card/row density across windows. Body text remains readable; optional columns and saved widths are preserved.
+
+## Support logs
+
+Use **Copy / ZIP Dalamud log** in Settings > Settings to create a local ZIP and open its folder. At 100 MiB or above, the first click warns that logging may have stopped and recent activity may be missing; click **Export capped log anyway** only if you still want that snapshot. Share the ZIP manually and remove exports when no longer needed. **Open Export Folder** reopens the completed export’s folder.
+
+When XA Slave is loaded, **Open XA Slave log tools** opens its **Utility > XA Mods** panel, which contains Dalamud Log Cleaner. The existing **Copy / ZIP Dalamud log** action remains separate. Opening the panel does not run cleanup or change XA Slave settings.
