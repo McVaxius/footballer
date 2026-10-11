@@ -1449,4 +1449,9 @@
   <data name="Opens XA Slave&apos;s Utility &gt; XA Mods panel, which contains Dalamud Log Cleaner." xml:space="preserve"><value>Mở bảng Utility &gt; XA Mods của XA Slave, chứa Dalamud Log Cleaner.</value></data>
   <data name="XA Slave log tools could not be opened." xml:space="preserve"><value>Không thể mở công cụ nhật ký XA Slave.</value></data>
   <data name="Transparency visible on main window" xml:space="preserve"><value>Hiện độ trong suốt trên cửa sổ chính</value></data>
+  <data name="Show titlebar status" xml:space="preserve"><value>Hiện trạng thái trên thanh tiêu đề</value></data>
+  <data name="Detailed titlebar status" xml:space="preserve"><value>Trạng thái chi tiết trên thanh tiêu đề</value></data>
+  <data name="Capturing" xml:space="preserve"><value>Đang chụp</value></data>
+  <data name="Private" xml:space="preserve"><value>Riêng tư</value></data>
+  <data name="{0}/{1} captured" xml:space="preserve"><value>Đã chụp {0}/{1}</value></data>
 </root>

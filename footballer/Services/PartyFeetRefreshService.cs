@@ -50,6 +50,8 @@ public sealed unsafe class PartyFeetRefreshService
         LastStatus = "No automatic party feet refresh is queued.";
     }
 
+    public int CompletedMembers => completedMembers;
+    public int TotalMembers => totalMembers;
     public string LastStatus { get; private set; }
 
     public bool IsActive => currentMember is not null || pendingMembers.Count > 0;

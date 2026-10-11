@@ -37,6 +37,20 @@ public sealed class Plugin : IDalamudPlugin
         => TextureProvider.GetFromFile(System.IO.Path.Combine(
             PluginInterface.AssemblyLocation.DirectoryName ?? "", "icon.png")).GetWrapOrEmpty();
 
+    internal AethertekUI.MaterialTitlebarStatus? TitlebarStatus
+    {
+        get
+        {
+            if (!Configuration.UiShowTitlebarStatus) return null;
+            var state = UiText.T(PartyFeetRefreshService.IsActive ? "Capturing" : !Configuration.PluginEnabled ? "Off" : GetEffectiveRespectLodestonePrivacy() ? "Private" : "On");
+            var concise = state;
+            if (PartyFeetRefreshService.TotalMembers > 0)
+                concise += " \u00b7 " + UiText.F("{0}/{1} captured", PartyFeetRefreshService.CompletedMembers, PartyFeetRefreshService.TotalMembers);
+            var details = concise + " \u00b7 " + UiText.T(PartyFeetRefreshService.LastStatus);
+            return new(Configuration.UiDetailedTitlebarStatus ? details : concise, concise, details);
+        }
+    }
+
     public Configuration Configuration { get; }
     public WindowSystem WindowSystem { get; } = new(PluginInfo.InternalName);
     public PartyShowcaseService PartyShowcaseService { get; }
@@ -683,6 +697,12 @@ public sealed class Plugin : IDalamudPlugin
 
     internal void DrawWindowAppearance()
     {
+        var showTitlebarStatus = Configuration.UiShowTitlebarStatus;
+        if (UiGui.Checkbox(UiText.T("Show titlebar status") + "###UiShowTitlebarStatus", ref showTitlebarStatus))
+        { Configuration.UiShowTitlebarStatus = showTitlebarStatus; Configuration.Save(); }
+        var detailedTitlebarStatus = Configuration.UiDetailedTitlebarStatus;
+        if (UiGui.Checkbox(UiText.T("Detailed titlebar status") + "###UiDetailedTitlebarStatus", ref detailedTitlebarStatus))
+        { Configuration.UiDetailedTitlebarStatus = detailedTitlebarStatus; Configuration.Save(); }
         UiGui.TextUnformatted("Window appearance");
         DrawAppearanceSelector();
         var compact = Configuration.UiCompact;

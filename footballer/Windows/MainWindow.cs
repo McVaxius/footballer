@@ -73,7 +73,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
     }
 
     protected override void PaintWindowTitle()
-        => UiGui.ImageTitle(this, $"{PluginInfo.DisplayName} v{typeof(Plugin).Assembly.GetName().Version}", plugin.OriginalIcon);
+        => UiGui.ImageTitleWithStatus(this, $"{PluginInfo.DisplayName} v{typeof(Plugin).Assembly.GetName().Version}", plugin.OriginalIcon, status: plugin.TitlebarStatus);
 
     public override void Draw()
     {

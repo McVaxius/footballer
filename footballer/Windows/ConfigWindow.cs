@@ -27,6 +27,9 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
     {
     }
 
+    protected override void PaintWindowTitle()
+        => UiGui.ImageTitleWithStatus(this, UiText.T("Footballer Settings"), plugin.OriginalIcon, status: plugin.TitlebarStatus);
+
     public override void Draw()
     {
         DrawWindowChrome();
