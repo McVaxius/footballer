@@ -107,15 +107,6 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
         if (UiGui.SmallButton("Discord"))
             plugin.OpenUrl(PluginInfo.DiscordUrl);
 
-        if (cfg.UiCompactVisibleOnMainWindow)
-        {
-            var compact = cfg.UiCompact;
-            if (ImGui.Checkbox("C##CompactMode", ref compact)) { cfg.UiCompact = compact; cfg.Save(); }
-            if (ImGui.IsItemHovered()) MaterialText.SetTooltip(UiText.T("Compact mode"));
-        }
-        ImGui.SameLine();
-        plugin.DrawAppearanceSelector();
-
         ImGui.Separator();
 
         if (showDebug)

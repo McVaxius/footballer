@@ -90,43 +90,11 @@ public sealed partial class MainWindow
             finally { ImGui.SetWindowFontScale(callerScale); }
         }
 
-        var languageLabel = UiText.Languages.First(language => language.Code == UiText.Current.Language).Name;
-        var languageWidth = (compact ? 196 : 210) * s;
-        var languageMinimum = MathF.Ceiling(MaterialText.Measure(languageLabel).X + (compact ? 101 : 105) * s);
-        var transparencyWidth = plugin.Configuration.UiTransparencyVisibleOnMainWindow ? ImGui.GetFrameHeight() + ImGui.GetStyle().ItemInnerSpacing.X + MaterialText.Measure(UiText.T("Transparency")).X + 20 * s : 0;
-        var rightWidth = (compact ? 225 : 247) * s + transparencyWidth + 20 * s
-            + (plugin.Configuration.UiCompactVisibleOnMainWindow ? ImGui.GetFrameHeight() + MaterialText.Measure("C").X + 26 * s : 0)
-            + (plugin.Configuration.UiLanguageVisibleOnMainWindow ? Math.Max(languageWidth, languageMinimum) + 20 * s : 0);
+        var rightWidth = (compact ? 225 : 247) * s + 20 * s;
         var wideHeader = width >= Math.Max(1280 * s, rightWidth + 560 * s);
         var controlsY = start.Y + (wideHeader ? compact ? 8 : 16 : compact ? 78 : 104) * s;
         ImGui.SetCursorScreenPos(new Vector2(wideHeader ? start.X + width - rightWidth : start.X, controlsY));
-        if (plugin.Configuration.UiCompactVisibleOnMainWindow)
-        {
-            var compactPreference = plugin.Configuration.UiCompact;
-            bool compactChanged;
-            using (var checkboxStyle = new MaterialStyleScope())
-            {
-                if (compact)
-                {
-                    checkboxStyle.Style(ImGuiStyleVar.FramePadding, new Vector2(ImGui.GetStyle().FramePadding.X, 0));
-                    checkboxStyle.Style(ImGuiStyleVar.ItemInnerSpacing, new Vector2(15 * s, ImGui.GetStyle().ItemInnerSpacing.Y));
-                    ImGui.SetCursorPosY(ImGui.GetCursorPosY() + (47 * s - ImGui.GetFrameHeight()) * .5f);
-                }
-                compactChanged = ImGui.Checkbox("C##CompactMode", ref compactPreference);
-            }
-            if (compactChanged) { plugin.Configuration.UiCompact = compactPreference; plugin.Configuration.Save(); }
-            if (ImGui.IsItemHovered()) MaterialText.SetTooltip(UiText.T("Compact mode"));
-            ImGui.SetCursorScreenPos(new Vector2(ImGui.GetItemRectMax().X + (compact ? 26 : 12) * s, controlsY));
-        }
-        if (plugin.Configuration.UiLanguageVisibleOnMainWindow)
-        {
-            plugin.DrawHeaderAppearanceSelector();
-            ImGui.SameLine(0, 20 * s);
-        }
-        if (plugin.Configuration.UiTransparencyVisibleOnMainWindow)
-            plugin.DrawTransparency();
         if (wideHeader) ImGui.SetCursorScreenPos(new Vector2(start.X + width - (compact ? 225 : 247) * s, controlsY));
-        else if (plugin.Configuration.UiCompactVisibleOnMainWindow || plugin.Configuration.UiLanguageVisibleOnMainWindow || plugin.Configuration.UiTransparencyVisibleOnMainWindow) ImGui.SameLine(0, 20 * s);
         var linkStart = ImGui.GetCursorScreenPos();
         ImGui.GetWindowDrawList().AddLine(linkStart + new Vector2(compact ? -23 : -28, 6) * s, linkStart + new Vector2(compact ? -23 : -28, 42) * s, MaterialCanvas.Color(c.OutlineVariant));
         using (UiText.Font(UiFontRole.Action))

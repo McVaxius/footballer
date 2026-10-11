@@ -42,6 +42,7 @@ public abstract class PositionedWindow : Window
     {
         motion.Restore(this);
         PaintWindowTitle();
+        AppearanceOwner.DrawAppearanceTitleBarPopups(this);
         AppearanceOwner.ApplyWindowOpacity(opacity, WindowName);
     }
 

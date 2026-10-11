@@ -54,6 +54,7 @@ public sealed class Plugin : IDalamudPlugin
     private UiText uiText = null!;
     private AethertekUI.Dalamud.MaterialTextHost? shapedText;
     private MaterialTheme uiTheme = null!;
+    private readonly Dictionary<Dalamud.Interface.Windowing.Window, AethertekUI.Dalamud.MaterialAppearanceTitleBar> appearanceTitleBars = new();
     private static readonly MaterialWindowFold fontStatusMotion = new();
     private static readonly MaterialWindowDecorations fontStatusDecorations = new();
     private readonly MaterialWindowOpacity fontStatusOpacity = new();
@@ -181,6 +182,7 @@ public sealed class Plugin : IDalamudPlugin
         geometry.Style(ImGuiStyleVar.FrameRounding, 4 * ImGuiHelpers.GlobalScale);
         geometry.Style(ImGuiStyleVar.ChildRounding, 4 * ImGuiHelpers.GlobalScale);
         using var body = uiFonts.Push(UiFontRole.Body);
+        PrepareAppearanceTitleBars(WindowSystem);
         WindowSystem.Draw();
     }
 
@@ -696,6 +698,57 @@ public sealed class Plugin : IDalamudPlugin
         var languageVisibleOnMainWindow = config.UiLanguageVisibleOnMainWindow;
         if (UiGui.Checkbox("Language visible on main window###UiLanguageVisibleOnMainWindowSettings", ref languageVisibleOnMainWindow))
         { config.UiLanguageVisibleOnMainWindow = languageVisibleOnMainWindow; changed = true; }
+        if (changed) config.Save();
+        DrawTransparencySettings();
+    }
+
+    private void PrepareAppearanceTitleBars(Dalamud.Interface.Windowing.WindowSystem windows)
+    {
+        foreach (var window in windows.Windows.OfType<Dalamud.Interface.Windowing.Window>())
+        {
+            if ((window.Flags & ImGuiWindowFlags.NoTitleBar) != 0) continue;
+            if (!appearanceTitleBars.ContainsKey(window))
+                appearanceTitleBars.Add(window, AethertekUI.Dalamud.MaterialAppearanceTitleBar.Register(window,
+                    () => new(UiText.T("Language"), UiText.T("Compact mode"), UiText.T("Transparency"), UiText.T("Color")),
+                    DrawTitleBarLanguage,
+                    () => { Configuration.UiCompact = !Configuration.UiCompact; Configuration.Save(); },
+                    DrawTransparencySettings, DrawTitleBarColour,
+                    () => window is global::footballer.Windows.MainWindow
+                        ? new(Configuration.UiLanguageVisibleOnMainWindow, Configuration.UiCompactVisibleOnMainWindow,
+                            Configuration.UiTransparencyVisibleOnMainWindow, true)
+                        : new(true, true, true, true)));
+            appearanceTitleBars[window].RefreshVisibility();
+        }
+    }
+
+    internal void DrawAppearanceTitleBarPopups(Dalamud.Interface.Windowing.Window window)
+    {
+        if (appearanceTitleBars.TryGetValue(window, out var titlebar)) titlebar.DrawPopups();
+    }
+
+    private void DrawTitleBarLanguage()
+    {
+        var language = appliedLanguage;
+        using var controls = MaterialControls.Push(FootballerPresentation.Controls(28, 18));
+        if (!MaterialAppearanceSelector.DrawLanguage("appearance", ref language, languageOptions, 140)) return;
+        Configuration.UiLanguage = language;
+        Configuration.Save();
+    }
+
+    private void DrawTitleBarColour()
+    {
+        if (!MaterialAppearanceSelector.DrawPalette("appearance", ref accentDraft,
+                new(UiText.T("Color"), UiText.T("Language"), UiText.T("Teal"), UiText.T("Blue"), UiText.T("Pink"), UiText.T("Custom RGB")))) return;
+        Configuration.UiAccentRgb = ((uint)Math.Clamp((int)MathF.Round(accentDraft.X * 255), 0, 255) << 16)
+            | ((uint)Math.Clamp((int)MathF.Round(accentDraft.Y * 255), 0, 255) << 8)
+            | (uint)Math.Clamp((int)MathF.Round(accentDraft.Z * 255), 0, 255);
+        Configuration.Save();
+    }
+
+    private void DrawTransparencySettings()
+    {
+        var config = Configuration;
+        var changed = false;
         var transparencyEnabled = config.UiTransparencyEnabled;
         if (UiGui.Checkbox("Transparency###UiTransparencyEnabledSettings", ref transparencyEnabled))
         { config.UiTransparencyEnabled = transparencyEnabled; changed = true; }

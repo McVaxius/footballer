@@ -30,7 +30,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
     public override void Draw()
     {
         DrawWindowChrome();
-        UiGui.Title("Footballer Settings", UiText.T("Footballer Settings"));
+        UiGui.TitleWithButtons("Footballer Settings", UiText.T("Footballer Settings"), this);
         var settingsRoot = ImGui.GetID("");
         using var tabs = MaterialTabs.Begin("FootballerSettingsTabs", new[] { UiText.T("Settings"), UiText.T("Window appearance") }, ImGuiTabBarFlags.FittingPolicyScroll);
         if (tabs.Visible)

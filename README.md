@@ -29,7 +29,7 @@ Scroll down to "The Dumpster Fire" channel to discuss issues / suggestions for s
 
 **Transparency** applies to the complete plugin window, including its titlebar and popups. Settings provides normal opacity, automatic focus fade, faded opacity and delay; defaults are 100%, fading to 50% after 10 seconds without focus and restoring on focus. Compact and language controls can be hidden independently on Main while remaining available in Settings.
 
-Main's titlebar opens Settings, toggles Enabled, refreshes the party and refreshes Lodestone; refresh actions use their current readiness checks. The packaged plugin icon appears in Main branding and the titlebar, including when collapsed.
+Main's titlebar opens Settings, toggles Enabled, refreshes the party and refreshes Lodestone; refresh actions use their current readiness checks. Titled windows also expose language, compact spacing, transparency and colour shortcuts, including while collapsed; Main retains its saved icon-visibility choices. The packaged plugin icon appears in Main branding and the titlebar, including when collapsed.
 
 The main window follows the approved `Footballer-main-v3.png` layout: packaged icon branding, a wrapping toolbar, a privacy/capture status strip, and character cards with one saved feet capture. **Without footwear** is available in both the main toolbar and Settings. It uses the existing preview-only shoe-removal handler; refresh the party to save new captures.
 
