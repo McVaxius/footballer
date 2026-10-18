@@ -1,3 +1,9 @@
+2026-10-18 - Previewtek release images
+
+- Render a 730 x 380 diagnostic PNG from the checked-out Footballer theme using AethertekUI's software renderer, with fabricated data and a visible version/build identifier. Keep the fixture outside the game plugin.
+- Validate numbered previews, carry matching ImageUrls and download links into the ZIP manifest, release manifest and generated repo.json, and upload images before publishing the feed.
+- Add an isolated preview_test dispatch on previewtek-footballer using preview-v<version>-<run_id> prereleases; retain plugin version 2.0.0.9.
+
 2026-10-11 - Native titlebar status (I536)
 
 - Show capture progress and current enablement/privacy state in native main and settings titles. Keep concise state and available numeric progress when detailed wording is off; hover retains full details.
