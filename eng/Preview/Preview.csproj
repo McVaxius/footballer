@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../aethertekUI/src/AethertekUI/AethertekUI.csproj" />
+    <Compile Include="../../../aethertekUI/tests/AethertekUI.Tests/SoftwarePreview.cs" Link="SoftwarePreview.cs" />
+    <Compile Include="../../footballer/Windows/FootballerPresentation.cs" Link="FootballerPresentation.cs" />
+    <Reference Include="Dalamud.Bindings.ImGui"><HintPath>$(DalamudLibPath)/Dalamud.Bindings.ImGui.dll</HintPath><Private>true</Private></Reference>
+    <Reference Include="HexaGen.Runtime"><HintPath>$(DalamudLibPath)/HexaGen.Runtime.dll</HintPath><Private>true</Private></Reference>
+    <None Include="$(DalamudLibPath)/cimgui.dll" Link="cimgui.dll" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

@@ -6,11 +6,16 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
+    inputs:
+      preview_test:
+        description: Publish an isolated Previewtek prerelease (previewtek-footballer branch only)
+        type: boolean
+        default: false
 
 env:
   PLUGIN_NAME: footballer
   INTERNAL_NAME: footballer
-  RELEASE_DIR: footballer\footballer\bin\x64\Release\footballer
+  RELEASE_DIR: footballer/footballer/bin/x64/Release/footballer
 
 permissions:
   contents: read
@@ -18,6 +23,9 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
+    outputs:
+      release_tag: ${{ steps.release_identity.outputs.tag }}
+      preview_test: ${{ steps.release_identity.outputs.preview_test }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,7 +38,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: McVaxius/aethertekUI
-          # Publish compatible library APIs before consumer changes.
           ref: main
           path: aethertekUI
           # Repository-specific read-only SSH deploy key; no expiration.
@@ -42,29 +49,70 @@ jobs:
         with:
           dotnet-version: "10.0.201"
 
+      - name: Determine release identity
+        id: release_identity
+        working-directory: footballer
+        env:
+          PREVIEW_TEST: ${{ inputs.preview_test == true }}
+        run: |
+          $version = ([xml](Get-Content footballer/footballer.csproj -Raw)).Project.PropertyGroup.Version | Where-Object { $_ }
+          if ($env:PREVIEW_TEST -eq 'true') {
+            if ($env:GITHUB_REF -ne 'refs/heads/previewtek-footballer') { throw 'preview_test requires previewtek-footballer.' }
+            $tag = "preview-v$version-$env:GITHUB_RUN_ID"
+          } elseif ($env:GITHUB_REF_TYPE -eq 'tag') {
+            $tag = $env:GITHUB_REF_NAME
+            if ($tag -ne "v$version") { throw 'Release tag must match the plugin version.' }
+          } else {
+            if ($env:GITHUB_REF_NAME -notin @('main', 'master')) { throw 'Normal releases require main or master.' }
+            $tag = "v$version"
+          }
+          "tag=$tag" >> $env:GITHUB_OUTPUT
+          "preview_test=$env:PREVIEW_TEST" >> $env:GITHUB_OUTPUT
+
       - name: Download Dalamud
         run: |
           Invoke-WebRequest -Uri https://goatcorp.github.io/dalamud-distrib/latest.zip -OutFile latest.zip
-          Expand-Archive -Force latest.zip "$env:AppData\XIVLauncher\addon\Hooks\dev\"
+          Expand-Archive -Force latest.zip "$env:AppData/XIVLauncher/addon/Hooks/dev/"
 
       - name: Build
         working-directory: footballer
         run: |
           $dalamudLibPath = "$env:AppData/XIVLauncher/addon/Hooks/dev"
-          dotnet restore "footballer/footballer.csproj" -p:Configuration=Release -p:Platform=x64 -p:DalamudLibPath="$dalamudLibPath"
+          dotnet restore footballer/footballer.csproj -p:Configuration=Release -p:Platform=x64 -p:DalamudLibPath="$dalamudLibPath"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          dotnet build "footballer/footballer.csproj" --configuration Release --no-restore -p:Platform=x64 -p:DalamudLibPath="$dalamudLibPath"
+          dotnet build footballer/footballer.csproj --configuration Release --no-restore -p:Platform=x64 -p:DalamudLibPath="$dalamudLibPath"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
         env:
           DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+      - name: Render and validate previews
+        working-directory: footballer
+        run: |
+          $dalamudLibPath = "$env:AppData/XIVLauncher/addon/Hooks/dev"
+          dotnet build eng/Preview/Preview.csproj -c Release -p:DalamudLibPath="$dalamudLibPath"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $runner = 'eng/Preview/bin/Release/net10.0-windows/Preview.dll'
+          dotnet $runner render . previews "$env:GITHUB_RUN_ID.$env:GITHUB_RUN_ATTEMPT"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet $runner validate previews
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Package preview URLs and test feed
+        working-directory: footballer
+        env:
+          RELEASE_TAG: ${{ steps.release_identity.outputs.tag }}
+        run: |
+          ./eng/Prepare-PreviewRelease.ps1 -ReleaseDirectory 'footballer/bin/x64/Release/footballer' -PreviewDirectory previews -Repository $env:GITHUB_REPOSITORY -Tag $env:RELEASE_TAG
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.PLUGIN_NAME }}-artifact
           path: |
-            ${{ env.RELEASE_DIR }}\latest.zip
-            ${{ env.RELEASE_DIR }}\${{ env.INTERNAL_NAME }}.json
+            ${{ env.RELEASE_DIR }}/latest.zip
+            ${{ env.RELEASE_DIR }}/${{ env.INTERNAL_NAME }}.json
+            ${{ env.RELEASE_DIR }}/preview-*.png
+            ${{ env.RELEASE_DIR }}/repo.json
           if-no-files-found: error
 
   release:
@@ -82,29 +130,29 @@ jobs:
           name: ${{ env.PLUGIN_NAME }}-artifact
           path: artifact
 
-      - name: Determine Release Version
-        id: get_version
+      - name: Upload plugin and images, then publish repository feed
         shell: bash
         env:
-          INTERNAL_NAME: ${{ env.INTERNAL_NAME }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.build.outputs.release_tag }}
+          PREVIEW_TEST: ${{ needs.build.outputs.preview_test }}
         run: |
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            echo "version=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            if [ "$PREVIEW_TEST" = "true" ]; then
+              echo 'Preview test release already exists; dispatch a fresh run.' >&2
+              exit 1
+            fi
           else
-            version="$(python3 -c "import json, os; from pathlib import Path; manifest_path = Path('artifact') / f\"{os.environ['INTERNAL_NAME']}.json\"; manifest = json.loads(manifest_path.read_text(encoding='utf-8')); manifest = manifest[0] if isinstance(manifest, list) else manifest; print(f\"v{manifest['AssemblyVersion']}\")")"
-            echo "version=${version}" >> "$GITHUB_OUTPUT"
+            flags=()
+            if [ "$PREVIEW_TEST" = "true" ]; then flags+=(--prerelease --latest=false); fi
+            gh release create "$RELEASE_TAG" --draft --target "$GITHUB_SHA" --title "$RELEASE_TAG" --notes 'Built from checked-out source; preview is a diagnostic software render with fabricated data.' "${flags[@]}"
           fi
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v3
-        with:
-          tag_name: ${{ steps.get_version.outputs.version }}
-          name: Release ${{ steps.get_version.outputs.version }}
-          draft: false
-          prerelease: false
-          preserve_order: true
-          files: |
-            artifact/latest.zip
-            artifact/${{ env.INTERNAL_NAME }}.json
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          gh release upload "$RELEASE_TAG" artifact/preview-*.png artifact/latest.zip "artifact/$INTERNAL_NAME.json" --clobber
+          flags=()
+          if [ "$PREVIEW_TEST" = "true" ]; then flags+=(--prerelease --latest=false); else flags+=(--prerelease=false --latest); fi
+          gh release edit "$RELEASE_TAG" --draft=false "${flags[@]}"
+          for image in artifact/preview-*.png; do
+            curl --fail --silent --show-error --location --output /dev/null "https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/$(basename "$image")"
+          done
+          gh release upload "$RELEASE_TAG" artifact/repo.json --clobber
