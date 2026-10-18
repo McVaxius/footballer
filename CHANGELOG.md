@@ -1,3 +1,8 @@
+2026-10-18 - Keep previews in the existing release feeds
+
+- Add ImageUrls to the existing project manifest and root repo.json, and validate them against the normal release assets. Keep the established repository URLs and plugin version 2.0.0.9.
+- Remove the separate release-feed publishing path and temporary preview-test release mode. Publish numbered PNGs alongside the normal plugin ZIP and manifest.
+
 2026-10-18 - Previewtek release images
 
 - Render a 730 x 380 diagnostic PNG from the checked-out Footballer theme using AethertekUI's software renderer, with fabricated data and a visible version/build identifier. Keep the fixture outside the game plugin.

@@ -21,6 +21,9 @@
     "RepoUrl": "https://github.com/McVaxius/footballer",
     "DownloadLinkInstall": "https://github.com/McVaxius/footballer/releases/download/v2.0.0.9/latest.zip",
     "DownloadLinkUpdate": "https://github.com/McVaxius/footballer/releases/download/v2.0.0.9/latest.zip",
-    "IconUrl": "https://raw.githubusercontent.com/McVaxius/footballer/main/footballer/images/icon.png"
+    "IconUrl": "https://raw.githubusercontent.com/McVaxius/footballer/main/footballer/images/icon.png",
+    "ImageUrls": [
+      "https://github.com/McVaxius/footballer/releases/download/v2.0.0.9/preview-1.png"
+    ]
   }
 ]

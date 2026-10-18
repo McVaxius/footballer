@@ -6,11 +6,6 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
-    inputs:
-      preview_test:
-        description: Publish an isolated Previewtek prerelease (previewtek-footballer branch only)
-        type: boolean
-        default: false
 
 env:
   PLUGIN_NAME: footballer
@@ -25,7 +20,6 @@ jobs:
     runs-on: windows-latest
     outputs:
       release_tag: ${{ steps.release_identity.outputs.tag }}
-      preview_test: ${{ steps.release_identity.outputs.preview_test }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,22 +46,11 @@ jobs:
       - name: Determine release identity
         id: release_identity
         working-directory: footballer
-        env:
-          PREVIEW_TEST: ${{ inputs.preview_test == true }}
         run: |
           $version = ([xml](Get-Content footballer/footballer.csproj -Raw)).Project.PropertyGroup.Version | Where-Object { $_ }
-          if ($env:PREVIEW_TEST -eq 'true') {
-            if ($env:GITHUB_REF -ne 'refs/heads/previewtek-footballer') { throw 'preview_test requires previewtek-footballer.' }
-            $tag = "preview-v$version-$env:GITHUB_RUN_ID"
-          } elseif ($env:GITHUB_REF_TYPE -eq 'tag') {
-            $tag = $env:GITHUB_REF_NAME
-            if ($tag -ne "v$version") { throw 'Release tag must match the plugin version.' }
-          } else {
-            if ($env:GITHUB_REF_NAME -notin @('main', 'master')) { throw 'Normal releases require main or master.' }
-            $tag = "v$version"
-          }
+          $tag = "v$version"
+          if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne $tag) { throw 'Release tag must match the plugin version.' }
           "tag=$tag" >> $env:GITHUB_OUTPUT
-          "preview_test=$env:PREVIEW_TEST" >> $env:GITHUB_OUTPUT
 
       - name: Download Dalamud
         run: |
@@ -97,7 +80,7 @@ jobs:
           dotnet $runner validate previews
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Package preview URLs and test feed
+      - name: Validate and package normal release previews
         working-directory: footballer
         env:
           RELEASE_TAG: ${{ steps.release_identity.outputs.tag }}
@@ -112,7 +95,6 @@ jobs:
             ${{ env.RELEASE_DIR }}/latest.zip
             ${{ env.RELEASE_DIR }}/${{ env.INTERNAL_NAME }}.json
             ${{ env.RELEASE_DIR }}/preview-*.png
-            ${{ env.RELEASE_DIR }}/repo.json
           if-no-files-found: error
 
   release:
@@ -130,29 +112,17 @@ jobs:
           name: ${{ env.PLUGIN_NAME }}-artifact
           path: artifact
 
-      - name: Upload plugin and images, then publish repository feed
-        shell: bash
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ needs.build.outputs.release_tag }}
+          name: Release ${{ needs.build.outputs.release_tag }}
+          draft: false
+          prerelease: false
+          preserve_order: true
+          files: |
+            artifact/preview-*.png
+            artifact/latest.zip
+            artifact/${{ env.INTERNAL_NAME }}.json
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_TAG: ${{ needs.build.outputs.release_tag }}
-          PREVIEW_TEST: ${{ needs.build.outputs.preview_test }}
-        run: |
-          set -euo pipefail
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            if [ "$PREVIEW_TEST" = "true" ]; then
-              echo 'Preview test release already exists; dispatch a fresh run.' >&2
-              exit 1
-            fi
-          else
-            flags=()
-            if [ "$PREVIEW_TEST" = "true" ]; then flags+=(--prerelease --latest=false); fi
-            gh release create "$RELEASE_TAG" --draft --target "$GITHUB_SHA" --title "$RELEASE_TAG" --notes 'Built from checked-out source; preview is a diagnostic software render with fabricated data.' "${flags[@]}"
-          fi
-          gh release upload "$RELEASE_TAG" artifact/preview-*.png artifact/latest.zip "artifact/$INTERNAL_NAME.json" --clobber
-          flags=()
-          if [ "$PREVIEW_TEST" = "true" ]; then flags+=(--prerelease --latest=false); else flags+=(--prerelease=false --latest); fi
-          gh release edit "$RELEASE_TAG" --draft=false "${flags[@]}"
-          for image in artifact/preview-*.png; do
-            curl --fail --silent --show-error --location --output /dev/null "https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/$(basename "$image")"
-          done
-          gh release upload "$RELEASE_TAG" artifact/repo.json --clobber
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
