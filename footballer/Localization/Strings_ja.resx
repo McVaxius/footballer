@@ -1454,4 +1454,18 @@
   <data name="Capturing" xml:space="preserve"><value>撮影中</value></data>
   <data name="Private" xml:space="preserve"><value>非公開</value></data>
   <data name="{0}/{1} captured" xml:space="preserve"><value>撮影済み {0}/{1}</value></data>
+  <data name="Auto" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="Picker" xml:space="preserve"><value>ピッカー</value></data>
+  <data name="Default" xml:space="preserve"><value>既定</value></data>
+  <data name="Background, controls and text follow your theme." xml:space="preserve"><value>背景、コントロール、テキストはテーマに従います。</value></data>
+  <data name="Theme colour" xml:space="preserve"><value>テーマの色</value></data>
+  <data name="Choose each colour independently." xml:space="preserve"><value>各色を個別に選択します。</value></data>
+  <data name="Background" xml:space="preserve"><value>背景</value></data>
+  <data name="Controls" xml:space="preserve"><value>コントロール</value></data>
+  <data name="Aa  Preview text" xml:space="preserve"><value>Aa  テキストのプレビュー</value></data>
+  <data name="Control" xml:space="preserve"><value>コントロール</value></data>
+  <data name="Switch to Picker to set each colour yourself." xml:space="preserve"><value>各色を自分で設定するにはピッカーに切り替えます。</value></data>
+  <data name="Switch back to Auto to use the automatic theme." xml:space="preserve"><value>自動テーマを使うには「自動」に戻します。</value></data>
 </root>

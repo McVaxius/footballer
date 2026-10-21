@@ -76,6 +76,9 @@ public sealed class Plugin : IDalamudPlugin
     private string appliedLanguage = "";
     private uint appliedAccent;
     private Vector3 accentDraft;
+    private MaterialColorSettings colorDraft = new();
+    private MaterialColorSettings? appliedColors;
+    private MaterialColorSettings? appliedSavedColors;
     private int checkedFontGeneration = -1;
     private int checkedHindiGeneration = -1;
     private bool fontIssueLogged;
@@ -241,10 +244,17 @@ public sealed class Plugin : IDalamudPlugin
             checkedHindiGeneration = -1;
             fontIssueLogged=false;
         }
-        if(uiTheme is null || (Configuration.UiAccentRgb & 0xFFFFFF)!=appliedAccent)
+        var savedColors = Configuration.UiColors ?? new MaterialColorSettings();
+        if (savedColors != appliedSavedColors)
+        {
+            colorDraft = savedColors;
+            appliedSavedColors = savedColors;
+        }
+        if (uiTheme is null || appliedAccent != (Configuration.UiAccentRgb & 0xFFFFFF) || colorDraft != appliedColors)
         {
             appliedAccent=Configuration.UiAccentRgb & 0xFFFFFF;
-            uiTheme=FootballerPresentation.Theme(appliedAccent);
+            appliedColors = colorDraft;
+            uiTheme=FootballerPresentation.Theme(appliedAccent, colorDraft);
             var color=FootballerPresentation.Rgb(appliedAccent);
             accentDraft=new(color.X,color.Y,color.Z);
         }
@@ -253,14 +263,13 @@ public sealed class Plugin : IDalamudPlugin
 
     public void DrawAppearanceSelector()
     {
-        var language=appliedLanguage;
-        using var controls=MaterialControls.Push(FootballerPresentation.Controls(28,18));
-        var changed=MaterialAppearanceSelector.Draw("appearance",ref accentDraft,ref language,languageOptions,
-            new(UiText.T("Color"),UiText.T("Language"),UiText.T("Teal"),UiText.T("Blue"),UiText.T("Pink"),UiText.T("Custom RGB")), languageWidth: 140);
-        if(changed.AccentChanged) Configuration.UiAccentRgb=((uint)Math.Clamp((int)MathF.Round(accentDraft.X*255),0,255)<<16)
-            |((uint)Math.Clamp((int)MathF.Round(accentDraft.Y*255),0,255)<<8)|(uint)Math.Clamp((int)MathF.Round(accentDraft.Z*255),0,255);
-        if(changed.LanguageChanged) Configuration.UiLanguage=language;
-        if(changed.AccentChanged || changed.LanguageChanged) Configuration.Save();
+        using var controls = MaterialControls.Push(FootballerPresentation.Controls(28, 18));
+        DrawTitleBarColour();
+        ImGui.Spacing();
+        var language = appliedLanguage;
+        if (!MaterialAppearanceSelector.DrawLanguage("appearance", ref language, languageOptions, 140)) return;
+        Configuration.UiLanguage = language;
+        Configuration.Save();
     }
 
     public void DrawHeaderAppearanceSelector()
@@ -757,11 +766,15 @@ public sealed class Plugin : IDalamudPlugin
 
     private void DrawTitleBarColour()
     {
-        if (!MaterialAppearanceSelector.DrawPalette("appearance", ref accentDraft,
-                new(UiText.T("Color"), UiText.T("Language"), UiText.T("Teal"), UiText.T("Blue"), UiText.T("Pink"), UiText.T("Custom RGB")))) return;
-        Configuration.UiAccentRgb = ((uint)Math.Clamp((int)MathF.Round(accentDraft.X * 255), 0, 255) << 16)
-            | ((uint)Math.Clamp((int)MathF.Round(accentDraft.Y * 255), 0, 255) << 8)
-            | (uint)Math.Clamp((int)MathF.Round(accentDraft.Z * 255), 0, 255);
+        if (!MaterialAppearanceSelector.DrawColors("appearance", ref colorDraft, ref accentDraft,
+                new(UiText.T("Color"), UiText.T("Language"), UiText.T("Teal"), UiText.T("Blue"), UiText.T("Pink"), UiText.T("Custom RGB")),
+                new(UiText.T("Auto"), UiText.T("Picker"), UiText.T("Default"), UiText.T("Background, controls and text follow your theme."),
+                    UiText.T("Theme colour"), UiText.T("Choose each colour independently."), UiText.T("Background"), UiText.T("Controls"),
+                    UiText.T("Text"), UiText.T("Aa  Preview text"), UiText.T("Control"),
+                    UiText.T("Switch to Picker to set each colour yourself."), UiText.T("Switch back to Auto to use the automatic theme.")),
+                Configuration.UiCompact ? 298 : 316)) return;
+        Configuration.UiColors = colorDraft;
+        Configuration.UiAccentRgb = MaterialColorSettings.ToRgb(accentDraft);
         Configuration.Save();
     }
 

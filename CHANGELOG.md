@@ -1,3 +1,8 @@
+2026-10-20 - Independent UI colours
+
+- Add Auto and Picker colour choices in the native Colour popup and Appearance settings. Auto preserves the existing theme; Picker saves independent Background, Controls and Text choices through the existing configuration.
+- Retain picker colours when returning to Auto, existing language and opacity controls, and native window identities.
+
 2026-10-18 - Keep previews in the existing release feeds
 
 - Add ImageUrls to the existing project manifest and root repo.json, and validate them against the normal release assets. Keep the established repository URLs and plugin version 2.0.0.9.
