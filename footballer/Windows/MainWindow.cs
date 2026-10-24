@@ -99,6 +99,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             return;
         }
 
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.Header(PluginInfo.DisplayName);
         UiGui.Text(UiText.F($"{PluginInfo.DisplayName} v{version}"));
         ImGui.SameLine();
         if (UiGui.SmallButton("Ko-fi"))
@@ -278,6 +279,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
                 UiGui.BulletText(item);
         }
 
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.Footer(PluginInfo.DisplayName);
         FinalizePendingWindowPlacement();
     }
 

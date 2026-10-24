@@ -23,6 +23,7 @@ public sealed partial class MainWindow
         {
             ImGui.SetCursorScreenPos(new Vector2(start.X, statusBottom + FootballerPresentation.RegionGap * s));
             UiGui.TextWrapped("No local player or party members are available yet, so there is nothing to render in the live showcase.");
+            if (MaterialTheme.Current.IsLcars) MaterialLcars.Footer(PluginInfo.DisplayName);
             return;
         }
 
@@ -52,10 +53,12 @@ public sealed partial class MainWindow
             ImGui.EndTable();
         }
         ImGui.PopStyleVar();
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.Footer(PluginInfo.DisplayName);
     }
 
     private void DrawPresentationHeader()
     {
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.Header(string.Empty);
         var s = MaterialTheme.Metrics.Scale;
         var start = ImGui.GetCursorScreenPos();
         var width = ImGui.GetContentRegionAvail().X;
@@ -133,6 +136,7 @@ public sealed partial class MainWindow
         dl.PushClipRect(min, max, true);
         try { MaterialText.AddText(dl,min + new Vector2(44 * s, (height - MaterialText.Measure(label).Y) * .5f), MaterialCanvas.Color(color), label); }
         finally { dl.PopClipRect(); }
+        MaterialLcars.Feedback(clicked);
         return clicked;
     }
 
@@ -189,6 +193,8 @@ public sealed partial class MainWindow
         FootballerPresentation.Surface(origin, origin + new Vector2(cardWidth, cardHeight));
         if (ImGui.BeginChild($"FootCard##{card.Member.CharacterKey}", new Vector2(0, cardHeight), false, ImGuiWindowFlags.AlwaysUseWindowPadding))
         {
+            var lcars = MaterialTheme.Current.IsLcars;
+            if (lcars) MaterialLcars.PanelHeading(GetUiDisplayName(card.Member), 1);
             var start = ImGui.GetCursorScreenPos();
             var width = ImGui.GetContentRegionAvail().X;
             var compact = FootballerPresentation.Compact;
@@ -198,6 +204,7 @@ public sealed partial class MainWindow
             if (icon.Handle != nint.Zero) ImGui.Image(icon.Handle, new Vector2(iconSize) * s);
             else ImGui.Dummy(new Vector2(iconSize) * s);
             ImGui.SetCursorScreenPos(start + new Vector2(nameX, compact ? -8 : -6) * s);
+            if (!lcars)
             using (UiText.Font(UiFontRole.PluginName))
             {
                 var callerScale = ImGuiP.GetCurrentWindow().FontWindowScale;
@@ -206,7 +213,7 @@ public sealed partial class MainWindow
                 finally { ImGui.SetWindowFontScale(callerScale); }
             }
             ShowHoverTooltip($"{GetSafeWorldLabel(card.Member)} | {card.Member.JobAbbreviation} {card.Member.Level}\n{GetUiVariantLabel(card)}", false);
-            ImGui.SetCursorScreenPos(start + new Vector2(nameX, compact ? 20 : 29) * s);
+            ImGui.SetCursorScreenPos(start + new Vector2(nameX, lcars ? 8 : compact ? 20 : 29) * s);
             UiGui.TextColored(c.OnSurfaceVariant, UiText.F("Lv {0}  {1}", card.Member.Level, card.Member.JobAbbreviation));
             var headerBottom = Math.Max(start.Y + (compact ? 44 : 54) * s, ImGui.GetItemRectMax().Y);
             var faceTop = new Vector2(start.X, headerBottom + (compact ? 8 : 18) * s);

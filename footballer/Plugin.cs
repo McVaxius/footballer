@@ -9,6 +9,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.IoC;
 using Dalamud.Interface.Windowing;
+using Dalamud.Interface;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
@@ -82,6 +83,9 @@ public sealed class Plugin : IDalamudPlugin
     private int checkedFontGeneration = -1;
     private int checkedHindiGeneration = -1;
     private bool fontIssueLogged;
+    private MaterialUiSoundPlayer? uiSoundPlayer;
+    private bool appliedSoundsMuted = true;
+    private readonly Dictionary<Window, TitleBarButton> soundTitleButtons = new();
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
     private bool pendingOpenMainUi;
@@ -130,8 +134,52 @@ public sealed class Plugin : IDalamudPlugin
         Log.Information("[footballer] Plugin loaded.");
     }
 
+    private bool LcarsActive => Configuration.UiColors?.Mode == MaterialColorMode.Lcars;
+
+    private void PlayLcarsSound(MaterialUiSoundCue cue)
+    {
+        if (!LcarsActive || Configuration.UiLcarsSoundsMuted) return;
+        (uiSoundPlayer ??= new MaterialUiSoundPlayer()).TryPlay(cue);
+    }
+
+    internal void SetLcarsSounds(bool enabled)
+    {
+        Configuration.UiLcarsSoundsMuted = !enabled;
+        if (!enabled) uiSoundPlayer?.Stop();
+        Configuration.Save();
+    }
+
+    private void DrawLcarsSounds()
+    {
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.PanelHeading(UiText.T("LCARS UI sounds"), 1);
+        else MaterialSettings.Section(UiText.T("LCARS UI sounds"));
+        ImGui.BeginDisabled(!LcarsActive);
+        try
+        {
+            var enabled = !Configuration.UiLcarsSoundsMuted;
+            if (UiGui.Checkbox("UI sounds", ref enabled)) SetLcarsSounds(enabled);
+            UiGui.TextWrapped("Custom UI tones. The titlebar speaker toggles the same setting.");
+            ImGui.BeginDisabled(Configuration.UiLcarsSoundsMuted);
+            try
+            {
+                var activeTheme = MaterialTheme.Current;
+                var feedback = activeTheme.Feedback;
+                bool preview;
+                try { activeTheme.Feedback = null; preview = UiGui.Button("Preview sound"); }
+                finally { activeTheme.Feedback = feedback; }
+                MaterialLcars.Feedback(preview, MaterialUiSoundCue.Preview);
+            }
+            finally { ImGui.EndDisabled(); }
+            if (uiSoundPlayer?.Error is not null) UiGui.TextWrapped("Audio output is unavailable.");
+        }
+        finally { ImGui.EndDisabled(); }
+        if (!LcarsActive) UiGui.TextDisabled("Select LCARS to use UI sounds.");
+        else if (Configuration.UiLcarsSoundsMuted) UiGui.TextDisabled("Turn on UI sounds to preview.");
+    }
+
     public void Dispose()
     {
+        uiSoundPlayer?.Dispose();
         pendingOpenMainUi = false;
         Framework.Update -= OnFrameworkUpdate;
         PluginInterface.UiBuilder.Draw -= DrawUi;
@@ -159,6 +207,7 @@ public sealed class Plugin : IDalamudPlugin
         using var shaping = shapedText.Push();
         using var theme = MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, MaterialStyleMode.ColorsOnly);
         using var chrome = MaterialWindowChrome.Push();
+        using var nativeButtons = MaterialLcars.NativeButtonStyle();
         if(!uiFonts.Ready)
         {
             if(!fontIssueLogged && uiFonts.LoadException is { } error) { Log.Error(error,"[footballer] Required UI fonts failed to load.");fontIssueLogged=true; }
@@ -255,10 +304,17 @@ public sealed class Plugin : IDalamudPlugin
             appliedAccent=Configuration.UiAccentRgb & 0xFFFFFF;
             appliedColors = colorDraft;
             uiTheme=FootballerPresentation.Theme(appliedAccent, colorDraft);
+            uiTheme.Feedback = PlayLcarsSound;
+            if (!uiTheme.IsLcars) uiSoundPlayer?.Stop();
             var color=FootballerPresentation.Rgb(appliedAccent);
             accentDraft=new(color.X,color.Y,color.Z);
         }
         uiTheme.Density = Configuration.UiCompact ? MaterialDensity.Compact : MaterialDensity.Standard;
+        if (appliedSoundsMuted != Configuration.UiLcarsSoundsMuted)
+        {
+            appliedSoundsMuted = Configuration.UiLcarsSoundsMuted;
+            if (appliedSoundsMuted) uiSoundPlayer?.Stop();
+        }
     }
 
     public void DrawAppearanceSelector()
@@ -729,6 +785,7 @@ public sealed class Plugin : IDalamudPlugin
         { config.UiLanguageVisibleOnMainWindow = languageVisibleOnMainWindow; changed = true; }
         if (changed) config.Save();
         DrawTransparencySettings();
+        DrawLcarsSounds();
     }
 
     private void PrepareAppearanceTitleBars(Dalamud.Interface.Windowing.WindowSystem windows)
@@ -742,11 +799,28 @@ public sealed class Plugin : IDalamudPlugin
                     DrawTitleBarLanguage,
                     () => { Configuration.UiCompact = !Configuration.UiCompact; Configuration.Save(); },
                     DrawTransparencySettings, DrawTitleBarColour,
+                    () => SetKrangleNames(!Configuration.KrangleNames),
+                    () => UiText.T(Configuration.KrangleNames ? "Un-Krangle" : "Krangle Names"),
                     () => window is global::footballer.Windows.MainWindow
                         ? new(Configuration.UiLanguageVisibleOnMainWindow, Configuration.UiCompactVisibleOnMainWindow,
                             Configuration.UiTransparencyVisibleOnMainWindow, true)
                         : new(true, true, true, true)));
             appearanceTitleBars[window].RefreshVisibility();
+            appearanceTitleBars[window].SetLcarsIcons(uiTheme.IsLcars);
+            if (!soundTitleButtons.TryGetValue(window, out var sound))
+            {
+                sound = new TitleBarButton
+                {
+                    Priority = (int)Math.Max(int.MinValue + 1L, window.TitleBarButtons.Select(static button => (long)button.Priority).DefaultIfEmpty(0).Min() - 1),
+                    IconOffset = new(2, 1),
+                    Click = mouse => { if (mouse == ImGuiMouseButton.Left && LcarsActive) SetLcarsSounds(Configuration.UiLcarsSoundsMuted); },
+                    ShowTooltip = () => MaterialText.SetTooltip(UiText.T(Configuration.UiLcarsSoundsMuted ? "UI sounds muted" : "UI sounds on")),
+                };
+                soundTitleButtons.Add(window, sound);
+            }
+            sound.Icon = Configuration.UiLcarsSoundsMuted ? FontAwesomeIcon.VolumeMute : FontAwesomeIcon.VolumeUp;
+            if (uiTheme.IsLcars && !window.TitleBarButtons.Contains(sound)) window.TitleBarButtons.Add(sound);
+            else if (!uiTheme.IsLcars) window.TitleBarButtons.Remove(sound);
         }
     }
 
@@ -771,7 +845,8 @@ public sealed class Plugin : IDalamudPlugin
                 new(UiText.T("Auto"), UiText.T("Picker"), UiText.T("Default"), UiText.T("Background, controls and text follow your theme."),
                     UiText.T("Theme colour"), UiText.T("Choose each colour independently."), UiText.T("Background"), UiText.T("Controls"),
                     UiText.T("Text"), UiText.T("Aa  Preview text"), UiText.T("Control"),
-                    UiText.T("Switch to Picker to set each colour yourself."), UiText.T("Switch back to Auto to use the automatic theme.")),
+                    UiText.T("Switch to Picker to set each colour yourself."), UiText.T("Switch back to Auto to use the automatic theme."))
+                { Lcars = UiText.T("LCARS"), LcarsHelp = UiText.T("LCARS panels, bars and controls") },
                 Configuration.UiCompact ? 298 : 316)) return;
         Configuration.UiColors = colorDraft;
         Configuration.UiAccentRgb = MaterialColorSettings.ToRgb(accentDraft);

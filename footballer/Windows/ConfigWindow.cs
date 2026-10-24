@@ -33,6 +33,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
     public override void Draw()
     {
         DrawWindowChrome();
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.Header(UiText.T("Footballer Settings"));
         UiGui.TitleWithButtons("Footballer Settings", UiText.T("Footballer Settings"), this);
         var settingsRoot = ImGui.GetID("");
         using var tabs = MaterialTabs.Begin("FootballerSettingsTabs", new[] { UiText.T("Settings"), UiText.T("Window appearance") }, ImGuiTabBarFlags.FittingPolicyScroll);
@@ -53,6 +54,7 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
                     finally { ImGui.PopID(); }
                 }
         }
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.Footer(PluginInfo.DisplayName);
         FinalizePendingWindowPlacement();
     }
 
@@ -64,7 +66,8 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
 
         UiGui.TextWrapped("Choose which party previews to show. Lodestone privacy is respected in normal use.");
         ImGui.Separator();
-        UiGui.TextUnformatted("Live Shell Controls");
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.PanelHeading(UiText.T("Live Shell Controls"), 0);
+        else UiGui.TextUnformatted("Live Shell Controls");
 
         var enabled = cfg.PluginEnabled;
         if (UiGui.Checkbox("Plugin enabled", ref enabled))
@@ -103,7 +106,8 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         }
 
         ImGui.Separator();
-        UiGui.TextUnformatted("Stored Display Defaults");
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.PanelHeading(UiText.T("Stored Display Defaults"), 1);
+        else UiGui.TextUnformatted("Stored Display Defaults");
 
         var krangleNames = cfg.KrangleNames;
         if (UiGui.Checkbox("Default: Krangle labels", ref krangleNames))
@@ -178,7 +182,8 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
 
         var openOnLoad = cfg.OpenMainWindowOnLoad;
         ImGui.Separator();
-        UiGui.TextUnformatted("Window Behavior");
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.PanelHeading(UiText.T("Window Behavior"), 2);
+        else UiGui.TextUnformatted("Window Behavior");
         if (UiGui.Checkbox("Open main window on load", ref openOnLoad))
         {
             cfg.OpenMainWindowOnLoad = openOnLoad;
@@ -195,7 +200,8 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
         UiGui.TextWrapped("Match Scaling to CharacterInspect (60–200%) before capturing.");
 
         ImGui.Separator();
-        UiGui.TextUnformatted("Rollout Phases");
+        if (MaterialTheme.Current.IsLcars) MaterialLcars.PanelHeading(UiText.T("Rollout Phases"), 3);
+        else UiGui.TextUnformatted("Rollout Phases");
         foreach (var phase in PluginInfo.Phases)
             UiGui.BulletText(phase);
 

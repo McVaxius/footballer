@@ -1,3 +1,9 @@
+2026-10-23 - Optional LCARS appearance
+
+- Add LCARS after Auto and Picker, with segmented rails, framed character cards, settings headings and outlined actions. Retain the existing party, privacy, capture and debug controls.
+- Add optional UI tones, muted by default, with one saved setting shared by Appearance and the native speaker shortcut. Bind the existing Krangle action to the titlebar and retain all original title actions.
+- Translate the LCARS controls in all fifteen supported languages and pin the existing published AethertekUI baseline. Keep release versions and client deployment unchanged.
+
 2026-10-20 - Independent UI colours
 
 - Add Auto and Picker colour choices in the native Colour popup and Appearance settings. Auto preserves the existing theme; Picker saves independent Background, Controls and Text choices through the existing configuration.
