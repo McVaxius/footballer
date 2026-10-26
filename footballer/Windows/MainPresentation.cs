@@ -268,8 +268,13 @@ public sealed partial class MainWindow
         var c = MaterialTheme.Current.Colors;
         var s = MaterialTheme.Metrics.Scale;
         var dl = ImGui.GetWindowDrawList();
-        MaterialCanvas.Surface(min, min + size, c.SurfaceContainerHigh, c.SurfaceContainerLowest, 4 * s);
-        dl.AddRect(min, min + size, MaterialCanvas.Color(c.Outline), 4 * s);
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.PanelFrame(min, min + size, inset: true);
+        else
+        {
+            MaterialCanvas.Surface(min, min + size, c.SurfaceContainerHigh, c.SurfaceContainerLowest, 4 * s);
+            dl.AddRect(min, min + size, MaterialCanvas.Color(c.Outline), 4 * s);
+        }
         var wrap = string.IsNullOrWhiteSpace(path) || !File.Exists(path) ? default : Plugin.TextureProvider.GetFromFile(path).GetWrapOrEmpty();
         if (wrap is not null && wrap.Handle != nint.Zero && wrap.Width > 0 && wrap.Height > 0)
         {

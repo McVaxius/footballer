@@ -32,27 +32,57 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
 
     public override void Draw()
     {
+        MaterialSkin.Backdrop();
         DrawWindowChrome();
         if (MaterialTheme.Current.IsLcars) MaterialLcars.Header(UiText.T("Footballer Settings"));
         UiGui.TitleWithButtons("Footballer Settings", UiText.T("Footballer Settings"), this);
-        var settingsRoot = ImGui.GetID("");
-        using var tabs = MaterialTabs.Begin("FootballerSettingsTabs", new[] { UiText.T("Settings"), UiText.T("Window appearance") }, ImGuiTabBarFlags.FittingPolicyScroll);
-        if (tabs.Visible)
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        var panelStart = ImGui.GetCursorScreenPos();
+        var panelWidth = ImGui.GetContentRegionAvail().X;
+        var drawing = ImGui.GetWindowDrawList();
+        if (material)
         {
-            using (var general = MaterialTabs.Item(UiText.T("Settings") + "###Settings", ImGuiTabItemFlags.NoPushId))
-                if (general.Visible)
+            ImGui.BeginGroup();
+            drawing.ChannelsSplit(2);
+            drawing.ChannelsSetCurrent(1);
+        }
+        try
+        {
+            var settingsRoot = ImGui.GetID("");
+            using var tabs = MaterialTabs.Begin("FootballerSettingsTabs", new[] { UiText.T("Settings"), UiText.T("Window appearance") }, ImGuiTabBarFlags.FittingPolicyScroll);
+            if (tabs.Visible)
+            {
+                using (var general = MaterialTabs.Item(UiText.T("Settings") + "###Settings", ImGuiTabItemFlags.NoPushId))
+                    if (general.Visible)
+                    {
+                        ImGuiP.PushOverrideID(settingsRoot);
+                        try { DrawGeneralSettings(); }
+                        finally { ImGui.PopID(); }
+                    }
+                using (var appearance = MaterialTabs.Item(UiText.T("Window appearance") + "###WindowAppearance", ImGuiTabItemFlags.NoPushId))
+                    if (appearance.Visible)
+                    {
+                        ImGuiP.PushOverrideID(settingsRoot);
+                        try { plugin.DrawWindowAppearance(); }
+                        finally { ImGui.PopID(); }
+                    }
+            }
+        }
+        finally
+        {
+            if (material)
+            {
+                ImGui.EndGroup();
+                var scale = MaterialTheme.Metrics.Scale;
+                var bottom = Math.Max(panelStart.Y + ImGui.GetTextLineHeight(), ImGui.GetItemRectMax().Y);
+                drawing.ChannelsSetCurrent(0);
+                try
                 {
-                    ImGuiP.PushOverrideID(settingsRoot);
-                    try { DrawGeneralSettings(); }
-                    finally { ImGui.PopID(); }
+                    MaterialSkin.PanelFrame(panelStart - new Vector2(4 * scale),
+                        new Vector2(panelStart.X + panelWidth + 4 * scale, bottom + 4 * scale));
                 }
-            using (var appearance = MaterialTabs.Item(UiText.T("Window appearance") + "###WindowAppearance", ImGuiTabItemFlags.NoPushId))
-                if (appearance.Visible)
-                {
-                    ImGuiP.PushOverrideID(settingsRoot);
-                    try { plugin.DrawWindowAppearance(); }
-                    finally { ImGui.PopID(); }
-                }
+                finally { drawing.ChannelsMerge(); }
+            }
         }
         if (MaterialTheme.Current.IsLcars) MaterialLcars.Footer(PluginInfo.DisplayName);
         FinalizePendingWindowPlacement();

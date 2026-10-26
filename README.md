@@ -27,11 +27,15 @@ Scroll down to "The Dumpster Fire" channel to discuss issues / suggestions for s
 
 ## Appearance and local build
 
-The Colour popup and Window appearance settings offer **Auto / Picker / LCARS**.
-LCARS adds segmented rails, panel frames, character-card headings and outlined
-controls while keeping the existing actions, native identities, privacy rules
-and saved Picker colours. Settings and Main remain separate windows; Footballer
-does not have a separate Mini window.
+The Colour popup and Window appearance settings offer **Auto, Picker, LCARS,
+Glassmorphism, Spatial and Cyberpunk**. Picker and each new material keep
+independent Background, Controls and Text colours, with per-colour and palette
+resets. LCARS has its own background and three bar colours. Glass has three
+editable wave colours, animation on by default and speed from 0.1 to 10 times
+normal (default 1); wave colours remain editable with animation off. Switching
+modes retains the other palettes, native actions, privacy rules and saved
+preferences. Settings and Main remain separate windows; Footballer does not
+have a separate Mini window.
 
 **UI sounds** is optional and muted by default. Appearance and the LCARS titlebar
 speaker control the same saved value; Preview sound is available after enabling

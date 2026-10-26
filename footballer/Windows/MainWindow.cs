@@ -77,6 +77,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
 
     public override void Draw()
     {
+        MaterialSkin.Backdrop();
         DrawWindowChrome();
         var cfg = plugin.Configuration;
         var showDebug = plugin.SessionDebugUnlocked;
@@ -714,7 +715,17 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
     {
         var cardHeight = showDebug ? 390f : 264f;
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, showDebug ? new Vector2(8f, 8f) : new Vector2(4f, 4f));
-        ImGui.BeginChild($"FootCard##{card.Member.CharacterKey}", new Vector2(0f, cardHeight), true);
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        if (material)
+        {
+            var origin = ImGui.GetCursorScreenPos();
+            FootballerPresentation.Surface(origin, origin + new Vector2(ImGui.GetContentRegionAvail().X, cardHeight));
+        }
+        using (var face = new MaterialStyleScope())
+        {
+            if (material) { face.Color(ImGuiCol.ChildBg, Vector4.Zero); face.Color(ImGuiCol.Border, Vector4.Zero); }
+            ImGui.BeginChild($"FootCard##{card.Member.CharacterKey}", new Vector2(0f, cardHeight), true);
+        }
         ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, showDebug ? new Vector2(6f, 4f) : new Vector2(4f, 3f));
 
         MaterialText.Text(GetSafeDisplayName(card.Member));
@@ -780,7 +791,17 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
             return;
         }
 
-        ImGui.BeginChild($"FootVisuals##{card.Member.CharacterKey}", new Vector2(0f, 255f), true);
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        if (material)
+        {
+            var origin = ImGui.GetCursorScreenPos();
+            MaterialSkin.PanelFrame(origin, origin + new Vector2(ImGui.GetContentRegionAvail().X, 255f), inset: true);
+        }
+        using (var face = new MaterialStyleScope())
+        {
+            if (material) { face.Color(ImGuiCol.ChildBg, Vector4.Zero); face.Color(ImGuiCol.Border, Vector4.Zero); }
+            ImGui.BeginChild($"FootVisuals##{card.Member.CharacterKey}", new Vector2(0f, 255f), true);
+        }
 
         var drewFace = TryDrawLocalImage(card.FaceImagePath, new Vector2(92f, 92f));
         if (drewFace && !string.IsNullOrWhiteSpace(card.FootImagePath))

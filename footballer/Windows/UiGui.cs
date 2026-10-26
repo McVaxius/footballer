@@ -90,17 +90,25 @@ internal static class UiGui
             ImGui.BeginDisabled(disabled);
             try
             {
-            ImGui.PushStyleVar(ImGuiStyleVar.FrameBorderSize, s);
-            ImGui.PushStyleColor(ImGuiCol.Button, MaterialTheme.Current.IsLcars ? MaterialLcars.Background : c.SurfaceContainerHigh);
-            ImGui.PushStyleColor(ImGuiCol.Border, MaterialTheme.Current.IsLcars ? MaterialLcars.Periwinkle : c.OutlineVariant);
-            ImGui.PushStyleColor(ImGuiCol.Text, Vector4.Zero);
-            var clicked = ImGui.Button(id, new Vector2(width, height * s));
-            ImGui.PopStyleColor(3);
-            ImGui.PopStyleVar();
+            var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+            var radius = ImGui.GetStyle().FrameRounding;
+            using var shape = material ? MaterialSkin.NativeButtonStyle() : default;
+            if (material) shape.Style(ImGuiStyleVar.FrameRounding, radius);
+            bool clicked;
+            using (var appearance = new MaterialStyleScope())
+            {
+                appearance.Style(ImGuiStyleVar.FrameBorderSize, s);
+                appearance.Color(ImGuiCol.Button, MaterialTheme.Current.IsLcars ? MaterialLcars.Background : c.SurfaceContainerHigh);
+                appearance.Color(ImGuiCol.Border, MaterialTheme.Current.IsLcars ? MaterialLcars.Periwinkle : c.OutlineVariant);
+                appearance.Color(ImGuiCol.Text, Vector4.Zero);
+                using (var face = material ? MaterialSkin.TransparentButtonFace() : default)
+                    clicked = ImGui.Button(id, new Vector2(width, height * s));
+                if (material) MaterialSkin.PaintButton(ImGui.GetItemRectMin(), ImGui.GetItemRectMax(), ImGui.GetStyle().Alpha, radius);
+            }
             var min = ImGui.GetItemRectMin();
             var max = ImGui.GetItemRectMax();
             var foreground = c.OnSurface;
-            foreground.W *= ImGui.GetStyle().Alpha;
+            if (!material) foreground.W *= ImGui.GetStyle().Alpha;
             var dl = ImGui.GetWindowDrawList();
             dl.PushClipRect(min, max, true);
             try
@@ -150,8 +158,20 @@ internal static class UiGui
             var fill = MaterialTheme.Current.IsLcars ? MaterialLcars.Background : emphasized ? c.PrimaryContainer : c.SurfaceContainerHigh;
             if (ImGui.IsItemHovered()) fill = MaterialColor.Layer(fill, c.OnSurface, .08f);
             if (ImGui.IsItemActive()) fill = MaterialColor.Layer(fill, c.OnSurface, .12f);
-            dl.AddRectFilled(min, max, MaterialCanvas.Color(fill), 4 * s);
-            dl.AddRect(min, max, MaterialCanvas.Color(MaterialTheme.Current.IsLcars ? MaterialLcars.Periwinkle : ImGui.IsItemFocused() || emphasized ? c.Primary : c.OutlineVariant), 4 * s);
+            if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            {
+                using var face = new MaterialStyleScope();
+                face.Color(ImGuiCol.Button, fill);
+                face.Color(ImGuiCol.ButtonHovered, fill);
+                face.Color(ImGuiCol.ButtonActive, fill);
+                face.Color(ImGuiCol.Border, ImGui.IsItemFocused() || emphasized ? c.Primary : c.OutlineVariant);
+                MaterialSkin.PaintButton(min, max, ImGui.GetStyle().Alpha, 4 * s);
+            }
+            else
+            {
+                dl.AddRectFilled(min, max, MaterialCanvas.Color(fill), 4 * s);
+                dl.AddRect(min, max, MaterialCanvas.Color(MaterialTheme.Current.IsLcars ? MaterialLcars.Periwinkle : ImGui.IsItemFocused() || emphasized ? c.Primary : c.OutlineVariant), 4 * s);
+            }
             var track = min + new Vector2(width - 58 * s, (height - 26) * .5f * s);
             dl.AddRectFilled(track, track + new Vector2(44, 26) * s, MaterialCanvas.Color(value ? MaterialTheme.Current.IsLcars ? MaterialLcars.ControlBlue : c.Primary : c.Outline), 13 * s);
             dl.AddCircleFilled(track + new Vector2(value ? 31 : 13, 13) * s, 10 * s, MaterialCanvas.Color(c.OnSurface), 24);
@@ -177,6 +197,7 @@ internal static class UiGui
         BeginField(label);
         try
         {
+            using var field = MaterialSkin.NativeFieldStyle();
             var changed = ImGui.SliderFloat("", ref value, min, max, format);
             MaterialLcars.Feedback(ImGui.IsItemDeactivatedAfterEdit(), MaterialUiSoundCue.Toggle);
             return changed;
@@ -187,9 +208,32 @@ internal static class UiGui
     {
         using var height = MaterialText.PushLineHeight(UiText.T(label.Split("##", 2)[0]));
         var position = ImGui.GetCursorScreenPos();
-        ImGui.PushStyleColor(ImGuiCol.Text, Vector4.Zero);
-        var open = ImGui.CollapsingHeader(label);
-        ImGui.PopStyleColor();
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        var style = ImGui.GetStyle();
+        var fill = style.Colors[(int)ImGuiCol.Header];
+        var hover = style.Colors[(int)ImGuiCol.HeaderHovered];
+        var active = style.Colors[(int)ImGuiCol.HeaderActive];
+        var radius = style.FrameRounding;
+        bool open;
+        using (var face = new MaterialStyleScope())
+        {
+            face.Color(ImGuiCol.Text, Vector4.Zero);
+            if (material)
+            {
+                face.Color(ImGuiCol.Header, Vector4.Zero);
+                face.Color(ImGuiCol.HeaderHovered, Vector4.Zero);
+                face.Color(ImGuiCol.HeaderActive, Vector4.Zero);
+            }
+            open = ImGui.CollapsingHeader(label);
+        }
+        if (material)
+        {
+            using var face = new MaterialStyleScope();
+            face.Color(ImGuiCol.Button, fill);
+            face.Color(ImGuiCol.ButtonHovered, hover);
+            face.Color(ImGuiCol.ButtonActive, active);
+            MaterialSkin.PaintButton(ImGui.GetItemRectMin(), ImGui.GetItemRectMax(), ImGui.GetStyle().Alpha, radius);
+        }
         var c = MaterialTheme.Current.Colors;
         var dl = ImGui.GetWindowDrawList();
         dl.PushClipRect(ImGui.GetItemRectMin(), ImGui.GetItemRectMax(), true);
@@ -223,14 +267,19 @@ internal static class UiGui
         using var controls = ImGui.GetStyle().FramePadding.Y == 0 || MaterialControls.Context == MaterialControlContext.Dense
             ? default(MaterialControls.ControlScope) : MaterialControls.Push(MaterialControlContext.Toolbar);
         using var height = MaterialText.PushLineHeight(translated);
-        using var nativeStyle = MaterialLcars.NativeButtonStyle();
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        var radius = ImGui.GetStyle().FrameRounding;
+        using var nativeStyle = MaterialSkin.NativeButtonStyle();
+        if (material) nativeStyle.Style(ImGuiStyleVar.FrameRounding, radius);
         var width=MaterialText.Measure(translated).X+2*ImGui.GetStyle().FramePadding.X;
         if(width>ImGui.GetContentRegionAvail().X && ImGui.GetCursorPosX()>ImGui.GetStyle().WindowPadding.X+1) ImGui.NewLine();
         var foreground=ImGui.GetStyle().Colors[(int)ImGuiCol.Text];
         ImGui.PushStyleColor(ImGuiCol.Text,Vector4.Zero);
-        var clicked=ImGui.Button(label,new Vector2(width,0));
-        ImGui.PopStyleColor();
+        bool clicked;
+        try { using var face = material ? MaterialSkin.TransparentButtonFace() : default; clicked=ImGui.Button(label,new Vector2(width,0)); }
+        finally { ImGui.PopStyleColor(); }
         var min=ImGui.GetItemRectMin(); var max=ImGui.GetItemRectMax();
+        if (material) MaterialSkin.PaintButton(min,max,ImGui.GetStyle().Alpha,radius);
         foreground.W*=ImGui.GetStyle().Alpha;
         ImGui.GetWindowDrawList().PushClipRect(min,max,true);
         try { MaterialText.AddText(ImGui.GetWindowDrawList(),min+(max-min-MaterialText.Measure(translated))*.5f,ImGui.ColorConvertFloat4ToU32(foreground),translated); }
@@ -294,20 +343,20 @@ internal static class UiGui
         ImGuiP.PushOverrideID(ImGui.GetID(label));
     }
     internal static bool InputText(string label,ref string value,int length)
-    { BeginField(label);try { using var height=MaterialText.PushLineHeight(value);return MaterialShapedInput.SingleLine("","",ref value,length); } finally { ImGui.PopID(); } }
+    { BeginField(label);try { using var height=MaterialText.PushLineHeight(value);using var field=MaterialSkin.NativeFieldStyle();return MaterialShapedInput.SingleLine("","",ref value,length); } finally { ImGui.PopID(); } }
     internal static bool InputInt(string label,ref int value)
-    { BeginField(label);try { return ImGui.InputInt("",ref value); } finally { ImGui.PopID(); } }
+    { BeginField(label);try { using var field=MaterialSkin.NativeFieldStyle();return ImGui.InputInt("",ref value); } finally { ImGui.PopID(); } }
     // Appearance controls retain their native numeric field, format, steps and caption placement.
     internal static bool AppearanceSliderInt(string label, ref int value, int min, int max, string format, ImGuiSliderFlags flags)
     {
         var nativeLabel = UiText.T(label.Split("##", 2)[0]) + label[label.Split("##", 2)[0].Length..];
-        if (!MaterialText.RequiresShaping(nativeLabel)) return ImGui.SliderInt(nativeLabel, ref value, min, max, format, flags);
+        if (!MaterialText.RequiresShaping(nativeLabel)) { using var field=MaterialSkin.NativeFieldStyle(); return ImGui.SliderInt(nativeLabel, ref value, min, max, format, flags); }
         using var height = MaterialText.PushLineHeight(UiText.T(label.Split("##", 2)[0]));
         var origin = ImGui.GetCursorScreenPos(); var width = ImGui.CalcItemWidth();
         var drawing = ImGui.GetWindowDrawList(); var parent = ImGuiP.GetCurrentWindow(); var previousMax = parent.DC.CursorMaxPos;
         drawing.PushClipRect(new Vector2(origin.X, parent.Pos.Y), new Vector2(origin.X + width, parent.Pos.Y + parent.Size.Y), true);
         bool changed;
-        try { changed = ImGui.SliderInt(label, ref value, min, max, format, flags); }
+        try { using var field=MaterialSkin.NativeFieldStyle(); changed = ImGui.SliderInt(label, ref value, min, max, format, flags); }
         finally { drawing.PopClipRect(); }
         AppearanceFieldLabel(label, origin, width, drawing, parent, previousMax);
         return changed;
@@ -315,13 +364,13 @@ internal static class UiGui
     internal static bool AppearanceInputFloat(string label, ref float value)
     {
         var visible = label.Split("##", 2)[0]; var nativeLabel = UiText.T(visible) + label[visible.Length..];
-        if (!MaterialText.RequiresShaping(nativeLabel)) return ImGui.InputFloat(nativeLabel, ref value);
+        if (!MaterialText.RequiresShaping(nativeLabel)) { using var field=MaterialSkin.NativeFieldStyle(); return ImGui.InputFloat(nativeLabel, ref value); }
         using var height = MaterialText.PushLineHeight(UiText.T(visible));
         var origin = ImGui.GetCursorScreenPos(); var width = ImGui.CalcItemWidth();
         var drawing = ImGui.GetWindowDrawList(); var parent = ImGuiP.GetCurrentWindow(); var previousMax = parent.DC.CursorMaxPos;
         drawing.PushClipRect(new Vector2(origin.X, parent.Pos.Y), new Vector2(origin.X + width, parent.Pos.Y + parent.Size.Y), true);
         bool changed;
-        try { changed = ImGui.InputFloat(label, ref value); }
+        try { using var field=MaterialSkin.NativeFieldStyle(); changed = ImGui.InputFloat(label, ref value); }
         finally { drawing.PopClipRect(); }
         AppearanceFieldLabel(label, origin, width, drawing, parent, previousMax);
         return changed;
@@ -341,10 +390,15 @@ internal static class UiGui
         try
         {
         var changed=false;
-        if(MaterialText.BeginCombo("",value>=0 && value<count?UiText.T(options[value]):""))
+        bool open;
+        using (var field = MaterialSkin.NativeFieldStyle())
+        using (MaterialSkin.BackdropStyle(popup: true))
+            open=MaterialText.BeginCombo("",value>=0 && value<count?UiText.T(options[value]):"");
+        if(open)
         {
             try
             {
+            MaterialSkin.Backdrop();
             for(var index=0;index<count;index++)
             {
                 ImGui.PushID(index);

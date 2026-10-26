@@ -1,3 +1,9 @@
+2026-10-26 - 2.0.0.13 - Shared material appearance
+
+- Add Glassmorphism, Spatial and Cyberpunk alongside Auto, Picker and LCARS across Main, Settings, character cards, diagnostics and appearance popups while retaining the original font roles and native actions.
+- Add independent material palettes, per-colour/current-palette resets, four LCARS colour choices and three Glass wave colours with default-on animation and adjustable speed. Translate the shared controls in all fifteen catalogs.
+- Preserve the existing party, privacy, capture, portrait and configuration behavior and all saved geometry.
+
 2026-10-23 - Optional LCARS appearance
 
 - Add LCARS after Auto and Picker, with segmented rails, framed character cards, settings headings and outlined actions. Retain the existing party, privacy, capture and debug controls.
