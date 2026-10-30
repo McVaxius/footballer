@@ -32,7 +32,8 @@ public sealed class ConfigWindow : PositionedWindow, IDisposable
 
     public override void Draw()
     {
-        MaterialSkin.Backdrop();
+        DrawWindowBackground();
+        using var structure = MaterialSkin.StructuralBackgroundStyle();
         DrawWindowChrome();
         if (MaterialTheme.Current.IsLcars) MaterialLcars.Header(UiText.T("Footballer Settings"));
         UiGui.TitleWithButtons("Footballer Settings", UiText.T("Footballer Settings"), this);

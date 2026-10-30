@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: McVaxius/aethertekUI
-          ref: cbc8c99a4567e593a00cc3ef958ed70d7f90d414
+          ref: c3d41179747c1b8f8aa0ca71d47902bd7307286f
           path: aethertekUI
           # Repository-specific read-only SSH deploy key; no expiration.
           ssh-key: ${{ secrets.AETHERTEKUI_DEPLOY_KEY }}

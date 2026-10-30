@@ -19,7 +19,7 @@ using footballer.Windows;
 
 namespace footballer;
 
-public sealed class Plugin : IDalamudPlugin
+public sealed partial class Plugin : IDalamudPlugin
 {
     [PluginService] internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
@@ -123,6 +123,7 @@ public sealed class Plugin : IDalamudPlugin
         RegisterCommands();
 
         PluginInterface.UiBuilder.Draw += DrawUi;
+        PluginInterface.UiBuilder.ResizeBuffers += ReleaseGlassResources;
         PluginInterface.UiBuilder.OpenConfigUi += OpenConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += OpenMainUi;
         pendingOpenMainUi = Configuration.OpenMainWindowOnLoad;
@@ -134,7 +135,7 @@ public sealed class Plugin : IDalamudPlugin
         Log.Information("[footballer] Plugin loaded.");
     }
 
-    private bool LcarsActive => Configuration.UiColors?.Mode == MaterialColorMode.Lcars;
+    private bool LcarsActive => Configuration.UiStylingEnabled && Configuration.UiColors?.Mode == MaterialColorMode.Lcars;
 
     private void PlayLcarsSound(MaterialUiSoundCue cue)
     {
@@ -183,6 +184,9 @@ public sealed class Plugin : IDalamudPlugin
         pendingOpenMainUi = false;
         Framework.Update -= OnFrameworkUpdate;
         PluginInterface.UiBuilder.Draw -= DrawUi;
+        PluginInterface.UiBuilder.ResizeBuffers -= ReleaseGlassResources;
+        glassImagePicker.Reset();
+        backgroundGlass?.Dispose();
         PluginInterface.UiBuilder.OpenConfigUi -= OpenConfigUi;
         PluginInterface.UiBuilder.OpenMainUi -= OpenMainUi;
 
@@ -198,14 +202,14 @@ public sealed class Plugin : IDalamudPlugin
         shapedText?.Dispose();
     }
 
-    private void DrawUi()
+    private void DrawUiContent()
     {
         ApplyAppearance();
         if(!mainWindow.IsOpen && !configWindow.IsOpen) return;
         using var text = uiText.Enter();
         shapedText ??= new(TextureProvider);
         using var shaping = shapedText.Push();
-        using var theme = MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, MaterialStyleMode.ColorsOnly);
+        using var theme = MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, Configuration.UiStylingEnabled ? MaterialStyleMode.ColorsOnly : MaterialStyleMode.Native);
         using var chrome = MaterialWindowChrome.Push();
         using var nativeButtons = MaterialLcars.NativeButtonStyle();
         if(!uiFonts.Ready)
@@ -238,6 +242,8 @@ public sealed class Plugin : IDalamudPlugin
             catch(Exception ex) { if(!fontIssueLogged) { Log.Error(ex,"[footballer] Required UI glyph coverage failed.");fontIssueLogged=true; } DrawFontStatus(false);return; }
         }
         using var geometry=new MaterialStyleScope();
+        if (Configuration.UiStylingEnabled)
+        {
         geometry.Style(Dalamud.Bindings.ImGui.ImGuiStyleVar.WindowPadding,new System.Numerics.Vector2((Configuration.UiCompact ? 12 : 20)*ImGuiHelpers.GlobalScale));
         if (Configuration.UiCompact)
         {
@@ -247,21 +253,24 @@ public sealed class Plugin : IDalamudPlugin
         }
         geometry.Style(ImGuiStyleVar.FrameRounding, 4 * ImGuiHelpers.GlobalScale);
         geometry.Style(ImGuiStyleVar.ChildRounding, 4 * ImGuiHelpers.GlobalScale);
+        }
         using var body = uiFonts.Push(UiFontRole.Body);
         PrepareAppearanceTitleBars(WindowSystem);
-        using (MaterialSkin.BackdropStyle())
-            WindowSystem.Draw();
+        WindowSystem.Draw();
     }
 
     private void DrawFontStatus(bool loading)
     {
+        using var background = MaterialSkin.PushBackgroundRenderer(null, false, 0);
         Dalamud.Bindings.ImGui.ImGui.SetNextWindowSize(new System.Numerics.Vector2(460f*ImGuiHelpers.GlobalScale,0f));
-        fontStatusMotion.PreDraw("Footballer##FontStatus", null, null, reducedMotion: false, prepareDecorations: fontStatusDecorations.Prepare);
+        fontStatusMotion.PreDraw("Footballer##FontStatus", null, null, reducedMotion: !Configuration.UiStylingEnabled, prepareDecorations: Configuration.UiStylingEnabled ? fontStatusDecorations.Prepare : null);
         try
         {
             bool visible;
+            var statusFlags = ImGuiWindowFlags.AlwaysAutoResize;
+            if (Configuration.UiWindowsLocked) statusFlags |= ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize;
             using (MaterialSkin.BackdropStyle())
-                visible = ImGui.Begin("Footballer##FontStatus",ImGuiWindowFlags.AlwaysAutoResize);
+                visible = ImGui.Begin("Footballer##FontStatus", statusFlags);
             if(visible)
             {
                 MaterialSkin.Backdrop();
@@ -314,6 +323,7 @@ public sealed class Plugin : IDalamudPlugin
             var color=FootballerPresentation.Rgb(appliedAccent);
             accentDraft=new(color.X,color.Y,color.Z);
         }
+        if (!Configuration.UiStylingEnabled) uiSoundPlayer?.Stop();
         uiTheme.Density = Configuration.UiCompact ? MaterialDensity.Compact : MaterialDensity.Standard;
         if (appliedSoundsMuted != Configuration.UiLcarsSoundsMuted)
         {
@@ -617,6 +627,15 @@ public sealed class Plugin : IDalamudPlugin
     private void OnCommand(string command, string arguments)
     {
         var trimmed = arguments.Trim();
+        if (trimmed.Equals("lock", StringComparison.OrdinalIgnoreCase) || trimmed.Equals("unlock", StringComparison.OrdinalIgnoreCase))
+        { Configuration.UiWindowsLocked = trimmed.Equals("lock", StringComparison.OrdinalIgnoreCase); Configuration.Save(); return; }
+        if (trimmed.Equals("style", StringComparison.OrdinalIgnoreCase) || trimmed.Equals("styling", StringComparison.OrdinalIgnoreCase))
+        { ToggleUiStyling(); return; }
+        if (trimmed.Equals("style on", StringComparison.OrdinalIgnoreCase) || trimmed.Equals("styling on", StringComparison.OrdinalIgnoreCase)
+            || trimmed.Equals("style off", StringComparison.OrdinalIgnoreCase) || trimmed.Equals("styling off", StringComparison.OrdinalIgnoreCase))
+        { Configuration.UiStylingEnabled = trimmed.EndsWith(" on", StringComparison.OrdinalIgnoreCase); Configuration.Save(); return; }
+
+
         if (trimmed.Equals("config", StringComparison.OrdinalIgnoreCase) ||
             trimmed.Equals("settings", StringComparison.OrdinalIgnoreCase))
         {
@@ -767,6 +786,7 @@ public sealed class Plugin : IDalamudPlugin
 
     internal void DrawWindowAppearance()
     {
+        DrawUiWindowControls();
         var showTitlebarStatus = Configuration.UiShowTitlebarStatus;
         if (UiGui.Checkbox(UiText.T("Show titlebar status") + "###UiShowTitlebarStatus", ref showTitlebarStatus))
         { Configuration.UiShowTitlebarStatus = showTitlebarStatus; Configuration.Save(); }
@@ -798,7 +818,9 @@ public sealed class Plugin : IDalamudPlugin
         foreach (var window in windows.Windows.OfType<Dalamud.Interface.Windowing.Window>())
         {
             if ((window.Flags & ImGuiWindowFlags.NoTitleBar) != 0) continue;
+            window.AllowBackgroundBlur = false;
             if (!appearanceTitleBars.ContainsKey(window))
+            {
                 appearanceTitleBars.Add(window, AethertekUI.Dalamud.MaterialAppearanceTitleBar.Register(window,
                     () => new(UiText.T("Language"), UiText.T("Compact mode"), UiText.T("Transparency"), UiText.T("Color")),
                     DrawTitleBarLanguage,
@@ -810,8 +832,12 @@ public sealed class Plugin : IDalamudPlugin
                         ? new(Configuration.UiLanguageVisibleOnMainWindow, Configuration.UiCompactVisibleOnMainWindow,
                             Configuration.UiTransparencyVisibleOnMainWindow, true)
                         : new(true, true, true, true)));
+                appearanceTitleBars[window].RegisterWindowControls(ToggleUiStyling,
+                    () => UiText.T(Configuration.UiStylingEnabled ? "Use native UI" : "Use styled UI"),
+                    ToggleWindowLock, () => UiText.T(Configuration.UiWindowsLocked ? "Unlock windows" : "Lock windows"));
+            }
             appearanceTitleBars[window].RefreshVisibility();
-            appearanceTitleBars[window].SetLcarsIcons(uiTheme.IsLcars);
+            appearanceTitleBars[window].SetLcarsIcons(LcarsActive);
             if (!soundTitleButtons.TryGetValue(window, out var sound))
             {
                 sound = new TitleBarButton
@@ -824,14 +850,19 @@ public sealed class Plugin : IDalamudPlugin
                 soundTitleButtons.Add(window, sound);
             }
             sound.Icon = Configuration.UiLcarsSoundsMuted ? FontAwesomeIcon.VolumeMute : FontAwesomeIcon.VolumeUp;
-            if (uiTheme.IsLcars && !window.TitleBarButtons.Contains(sound)) window.TitleBarButtons.Add(sound);
-            else if (!uiTheme.IsLcars) window.TitleBarButtons.Remove(sound);
+            if (LcarsActive && !window.TitleBarButtons.Contains(sound)) window.TitleBarButtons.Add(sound);
+            else if (!LcarsActive) window.TitleBarButtons.Remove(sound);
         }
     }
 
-    internal void DrawAppearanceTitleBarPopups(Dalamud.Interface.Windowing.Window window)
+    internal void DrawAppearanceTitleBarPopups(Dalamud.Interface.Windowing.Window window, MaterialWindowOpacity opacity)
     {
-        if (appearanceTitleBars.TryGetValue(window, out var titlebar)) titlebar.DrawPopups();
+        if (!appearanceTitleBars.TryGetValue(window, out var titlebar)) return;
+        var native = ImGuiP.FindWindowByName(window.WindowName);
+        if (backgroundGlass != null) backgroundGlass.Opacity = !Configuration.UiTransparencyEnabled ? 1
+            : !native.IsNull && native.Appearing ? Math.Clamp(Configuration.UiWindowOpacityPercent, 10, 100) / 100f
+                : opacity.CurrentOpacity;
+        titlebar.DrawPopups();
     }
 
     private void DrawTitleBarLanguage()
@@ -845,7 +876,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private void DrawTitleBarColour()
     {
-        if (!MaterialAppearanceSelector.DrawColors("appearance", ref colorDraft, ref accentDraft,
+        var changed = MaterialAppearanceSelector.DrawColors("appearance", ref colorDraft, ref accentDraft,
                 new(UiText.T("Color"), UiText.T("Language"), UiText.T("Teal"), UiText.T("Blue"), UiText.T("Pink"), UiText.T("Custom RGB")),
                 new(UiText.T("Auto"), UiText.T("Picker"), UiText.T("Default"), UiText.T("Background, controls and text follow your theme."),
                     UiText.T("Theme colour"), UiText.T("Choose each colour independently."), UiText.T("Background"), UiText.T("Controls"),
@@ -857,11 +888,20 @@ public sealed class Plugin : IDalamudPlugin
                     Glassmorphism = UiText.T("Glassmorphism"), Spatial = UiText.T("Spatial"), Cyberpunk = UiText.T("Cyberpunk"),
                     Reset = UiText.T("Reset"), ResetColors = UiText.T("Reset colours"),
                     Animation = UiText.T("Animation"), AnimationSpeed = UiText.T("Animation speed (0.1–10x; default 1x)"),
+                    BackgroundMode = UiText.T("Background mode"), Waves = UiText.T("Waves"), Lights = UiText.T("Lights"), Image = UiText.T("Image"),
+                    LightEffect = UiText.T("Light effect"), AmbientGlows = UiText.T("Ambient glows"), SweepingBeams = UiText.T("Sweeping beams"), PointerGlow = UiText.T("Mouse-following glow"),
+                    ImageFile = UiText.T("Image file"), BrowseImage = UiText.T("Browse..."), LoadImage = UiText.T("Load image"), ImageHelp = UiText.T("The image fills the window. Blur (%) applies to the image."),
+                    LightColors = UiText.T("Light colours"), GlassLight1 = UiText.T("Light colour 1"), GlassLight2 = UiText.T("Light colour 2"), GlassLight3 = UiText.T("Light colour 3"), ResetLightColors = UiText.T("Reset light colours"),
+                    BackgroundBlur = UiText.T("Background blur"), BlurPercent = UiText.T("Blur (%)"),
                     WaveColors = UiText.T("Wave colours"), GlassWave1 = UiText.T("Wave colour 1"),
                     GlassWave2 = UiText.T("Wave colour 2"), GlassWave3 = UiText.T("Wave colour 3"), ResetWaveColors = UiText.T("Reset wave colours"),
                 },
-                new MaterialColorSettings(), MaterialColorSettings.Rgb(FootballerPresentation.ReferenceAccent),
-                Configuration.UiCompact ? 298 : 316)) return;
+                new MaterialColorSettings(), MaterialColorSettings.Rgb(FootballerPresentation.ReferenceAccent), BrowseBackgroundImage,
+                Configuration.UiCompact ? 298 : 316);
+        ImGui.PushID("ColourBackdrop");
+        try { DrawGlassStatusAndScreenshots(); }
+        finally { ImGui.PopID(); }
+        if (!changed) return;
         Configuration.UiColors = colorDraft;
         Configuration.UiAccentRgb = MaterialColorSettings.ToRgb(accentDraft);
         Configuration.Save();
@@ -869,6 +909,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private void DrawTransparencySettings()
     {
+        DrawBackgroundSettings();
         var config = Configuration;
         var changed = false;
         var transparencyEnabled = config.UiTransparencyEnabled;

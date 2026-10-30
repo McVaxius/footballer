@@ -16,6 +16,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
 {
     private static readonly int[] PreviewScalePercents = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 };
     private readonly Plugin plugin;
+    private bool customPaddingPending;
 
     public MainWindow(Plugin plugin)
         : base($"{PluginInfo.DisplayName}##Main", ImGuiWindowFlags.HorizontalScrollbar)
@@ -61,7 +62,11 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
 
     public override void PreDraw()
     {
-        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(20, FootballerPresentation.Compact ? 12 : 20) * MaterialTheme.Metrics.Scale);
+        if (plugin.Configuration.UiStylingEnabled)
+        {
+            ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(20, FootballerPresentation.Compact ? 12 : 20) * MaterialTheme.Metrics.Scale);
+            customPaddingPending = true;
+        }
         UiGui.ReserveTitleSpace(this, $"{PluginInfo.DisplayName} v{typeof(Plugin).Assembly.GetName().Version}", 820);
         base.PreDraw();
     }
@@ -69,7 +74,7 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
     public override void PostDraw()
     {
         base.PostDraw();
-        ImGui.PopStyleVar();
+        if (customPaddingPending) { ImGui.PopStyleVar(); customPaddingPending = false; }
     }
 
     protected override void PaintWindowTitle()
@@ -77,7 +82,8 @@ public sealed partial class MainWindow : PositionedWindow, IDisposable
 
     public override void Draw()
     {
-        MaterialSkin.Backdrop();
+        DrawWindowBackground();
+        using var structure = MaterialSkin.StructuralBackgroundStyle();
         DrawWindowChrome();
         var cfg = plugin.Configuration;
         var showDebug = plugin.SessionDebugUnlocked;

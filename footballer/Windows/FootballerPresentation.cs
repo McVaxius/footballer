@@ -73,7 +73,7 @@ internal static class FootballerPresentation
     {
         if (MaterialTheme.Current.IsLcars)
         {
-            MaterialLcars.PanelFrame(min, max, raised ? 0 : 1);
+            MaterialSkin.PanelFrame(min, max, raised ? 0 : 1);
             return;
         }
         if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
@@ -82,7 +82,7 @@ internal static class FootballerPresentation
             return;
         }
         var c = MaterialTheme.Current.Colors;
-        MaterialCanvas.Surface(min, max, raised ? c.SurfaceContainerHigh : c.Surface, c.Background, 4 * MaterialTheme.Metrics.Scale);
+        MaterialCanvas.Surface(min, max, MaterialSkin.BackgroundFill(raised ? c.SurfaceContainerHigh : c.Surface), MaterialSkin.BackgroundFill(c.Background), 4 * MaterialTheme.Metrics.Scale);
         Dalamud.Bindings.ImGui.ImGui.GetWindowDrawList().AddRect(min, max, MaterialCanvas.Color(c.OutlineVariant), 4 * MaterialTheme.Metrics.Scale);
     }
     internal static void Footprint(Vector2 origin, float size, Vector4 color)

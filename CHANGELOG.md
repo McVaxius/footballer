@@ -1,3 +1,9 @@
+2026-10-29 - 2.0.0.14 - Background glass and window controls
+
+- Add saved styled/native UI and movement/resize lock controls in Settings, the titlebar and commands.
+- Add Background-only Glasswork blur with independent tint and Frost, Waves, three Lights effects, image backgrounds and native Browse. Keep foreground controls and complete-window opacity intact, including each titlebar popup owner's fade.
+- Add the shared screenshot-pause control to Colour and Transparency, defaulting off, and translate the new controls in all fifteen catalogs.
+
 2026-10-26 - 2.0.0.13 - Shared material appearance
 
 - Add Glassmorphism, Spatial and Cyberpunk alongside Auto, Picker and LCARS across Main, Settings, character cards, diagnostics and appearance popups while retaining the original font roles and native actions.

@@ -10,6 +10,8 @@ namespace footballer.Windows;
 public abstract class PositionedWindow : Window
 {
     private readonly MaterialWindowMotion motion = new();
+    private readonly MaterialWindowLock movementLock = new();
+    private bool materialBackdropPending;
     private readonly AethertekUI.MaterialWindowOpacity opacity = new();
     protected Plugin AppearanceOwner { get; set; } = null!;
     private Vector2? pendingWindowPosition;
@@ -35,15 +37,31 @@ public abstract class PositionedWindow : Window
             pendingWindowPosition = null;
             pendingPositionConditionReset = true;
         }
-        motion.Prepare(this, reducedMotion: false, roundedCorners: true);
+        if (AppearanceOwner.Configuration.UiStylingEnabled) motion.Prepare(this, reducedMotion: false, roundedCorners: true);
+        movementLock.Apply(this, AppearanceOwner.Configuration.UiWindowsLocked);
+        var theme = AethertekUI.MaterialTheme.Current;
+        if (theme.IsGlassmorphism || theme.IsSpatial || theme.IsCyberpunk || AppearanceOwner.BackgroundRequested)
+        {
+            ImGui.PushStyleColor(ImGuiCol.WindowBg, Vector4.Zero);
+            materialBackdropPending = true;
+        }
     }
 
     public override void PostDraw()
     {
+        movementLock.Restore(this);
+        if (materialBackdropPending) { ImGui.PopStyleColor(); materialBackdropPending = false; }
         motion.Restore(this);
         PaintWindowTitle();
-        AppearanceOwner.DrawAppearanceTitleBarPopups(this);
+        AppearanceOwner.DrawAppearanceTitleBarPopups(this, opacity);
         AppearanceOwner.ApplyWindowOpacity(opacity, WindowName);
+    }
+
+    protected void DrawWindowBackground()
+    {
+        if (materialBackdropPending) { ImGui.PopStyleColor(); materialBackdropPending = false; }
+        AppearanceOwner.PrepareWindowBackground(opacity);
+        AethertekUI.MaterialSkin.Backdrop();
     }
 
     protected void DrawWindowChrome() => motion.DrawChrome();

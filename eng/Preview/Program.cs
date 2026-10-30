@@ -29,6 +29,10 @@ if (args is ["check-appearance", var pluginAssemblyPath])
         var serialize = jsonConvert.GetMethod("SerializeObject", [typeof(object)])!;
         var oldJson = """{"Version":4,"UiLanguage":"ja","UiColors":{"Mode":1,"BackgroundRgb":1193046,"ControlsRgb":5666970,"TextRgb":14544639},"ExistingUnknownOption":"retained"}""";
         var oldConfig = deserialize.Invoke(null, [oldJson, configurationType])!;
+        var styling = configurationType.GetProperty("UiStylingEnabled")!;
+        var locked = configurationType.GetProperty("UiWindowsLocked")!;
+        if (styling.GetValue(oldConfig) is not true || locked.GetValue(oldConfig) is not false)
+            throw new InvalidDataException("Legacy settings must default to styled and unlocked.");
         var muted = configurationType.GetProperty("UiLcarsSoundsMuted")!;
         var colours = configurationType.GetProperty("UiColors")!;
         if (muted.GetValue(oldConfig) is not true) throw new InvalidDataException("Legacy configuration must start muted.");
@@ -48,7 +52,32 @@ if (args is ["check-appearance", var pluginAssemblyPath])
         var automatic = deserialize.Invoke(null, [automaticJson, configurationType])!;
         if ((MaterialColorSettings)colours.GetValue(automatic)! != picker with { Mode = MaterialColorMode.Auto })
             throw new InvalidDataException("Auto transition lost saved Picker RGB values.");
-        var keys = new[] { "LCARS", "LCARS panels, bars and controls", "LCARS UI sounds", "UI sounds", "Preview sound",
+        styling.SetValue(restored, false);
+        locked.SetValue(restored, true);
+        var background = restoredColours with
+        {
+            Mode = MaterialColorMode.Glassmorphism, GlassBackground = MaterialGlassBackground.Lights,
+            GlassLights = MaterialGlassLights.SweepingBeams, GlassImagePath = "fabricated-background.png",
+            GlassWave1Rgb = 0x123456, GlassLight1Rgb = 0x987654, BackgroundBlurPercent = 42,
+        };
+        colours.SetValue(restored, background);
+        var backgroundJson = (string)serialize.Invoke(null, [restored])!;
+        var backgroundRestored = deserialize.Invoke(null, [backgroundJson, configurationType])!;
+        if (styling.GetValue(backgroundRestored) is not false || locked.GetValue(backgroundRestored) is not true
+            || (MaterialColorSettings)colours.GetValue(backgroundRestored)! != background
+            || !backgroundJson.Contains("ExistingUnknownOption", StringComparison.Ordinal))
+            throw new InvalidDataException("Background, global controls or existing values did not round-trip.");
+        var defaults = new MaterialColorSettings();
+        if (defaults.BackgroundBlurPercent != 75 || Enum.GetValues<MaterialColorMode>()
+            .Any(mode => defaults.HasBackgroundBlur(mode) != (mode == MaterialColorMode.Glassmorphism)))
+            throw new InvalidDataException("Blur defaults must select Glassmorphism only and 75% Frost.");
+        var keys = new[] { "Background blur", "Blur (%)", "Pause backdrop for screenshots", "UI styling",
+            "Lock window movement and resizing", "Use native UI", "Use styled UI", "Lock windows", "Unlock windows",
+            "Background mode", "Waves", "Lights", "Image", "Light effect", "Ambient glows", "Sweeping beams",
+            "Mouse-following glow", "Image file", "Browse...", "Choose background image", "Images", "Load image",
+            "The image fills the window. Blur (%) applies to the image.", "Choose an image file.", "Loading image...",
+            "Image could not be loaded.", "Image backgrounds remain visible to screenshots.", "Light colours",
+            "Reset light colours", "Light colour 1", "Light colour 2", "Light colour 3", "LCARS", "LCARS panels, bars and controls", "LCARS UI sounds", "UI sounds", "Preview sound",
             "Custom UI tones. The titlebar speaker toggles the same setting.", "Select LCARS to use UI sounds.",
             "Turn on UI sounds to preview.", "Audio output is unavailable.", "UI sounds muted", "UI sounds on" };
         var resources = pluginAssembly.GetManifestResourceNames()
@@ -62,7 +91,7 @@ if (args is ["check-appearance", var pluginAssemblyPath])
                 if (!values.TryGetValue(key, out var value) || string.IsNullOrWhiteSpace(value))
                     throw new InvalidDataException($"Missing {key} in {resource}.");
         }
-        Console.WriteLine("Footballer appearance checks passed: actual Configuration legacy mute default, Newtonsoft LCARS/mute/Auto roundtrips, retained Picker RGB/unknown settings/language, and 165 compiled localized captions.");
+        Console.WriteLine("Footballer appearance checks passed: actual Configuration legacy defaults, saved styling/lock/backgrounds, per-style blur defaults, Newtonsoft LCARS/mute/Auto roundtrips, retained Picker RGB/unknown settings/language, and 645 compiled localized captions.");
     }
     finally { AssemblyLoadContext.Default.Resolving -= ResolveHost; }
     return;
