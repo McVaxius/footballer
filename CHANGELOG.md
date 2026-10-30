@@ -3,6 +3,7 @@
 - Add saved styled/native UI and movement/resize lock controls in Settings, the titlebar and commands.
 - Add Background-only Glasswork blur with independent tint and Frost, Waves, three Lights effects, image backgrounds and native Browse. Keep foreground controls and complete-window opacity intact, including each titlebar popup owner's fade.
 - Add the shared screenshot-pause control to Colour and Transparency, defaulting off, and translate the new controls in all fifteen catalogs.
+- Align the root release feed version, download links and preview image URL with 2.0.0.14 so normal CI preview packaging validates the current release.
 
 2026-10-26 - 2.0.0.13 - Shared material appearance
 
