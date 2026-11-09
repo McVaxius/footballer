@@ -1,3 +1,8 @@
+2026-11-09 - 2.0.0.15 - Shared UI library update
+
+- Update shared text controls and glass rendering to the reviewed AethertekUI 0.3.1 baseline.
+- The shared-library rollout to other existing plugins is in progress.
+
 2026-10-29 - 2.0.0.14 - Background glass and window controls
 
 - Add saved styled/native UI and movement/resize lock controls in Settings, the titlebar and commands.
