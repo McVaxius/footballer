@@ -1,6 +1,6 @@
-Unreleased - Portable UI fonts
+2026-11-22 - 2.0.0.17 - Bundled UI fonts for Wine
 
-- Load bundled Selawik and Dalamud glyphs from the installed plugin directory for Windows and Linux/Wine.
+- Load bundled UI fonts when opening plugin windows on Windows and Wine.
 
 2026-11-12 - 2.0.0.16 - Highlight contrast
 
