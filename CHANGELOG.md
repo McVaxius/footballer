@@ -1,3 +1,7 @@
+Unreleased - Portable UI fonts
+
+- Load bundled Selawik and Dalamud glyphs from the installed plugin directory for Windows and Linux/Wine.
+
 2026-11-12 - 2.0.0.16 - Highlight contrast
 
 - Add a saved Highlight contrast control in Appearance and the Colour menu, defaulting to 50%, with translated captions and help.

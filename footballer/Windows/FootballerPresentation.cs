@@ -23,7 +23,6 @@ internal static class FootballerPresentation
     internal static float SubtitleScale => Compact ? 1.33f : 1.15f;
     internal static float CardNameScale => Compact ? 1 : 1.17f;
     internal static readonly float[] FontSizes = [16, 16, 38, 20, 22, 18, 32];
-    internal static readonly string[] FontFiles = ["segoeui.ttf", "seguisb.ttf", "segoeuib.ttf", "seguisb.ttf", "seguisb.ttf", "seguisb.ttf", "segoeuib.ttf"];
     internal static float AtlasHeight(UiFontRole role) => FontSizes[(int)role] * 4 / 3;
     internal static Vector4 Rgb(uint rgb) => new(((rgb >> 16) & 255) / 255f, ((rgb >> 8) & 255) / 255f, (rgb & 255) / 255f, 1);
     internal static readonly Vector4 Ready = Rgb(0x7DCF6E), Pending = Rgb(0xE8B86C), Error = Rgb(0xEE7788);
