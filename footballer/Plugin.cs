@@ -9,6 +9,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.IoC;
 using Dalamud.Interface.Windowing;
+using Dalamud.Interface.ManagedFontAtlas;
 using Dalamud.Interface;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
@@ -75,6 +76,7 @@ public sealed partial class Plugin : IDalamudPlugin
     private readonly MaterialWindowOpacity fontStatusOpacity = new();
     private MaterialOptions<string> languageOptions = null!;
     private string appliedLanguage = "";
+    private (bool Main, bool Compact) appliedFontRoles;
     private uint appliedAccent;
     private Vector3 accentDraft;
     private MaterialColorSettings colorDraft = new();
@@ -113,7 +115,6 @@ public sealed partial class Plugin : IDalamudPlugin
             PrintStatus,
             FormatDisplayName);
         FootShowcaseService = new FootShowcaseService();
-        ApplyAppearance();
         mainWindow = new MainWindow(this);
         configWindow = new ConfigWindow(this);
 
@@ -133,6 +134,7 @@ public sealed partial class Plugin : IDalamudPlugin
         UpdateDtrBar();
 
         Log.Information("[footballer] Plugin loaded.");
+        ReportUiResources("startup");
     }
 
     private bool LcarsActive => Configuration.UiStylingEnabled && Configuration.UiColors?.Mode == MaterialColorMode.Lcars;
@@ -146,7 +148,7 @@ public sealed partial class Plugin : IDalamudPlugin
     internal void SetLcarsSounds(bool enabled)
     {
         Configuration.UiLcarsSoundsMuted = !enabled;
-        if (!enabled) uiSoundPlayer?.Stop();
+        if (!enabled) ReleaseUiSounds();
         Configuration.Save();
     }
 
@@ -180,13 +182,12 @@ public sealed partial class Plugin : IDalamudPlugin
 
     public void Dispose()
     {
-        uiSoundPlayer?.Dispose();
         pendingOpenMainUi = false;
         Framework.Update -= OnFrameworkUpdate;
         PluginInterface.UiBuilder.Draw -= DrawUi;
         PluginInterface.UiBuilder.ResizeBuffers -= ReleaseGlassResources;
         glassImagePicker.Reset();
-        backgroundGlass?.Dispose();
+        ReleaseWindowResources("plugin unloaded");
         PluginInterface.UiBuilder.OpenConfigUi -= OpenConfigUi;
         PluginInterface.UiBuilder.OpenMainUi -= OpenMainUi;
 
@@ -197,15 +198,11 @@ public sealed partial class Plugin : IDalamudPlugin
         LodestoneProfileService.Dispose();
         configWindow.Dispose();
         mainWindow.Dispose();
-        uiFonts.Dispose();
-        uiText.Dispose();
-        shapedText?.Dispose();
     }
 
     private void DrawUiContent()
     {
-        ApplyAppearance();
-        if(!mainWindow.IsOpen && !configWindow.IsOpen) return;
+        if (!mainWindow.IsOpen && !configWindow.IsOpen) return;
         using var text = uiText.Enter();
         shapedText ??= new(TextureProvider);
         using var shaping = shapedText.Push();
@@ -223,7 +220,7 @@ public sealed partial class Plugin : IDalamudPlugin
         {
             var generation = uiFonts.Generation;
             var hindiAvailable = true;
-            foreach (var size in FootballerPresentation.FontSizes)
+            foreach (var size in uiFonts.Sizes)
                 hindiAvailable &= shapedText.Renderer.TryCheckGlyphs(["हिन्दी"], size * ImGuiHelpers.GlobalScale, out _);
             languageOptions.Replace(UiText.Languages.Select(l => new MaterialOption<string>(l.Code, l.Code,
                 l.Code == "hi" && !hindiAvailable ? "Hindi (unavailable)" : l.Name, l.Code == "hi" && !hindiAvailable)).ToArray());
@@ -234,10 +231,11 @@ public sealed partial class Plugin : IDalamudPlugin
             try
             {
                 var generation=uiFonts.Generation;
-                foreach (var size in FootballerPresentation.FontSizes)
+                foreach (var size in uiFonts.Sizes)
                     shapedText.Renderer.CheckGlyphs(uiText.RequiredText, size * ImGuiHelpers.GlobalScale);
                 uiFonts.CheckGlyphs(uiText.RequiredText);
                 checkedFontGeneration=generation;
+                ReportUiResources("fonts ready");
             }
             catch(Exception ex) { if(!fontIssueLogged) { Log.Error(ex,"[footballer] Required UI glyph coverage failed.");fontIssueLogged=true; } DrawFontStatus(false);return; }
         }
@@ -295,18 +293,31 @@ public sealed partial class Plugin : IDalamudPlugin
     private void ApplyAppearance()
     {
         var language=UiText.Languages.Any(l=>l.Code==Configuration.UiLanguage)?Configuration.UiLanguage:"en";
-        if(language!=appliedLanguage)
+        if (language != appliedLanguage)
         {
-            uiFonts?.Dispose();
             uiText?.Dispose();
-            uiText=new(language,role=>uiFonts!.Push(role));
-            uiFonts = new(PluginInterface.UiBuilder.FontAtlas, uiText.GlyphRanges(), language,
-                PluginInterface.AssemblyLocation.DirectoryName!);
-            languageOptions=new(UiText.Languages.Select(l=>new MaterialOption<string>(l.Code,l.Code,l.Name)).ToArray());
-            appliedLanguage=language;
-            checkedFontGeneration=-1;
+            shapedText?.Dispose();
+            shapedText = null;
+            uiText = new(language, role => uiFonts.Push(role));
+            languageOptions = new(UiText.Languages.Select(l => new MaterialOption<string>(l.Code, l.Code, l.Name)).ToArray());
+        }
+        var fontRoles = (Main: mainWindow.IsOpen, Compact: mainWindow.IsOpen && Configuration.UiCompact);
+        if (uiFonts is null || language != appliedLanguage || fontRoles != appliedFontRoles)
+        {
+            if (uiFonts != null) ReportUiResources("atlas retiring");
+            uiFonts?.Dispose();
+            uiFonts = null!;
+            var ranges = uiText.GlyphRanges();
+            var atlas = PluginInterface.UiBuilder.CreateFontAtlas(FontAtlasAutoRebuildMode.OnNewFrame, true, "Footballer UI");
+            uiFonts = new(atlas, ranges, language, PluginInterface.AssemblyLocation.DirectoryName!,
+                fontRoles.Main, fontRoles.Compact, TextureProvider, atlasReport =>
+                    Log.Information("[Footballer UI memory] atlas built language={Language} {Atlas}", language, atlasReport));
+            appliedLanguage = language;
+            appliedFontRoles = fontRoles;
+            checkedFontGeneration = -1;
             checkedHindiGeneration = -1;
-            fontIssueLogged=false;
+            fontIssueLogged = false;
+            ReportUiResources("atlas requested");
         }
         var savedColors = Configuration.UiColors ?? new MaterialColorSettings();
         if (savedColors != appliedSavedColors)
@@ -320,17 +331,17 @@ public sealed partial class Plugin : IDalamudPlugin
             appliedColors = colorDraft;
             uiTheme=FootballerPresentation.Theme(appliedAccent, colorDraft);
             uiTheme.Feedback = PlayLcarsSound;
-            if (!uiTheme.IsLcars) uiSoundPlayer?.Stop();
+            if (!uiTheme.IsLcars) ReleaseUiSounds();
             var color=FootballerPresentation.Rgb(appliedAccent);
             accentDraft=new(color.X,color.Y,color.Z);
         }
-        if (!Configuration.UiStylingEnabled) uiSoundPlayer?.Stop();
+        if (!Configuration.UiStylingEnabled) ReleaseUiSounds();
         uiTheme.HighlightContrastPercent = Configuration.UiHighlightContrastPercent;
         uiTheme.Density = Configuration.UiCompact ? MaterialDensity.Compact : MaterialDensity.Standard;
         if (appliedSoundsMuted != Configuration.UiLcarsSoundsMuted)
         {
             appliedSoundsMuted = Configuration.UiLcarsSoundsMuted;
-            if (appliedSoundsMuted) uiSoundPlayer?.Stop();
+            if (appliedSoundsMuted) ReleaseUiSounds();
         }
     }
 

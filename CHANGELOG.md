@@ -1,3 +1,9 @@
+2026-11-27 - 2.0.0.18 - UI memory pilot
+
+- Load fonts and backdrop resources when Footballer windows need them and release them when the windows close.
+- Keep the selected language, window typography, and background settings across resource changes.
+- Log atlas sizes, resource transitions, and process memory for the Footballer pilot.
+
 2026-11-22 - 2.0.0.17 - Bundled UI fonts for Wine
 
 - Load bundled UI fonts when opening plugin windows on Windows and Wine.

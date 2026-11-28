@@ -12,33 +12,109 @@ namespace footballer;
 public sealed partial class Plugin
 {
     private MaterialGlassRenderer? backgroundGlass;
+    private (MaterialColorMode? Style, bool Blur, bool Image, string? Path)? activeAppearance;
+    private string? lastGlassUsage;
+    private int nextGlassSampleFrame;
     internal bool BackgroundRequested => Configuration.UiStylingEnabled && Configuration.UiColors is { } choices && (choices.HasBackgroundBlur(choices.Mode) || choices.Mode == MaterialColorMode.Glassmorphism && choices.GlassBackground == MaterialGlassBackground.Image);
     private readonly FileDialogManager glassImagePicker = new();
 
     private void DrawUi()
     {
-        var active = false;
+        if (!mainWindow.IsOpen && !configWindow.IsOpen)
+        {
+            if (uiFonts is not null) ReleaseWindowResources("windows closed");
+            return;
+        }
+
+        ApplyAppearance();
+        using (MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, Configuration.UiStylingEnabled ? MaterialStyleMode.ColorsOnly : MaterialStyleMode.Native))
+            glassImagePicker.Draw();
+
+        var choices = Configuration.UiColors ?? new();
+        var style = Configuration.UiStylingEnabled ? choices.Mode : (MaterialColorMode?)null;
+        var blur = style is { } selected && choices.HasBackgroundBlur(selected);
+        var image = style == MaterialColorMode.Glassmorphism && choices.GlassBackground == MaterialGlassBackground.Image;
+        var appearance = (style, blur, image, image ? choices.GlassImagePath : null);
+        if (appearance != activeAppearance)
+        {
+            activeAppearance = appearance;
+            nextGlassSampleFrame = ImGui.GetFrameCount();
+            if (!blur && !image) DisposeBackgroundGlass();
+            else if (!blur) backgroundGlass?.ReleaseResources();
+            ReportUiResources("appearance changed");
+        }
+        // The font status window uses ordinary paint. It never needs backdrop resources.
+        if ((blur || image) && uiFonts.Ready)
+        {
+            backgroundGlass ??= new(PluginInterface, Log);
+            backgroundGlass.BeginFrame(blur, image);
+            backgroundGlass.ConfigureImage(TextureProvider, image, choices.GlassImagePath);
+        }
+
         var completed = false;
         try
         {
-            ApplyAppearance();
-            using (MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, Configuration.UiStylingEnabled ? MaterialStyleMode.ColorsOnly : MaterialStyleMode.Native))
-                glassImagePicker.Draw();
-            var choices = Configuration.UiColors ?? new();
-            var blur = Configuration.UiStylingEnabled && choices.HasBackgroundBlur(choices.Mode);
-            var image = Configuration.UiStylingEnabled && choices.Mode == MaterialColorMode.Glassmorphism && choices.GlassBackground == MaterialGlassBackground.Image;
-            active = blur || image;
-            if (active) backgroundGlass ??= new(PluginInterface, Log);
-            backgroundGlass?.ConfigureImage(TextureProvider, image, choices.GlassImagePath);
-            backgroundGlass?.BeginFrame();
-            using var background = MaterialSkin.PushBackgroundRenderer(Configuration.UiStylingEnabled ? backgroundGlass : null, blur, choices.BackgroundBlurPercent / 100f);
+            using var background = MaterialSkin.PushBackgroundRenderer(backgroundGlass, blur, choices.BackgroundBlurPercent / 100f);
             DrawUiContent();
             completed = true;
         }
-        finally { backgroundGlass?.EndFrame(active && completed); }
+        finally { backgroundGlass?.EndFrame(completed); }
+
+        if (backgroundGlass != null && ImGui.GetFrameCount() >= nextGlassSampleFrame)
+        {
+            nextGlassSampleFrame = ImGui.GetFrameCount() + 60;
+            var glassUsage = backgroundGlass.DescribeResources();
+            if (lastGlassUsage != glassUsage)
+            {
+                lastGlassUsage = glassUsage;
+                ReportUiResources("glass resources changed", glassUsage);
+            }
+        }
     }
 
     private void ReleaseGlassResources() => backgroundGlass?.ReleaseResources();
+
+    private void DisposeBackgroundGlass()
+    {
+        if (backgroundGlass is null) return;
+        ReportUiResources("glass retiring", backgroundGlass.DescribeResources());
+        backgroundGlass.Dispose();
+        backgroundGlass = null;
+        lastGlassUsage = null;
+    }
+
+    private void ReleaseUiSounds()
+    {
+        uiSoundPlayer?.Dispose();
+        uiSoundPlayer = null;
+    }
+
+    private void ReleaseWindowResources(string reason)
+    {
+        glassImagePicker.Reset();
+        DisposeBackgroundGlass();
+        ReleaseUiSounds();
+        uiFonts?.Dispose();
+        uiFonts = null!;
+        shapedText?.Dispose();
+        shapedText = null;
+        uiText?.Dispose();
+        uiText = null!;
+        uiTheme = null!;
+        languageOptions = null!;
+        appliedLanguage = string.Empty;
+        activeAppearance = null;
+        ReportUiResources(reason);
+    }
+
+    private void ReportUiResources(string reason, string? glassUsage = null)
+    {
+        var style = Configuration.UiStylingEnabled ? (Configuration.UiColors?.Mode ?? MaterialColorMode.Auto).ToString() : "Native";
+        var (textures, bytes) = shapedText?.Renderer.GetTextureUsage() ?? default;
+        Log.Information("[Footballer UI memory] {Event} style={Style} language={Language} fontHandles={FontHandles} shapedTextures={ShapedTextures} estimatedShapedBytes={ShapedBytes} {Glass} {Memory}",
+            reason, style, Configuration.UiLanguage, uiFonts?.Count ?? 0, textures, bytes,
+            glassUsage ?? backgroundGlass?.DescribeResources() ?? "glass=off", MaterialUiResourceDiagnostics.ProcessMemory());
+    }
     private void ToggleUiStyling() { Configuration.UiStylingEnabled = !Configuration.UiStylingEnabled; Configuration.Save(); }
     private void ToggleWindowLock() { Configuration.UiWindowsLocked = !Configuration.UiWindowsLocked; Configuration.Save(); }
 

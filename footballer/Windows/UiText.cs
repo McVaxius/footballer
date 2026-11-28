@@ -181,7 +181,8 @@ internal sealed class UiText : IDisposable
     {
         var chars=RequiredText.SelectMany(MaterialText.NativeGlyphText).Where(c=>!char.IsControl(c))
             .Concat(Enumerable.Range(0x20,0x024F-0x20+1).Select(i=>(char)i))
-            .Concat(Enumerable.Range(0x0400,0x052F-0x0400+1).Select(i=>(char)i)).Concat("—").Distinct().Order().ToArray();
+            .Concat(Language == "ru" ? Enumerable.Range(0x0400, 0x0530 - 0x0400).Select(i => (char)i) : [])
+            .Concat("—").Distinct().Order().ToArray();
         var result=new List<ushort>();
         for(var index=0;index<chars.Length;index++)
         {
