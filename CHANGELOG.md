@@ -1,3 +1,8 @@
+2026-11-27 - 2.0.0.21 - End the UI memory pilot
+
+- Turn off the temporary memory profiling logs after the Linux window test.
+- Keep on-demand UI resources and the font atlas fix.
+
 2026-11-27 - 2.0.0.20 - Footballer first-open crash fix
 
 - Preserve the font atlas texture references when releasing rasterization inputs after loading fonts.

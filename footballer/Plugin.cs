@@ -137,7 +137,6 @@ public sealed partial class Plugin : IDalamudPlugin
         UpdateDtrBar();
 
         Log.Information("[footballer] Plugin loaded.");
-        ReportUiResources("startup");
     }
 
     private bool LcarsActive => Configuration.UiStylingEnabled && Configuration.UiColors?.Mode == MaterialColorMode.Lcars;
@@ -189,8 +188,7 @@ public sealed partial class Plugin : IDalamudPlugin
         Framework.Update -= OnFrameworkUpdate;
         PluginInterface.UiBuilder.Draw -= DrawUi;
         PluginInterface.UiBuilder.ResizeBuffers -= ReleaseGlassResources;
-        glassImagePicker.Reset();
-        ReleaseWindowResources("plugin unloaded");
+        ReleaseWindowResources();
         PluginInterface.UiBuilder.OpenConfigUi -= OpenConfigUi;
         PluginInterface.UiBuilder.OpenMainUi -= OpenMainUi;
 
@@ -239,7 +237,6 @@ public sealed partial class Plugin : IDalamudPlugin
                     shapedText.Renderer.CheckGlyphs(uiText.RequiredText, size * ImGuiHelpers.GlobalScale);
                 uiFonts.CheckGlyphs(uiText.RequiredText);
                 checkedFontGeneration=generation;
-                ReportUiResources("fonts ready");
             }
             catch(Exception ex) { if(!fontIssueLogged) { Log.Error(ex,"[footballer] Required UI glyph coverage failed.");fontIssueLogged=true; } DrawFontStatus(false);return; }
         }
@@ -308,20 +305,17 @@ public sealed partial class Plugin : IDalamudPlugin
         var fontRoles = (Main: mainWindow.IsOpen, Compact: mainWindow.IsOpen && Configuration.UiCompact);
         if (uiFonts is null || language != appliedLanguage || fontRoles != appliedFontRoles)
         {
-            if (uiFonts != null) ReportUiResources("atlas retiring");
             uiFonts?.Dispose();
             uiFonts = null!;
             var ranges = uiText.GlyphRanges();
             var atlas = PluginInterface.UiBuilder.CreateFontAtlas(FontAtlasAutoRebuildMode.OnNewFrame, true, "Footballer UI");
             uiFonts = new(atlas, ranges, language, PluginInterface.AssemblyLocation.DirectoryName!,
-                fontRoles.Main, fontRoles.Compact, TextureProvider, atlasReport =>
-                    Log.Information("[Footballer UI memory] atlas built language={Language} {Atlas}", language, atlasReport));
+                fontRoles.Main, fontRoles.Compact);
             appliedLanguage = language;
             appliedFontRoles = fontRoles;
             checkedFontGeneration = -1;
             checkedHindiGeneration = -1;
             fontIssueLogged = false;
-            ReportUiResources("atlas requested");
         }
         var savedColors = Configuration.UiColors ?? new MaterialColorSettings();
         if (savedColors != appliedSavedColors)

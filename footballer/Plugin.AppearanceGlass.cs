@@ -13,8 +13,6 @@ public sealed partial class Plugin
 {
     private MaterialGlassRenderer? backgroundGlass;
     private (MaterialColorMode? Style, bool Blur, bool Image, string? Path)? activeAppearance;
-    private string? lastGlassUsage;
-    private int nextGlassSampleFrame;
     internal bool BackgroundRequested => Configuration.UiStylingEnabled && Configuration.UiColors is { } choices && (choices.HasBackgroundBlur(choices.Mode) || choices.Mode == MaterialColorMode.Glassmorphism && choices.GlassBackground == MaterialGlassBackground.Image);
     private readonly FileDialogManager glassImagePicker = new();
 
@@ -22,7 +20,7 @@ public sealed partial class Plugin
     {
         if (!mainWindow.IsOpen && !configWindow.IsOpen)
         {
-            if (uiFonts is not null) ReleaseWindowResources("windows closed");
+            if (uiFonts is not null) ReleaseWindowResources();
             return;
         }
 
@@ -38,10 +36,8 @@ public sealed partial class Plugin
         if (appearance != activeAppearance)
         {
             activeAppearance = appearance;
-            nextGlassSampleFrame = ImGui.GetFrameCount();
             if (!blur && !image) DisposeBackgroundGlass();
             else if (!blur) backgroundGlass?.ReleaseResources();
-            ReportUiResources("appearance changed");
         }
         // The font status window uses ordinary paint. It never needs backdrop resources.
         if ((blur || image) && uiFonts.Ready)
@@ -59,17 +55,6 @@ public sealed partial class Plugin
             completed = true;
         }
         finally { backgroundGlass?.EndFrame(completed); }
-
-        if (backgroundGlass != null && ImGui.GetFrameCount() >= nextGlassSampleFrame)
-        {
-            nextGlassSampleFrame = ImGui.GetFrameCount() + 60;
-            var glassUsage = backgroundGlass.DescribeResources();
-            if (lastGlassUsage != glassUsage)
-            {
-                lastGlassUsage = glassUsage;
-                ReportUiResources("glass resources changed", glassUsage);
-            }
-        }
     }
 
     private void ReleaseGlassResources() => backgroundGlass?.ReleaseResources();
@@ -77,10 +62,8 @@ public sealed partial class Plugin
     private void DisposeBackgroundGlass()
     {
         if (backgroundGlass is null) return;
-        ReportUiResources("glass retiring", backgroundGlass.DescribeResources());
         backgroundGlass.Dispose();
         backgroundGlass = null;
-        lastGlassUsage = null;
     }
 
     private void ReleaseUiSounds()
@@ -89,7 +72,7 @@ public sealed partial class Plugin
         uiSoundPlayer = null;
     }
 
-    private void ReleaseWindowResources(string reason)
+    private void ReleaseWindowResources()
     {
         glassImagePicker.Reset();
         DisposeBackgroundGlass();
@@ -104,16 +87,6 @@ public sealed partial class Plugin
         languageOptions = null!;
         appliedLanguage = string.Empty;
         activeAppearance = null;
-        ReportUiResources(reason);
-    }
-
-    private void ReportUiResources(string reason, string? glassUsage = null)
-    {
-        var style = Configuration.UiStylingEnabled ? (Configuration.UiColors?.Mode ?? MaterialColorMode.Auto).ToString() : "Native";
-        var (textures, bytes) = shapedText?.Renderer.GetTextureUsage() ?? default;
-        Log.Information("[Footballer UI memory] {Event} style={Style} language={Language} fontHandles={FontHandles} shapedTextures={ShapedTextures} estimatedShapedBytes={ShapedBytes} {Glass} {Memory}",
-            reason, style, Configuration.UiLanguage, uiFonts?.Count ?? 0, textures, bytes,
-            glassUsage ?? backgroundGlass?.DescribeResources() ?? "glass=off", MaterialUiResourceDiagnostics.ProcessMemory());
     }
     private void ToggleUiStyling() { Configuration.UiStylingEnabled = !Configuration.UiStylingEnabled; Configuration.Save(); }
     private void ToggleWindowLock() { Configuration.UiWindowsLocked = !Configuration.UiWindowsLocked; Configuration.Save(); }

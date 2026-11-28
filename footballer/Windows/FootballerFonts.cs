@@ -2,7 +2,6 @@ using AethertekUI;
 using AethertekUI.Dalamud;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.ManagedFontAtlas;
-using Dalamud.Plugin.Services;
 
 namespace footballer.Windows;
 
@@ -11,16 +10,12 @@ internal sealed class FootballerFonts : IDisposable
     private readonly IFontAtlas atlas;
     private readonly Dictionary<UiFontRole, IFontHandle> roles = [];
     private readonly List<IFontHandle> handles = [];
-    private readonly ITextureProvider textures;
-    private readonly Action<string> report;
     private int generation;
     internal int Generation => System.Threading.Volatile.Read(ref generation);
     internal FootballerFonts(IFontAtlas atlas, ushort[] ranges, string language, string assetRoot,
-        bool mainWindow, bool compact, ITextureProvider textures, Action<string> report)
+        bool mainWindow, bool compact)
     {
         this.atlas = atlas;
-        this.textures = textures;
-        this.report = report;
         var selectedRoles = mainWindow
             ? new[] { UiFontRole.Body, UiFontRole.PluginName, UiFontRole.Action, compact ? UiFontRole.CompactTitle : UiFontRole.Title }
             : [UiFontRole.Body];
@@ -29,7 +24,7 @@ internal sealed class FootballerFonts : IDisposable
             glyphCount += ranges[index + 1] - ranges[index] + 1;
         var pageSize = glyphCount > 1000 && mainWindow ? 2048 : 1024;
         var faces = new Dictionary<(MaterialFontWeight Weight, float Height), IFontHandle>();
-        atlas.BuildStepChange += OnBuild;
+        atlas.BuildStepChange += MaterialFontAtlas.ReleaseRasterizedInputs;
         try
         {
             foreach (var role in selectedRoles)
@@ -60,14 +55,6 @@ internal sealed class FootballerFonts : IDisposable
     }
 
     internal IEnumerable<float> Sizes => roles.Keys.Select(role => FootballerPresentation.FontSizes[(int)role]).Distinct();
-    internal int Count => handles.Count;
-
-    private void OnBuild(IFontAtlasBuildToolkit toolkit)
-    {
-        if (toolkit.BuildStep != FontAtlasBuildStep.PostBuild) return;
-        MaterialFontAtlas.ReleaseRasterizedInputs(toolkit);
-        report(MaterialUiResourceDiagnostics.DescribeAtlas(toolkit, textures, Count));
-    }
     private void FontChanged(IFontHandle handle,ILockedImFont font) => System.Threading.Interlocked.Increment(ref generation);
     internal bool Ready => handles.All(h=>h.Available && h.LoadException is null);
     internal Exception? LoadException => handles.FirstOrDefault(h=>h.LoadException is not null)?.LoadException;
@@ -90,7 +77,7 @@ internal sealed class FootballerFonts : IDisposable
     }
     public void Dispose()
     {
-        atlas.BuildStepChange -= OnBuild;
+        atlas.BuildStepChange -= MaterialFontAtlas.ReleaseRasterizedInputs;
         foreach (var handle in handles)
         {
             handle.ImFontChanged -= FontChanged;
