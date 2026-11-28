@@ -91,7 +91,43 @@ if (args is ["check-appearance", var pluginAssemblyPath])
                 if (!values.TryGetValue(key, out var value) || string.IsNullOrWhiteSpace(value))
                     throw new InvalidDataException($"Missing {key} in {resource}.");
         }
-        Console.WriteLine("Footballer appearance checks passed: actual Configuration legacy defaults, saved styling/lock/backgrounds, per-style blur defaults, Newtonsoft LCARS/mute/Auto roundtrips, retained Picker RGB/unknown settings/language, and 645 compiled localized captions.");
+        var instanceMembers = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+        var pluginType = pluginAssembly.GetType("footballer.Plugin", throwOnError: true)!;
+        var closedPlugin = System.Runtime.CompilerServices.RuntimeHelpers.GetUninitializedObject(pluginType);
+        pluginType.GetField("<Configuration>k__BackingField", instanceMembers)!.SetValue(closedPlugin, oldConfig);
+        var dtrField = pluginType.GetField("dtrEntry", instanceMembers)!;
+        var dtrEntry = DispatchProxy.Create(dtrField.FieldType, typeof(PreviewDtrEntry));
+        dtrField.SetValue(closedPlugin, dtrEntry);
+        var bar = (PreviewDtrEntry)dtrEntry;
+        configurationType.GetProperty("DtrBarMode")!.SetValue(oldConfig, 0);
+
+        string GetTranslation(string code, string key)
+        {
+            using var reader = new System.Resources.ResourceReader(pluginAssembly.GetManifestResourceStream(
+                $"footballer.Localization.Strings_{code}.resources")!);
+            return reader.Cast<System.Collections.DictionaryEntry>().Single(entry => (string)entry.Key == key).Value!.ToString()!;
+        }
+
+        var updateDtr = pluginType.GetMethod("UpdateDtrBar", instanceMembers)!;
+        var nativeLabel = pluginType.GetMethod("NativeLabel", instanceMembers)!;
+        const string guidance = "Pick the Scaling to match the window, and click refresh party when ready";
+        foreach (var (language, enabled, localized) in new[] { ("ja", false, true), ("fr", true, true), ("hi", true, false), ("unknown", false, false) })
+        {
+            configurationType.GetProperty("UiLanguage")!.SetValue(oldConfig, language);
+            configurationType.GetProperty("PluginEnabled")!.SetValue(oldConfig, enabled);
+            updateDtr.Invoke(closedPlugin, null);
+            var word = enabled ? "On" : "Off";
+            var state = localized ? GetTranslation(language, word) : word;
+            var tooltip = localized ? GetTranslation(language, "{0} {1}. Click to toggle.") : "{0} {1}. Click to toggle.";
+            if (!bar.Shown || bar.Text?.ToString() != "FOOT: " + state
+                || bar.Tooltip?.ToString() != string.Format(tooltip, "Footballer", state)
+                || !Equals(nativeLabel.Invoke(closedPlugin, [guidance]), localized ? GetTranslation(language, guidance) : guidance)
+                || pluginType.GetField("uiFonts", instanceMembers)!.GetValue(closedPlugin) != null
+                || pluginType.GetField("uiText", instanceMembers)!.GetValue(closedPlugin) != null)
+                throw new InvalidDataException($"Closed Footballer windows must still support status and guidance for {language}.");
+        }
+
+        Console.WriteLine("Footballer appearance checks passed: saved settings, 645 localized captions, and closed-window status/guidance in Japanese, French, Hindi, and an unknown locale.");
     }
     finally { AssemblyLoadContext.Default.Resolving -= ResolveHost; }
     return;
@@ -233,3 +269,22 @@ if (lcars)
     Console.WriteLine($"LCARS {theme.Density} native surface checks passed: orange={orange}, lilac={lilac}, black={black}.");
 }
 Console.WriteLine($"Rendered Footballer v{version}, build {build}: {path} (730 x 380)");
+
+public class PreviewDtrEntry : DispatchProxy
+{
+    internal bool Shown { get; private set; }
+    internal object? Text { get; private set; }
+    internal object? Tooltip { get; private set; }
+
+    protected override object? Invoke(MethodInfo? targetMethod, object?[]? args)
+    {
+        switch (targetMethod?.Name)
+        {
+            case "set_Shown": Shown = (bool)args![0]!; break;
+            case "set_Text": Text = args![0]; break;
+            case "set_Tooltip": Tooltip = args![0]; break;
+            default: throw new InvalidOperationException($"Unexpected status bar call {targetMethod?.Name}.");
+        }
+        return null;
+    }
+}

@@ -1,3 +1,8 @@
+2026-11-27 - 2.0.0.19 - Footballer startup fix
+
+- Fix plugin startup and first-open guidance when Footballer's window resources have yet to load.
+- Keep server info bar and toast translations available with Footballer windows closed.
+
 2026-11-27 - 2.0.0.18 - UI memory pilot
 
 - Load fonts and backdrop resources when Footballer windows need them and release them when the windows close.

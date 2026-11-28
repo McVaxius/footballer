@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using System.Resources;
 using AethertekUI;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Utility;
@@ -92,6 +93,8 @@ public sealed partial class Plugin : IDalamudPlugin
     private readonly ConfigWindow configWindow;
     private bool pendingOpenMainUi;
     private IDtrBarEntry? dtrEntry;
+    private ResourceManager? nativeText;
+    private string? nativeTextLanguage;
     private CharacterInspectResearchSnapshot? cachedCharacterInspectDebugSnapshot;
     private CommendationPortraitResearchSnapshot? cachedCommendationDebugSnapshot;
 
@@ -194,6 +197,7 @@ public sealed partial class Plugin : IDalamudPlugin
         UnregisterCommands();
         WindowSystem.RemoveAllWindows();
         dtrEntry?.Remove();
+        nativeText?.ReleaseAllResources();
 
         LodestoneProfileService.Dispose();
         configWindow.Dispose();
@@ -292,7 +296,7 @@ public sealed partial class Plugin : IDalamudPlugin
 
     private void ApplyAppearance()
     {
-        var language=UiText.Languages.Any(l=>l.Code==Configuration.UiLanguage)?Configuration.UiLanguage:"en";
+        var language = UiText.ResolveLanguage(Configuration.UiLanguage);
         if (language != appliedLanguage)
         {
             uiText?.Dispose();
@@ -609,15 +613,28 @@ public sealed partial class Plugin : IDalamudPlugin
             return;
 
         var glyph = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled;
-        var nativeEnglish = uiText.Language == "hi";
-        var state = nativeEnglish ? (Configuration.PluginEnabled ? "On" : "Off") : uiText.Label(Configuration.PluginEnabled ? "On" : "Off");
+        var state = NativeLabel(Configuration.PluginEnabled ? "On" : "Off");
         dtrEntry.Text = Configuration.DtrBarMode switch
         {
             1 => new SeString(new TextPayload($"{glyph} FOOT")),
             2 => new SeString(new TextPayload(glyph)),
             _ => new SeString(new TextPayload($"FOOT: {state}")),
         };
-        dtrEntry.Tooltip = new SeString(new TextPayload(nativeEnglish ? $"{PluginInfo.DisplayName} {state}. Click to toggle." : uiText.Format("{0} {1}. Click to toggle.", PluginInfo.DisplayName, state)));
+        var tooltip = string.Format(NativeLabel("{0} {1}. Click to toggle."), PluginInfo.DisplayName, state);
+        dtrEntry.Tooltip = new SeString(new TextPayload(tooltip));
+    }
+
+    // Dalamud renders the status bar and toasts outside Footballer's window/font lifetime.
+    private string NativeLabel(string key)
+    {
+        var language = UiText.ResolveLanguage(Configuration.UiLanguage);
+        if (language != nativeTextLanguage)
+        {
+            nativeText?.ReleaseAllResources();
+            nativeText = language is "en" or "hi" ? null : UiText.CreateResourceManager(language);
+            nativeTextLanguage = language;
+        }
+        return nativeText?.GetString(key, System.Globalization.CultureInfo.InvariantCulture) ?? key;
     }
 
     private void RegisterCommands()
@@ -769,7 +786,7 @@ public sealed partial class Plugin : IDalamudPlugin
     private void ShowShowcaseGuidanceToast()
     {
         const string guidance = "Pick the Scaling to match the window, and click refresh party when ready";
-        var payload = new SeString(new TextPayload(uiText.Language == "hi" ? guidance : uiText.Label(guidance)));
+        var payload = new SeString(new TextPayload(NativeLabel(guidance)));
         var showQuestMethod = ToastGui.GetType().GetMethod("ShowQuest", new[] { typeof(SeString) });
         if (showQuestMethod != null)
         {

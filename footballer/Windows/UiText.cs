@@ -15,6 +15,12 @@ internal sealed class UiText : IDisposable
     internal static readonly (string Code,string Name)[] Languages=[("en","English"),("de","Deutsch"),("fr","Français"),
         ("es","Español"),("it","Italiano"),("ru","Русский"),("ja","日本語"),("ko","한국어"),("zh-Hans","简体中文"),
         ("vi","Tiếng Việt"),("pt-BR","Português (Brasil)"),("id","Bahasa Indonesia"),("pl","Polski"),("tr","Türkçe"),("hi","हिन्दी")];
+    internal static string ResolveLanguage(string? language)
+        => Languages.Any(option => option.Code == language) ? language! : "en";
+
+    internal static ResourceManager CreateResourceManager(string language)
+        => new("footballer.Localization.Strings_" + language.Replace('-', '_'), typeof(UiText).Assembly);
+
     internal static IEnumerable<string> CjkLanguages(string selected) => new[]{"ja","ko","zh-Hans"}.OrderBy(code=>code==selected?0:1);
     private readonly ResourceManager manager;
     internal ResourceSet Resources { get; }
@@ -25,12 +31,12 @@ internal sealed class UiText : IDisposable
     private readonly (Regex Pattern, string Key, int[] ArgumentIndexes, int ArgumentCount)[] messageTemplates;
     internal UiText(string language, Func<UiFontRole,IDisposable> pushFont)
     {
-        Language=Languages.Any(l=>l.Code==language)?language:"en";
+        Language=ResolveLanguage(language);
         Culture=CultureInfo.GetCultureInfo(Language);
-        manager=new ResourceManager("footballer.Localization.Strings_"+Language.Replace('-','_'),typeof(UiText).Assembly);
+        manager=CreateResourceManager(Language);
         Resources=manager.GetResourceSet(CultureInfo.InvariantCulture,true,false) ?? throw new MissingManifestResourceException(Language);
         this.pushFont=pushFont;
-        var english=new ResourceManager("footballer.Localization.Strings_en",typeof(UiText).Assembly);
+        var english=CreateResourceManager("en");
         try
         {
             var fallback=english.GetResourceSet(CultureInfo.InvariantCulture,true,false) ?? throw new MissingManifestResourceException("en");
@@ -166,8 +172,6 @@ internal sealed class UiText : IDisposable
     }
     internal static string F(string english,params object?[] args) => string.Format(Current.Culture,T(english),LocalizeArguments(english,args));
     internal static string F(FormattableString text) => string.Format(Current.Culture,T(text.Format),LocalizeArguments(text.Format,text.GetArguments()));
-    internal string Format(string key, params object?[] args) => string.Format(Culture, Resources.GetString(key, false) ?? key, args);
-    internal string Label(string key) => Resources.GetString(key, false) ?? key;
     internal static IDisposable Font(UiFontRole role) => Current.pushFont(role);
     internal Scope Enter() => new(this);
     internal readonly struct Scope : IDisposable
