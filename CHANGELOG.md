@@ -1,3 +1,8 @@
+2026-11-27 - 2.0.0.20 - Footballer first-open crash fix
+
+- Preserve the font atlas texture references when releasing rasterization inputs after loading fonts.
+- Keep Footballer's on-demand font loading and memory diagnostics.
+
 2026-11-27 - 2.0.0.19 - Footballer startup fix
 
 - Fix plugin startup and first-open guidance when Footballer's window resources have yet to load.
