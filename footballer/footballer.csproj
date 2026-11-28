@@ -7,9 +7,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWindowsForms>true</UseWindowsForms>
-    <Version>2.0.0.21</Version>
-    <FileVersion>2.0.0.21</FileVersion>
-    <AssemblyVersion>2.0.0.21</AssemblyVersion>
+    <Version>2.0.0.22</Version>
+    <FileVersion>2.0.0.22</FileVersion>
+    <AssemblyVersion>2.0.0.22</AssemblyVersion>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <IsPackable>false</IsPackable>
     <RootNamespace>footballer</RootNamespace>

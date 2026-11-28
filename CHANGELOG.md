@@ -1,3 +1,7 @@
+2026-11-28 - 2.0.0.22 - Shared UI update
+
+- Use the finalized AethertekUI 0.3.7 release for on-demand fonts and backdrops.
+
 2026-11-27 - 2.0.0.21 - End the UI memory pilot
 
 - Turn off the temporary memory profiling logs after the Linux window test.
