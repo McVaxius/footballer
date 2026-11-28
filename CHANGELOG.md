@@ -1,3 +1,7 @@
+2026-11-28 - 2.0.0.23 - Backdrop resource cleanup
+
+- **Fixed backdrop cleanup.** Footballer releases its backdrop while interface fonts load or fail to load.
+
 2026-11-28 - 2.0.0.22 - Shared UI update
 
 - Use the finalized AethertekUI 0.3.7 release for on-demand fonts and backdrops.

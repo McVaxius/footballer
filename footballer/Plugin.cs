@@ -202,9 +202,9 @@ public sealed partial class Plugin : IDalamudPlugin
         mainWindow.Dispose();
     }
 
-    private void DrawUiContent()
+    private bool DrawUiContent()
     {
-        if (!mainWindow.IsOpen && !configWindow.IsOpen) return;
+        if (!mainWindow.IsOpen && !configWindow.IsOpen) return false;
         using var text = uiText.Enter();
         shapedText ??= new(TextureProvider);
         using var shaping = shapedText.Push();
@@ -213,10 +213,11 @@ public sealed partial class Plugin : IDalamudPlugin
         using var nativeButtons = MaterialLcars.NativeButtonStyle();
         if(!uiFonts.Ready)
         {
+            DisposeBackgroundGlass();
             if(!fontIssueLogged && uiFonts.LoadException is { } error) { Log.Error(error,"[footballer] Required UI fonts failed to load.");fontIssueLogged=true; }
             // Do not silently present temporary host fonts as the finished UI.
             DrawFontStatus(uiFonts.LoadException is null);
-            return;
+            return false;
         }
         if (checkedHindiGeneration != uiFonts.Generation)
         {
@@ -238,8 +239,15 @@ public sealed partial class Plugin : IDalamudPlugin
                 uiFonts.CheckGlyphs(uiText.RequiredText);
                 checkedFontGeneration=generation;
             }
-            catch(Exception ex) { if(!fontIssueLogged) { Log.Error(ex,"[footballer] Required UI glyph coverage failed.");fontIssueLogged=true; } DrawFontStatus(false);return; }
+            catch (Exception ex)
+            {
+                DisposeBackgroundGlass();
+                if (!fontIssueLogged) { Log.Error(ex, "[footballer] Required UI glyph coverage failed."); fontIssueLogged = true; }
+                DrawFontStatus(false);
+                return false;
+            }
         }
+        using var background = BeginBackgroundFrame();
         using var geometry=new MaterialStyleScope();
         if (Configuration.UiStylingEnabled)
         {
@@ -256,6 +264,7 @@ public sealed partial class Plugin : IDalamudPlugin
         using var body = uiFonts.Push(UiFontRole.Body);
         PrepareAppearanceTitleBars(WindowSystem);
         WindowSystem.Draw();
+        return true;
     }
 
     private void DrawFontStatus(bool loading)

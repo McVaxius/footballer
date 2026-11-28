@@ -28,6 +28,13 @@ public sealed partial class Plugin
         using (MaterialTheme.Push(uiTheme, ImGuiHelpers.GlobalScale, Configuration.UiStylingEnabled ? MaterialStyleMode.ColorsOnly : MaterialStyleMode.Native))
             glassImagePicker.Draw();
 
+        var completed = false;
+        try { completed = DrawUiContent(); }
+        finally { backgroundGlass?.EndFrame(completed); }
+    }
+
+    private MaterialSkin.BackgroundRendererScope BeginBackgroundFrame()
+    {
         var choices = Configuration.UiColors ?? new();
         var style = Configuration.UiStylingEnabled ? choices.Mode : (MaterialColorMode?)null;
         var blur = style is { } selected && choices.HasBackgroundBlur(selected);
@@ -39,22 +46,14 @@ public sealed partial class Plugin
             if (!blur && !image) DisposeBackgroundGlass();
             else if (!blur) backgroundGlass?.ReleaseResources();
         }
-        // The font status window uses ordinary paint. It never needs backdrop resources.
-        if ((blur || image) && uiFonts.Ready)
+        if (blur || image)
         {
             backgroundGlass ??= new(PluginInterface, Log);
             backgroundGlass.BeginFrame(blur, image);
             backgroundGlass.ConfigureImage(TextureProvider, image, choices.GlassImagePath);
         }
 
-        var completed = false;
-        try
-        {
-            using var background = MaterialSkin.PushBackgroundRenderer(backgroundGlass, blur, choices.BackgroundBlurPercent / 100f);
-            DrawUiContent();
-            completed = true;
-        }
-        finally { backgroundGlass?.EndFrame(completed); }
+        return MaterialSkin.PushBackgroundRenderer(backgroundGlass, blur, choices.BackgroundBlurPercent / 100f);
     }
 
     private void ReleaseGlassResources() => backgroundGlass?.ReleaseResources();
